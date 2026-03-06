@@ -1,0 +1,881 @@
+{
+  "2026-01": {
+    "nodes_L1": {
+      "A": { "V": 0, "VC": 0 },
+      "B": { "V": 16300, "VC": 16300 },
+      "C": { "V": 0, "VC": 0 },
+      "D": { "V": 6800, "VC": 6800 },
+      "E": { "V": 11400, "VC": 11400 },
+      "F": { "V": 13100, "VC": 13100 },
+      "G": { "V": 0, "VC": 0 },
+      "H": { "V": 0, "VC": 0 },
+      "I": { "V": 4100, "VC": 4100 }
+    },
+    "nodes_L2": {
+      "B01": { "V": 8500, "VC": 8500, "P": "B", "K": [
+        { "N": "self-attention", "V": 3200 },
+        { "N": "bert", "V": 2100 },
+        { "N": "gpt", "V": 1900 },
+        { "N": "vision-transformer", "V": 2800 },
+        { "N": "cross-attention", "V": 1400 },
+        { "N": "positional-encoding", "V": 900 },
+        { "N": "flash-attention", "V": 800 },
+        { "N": "sparse-attention", "V": 600 }
+      ] },
+      "B02": { "V": 3800, "VC": 3800, "P": "B", "K": [
+        { "N": "resnet", "V": 1800 },
+        { "N": "efficientnet", "V": 600 },
+        { "N": "feature-pyramid", "V": 500 },
+        { "N": "convnext", "V": 900 },
+        { "N": "dilated-convolution", "V": 300 },
+        { "N": "depthwise-convolution", "V": 700 }
+      ] },
+      "B03": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B04": { "V": 1600, "VC": 1600, "P": "B", "K": [
+        { "N": "message-passing", "V": 700 },
+        { "N": "graph-attention", "V": 600 },
+        { "N": "node-classification", "V": 400 },
+        { "N": "link-prediction", "V": 350 },
+        { "N": "graphsage", "V": 280 }
+      ] },
+      "B05": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B06": { "V": 2400, "VC": 2400, "P": "B", "K": [
+        { "N": "stable-diffusion", "V": 1000 },
+        { "N": "ddpm", "V": 800 },
+        { "N": "latent-diffusion", "V": 600 },
+        { "N": "guidance", "V": 700 },
+        { "N": "denoising-score", "V": 1100 },
+        { "N": "flow-matching", "V": 400 }
+      ] },
+      "B07": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B08": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B09": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B10": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B11": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B12": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B13": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B14": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B15": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B16": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B17": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B18": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "B19": { "V": 0, "VC": 0, "P": "B", "K": [] },
+      "D01": { "V": 1800, "VC": 1800, "P": "D", "K": [
+        { "N": "chain-of-thought", "V": 700 },
+        { "N": "instruction-tuning", "V": 900 },
+        { "N": "mixed-precision", "V": 300 },
+        { "N": "data-curation", "V": 500 },
+        { "N": "curriculum-learning", "V": 200 }
+      ] },
+      "D02": { "V": 2200, "VC": 2200, "P": "D", "K": [
+        { "N": "adapter-layers", "V": 800 },
+        { "N": "prompt-tuning", "V": 500 },
+        { "N": "prefix-tuning", "V": 600 },
+        { "N": "ia3", "V": 300 },
+        { "N": "rank-decomposition", "V": 1000 }
+      ] },
+      "D03": { "V": 1600, "VC": 1600, "P": "D", "K": [
+        { "N": "ppo", "V": 600 },
+        { "N": "dpo", "V": 500 },
+        { "N": "reward-modelling", "V": 700 },
+        { "N": "rlaif", "V": 300 },
+        { "N": "constitutional-ai", "V": 400 },
+        { "N": "kto", "V": 200 }
+      ] },
+      "D04": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "D05": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "D06": { "V": 1200, "VC": 1200, "P": "D", "K": [
+        { "N": "int8", "V": 500 },
+        { "N": "qlora", "V": 300 },
+        { "N": "gptq", "V": 400 },
+        { "N": "awq", "V": 350 },
+        { "N": "4-bit-quantization", "V": 250 },
+        { "N": "weight-clustering", "V": 150 }
+      ] },
+      "D07": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "D08": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "D09": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "D10": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "D11": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "D12": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "D13": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "D14": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "D15": { "V": 0, "VC": 0, "P": "D", "K": [] },
+      "E01": { "V": 2100, "VC": 2100, "P": "E", "K": [
+        { "N": "chain-of-thought", "V": 900 },
+        { "N": "symbolic-reasoning", "V": 300 },
+        { "N": "self-consistency", "V": 350 },
+        { "N": "scratchpad", "V": 400 },
+        { "N": "tree-of-thought", "V": 600 },
+        { "N": "math-reasoning", "V": 280 }
+      ] },
+      "E02": { "V": 3200, "VC": 3200, "P": "E", "K": [
+        { "N": "text-generation", "V": 1400 },
+        { "N": "image-synthesis", "V": 1100 },
+        { "N": "code-generation", "V": 900 },
+        { "N": "video-generation", "V": 700 },
+        { "N": "audio-synthesis", "V": 400 },
+        { "N": "3d-generation", "V": 300 }
+      ] },
+      "E03": { "V": 2800, "VC": 2800, "P": "E", "K": [
+        { "N": "contrastive-learning", "V": 500 },
+        { "N": "zero-shot", "V": 1000 },
+        { "N": "fine-tuning", "V": 700 },
+        { "N": "few-shot", "V": 900 },
+        { "N": "linear-probing", "V": 300 }
+      ] },
+      "E04": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E05": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E06": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E07": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E08": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E09": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E10": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E11": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E12": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E13": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E14": { "V": 900, "VC": 900, "P": "E", "K": [
+        { "N": "planning", "V": 350 },
+        { "N": "memory", "V": 300 },
+        { "N": "react", "V": 200 },
+        { "N": "tool-use", "V": 400 },
+        { "N": "multi-agent", "V": 250 }
+      ] },
+      "E15": { "V": 2400, "VC": 2400, "P": "E", "K": [
+        { "N": "visual-qa", "V": 600 },
+        { "N": "audio-visual", "V": 400 },
+        { "N": "cross-modal-retrieval", "V": 300 },
+        { "N": "image-captioning", "V": 700 },
+        { "N": "vision-language", "V": 1100 }
+      ] },
+      "E16": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E17": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E18": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "E19": { "V": 0, "VC": 0, "P": "E", "K": [] },
+      "F01": { "V": 6200, "VC": 6200, "P": "F", "K": [
+        { "N": "sentiment-analysis", "V": 700 },
+        { "N": "named-entity-rec", "V": 1400 },
+        { "N": "translation", "V": 1100 },
+        { "N": "text-classification", "V": 2100 },
+        { "N": "question-answering", "V": 900 },
+        { "N": "summarisation", "V": 1200 }
+      ] },
+      "F02": { "V": 5100, "VC": 5100, "P": "F", "K": [
+        { "N": "object-detection", "V": 2200 },
+        { "N": "segmentation", "V": 1800 },
+        { "N": "depth-estimation", "V": 900 },
+        { "N": "pose-estimation", "V": 700 },
+        { "N": "optical-flow", "V": 500 },
+        { "N": "3d-reconstruction", "V": 400 }
+      ] },
+      "F03": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "F04": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "F05": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "F06": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "F07": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "F08": { "V": 1800, "VC": 1800, "P": "F", "K": [
+        { "N": "radiology", "V": 250 },
+        { "N": "clinical-nlp", "V": 400 },
+        { "N": "genomics", "V": 300 },
+        { "N": "medical-imaging", "V": 800 },
+        { "N": "drug-discovery", "V": 500 }
+      ] },
+      "F09": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "F10": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "F11": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "F12": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "F13": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "F14": { "V": 0, "VC": 0, "P": "F", "K": [] },
+      "I01": { "V": 1400, "VC": 1400, "P": "I", "K": [
+        { "N": "debate", "V": 150 },
+        { "N": "rlhf", "V": 350 },
+        { "N": "red-teaming", "V": 400 },
+        { "N": "value-learning", "V": 600 },
+        { "N": "scalable-oversight", "V": 250 }
+      ] },
+      "I02": { "V": 1100, "VC": 1100, "P": "I", "K": [
+        { "N": "backdoor-attacks", "V": 200 },
+        { "N": "adversarial-examples", "V": 500 },
+        { "N": "prompt-injection", "V": 250 },
+        { "N": "certified-defence", "V": 300 },
+        { "N": "robustness", "V": 400 }
+      ] },
+      "I03": { "V": 0, "VC": 0, "P": "I", "K": [] },
+      "I04": { "V": 900, "VC": 900, "P": "I", "K": [
+        { "N": "bias-detection", "V": 400 },
+        { "N": "group-fairness", "V": 250 },
+        { "N": "counterfactual", "V": 200 },
+        { "N": "debiasing", "V": 300 },
+        { "N": "disparate-impact", "V": 150 }
+      ] },
+      "I05": { "V": 0, "VC": 0, "P": "I", "K": [] },
+      "I06": { "V": 0, "VC": 0, "P": "I", "K": [] },
+      "I07": { "V": 0, "VC": 0, "P": "I", "K": [] },
+      "I08": { "V": 0, "VC": 0, "P": "I", "K": [] },
+      "I09": { "V": 0, "VC": 0, "P": "I", "K": [] },
+      "I10": { "V": 0, "VC": 0, "P": "I", "K": [] },
+      "I11": { "V": 0, "VC": 0, "P": "I", "K": [] },
+      "I12": { "V": 700, "VC": 700, "P": "I", "K": [
+        { "N": "factuality", "V": 300 },
+        { "N": "self-refinement", "V": 150 },
+        { "N": "calibration", "V": 120 },
+        { "N": "grounding", "V": 250 },
+        { "N": "retrieval-augmented", "V": 200 }
+      ] },
+      "I13": { "V": 0, "VC": 0, "P": "I", "K": [] }
+    },
+    "links": [
+      { "S": "B01", "T": "E14", "J": 0.0704 },
+      { "S": "B01", "T": "D03", "J": 0.2609 },
+      { "S": "B01", "T": "E01", "J": 0.3243 },
+      { "S": "B01", "T": "F01", "J": 0.3265 },
+      { "S": "B01", "T": "D01", "J": 0.2135 },
+      { "S": "B01", "T": "D02", "J": 0.2745 },
+      { "S": "B01", "T": "I01", "J": 0.0579 },
+      { "S": "B01", "T": "E02", "J": 0.2735 },
+      { "S": "B01", "T": "E15", "J": 0.1757 },
+      { "S": "B02", "T": "F02", "J": 0.4615 },
+      { "S": "B02", "T": "E03", "J": 0.2721 },
+      { "S": "B02", "T": "F08", "J": 0.1724 },
+      { "S": "B04", "T": "F08", "J": 0.0769 },
+      { "S": "B06", "T": "E02", "J": 0.3419 },
+      { "S": "B06", "T": "F02", "J": 0.3469 },
+      { "S": "B06", "T": "E15", "J": 0.2707 },
+      { "S": "D02", "T": "D06", "J": 0.1404 },
+      { "S": "D02", "T": "D01", "J": 0.2459 },
+      { "S": "E03", "T": "F08", "J": 0.0887 },
+      { "S": "B01", "T": "F02", "J": 0.2857 },
+      { "S": "E14", "T": "F01", "J": 0.0606 },
+      { "S": "D03", "T": "E01", "J": 0.0909 },
+      { "S": "D03", "T": "I01", "J": 0.3 },
+      { "S": "D03", "T": "I12", "J": 0.1852 },
+      { "S": "E02", "T": "E15", "J": 0.2143 },
+      { "S": "E02", "T": "F01", "J": 0.1282 },
+      { "S": "E03", "T": "F01", "J": 0.1408 },
+      { "S": "F02", "T": "I02", "J": 0.0779 },
+      { "S": "D02", "T": "F01", "J": 0.2105 },
+      { "S": "B01", "T": "I01", "J": 0.0623 },
+      { "S": "E02", "T": "F02", "J": 0.2368 },
+      { "S": "D06", "T": "F02", "J": 0.0351 },
+      { "S": "E03", "T": "F02", "J": 0.1071 },
+      { "S": "D01", "T": "F01", "J": 0.1171 },
+      { "S": "I01", "T": "I04", "J": 0.0294 },
+      { "S": "D02", "T": "F01", "J": 0.2105 }
+    ]
+  },
+  "2026-02": {
+    "nodes_L1": {
+      "A": { "V": 3400, "VC": 3400 },
+      "B": { "V": 18900, "VC": 35200 },
+      "C": { "V": 5600, "VC": 5600 },
+      "D": { "V": 8200, "VC": 15000 },
+      "E": { "V": 13100, "VC": 24500 },
+      "F": { "V": 14500, "VC": 27600 },
+      "G": { "V": 4200, "VC": 4200 },
+      "H": { "V": 2100, "VC": 2100 },
+      "I": { "V": 5400, "VC": 10300 }
+    },
+    "nodes_L2": {
+      "A01": { "V": 1800, "VC": 1800, "P": "A", "K": [
+        { "N": "label-smoothing", "V": 600 },
+        { "N": "class-imbalance", "V": 700 },
+        { "N": "batch-normalization", "V": 500 }
+      ] },
+      "A02": { "V": 900, "VC": 900, "P": "A", "K": [
+        { "N": "clustering", "V": 400 },
+        { "N": "dimensionality-reduction", "V": 350 },
+        { "N": "manifold-learning", "V": 150 }
+      ] },
+      "A03": { "V": 700, "VC": 700, "P": "A", "K": [
+        { "N": "policy-gradient", "V": 300 },
+        { "N": "q-learning", "V": 250 },
+        { "N": "actor-critic", "V": 150 }
+      ] },
+      "B01": { "V": 9200, "VC": 17700, "P": "B", "K": [
+        { "N": "self-attention", "V": 3600 },
+        { "N": "bert", "V": 2200 },
+        { "N": "gpt", "V": 2100 },
+        { "N": "vision-transformer", "V": 3100 },
+        { "N": "cross-attention", "V": 1550 },
+        { "N": "positional-encoding", "V": 1000 },
+        { "N": "flash-attention", "V": 1100 },
+        { "N": "sparse-attention", "V": 800 },
+        { "N": "linear-attention", "V": 600 }
+      ] },
+      "B02": { "V": 4200, "VC": 8000, "P": "B", "K": [
+        { "N": "resnet", "V": 1900 },
+        { "N": "efficientnet", "V": 750 },
+        { "N": "feature-pyramid", "V": 650 },
+        { "N": "convnext", "V": 1100 },
+        { "N": "dilated-convolution", "V": 450 },
+        { "N": "depthwise-convolution", "V": 800 }
+      ] },
+      "B03": { "V": 1400, "VC": 1400, "P": "B", "K": [
+        { "N": "lstm", "V": 600 },
+        { "N": "gru", "V": 400 },
+        { "N": "bidirectional-rnn", "V": 400 }
+      ] },
+      "B04": { "V": 1950, "VC": 3550, "P": "B", "K": [
+        { "N": "message-passing", "V": 800 },
+        { "N": "graph-attention", "V": 700 },
+        { "N": "node-classification", "V": 480 },
+        { "N": "link-prediction", "V": 420 },
+        { "N": "graphsage", "V": 330 },
+        { "N": "heterogeneous-gnn", "V": 200 }
+      ] },
+      "B05": { "V": 1100, "VC": 1100, "P": "B", "K": [
+        { "N": "moe-routing", "V": 500 },
+        { "N": "expert-selection", "V": 600 }
+      ] },
+      "B06": { "V": 3100, "VC": 5500, "P": "B", "K": [
+        { "N": "stable-diffusion", "V": 1150 },
+        { "N": "ddpm", "V": 950 },
+        { "N": "latent-diffusion", "V": 750 },
+        { "N": "guidance", "V": 820 },
+        { "N": "denoising-score", "V": 1250 },
+        { "N": "flow-matching", "V": 550 },
+        { "N": "consistency-model", "V": 480 }
+      ] },
+      "B07": { "V": 600, "VC": 600, "P": "B", "K": [
+        { "N": "vae-encoder", "V": 300 },
+        { "N": "latent-space", "V": 300 }
+      ] },
+      "B08": { "V": 400, "VC": 400, "P": "B", "K": [
+        { "N": "gan-training", "V": 250 },
+        { "N": "discriminator", "V": 150 }
+      ] },
+      "B09": { "V": 300, "VC": 300, "P": "B", "K": [
+        { "N": "random-forest", "V": 150 },
+        { "N": "xgboost", "V": 150 }
+      ] },
+      "B10": { "V": 100, "VC": 100, "P": "B", "K": [] },
+      "B11": { "V": 200, "VC": 200, "P": "B", "K": [
+        { "N": "kernel-methods", "V": 100 },
+        { "N": "svm", "V": 100 }
+      ] },
+      "B12": { "V": 250, "VC": 250, "P": "B", "K": [
+        { "N": "bayesian-network", "V": 150 },
+        { "N": "hmm", "V": 100 }
+      ] },
+      "B13": { "V": 150, "VC": 150, "P": "B", "K": [
+        { "N": "neural-ode", "V": 150 }
+      ] },
+      "B14": { "V": 400, "VC": 400, "P": "B", "K": [
+        { "N": "physics-informed", "V": 250 },
+        { "N": "pinn", "V": 150 }
+      ] },
+      "B15": { "V": 350, "VC": 350, "P": "B", "K": [
+        { "N": "equivariant-network", "V": 200 },
+        { "N": "se3-invariant", "V": 150 }
+      ] },
+      "B16": { "V": 200, "VC": 200, "P": "B", "K": [
+        { "N": "spiking-neuron", "V": 200 }
+      ] },
+      "B17": { "V": 500, "VC": 500, "P": "B", "K": [
+        { "N": "neural-turing", "V": 250 },
+        { "N": "memory-network", "V": 250 }
+      ] },
+      "B18": { "V": 600, "VC": 600, "P": "B", "K": [
+        { "N": "symbolic-reasoning", "V": 300 },
+        { "N": "neuro-symbolic", "V": 300 }
+      ] },
+      "B19": { "V": 900, "VC": 1700, "P": "B", "K": [
+        { "N": "s4", "V": 350 },
+        { "N": "mamba", "V": 550 }
+      ] },
+      "C01": { "V": 1800, "VC": 1800, "P": "C", "K": [
+        { "N": "adam", "V": 600 },
+        { "N": "sgd", "V": 400 },
+        { "N": "lion", "V": 500 },
+        { "N": "adamw", "V": 300 }
+      ] },
+      "C02": { "V": 1200, "VC": 1200, "P": "C", "K": [
+        { "N": "dropout", "V": 400 },
+        { "N": "l1-l2", "V": 500 },
+        { "N": "weight-decay", "V": 300 }
+      ] },
+      "C03": { "V": 900, "VC": 900, "P": "C", "K": [
+        { "N": "batch-norm", "V": 400 },
+        { "N": "layer-norm", "V": 350 },
+        { "N": "group-norm", "V": 150 }
+      ] },
+      "C04": { "V": 600, "VC": 600, "P": "C", "K": [
+        { "N": "nas", "V": 400 },
+        { "N": "darts", "V": 200 }
+      ] },
+      "C05": { "V": 500, "VC": 500, "P": "C", "K": [
+        { "N": "hyperparameter-tuning", "V": 250 },
+        { "N": "bayesian-opt", "V": 250 }
+      ] },
+      "D01": { "V": 2300, "VC": 4100, "P": "D", "K": [
+        { "N": "chain-of-thought", "V": 850 },
+        { "N": "instruction-tuning", "V": 1100 },
+        { "N": "mixed-precision", "V": 380 },
+        { "N": "data-curation", "V": 650 },
+        { "N": "curriculum-learning", "V": 280 },
+        { "N": "few-shot-examples", "V": 220 }
+      ] },
+      "D02": { "V": 2600, "VC": 4800, "P": "D", "K": [
+        { "N": "lora", "V": 1100 },
+        { "N": "adapter-layers", "V": 850 },
+        { "N": "prompt-tuning", "V": 650 },
+        { "N": "prefix-tuning", "V": 650 },
+        { "N": "ia3", "V": 380 },
+        { "N": "rank-decomposition", "V": 1050 }
+      ] },
+      "D03": { "V": 2000, "VC": 3600, "P": "D", "K": [
+        { "N": "ppo", "V": 750 },
+        { "N": "dpo", "V": 650 },
+        { "N": "reward-modelling", "V": 850 },
+        { "N": "rlaif", "V": 380 },
+        { "N": "constitutional-ai", "V": 480 },
+        { "N": "kto", "V": 280 },
+        { "N": "orpo", "V": 180 }
+      ] },
+      "D04": { "V": 600, "VC": 600, "P": "D", "K": [
+        { "N": "dpo-variant", "V": 300 },
+        { "N": "preference-ranking", "V": 300 }
+      ] },
+      "D05": { "V": 400, "VC": 400, "P": "D", "K": [
+        { "N": "constitution", "V": 200 },
+        { "N": "red-teaming", "V": 200 }
+      ] },
+      "D06": { "V": 1500, "VC": 2700, "P": "D", "K": [
+        { "N": "int8", "V": 580 },
+        { "N": "qlora", "V": 420 },
+        { "N": "gptq", "V": 520 },
+        { "N": "awq", "V": 420 },
+        { "N": "4-bit-quantization", "V": 330 },
+        { "N": "weight-clustering", "V": 230 },
+        { "N": "bfloat16", "V": 280 }
+      ] },
+      "D07": { "V": 700, "VC": 700, "P": "D", "K": [
+        { "N": "magnitude-pruning", "V": 350 },
+        { "N": "structured-pruning", "V": 350 }
+      ] },
+      "D08": { "V": 500, "VC": 500, "P": "D", "K": [
+        { "N": "teacher-student", "V": 300 },
+        { "N": "dark-knowledge", "V": 200 }
+      ] },
+      "D09": { "V": 800, "VC": 800, "P": "D", "K": [
+        { "N": "prompt-engineering", "V": 500 },
+        { "N": "in-context-learning", "V": 300 }
+      ] },
+      "D10": { "V": 600, "VC": 600, "P": "D", "K": [
+        { "N": "few-shot-prompting", "V": 400 },
+        { "N": "example-selection", "V": 200 }
+      ] },
+      "D11": { "V": 400, "VC": 400, "P": "D", "K": [
+        { "N": "model-merging", "V": 250 },
+        { "N": "frank-wolfe", "V": 150 }
+      ] },
+      "D12": { "V": 300, "VC": 300, "P": "D", "K": [
+        { "N": "speculative-decoding", "V": 200 },
+        { "N": "beam-search", "V": 100 }
+      ] },
+      "D13": { "V": 700, "VC": 700, "P": "D", "K": [
+        { "N": "rag", "V": 400 },
+        { "N": "dense-retrieval", "V": 300 }
+      ] },
+      "D14": { "V": 500, "VC": 500, "P": "D", "K": [
+        { "N": "rope", "V": 300 },
+        { "N": "sliding-window", "V": 200 }
+      ] },
+      "D15": { "V": 400, "VC": 400, "P": "D", "K": [
+        { "N": "continual-learning", "V": 250 },
+        { "N": "replay-buffer", "V": 150 }
+      ] },
+      "E01": { "V": 2650, "VC": 4750, "P": "E", "K": [
+        { "N": "chain-of-thought", "V": 1050 },
+        { "N": "symbolic-reasoning", "V": 420 },
+        { "N": "self-consistency", "V": 480 },
+        { "N": "scratchpad", "V": 480 },
+        { "N": "tree-of-thought", "V": 700 },
+        { "N": "math-reasoning", "V": 350 },
+        { "N": "step-by-step", "V": 280 }
+      ] },
+      "E02": { "V": 4000, "VC": 7200, "P": "E", "K": [
+        { "N": "text-generation", "V": 1600 },
+        { "N": "image-synthesis", "V": 1300 },
+        { "N": "code-generation", "V": 1100 },
+        { "N": "video-generation", "V": 950 },
+        { "N": "audio-synthesis", "V": 550 },
+        { "N": "3d-generation", "V": 450 },
+        { "N": "music-generation", "V": 350 }
+      ] },
+      "E03": { "V": 3300, "VC": 6100, "P": "E", "K": [
+        { "N": "contrastive-learning", "V": 650 },
+        { "N": "zero-shot", "V": 1250 },
+        { "N": "fine-tuning", "V": 850 },
+        { "N": "few-shot", "V": 1050 },
+        { "N": "linear-probing", "V": 450 }
+      ] },
+      "E04": { "V": 600, "VC": 600, "P": "E", "K": [
+        { "N": "linear-regression", "V": 300 },
+        { "N": "prediction", "V": 300 }
+      ] },
+      "E05": { "V": 500, "VC": 500, "P": "E", "K": [
+        { "N": "k-means", "V": 250 },
+        { "N": "hierarchical", "V": 250 }
+      ] },
+      "E06": { "V": 400, "VC": 400, "P": "E", "K": [
+        { "N": "sequence-labeling", "V": 250 },
+        { "N": "crf", "V": 150 }
+      ] },
+      "E07": { "V": 800, "VC": 800, "P": "E", "K": [
+        { "N": "dense-retrieval", "V": 400 },
+        { "N": "semantic-search", "V": 400 }
+      ] },
+      "E08": { "V": 300, "VC": 300, "P": "E", "K": [
+        { "N": "outlier-detection", "V": 300 }
+      ] },
+      "E09": { "V": 500, "VC": 500, "P": "E", "K": [
+        { "N": "time-series", "V": 300 },
+        { "N": "forecasting", "V": 200 }
+      ] },
+      "E10": { "V": 400, "VC": 400, "P": "E", "K": [
+        { "N": "collaborative-filtering", "V": 250 },
+        { "N": "ranking", "V": 150 }
+      ] },
+      "E11": { "V": 1150, "VC": 1150, "P": "E", "K": [
+        { "N": "code-generation", "V": 650 },
+        { "N": "program-synthesis", "V": 500 }
+      ] },
+      "E12": { "V": 700, "VC": 700, "P": "E", "K": [
+        { "N": "planning", "V": 350 },
+        { "N": "decision-making", "V": 350 }
+      ] },
+      "E13": { "V": 900, "VC": 900, "P": "E", "K": [
+        { "N": "in-context-learning", "V": 400 },
+        { "N": "scaling-behaviors", "V": 300 },
+        { "N": "phase-transitions", "V": 200 }
+      ] },
+      "E14": { "V": 1350, "VC": 2250, "P": "E", "K": [
+        { "N": "planning", "V": 420 },
+        { "N": "memory", "V": 380 },
+        { "N": "react", "V": 280 },
+        { "N": "tool-use", "V": 520 },
+        { "N": "multi-agent", "V": 330 },
+        { "N": "agent-loops", "V": 180 }
+      ] },
+      "E15": { "V": 3000, "VC": 6100, "P": "E", "K": [
+        { "N": "visual-qa", "V": 750 },
+        { "N": "audio-visual", "V": 520 },
+        { "N": "cross-modal-retrieval", "V": 480 },
+        { "N": "image-captioning", "V": 850 },
+        { "N": "vision-language", "V": 1350 },
+        { "N": "video-understanding", "V": 380 }
+      ] },
+      "E16": { "V": 600, "VC": 600, "P": "E", "K": [
+        { "N": "machine-translation", "V": 350 },
+        { "N": "cross-lingual", "V": 250 }
+      ] },
+      "E17": { "V": 500, "VC": 500, "P": "E", "K": [
+        { "N": "abstractive-summ", "V": 300 },
+        { "N": "extractive-summ", "V": 200 }
+      ] },
+      "E18": { "V": 1050, "VC": 1050, "P": "E", "K": [
+        { "N": "qa-systems", "V": 550 },
+        { "N": "retrieval-qa", "V": 500 }
+      ] },
+      "E19": { "V": 900, "VC": 900, "P": "E", "K": [
+        { "N": "dialogue", "V": 500 },
+        { "N": "conversation", "V": 400 }
+      ] },
+      "F01": { "V": 7500, "VC": 13700, "P": "F", "K": [
+        { "N": "sentiment-analysis", "V": 850 },
+        { "N": "named-entity-rec", "V": 1550 },
+        { "N": "translation", "V": 1250 },
+        { "N": "text-classification", "V": 2300 },
+        { "N": "question-answering", "V": 1150 },
+        { "N": "summarisation", "V": 1450 }
+      ] },
+      "F02": { "V": 5900, "VC": 11000, "P": "F", "K": [
+        { "N": "object-detection", "V": 2500 },
+        { "N": "segmentation", "V": 2000 },
+        { "N": "depth-estimation", "V": 1050 },
+        { "N": "pose-estimation", "V": 850 },
+        { "N": "optical-flow", "V": 580 },
+        { "N": "3d-reconstruction", "V": 480 }
+      ] },
+      "F03": { "V": 1350, "VC": 1350, "P": "F", "K": [
+        { "N": "speech-recognition", "V": 780 },
+        { "N": "tts", "V": 570 }
+      ] },
+      "F04": { "V": 1200, "VC": 1200, "P": "F", "K": [
+        { "N": "multimodal", "V": 700 },
+        { "N": "cross-modal", "V": 500 }
+      ] },
+      "F05": { "V": 800, "VC": 800, "P": "F", "K": [
+        { "N": "robot-control", "V": 500 },
+        { "N": "grasping", "V": 300 }
+      ] },
+      "F06": { "V": 1050, "VC": 1050, "P": "F", "K": [
+        { "N": "protein-folding", "V": 480 },
+        { "N": "molecular-dynamics", "V": 280 },
+        { "N": "materials-science", "V": 290 }
+      ] },
+      "F07": { "V": 600, "VC": 600, "P": "F", "K": [
+        { "N": "stock-prediction", "V": 300 },
+        { "N": "time-series-financial", "V": 300 }
+      ] },
+      "F08": { "V": 2300, "VC": 4100, "P": "F", "K": [
+        { "N": "radiology", "V": 380 },
+        { "N": "clinical-nlp", "V": 580 },
+        { "N": "genomics", "V": 480 },
+        { "N": "medical-imaging", "V": 950 },
+        { "N": "drug-discovery", "V": 680 },
+        { "N": "pathology", "V": 280 }
+      ] },
+      "F09": { "V": 500, "VC": 500, "P": "F", "K": [
+        { "N": "intelligent-tutoring", "V": 300 },
+        { "N": "assessment", "V": 200 }
+      ] },
+      "F10": { "V": 300, "VC": 300, "P": "F", "K": [
+        { "N": "contract-analysis", "V": 200 },
+        { "N": "legal-research", "V": 100 }
+      ] },
+      "F11": { "V": 700, "VC": 700, "P": "F", "K": [
+        { "N": "game-playing", "V": 400 },
+        { "N": "strategy", "V": 300 }
+      ] },
+      "F12": { "V": 1000, "VC": 1000, "P": "F", "K": [
+        { "N": "autonomous-vehicles", "V": 600 },
+        { "N": "robotics", "V": 400 }
+      ] },
+      "F13": { "V": 500, "VC": 500, "P": "F", "K": [
+        { "N": "intrusion-detection", "V": 300 },
+        { "N": "malware-analysis", "V": 200 }
+      ] },
+      "F14": { "V": 600, "VC": 600, "P": "F", "K": [
+        { "N": "low-resource-lang", "V": 400 },
+        { "N": "code-switching", "V": 200 }
+      ] },
+      "G01": { "V": 1200, "VC": 1200, "P": "G", "K": [
+        { "N": "mmlu", "V": 400 },
+        { "N": "benchmark-suite", "V": 500 },
+        { "N": "dataset-creation", "V": 300 }
+      ] },
+      "G02": { "V": 900, "VC": 900, "P": "G", "K": [
+        { "N": "accuracy", "V": 300 },
+        { "N": "f1-score", "V": 250 },
+        { "N": "metric-design", "V": 350 }
+      ] },
+      "G03": { "V": 700, "VC": 700, "P": "G", "K": [
+        { "N": "pac-learning", "V": 300 },
+        { "N": "vc-dimension", "V": 400 }
+      ] },
+      "G04": { "V": 600, "VC": 600, "P": "G", "K": [
+        { "N": "generalization-bound", "V": 400 },
+        { "N": "rademacher", "V": 200 }
+      ] },
+      "G05": { "V": 500, "VC": 500, "P": "G", "K": [
+        { "N": "convergence", "V": 300 },
+        { "N": "landscape-analysis", "V": 200 }
+      ] },
+      "G06": { "V": 800, "VC": 800, "P": "G", "K": [
+        { "N": "feature-importance", "V": 400 },
+        { "N": "saliency-maps", "V": 400 }
+      ] },
+      "G07": { "V": 700, "VC": 700, "P": "G", "K": [
+        { "N": "activation-analysis", "V": 400 },
+        { "N": "circuit-discovery", "V": 300 }
+      ] },
+      "G08": { "V": 600, "VC": 600, "P": "G", "K": [
+        { "N": "embedding-analysis", "V": 400 },
+        { "N": "representation-probing", "V": 200 }
+      ] },
+      "G09": { "V": 400, "VC": 400, "P": "G", "K": [
+        { "N": "feature-selection", "V": 250 },
+        { "N": "feature-engineering", "V": 150 }
+      ] },
+      "G10": { "V": 300, "VC": 300, "P": "G", "K": [
+        { "N": "ablation", "V": 300 }
+      ] },
+      "G11": { "V": 500, "VC": 500, "P": "G", "K": [
+        { "N": "chinchilla-scaling", "V": 300 },
+        { "N": "scaling-laws", "V": 200 }
+      ] },
+      "G12": { "V": 200, "VC": 200, "P": "G", "K": [
+        { "N": "meta-evaluation", "V": 200 }
+      ] },
+      "G13": { "V": 400, "VC": 400, "P": "G", "K": [
+        { "N": "reproducibility", "V": 250 },
+        { "N": "code-release", "V": 150 }
+      ] },
+      "G14": { "V": 300, "VC": 300, "P": "G", "K": [
+        { "N": "emergent-behavior", "V": 300 }
+      ] },
+      "G15": { "V": 600, "VC": 600, "P": "G", "K": [
+        { "N": "model-comparison", "V": 400 },
+        { "N": "benchmarking", "V": 200 }
+      ] },
+      "H01": { "V": 600, "VC": 600, "P": "H", "K": [
+        { "N": "gpu-optimization", "V": 400 },
+        { "N": "tpu", "V": 200 }
+      ] },
+      "H02": { "V": 700, "VC": 700, "P": "H", "K": [
+        { "N": "batching", "V": 300 },
+        { "N": "caching", "V": 400 }
+      ] },
+      "H03": { "V": 400, "VC": 400, "P": "H", "K": [
+        { "N": "model-compression", "V": 250 },
+        { "N": "distillation", "V": 150 }
+      ] },
+      "H04": { "V": 300, "VC": 300, "P": "H", "K": [
+        { "N": "pipeline", "V": 200 },
+        { "N": "monitoring", "V": 100 }
+      ] },
+      "H05": { "V": 200, "VC": 200, "P": "H", "K": [
+        { "N": "edge-deployment", "V": 200 }
+      ] },
+      "H06": { "V": 150, "VC": 150, "P": "H", "K": [
+        { "N": "cost-optimization", "V": 150 }
+      ] },
+      "H07": { "V": 250, "VC": 250, "P": "H", "K": [
+        { "N": "distributed-training", "V": 250 }
+      ] },
+      "H08": { "V": 300, "VC": 300, "P": "H", "K": [
+        { "N": "pytorch", "V": 150 },
+        { "N": "tensorflow", "V": 150 }
+      ] },
+      "H09": { "V": 200, "VC": 200, "P": "H", "K": [
+        { "N": "synthetic-data", "V": 200 }
+      ] },
+      "H10": { "V": 400, "VC": 400, "P": "H", "K": [
+        { "N": "data-curation", "V": 250 },
+        { "N": "deduplication", "V": 150 }
+      ] },
+      "H11": { "V": 150, "VC": 150, "P": "H", "K": [
+        { "N": "watermarking", "V": 150 }
+      ] },
+      "H12": { "V": 100, "VC": 100, "P": "H", "K": [
+        { "N": "memory-optimization", "V": 100 }
+      ] },
+      "H13": { "V": 300, "VC": 300, "P": "H", "K": [
+        { "N": "api-design", "V": 200 },
+        { "N": "serving", "V": 100 }
+      ] },
+      "I01": { "V": 2000, "VC": 3400, "P": "I", "K": [
+        { "N": "debate", "V": 280 },
+        { "N": "rlhf", "V": 520 },
+        { "N": "red-teaming", "V": 570 },
+        { "N": "value-learning", "V": 760 },
+        { "N": "scalable-oversight", "V": 380 },
+        { "N": "interpretability", "V": 180 }
+      ] },
+      "I02": { "V": 1500, "VC": 2600, "P": "I", "K": [
+        { "N": "backdoor-attacks", "V": 280 },
+        { "N": "adversarial-examples", "V": 650 },
+        { "N": "prompt-injection", "V": 380 },
+        { "N": "certified-defence", "V": 420 },
+        { "N": "robustness", "V": 520 }
+      ] },
+      "I03": { "V": 1100, "VC": 1100, "P": "I", "K": [
+        { "N": "differential-privacy", "V": 600 },
+        { "N": "federated-learning", "V": 500 }
+      ] },
+      "I04": { "V": 1150, "VC": 2050, "P": "I", "K": [
+        { "N": "bias-detection", "V": 480 },
+        { "N": "group-fairness", "V": 320 },
+        { "N": "counterfactual", "V": 280 },
+        { "N": "debiasing", "V": 380 },
+        { "N": "disparate-impact", "V": 220 }
+      ] },
+      "I05": { "V": 800, "VC": 800, "P": "I", "K": [
+        { "N": "uncertainty", "V": 500 },
+        { "N": "confidence-estimation", "V": 300 }
+      ] },
+      "I06": { "V": 600, "VC": 600, "P": "I", "K": [
+        { "N": "ood-detection", "V": 400 },
+        { "N": "anomaly", "V": 200 }
+      ] },
+      "I07": { "V": 500, "VC": 500, "P": "I", "K": [
+        { "N": "backdoor-defence", "V": 300 },
+        { "N": "trojan-detection", "V": 200 }
+      ] },
+      "I08": { "V": 700, "VC": 700, "P": "I", "K": [
+        { "N": "green-ai", "V": 400 },
+        { "N": "sustainability", "V": 300 }
+      ] },
+      "I09": { "V": 600, "VC": 600, "P": "I", "K": [
+        { "N": "human-ai-interaction", "V": 400 },
+        { "N": "usability", "V": 200 }
+      ] },
+      "I10": { "V": 400, "VC": 400, "P": "I", "K": [
+        { "N": "governance", "V": 250 },
+        { "N": "regulation", "V": 150 }
+      ] },
+      "I11": { "V": 300, "VC": 300, "P": "I", "K": [
+        { "N": "misuse-prevention", "V": 300 }
+      ] },
+      "I12": { "V": 1050, "VC": 1750, "P": "I", "K": [
+        { "N": "factuality", "V": 420 },
+        { "N": "self-refinement", "V": 230 },
+        { "N": "calibration", "V": 180 },
+        { "N": "grounding", "V": 330 },
+        { "N": "retrieval-augmented", "V": 280 },
+        { "N": "fact-checking", "V": 180 }
+      ] },
+      "I13": { "V": 400, "VC": 400, "P": "I", "K": [
+        { "N": "copyright", "V": 250 },
+        { "N": "intellectual-property", "V": 150 }
+      ] }
+    },
+    "links": [
+      { "S": "B01", "T": "E14", "J": 0.1203 },
+      { "S": "B01", "T": "D03", "J": 0.2941 },
+      { "S": "B01", "T": "E01", "J": 0.3571 },
+      { "S": "B01", "T": "F01", "J": 0.3614 },
+      { "S": "B01", "T": "D01", "J": 0.2353 },
+      { "S": "B01", "T": "D02", "J": 0.2927 },
+      { "S": "B01", "T": "I01", "J": 0.0980 },
+      { "S": "B01", "T": "E02", "J": 0.3051 },
+      { "S": "B01", "T": "E15", "J": 0.2273 },
+      { "S": "B01", "T": "B19", "J": 0.1875 },
+      { "S": "B02", "T": "F02", "J": 0.4839 },
+      { "S": "B02", "T": "E03", "J": 0.3103 },
+      { "S": "B02", "T": "F08", "J": 0.2222 },
+      { "S": "B02", "T": "B04", "J": 0.1515 },
+      { "S": "B03", "T": "E09", "J": 0.2286 },
+      { "S": "B04", "T": "F08", "J": 0.1190 },
+      { "S": "B04", "T": "E07", "J": 0.2632 },
+      { "S": "B06", "T": "E02", "J": 0.3788 },
+      { "S": "B06", "T": "F02", "J": 0.3855 },
+      { "S": "B06", "T": "E15", "J": 0.3226 },
+      { "S": "B06", "T": "F04", "J": 0.2857 },
+      { "S": "B19", "T": "E09", "J": 0.1765 },
+      { "S": "B19", "T": "E18", "J": 0.1538 },
+      { "S": "D01", "T": "F01", "J": 0.1515 },
+      { "S": "D01", "T": "E01", "J": 0.3571 },
+      { "S": "D02", "T": "D06", "J": 0.2222 },
+      { "S": "D02", "T": "D01", "J": 0.3704 },
+      { "S": "D02", "T": "D07", "J": 0.1765 },
+      { "S": "D02", "T": "F01", "J": 0.2667 },
+      { "S": "D03", "T": "E01", "J": 0.1471 },
+      { "S": "D03", "T": "I01", "J": 0.3333 },
+      { "S": "D03", "T": "I12", "J": 0.2222 },
+      { "S": "D04", "T": "D03", "J": 0.2105 },
+      { "S": "D06", "T": "H02", "J": 0.0952 },
+      { "S": "D13", "T": "E07", "J": 0.2143 },
+      { "S": "D13", "T": "F01", "J": 0.1587 },
+      { "S": "E01", "T": "F01", "J": 0.1515 },
+      { "S": "E02", "T": "E15", "J": 0.2692 },
+      { "S": "E02", "T": "F01", "J": 0.1538 },
+      { "S": "E02", "T": "F02", "J": 0.2632 },
+      { "S": "E02", "T": "F03", "J": 0.2105 },
+      { "S": "E03", "T": "F01", "J": 0.1635 },
+      { "S": "E03", "T": "F02", "J": 0.1818 },
+      { "S": "E03", "T": "F08", "J": 0.1515 },
+      { "S": "E07", "T": "F01", "J": 0.2105 },
+      { "S": "E11", "T": "F01", "J": 0.1852 },
+      { "S": "E14", "T": "F01", "J": 0.1176 },
+      { "S": "E15", "T": "F02", "J": 0.3226 },
+      { "S": "E15", "T": "F04", "J": 0.3571 },
+      { "S": "F01", "T": "I12", "J": 0.1429 },
+      { "S": "F02", "T": "I02", "J": 0.1290 },
+      { "S": "F08", "T": "I04", "J": 0.1111 },
+      { "S": "I01", "T": "I04", "J": 0.0833 }
+    ]
+  }
+}

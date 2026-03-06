@@ -1,0 +1,604 @@
+/* ============================================================
+   styles.css — ML Mention Landscape Graph
+   ============================================================ */
+
+
+/* ─── Reset & base ─────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f1117;
+  color: #ddd;
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+}
+
+btnText {
+  display: inline-block;
+  padding: 2px 10px;
+  background: #1e293b;
+  color: #b3a369;
+  border: 1px solid #334155;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.bullet-list {
+  list-style-type: disc; /* Ensures bullets show up */
+  padding-left: 20px;
+
+}
+
+.bullet-list li {
+  margin-bottom: 10px; /* Space between list items */
+}
+
+/* ─── Caption (page title) ─────────────────────────────────── */
+
+#caption {
+  position: fixed;
+  z-index: 1;
+  /* display: flex; */
+  align-items: center;
+  padding: 10px 20px;
+  color: #b3a369;
+  pointer-events:none; /* Allow clicking chart elements underneath it */
+}
+
+#caption h1 {
+  font-size: 55px;
+  font-weight: 300;
+  font-family: Georgia, "Book Antiqua", "Times New Roman", Times, serif;
+}
+
+#subheading {
+  font-size: 17px;
+  color: #e2e8f0;
+  padding-top: 16px;
+  pointer-events:none; /* Allow clicking chart elements underneath it */
+}
+
+/* ─── Report link ──────────────────────────────────────────── */
+
+#report-link {
+  position: absolute; /* positioned within #chart-wrapper */
+  bottom: 16px;
+  right: 34%;
+  z-index: 1;
+  font-size: 12px;
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+
+/* ─── Main container ───────────────────────────────────────── */
+
+#main-container {
+  display: flex;
+  height: 100vh; /* full height */
+}
+
+
+/* ─── Left: chart wrapper ──────────────────────────────────── */
+
+#chart-wrapper {
+  position: relative; /* so sidebar can be absolute inside it */
+  width: 67%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+#chart {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+
+/* ─── Sidebar panel ────────────────────────────────────────── */
+
+#sidebar {
+  position: absolute; /* positioned within #chart-wrapper */
+  bottom: 12px;
+  left: 12px;
+  z-index: 10;
+  padding: 10px 14px;
+  background: rgba(15, 17, 23, 0.9);
+  border: 1px solid #222;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 350;
+}
+
+.sidebar-divider {
+  border: none;
+  border-top: 1px solid #222;
+  margin: 10px 0;
+}
+
+.sidebar-section-label {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Legend ───────────────────────────────────────────────── */
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 3px 0;
+  color: #94a3b8;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-note {
+  margin-top: 6px;
+  color: #666;
+}
+
+
+/* ─── Fit-screen button ────────────────────────────────────── */
+
+#fitBtn {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 5px 10px;
+  background: #1e293b;
+  color: #b3a369;
+  border: 1px solid #334155;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#fitBtn.btn-hover {
+  background: #334155;
+}
+
+
+/* ─── date range control ────────────────────────────────────── */
+
+#dateRangeControl {
+  margin-bottom: 8px;
+}
+
+.date-range-header {
+  color: #94a3b8;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.date-range-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.date-range-select {
+  width: 84px;
+  padding: 2px 6px;
+  font-size: 12px;
+  background: #1e293b;
+  color: #b3a369;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.date-range-select:focus {
+  outline: none;
+  border-color: #64748b;
+}
+
+.date-range-sep {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* ─── Font-size control ────────────────────────────────────── */
+
+#fontSizeControl {
+  margin-bottom: 8px;
+}
+
+.font-size-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.font-size-label {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.font-size-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#fontSizeVal {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+#fontSizeReset {
+  color: #475569;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.15s;
+}
+
+#fontSizeReset.reset-hover {
+  color: #94a3b8;
+}
+
+#fontSlider {
+  width: 100%;
+  accent-color: #b3a369;
+  cursor: pointer;
+}
+
+/* ─── Edge Toggle Control ────────────────────────────────── */
+
+#edgeToggleControl {
+  margin-bottom: 8px;
+}
+
+.edge-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #94a3b8;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+/* Hide the native checkbox */
+.edge-toggle-row input[type="checkbox"] {
+  display: none;
+}
+
+/* Switch track */
+.switch {
+  position: relative;
+  width: 28px;
+  height: 15px;
+  background: #334155;
+  border-radius: 999px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+/* Switch thumb */
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 11px;
+  height: 11px;
+  background: #64748b;
+  border-radius: 50%;
+  transition: transform 0.2s, background 0.2s;
+}
+
+/* Checked state */
+.edge-toggle-row input[type="checkbox"]:checked + .switch {
+  background: #b3a369;
+}
+
+.edge-toggle-row input[type="checkbox"]:checked + .switch::after {
+  transform: translateX(13px);
+  background: #fff;
+}
+
+/* For greying out disabled intraedge toggle at overview level */
+.edge-toggle-row.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* For greying out disabled intraedge toggle at overview level */
+#toggleIntraEdges:disabled + .switch {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+label:has(#toggleIntraEdges:disabled) {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ─── Sidebar toggle ───────────────────────────────────────── */
+
+#sidebarToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 3px 0;
+  background: transparent;
+  color: #475569;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+#sidebarToggle:hover { color: #94a3b8; }
+#sidebarToggle::after { content: "▼ Hide"; }
+
+#sidebar.collapsed #sidebarContent  { display: none; }
+#sidebar.collapsed #sidebarToggle   { margin-bottom: 0; }
+#sidebar.collapsed #sidebarToggle::after { content: "☰ Expand"; color: #b3a369; }
+#sidebar.collapsed { background: #1e293b; }
+#sidebar.collapsed:hover {background: #334155; }
+
+/* ─── Right panel ──────────────────────────────────────────── */
+
+#right-panel {
+  flex: 1; /* takes the remaining 35% */
+  display: flex;
+  z-index: 9;
+  flex-direction: column;
+  gap: 0;
+  border-left: 1px solid #222;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Each info box takes half the panel height */
+.info-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 14px 16px;
+}
+
+/* Divider between top and bottom box */
+#info-top {
+  border-bottom: 1px solid #222;
+}
+
+/* ── Box header: title + sort buttons on the same row ── */
+.info-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.info-box-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Sort toggle buttons ── */
+.info-sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sort-select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sort-select {
+  padding: 2px 6px;
+  font-size: 12px;
+  background: #1e293b;
+  color: #b3a369;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+/* ── Scrollable content area inside each box ── */
+.info-box-content {
+  flex: 1;
+  overflow-y: auto;
+  /* subtle scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+  font-weight: 350;
+}
+
+.info-box-content::-webkit-scrollbar       { width: 4px; }
+.info-box-content::-webkit-scrollbar-track { background: transparent; }
+.info-box-content::-webkit-scrollbar-thumb { background: #334155; border-radius: 2px; }
+
+
+/* ─── Ranked list rows ─────────────────────────────────────── */
+
+.ranked-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ranked-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  cursor: default;
+  border-radius: 4px;
+  padding: 2px 4px;
+  transition: background 0.15s;
+}
+
+.ranked-row:hover {
+  background: #1e293b;
+}
+
+/* Rank number */
+.rank-num {
+  width: 16px;
+  text-align: right;
+  color: #475569;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+/* Colour dot (trend indicator) */
+.rank-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Node / category name */
+.rank-name {
+  flex: 1;
+  color: #e2e8f0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* mention count badge */
+.rank-count {
+  font-size: 12px;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.rank-bar-title {
+  display: inline-block;
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+/* Background bar showing relative size */
+.rank-bar-wrap {
+  width: 80px;
+  height: 8px;
+  background: #1e293b;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.rank-bar {
+  height: 100%;
+  border-radius: 2px;
+  background: #94a3b8;
+}
+
+/* ─── Instructions (level 0 bottom box) ───────────────────── */
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  
+  color: #94a3b8;
+  line-height: 1.2;
+}
+
+/* ─── "None" empty state ───────────────────────────────────── */
+
+.empty-state {
+  font-size: 13px;
+  color: #475569;
+  font-style: italic;
+  padding: 4px 0;
+}
+
+/* ─── Right panel footer ───────────────────────────────────── */
+
+#panel-footer {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 16px;
+  border-top: 1px solid #222;
+  flex-shrink: 0;
+  font-size: 13px;
+}
+
+#panel-footer a {
+  color: #b3a369;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+#panel-footer a:hover {
+  text-decoration: underline;
+  color: #94a3b8;
+}
+
+/* ─── Horizontal breadcrumb ────────────────────────────────── */
+
+#panel-breadcrumb {
+  display: flex;
+  align-items: left;
+  gap: 8px;
+  padding: 16px 16px;
+  border-bottom: 1px solid #222;
+  flex-shrink: 0;
+  font-size: 17px;
+}
+
+#treeItems {
+  display:flex;
+  align-items:baseline;
+  gap: 8px;
+}
+
+.breadcrumb-segment {
+  color: #e2e8f0;
+}
+
+.breadcrumb-segment.clickable {
+  color: #b3a369;
+  cursor: pointer;
+}
+
+.breadcrumb-segment.clickable:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  color: #475569;
+}
