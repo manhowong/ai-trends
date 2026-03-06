@@ -18,7 +18,7 @@ export const echart = echarts.init(
 
 export function trendColor(trend) {
   if (trend ===  1) return '#e84b4b';
-  if (trend === -1) return '#3b02f6';
+  if (trend === -1) return '#541ffd';
   return '#94a3b8';
 }
 
