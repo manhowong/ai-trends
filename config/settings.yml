@@ -1,0 +1,17 @@
+arxiv:
+  categories:
+    - cs.LG   # Machine Learning
+    - cs.AI   # Artificial Intelligence
+    - cs.CL   # Computation and Language
+    - cs.CV   # Computer Vision and Pattern Recognition
+    - cs.NE   # Neural and Evolutionary Computing
+    - cs.RO   # Robotics
+    - cs.IR   # Information Retrieval
+    - cs.CR   # Cryptography and Security
+    - cs.HC   # Human-Computer Interaction
+    - cs.MA   # Multiagent Systems
+    - cs.GT   # Computer Science and Game Theory
+    - stat.ML # Machine Learning (Statistics)
+    - stat.AP # Applications (Statistics)
+    - econ.GN # General Economics
+    - q-bio.QM # Quantitative Methods (Biology)
