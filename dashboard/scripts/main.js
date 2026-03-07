@@ -85,6 +85,11 @@ echart.getZr().on('click', e => {
 
 window.addEventListener('resize', () => echart.resize());
 
+// Right panel and sidebar starts collapsed with small screen
+if (window.innerWidth <= 768) {
+  document.getElementById('right-panel').classList.add('collapsed');
+  document.getElementById('sidebar').classList.add('collapsed');
+}
 
 // ── Boot ─────────────────────────────────────────────────────
 
