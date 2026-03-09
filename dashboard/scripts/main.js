@@ -15,7 +15,7 @@ import { buildDateRangeControls, updateDateText,
 
 
 
-// ── Expose functions used by inline HTML event handlers ──────
+// Expose functions used by inline HTML event handlers -------------------------
 // (panel.js generates HTML strings with onclick="..." attributes
 //  that call these as globals at runtime)
 
@@ -26,7 +26,7 @@ window.focusChildNode = focusChildNode;
 window.setSortMode    = setSortMode;
 
 
-// ── Sidebar controls ─────────────────────────────────────────
+// Sidebar controls ------------------------------------------------------------
 
 document.getElementById('sidebarToggle')
   .addEventListener('click', toggleSidebar);
@@ -47,7 +47,7 @@ document.getElementById('fontSizeReset')
   .addEventListener('click', resetFontSize);
 
 
-// ── ECharts event listeners ──────────────────────────────────
+// ECharts event listeners -----------------------------------------------------
 
 echart.on('mouseover', params => {
   if (params.dataType !== 'node') return;
@@ -73,7 +73,7 @@ echart.on('click', params => {
 });
 
 // Click on empty canvas → navigate one level back up
-echart.getZr().on('click', e => {
+echart.getZr().on('dblclick', e => {
   if (e.target) return;
   state.hoveredNode = null;
   if      (state.currentView === 'child')    focusCategory(state.currentCat);
@@ -81,7 +81,7 @@ echart.getZr().on('click', e => {
 });
 
 
-// ── Responsive resize ────────────────────────────────────────
+// Responsive resize -----------------------------------------------------------
 
 window.addEventListener('resize', () => echart.resize());
 
@@ -91,7 +91,7 @@ if (window.innerWidth <= 768) {
   document.getElementById('sidebar').classList.add('collapsed');
 }
 
-// ── Boot ─────────────────────────────────────────────────────
+// Boot ------------------------------------------------------------------------
 
 async function initializeApp() {
   await loadData();
