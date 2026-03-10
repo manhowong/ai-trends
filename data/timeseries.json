@@ -49,48 +49,7 @@
         "V": 6,
         "VC": 6,
         "P": "A",
-        "K": [
-          {
-            "N": "immigrant reader",
-            "V": 1
-          },
-          {
-            "N": "reader-orient news experience",
-            "V": 0
-          },
-          {
-            "N": "ddg",
-            "V": 1
-          },
-          {
-            "N": "journalist",
-            "V": 1
-          },
-          {
-            "N": "definition",
-            "V": 1
-          },
-          {
-            "N": "our evaluation approach",
-            "V": 1
-          },
-          {
-            "N": "a distinct manner",
-            "V": 1
-          },
-          {
-            "N": "simple word",
-            "V": 1
-          },
-          {
-            "N": "unaddresse-or-unaccountable",
-            "V": 0
-          },
-          {
-            "N": "our co-design research",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "A03": {
         "V": 371,
@@ -98,44 +57,20 @@
         "P": "A",
         "K": [
           {
+            "N": "lsc",
+            "V": 2
+          },
+          {
             "N": "mathbf",
             "V": 2
           },
           {
-            "N": "community detection",
+            "N": "das",
             "V": 3
           },
           {
-            "N": "anomaly",
-            "V": 4
-          },
-          {
-            "N": "coda",
+            "N": "mars",
             "V": 2
-          },
-          {
-            "N": "ell p",
-            "V": 3
-          },
-          {
-            "N": "kid",
-            "V": 2
-          },
-          {
-            "N": "iflip",
-            "V": 1
-          },
-          {
-            "N": "agripinn",
-            "V": 1
-          },
-          {
-            "N": "mergerec",
-            "V": 1
-          },
-          {
-            "N": "event",
-            "V": 26
           }
         ]
       },
@@ -143,95 +78,13 @@
         "V": 3,
         "VC": 3,
         "P": "A",
-        "K": [
-          {
-            "N": "immigrant reader",
-            "V": 1
-          },
-          {
-            "N": "reader-orient news experience",
-            "V": 0
-          },
-          {
-            "N": "journalist",
-            "V": 1
-          },
-          {
-            "N": "recent discussion",
-            "V": 1
-          },
-          {
-            "N": "this paradox",
-            "V": 1
-          },
-          {
-            "N": "our co-design research",
-            "V": 1
-          },
-          {
-            "N": "cross-dataset generalization",
-            "V": 1
-          },
-          {
-            "N": "each metaphor",
-            "V": 1
-          },
-          {
-            "N": "value alignment",
-            "V": 1
-          },
-          {
-            "N": "significant difficulty",
-            "V": 0
-          }
-        ]
+        "K": []
       },
       "A05": {
         "V": 3,
         "VC": 3,
         "P": "A",
-        "K": [
-          {
-            "N": "physics",
-            "V": 1
-          },
-          {
-            "N": "pde",
-            "V": 1
-          },
-          {
-            "N": "neural",
-            "V": 1
-          },
-          {
-            "N": "problem instance",
-            "V": 1
-          },
-          {
-            "N": "scalable generation",
-            "V": 1
-          },
-          {
-            "N": "a unified perspective",
-            "V": 1
-          },
-          {
-            "N": "physical structure",
-            "V": 1
-          },
-          {
-            "N": "consequence",
-            "V": 1
-          },
-          {
-            "N": "daily life",
-            "V": 1
-          },
-          {
-            "N": "scientific workflow",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "A06": {
         "V": 18,
@@ -239,44 +92,8 @@
         "P": "A",
         "K": [
           {
-            "N": "mimic",
-            "V": 1
-          },
-          {
             "N": "pot",
             "V": 4
-          },
-          {
-            "N": "conversion",
-            "V": 1
-          },
-          {
-            "N": "lvlm",
-            "V": 1
-          },
-          {
-            "N": "intermediate representation",
-            "V": 2
-          },
-          {
-            "N": "recommendation system",
-            "V": 1
-          },
-          {
-            "N": "resnet-18",
-            "V": 1
-          },
-          {
-            "N": " fairness",
-            "V": 2
-          },
-          {
-            "N": "polynomial time",
-            "V": 1
-          },
-          {
-            "N": "allocation",
-            "V": 2
           }
         ]
       },
@@ -284,142 +101,19 @@
         "V": 1,
         "VC": 1,
         "P": "A",
-        "K": [
-          {
-            "N": "its advantage",
-            "V": 1
-          },
-          {
-            "N": "hle",
-            "V": 1
-          },
-          {
-            "N": "dead end",
-            "V": 1
-          },
-          {
-            "N": "comparable computational cost",
-            "V": 1
-          },
-          {
-            "N": "prune",
-            "V": 1
-          },
-          {
-            "N": "scaling",
-            "V": 1
-          },
-          {
-            "N": "the solution space",
-            "V": 1
-          },
-          {
-            "N": "the exploration",
-            "V": 1
-          },
-          {
-            "N": "the reasoning capability",
-            "V": 0
-          },
-          {
-            "N": "test-time scaling",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "A08": {
         "V": 9,
         "VC": 9,
         "P": "A",
-        "K": [
-          {
-            "N": "projector",
-            "V": 1
-          },
-          {
-            "N": "the dpt",
-            "V": 1
-          },
-          {
-            "N": "deeponet",
-            "V": 1
-          },
-          {
-            "N": "support",
-            "V": 2
-          },
-          {
-            "N": "the target object",
-            "V": 1
-          },
-          {
-            "N": "ddg",
-            "V": 1
-          },
-          {
-            "N": "anydepth",
-            "V": 1
-          },
-          {
-            "N": "aigeeksgroup",
-            "V": 1
-          },
-          {
-            "N": "new class",
-            "V": 1
-          },
-          {
-            "N": "cluttered environment",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "A09": {
         "V": 5,
         "VC": 5,
         "P": "A",
-        "K": [
-          {
-            "N": "deeponet",
-            "V": 1
-          },
-          {
-            "N": "transferable planning competence",
-            "V": 1
-          },
-          {
-            "N": "gbm",
-            "V": 1
-          },
-          {
-            "N": "cryptocurrencie",
-            "V": 1
-          },
-          {
-            "N": "cross-domain generalization",
-            "V": 1
-          },
-          {
-            "N": "initial condition",
-            "V": 1
-          },
-          {
-            "N": "potential efficient surrogate",
-            "V": 1
-          },
-          {
-            "N": "an operator",
-            "V": 1
-          },
-          {
-            "N": "compact serialization",
-            "V": 1
-          },
-          {
-            "N": "two unseen domain",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "A10": {
         "V": 22,
@@ -427,40 +121,12 @@
         "P": "A",
         "K": [
           {
-            "N": "mergerec",
-            "V": 1
-          },
-          {
             "N": "anomaly detection",
             "V": 2
           },
           {
-            "N": "creativity",
-            "V": 1
-          },
-          {
-            "N": "cnn",
-            "V": 1
-          },
-          {
-            "N": "deep learning superresolution",
-            "V": 1
-          },
-          {
-            "N": "sr image",
-            "V": 1
-          },
-          {
-            "N": "transferable planning competence",
-            "V": 1
-          },
-          {
-            "N": "7t knee mri",
-            "V": 1
-          },
-          {
-            "N": "posterior",
-            "V": 1
+            "N": "utst",
+            "V": 2
           }
         ]
       },
@@ -468,95 +134,13 @@
         "V": 2,
         "VC": 2,
         "P": "A",
-        "K": [
-          {
-            "N": "module",
-            "V": 1
-          },
-          {
-            "N": "rlvr",
-            "V": 1
-          },
-          {
-            "N": "multiple temporal scale",
-            "V": 1
-          },
-          {
-            "N": "a central paradigm",
-            "V": 1
-          },
-          {
-            "N": "its empirical success",
-            "V": 1
-          },
-          {
-            "N": "decomposition",
-            "V": 1
-          },
-          {
-            "N": "a novel architecture",
-            "V": 1
-          },
-          {
-            "N": "a high level",
-            "V": 1
-          },
-          {
-            "N": "the connection",
-            "V": 1
-          },
-          {
-            "N": "attention head",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "A12": {
         "V": 22,
         "VC": 22,
         "P": "A",
-        "K": [
-          {
-            "N": "fedcare",
-            "V": 1
-          },
-          {
-            "N": "classifier ensemble",
-            "V": 1
-          },
-          {
-            "N": "mad",
-            "V": 1
-          },
-          {
-            "N": "reflexsplit",
-            "V": 1
-          },
-          {
-            "N": "human deliberation",
-            "V": 1
-          },
-          {
-            "N": "the good single model",
-            "V": 0
-          },
-          {
-            "N": "semantic correctness",
-            "V": 1
-          },
-          {
-            "N": "differential separation",
-            "V": 1
-          },
-          {
-            "N": "walk-forward validation",
-            "V": 1
-          },
-          {
-            "N": "the influence",
-            "V": 2
-          }
-        ]
+        "K": []
       },
       "A13": {
         "V": 10,
@@ -564,44 +148,12 @@
         "P": "A",
         "K": [
           {
-            "N": "rslcpp",
-            "V": 1
-          },
-          {
             "N": "aries",
             "V": 2
           },
           {
-            "N": "fwi",
-            "V": 1
-          },
-          {
             "N": "reproducibility",
             "V": 2
-          },
-          {
-            "N": "client",
-            "V": 1
-          },
-          {
-            "N": "prior",
-            "V": 2
-          },
-          {
-            "N": "the s",
-            "V": 3
-          },
-          {
-            "N": "sindy",
-            "V": 1
-          },
-          {
-            "N": "structure prediction",
-            "V": 1
-          },
-          {
-            "N": "global health surveillance",
-            "V": 1
           }
         ]
       },
@@ -617,40 +169,8 @@
         "P": "A",
         "K": [
           {
-            "N": "iflip",
-            "V": 1
-          },
-          {
             "N": "lts",
             "V": 5
-          },
-          {
-            "N": "etracer",
-            "V": 1
-          },
-          {
-            "N": "the tot framework",
-            "V": 1
-          },
-          {
-            "N": "feature-dependent noise",
-            "V": 1
-          },
-          {
-            "N": "think",
-            "V": 1
-          },
-          {
-            "N": "participation",
-            "V": 1
-          },
-          {
-            "N": "disease",
-            "V": 2
-          },
-          {
-            "N": "contextual evidence",
-            "V": 1
           }
         ]
       },
@@ -660,43 +180,7 @@
         "P": "B",
         "K": [
           {
-            "N": "hcai",
-            "V": 1
-          },
-          {
             "N": "uncertainty estimation",
-            "V": 2
-          },
-          {
-            "N": "rgb image",
-            "V": 2
-          },
-          {
-            "N": "this chapter",
-            "V": 1
-          },
-          {
-            "N": "sar",
-            "V": 2
-          },
-          {
-            "N": "these design",
-            "V": 2
-          },
-          {
-            "N": "fine-grain classification",
-            "V": 0
-          },
-          {
-            "N": "tokenization",
-            "V": 1
-          },
-          {
-            "N": "challenge scenario",
-            "V": 0
-          },
-          {
-            "N": "mle",
             "V": 2
           }
         ]
@@ -705,48 +189,7 @@
         "V": 4,
         "VC": 4,
         "P": "B",
-        "K": [
-          {
-            "N": "greedy routing",
-            "V": 1
-          },
-          {
-            "N": "packet",
-            "V": 1
-          },
-          {
-            "N": "ag news",
-            "V": 1
-          },
-          {
-            "N": "sensitive information",
-            "V": 1
-          },
-          {
-            "N": "water security",
-            "V": 1
-          },
-          {
-            "N": "a metric space",
-            "V": 1
-          },
-          {
-            "N": "anarchy",
-            "V": 1
-          },
-          {
-            "N": "a common solution",
-            "V": 1
-          },
-          {
-            "N": "a novel deep learning framework",
-            "V": 1
-          },
-          {
-            "N": "zone",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "B03": {
         "V": 11,
@@ -754,40 +197,8 @@
         "P": "B",
         "K": [
           {
-            "N": "cooperation",
-            "V": 1
-          },
-          {
-            "N": "pufs",
-            "V": 1
-          },
-          {
-            "N": "the provider",
-            "V": 1
-          },
-          {
-            "N": "contexts",
-            "V": 1
-          },
-          {
-            "N": "human preference",
-            "V": 1
-          },
-          {
-            "N": "the solution",
-            "V": 1
-          },
-          {
-            "N": "sensitive",
-            "V": 4
-          },
-          {
-            "N": "the network",
+            "N": "drive",
             "V": 2
-          },
-          {
-            "N": "unlearning",
-            "V": 1
           }
         ]
       },
@@ -797,43 +208,11 @@
         "P": "B",
         "K": [
           {
-            "N": "muon",
-            "V": 1
-          },
-          {
             "N": "firm",
             "V": 5
           },
           {
-            "N": "panther",
-            "V": 1
-          },
-          {
-            "N": "reid",
-            "V": 1
-          },
-          {
-            "N": "faithfulness hallucination",
-            "V": 1
-          },
-          {
-            "N": "sam",
-            "V": 19
-          },
-          {
-            "N": "dpo",
-            "V": 3
-          },
-          {
-            "N": "asr",
-            "V": 3
-          },
-          {
-            "N": "shape",
-            "V": 4
-          },
-          {
-            "N": "recovery",
+            "N": "cop",
             "V": 3
           }
         ]
@@ -844,44 +223,12 @@
         "P": "B",
         "K": [
           {
-            "N": "tsfm",
-            "V": 1
-          },
-          {
             "N": "the imbalance",
             "V": 2
           },
           {
             "N": "neural operator",
             "V": 2
-          },
-          {
-            "N": "initialization",
-            "V": 3
-          },
-          {
-            "N": "resolution",
-            "V": 2
-          },
-          {
-            "N": "subdistill",
-            "V": 1
-          },
-          {
-            "N": "the temperature",
-            "V": 1
-          },
-          {
-            "N": "fluid dynamic",
-            "V": 1
-          },
-          {
-            "N": "policy constraint",
-            "V": 1
-          },
-          {
-            "N": "sms",
-            "V": 3
           }
         ]
       },
@@ -891,44 +238,8 @@
         "P": "B",
         "K": [
           {
-            "N": "spectral bias",
-            "V": 1
-          },
-          {
-            "N": "stereo",
-            "V": 1
-          },
-          {
-            "N": "geq",
-            "V": 1
-          },
-          {
-            "N": "feature alignment",
-            "V": 1
-          },
-          {
-            "N": "additional training",
-            "V": 3
-          },
-          {
-            "N": "regularization",
-            "V": 3
-          },
-          {
-            "N": "sam",
-            "V": 14
-          },
-          {
-            "N": "the segment anything model",
+            "N": "triple",
             "V": 2
-          },
-          {
-            "N": " stock",
-            "V": 1
-          },
-          {
-            "N": "the federate learning framework",
-            "V": 0
           }
         ]
       },
@@ -938,44 +249,12 @@
         "P": "B",
         "K": [
           {
-            "N": "identifiability",
-            "V": 1
-          },
-          {
             "N": "policy learning",
             "V": 2
           },
           {
-            "N": "auc",
-            "V": 1
-          },
-          {
-            "N": "interactive navigation",
-            "V": 1
-          },
-          {
-            "N": "994",
-            "V": 1
-          },
-          {
-            "N": "dfl",
-            "V": 1
-          },
-          {
-            "N": "model merging",
-            "V": 1
-          },
-          {
-            "N": "coordinate",
-            "V": 1
-          },
-          {
-            "N": "question",
-            "V": 1
-          },
-          {
-            "N": "log",
-            "V": 6
+            "N": "representative baseline",
+            "V": 2
           }
         ]
       },
@@ -983,48 +262,7 @@
         "V": 6,
         "VC": 6,
         "P": "B",
-        "K": [
-          {
-            "N": "agentic system",
-            "V": 1
-          },
-          {
-            "N": "level",
-            "V": 1
-          },
-          {
-            "N": "lora",
-            "V": 2
-          },
-          {
-            "N": "the brain",
-            "V": 1
-          },
-          {
-            "N": "the human visual system",
-            "V": 1
-          },
-          {
-            "N": "exploratory",
-            "V": 1
-          },
-          {
-            "N": "visual stimulus",
-            "V": 0
-          },
-          {
-            "N": "single-cell biology",
-            "V": 1
-          },
-          {
-            "N": "cross-modal retrieval task",
-            "V": 1
-          },
-          {
-            "N": "control comparison",
-            "V": 0
-          }
-        ]
+        "K": []
       },
       "B09": {
         "V": 12,
@@ -1036,40 +274,8 @@
             "V": 4
           },
           {
-            "N": "ai-generate text",
-            "V": 0
-          },
-          {
-            "N": "prompt-induce hallucination",
-            "V": 0
-          },
-          {
-            "N": "experts",
-            "V": 1
-          },
-          {
-            "N": "cot",
-            "V": 1
-          },
-          {
-            "N": "technology",
-            "V": 1
-          },
-          {
-            "N": "community",
-            "V": 1
-          },
-          {
-            "N": "farm",
-            "V": 1
-          },
-          {
-            "N": "transfer learning",
-            "V": 1
-          },
-          {
-            "N": "the propose approach",
-            "V": 0
+            "N": "alg",
+            "V": 2
           }
         ]
       },
@@ -1077,48 +283,7 @@
         "V": 2,
         "VC": 2,
         "P": "B",
-        "K": [
-          {
-            "N": "dpa",
-            "V": 1
-          },
-          {
-            "N": "gpt-4o",
-            "V": 1
-          },
-          {
-            "N": "policy control",
-            "V": 1
-          },
-          {
-            "N": "structured orchestration",
-            "V": 1
-          },
-          {
-            "N": "tool usage",
-            "V": 1
-          },
-          {
-            "N": "the flexibility",
-            "V": 1
-          },
-          {
-            "N": "s capacity",
-            "V": 1
-          },
-          {
-            "N": "customer support",
-            "V": 1
-          },
-          {
-            "N": "an open challenge",
-            "V": 1
-          },
-          {
-            "N": "accordance",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "B11": {
         "V": 16,
@@ -1126,44 +291,8 @@
         "P": "B",
         "K": [
           {
-            "N": "b testing",
-            "V": 1
-          },
-          {
-            "N": "fls",
-            "V": 1
-          },
-          {
-            "N": "arc-challenge",
-            "V": 1
-          },
-          {
             "N": "ars",
             "V": 4
-          },
-          {
-            "N": "hint",
-            "V": 1
-          },
-          {
-            "N": "textsf",
-            "V": 1
-          },
-          {
-            "N": "service",
-            "V": 1
-          },
-          {
-            "N": "online a",
-            "V": 1
-          },
-          {
-            "N": "5-7b",
-            "V": 2
-          },
-          {
-            "N": "an ",
-            "V": 13
           }
         ]
       },
@@ -1173,44 +302,12 @@
         "P": "B",
         "K": [
           {
-            "N": "theta",
-            "V": 1
-          },
-          {
-            "N": "fls",
-            "V": 1
-          },
-          {
-            "N": "prism",
-            "V": 1
+            "N": "tac",
+            "V": 2
           },
           {
             "N": "ars",
             "V": 4
-          },
-          {
-            "N": "rae",
-            "V": 1
-          },
-          {
-            "N": "texttt",
-            "V": 1
-          },
-          {
-            "N": "orthogonalization",
-            "V": 1
-          },
-          {
-            "N": "tsfm",
-            "V": 1
-          },
-          {
-            "N": "the base llm",
-            "V": 1
-          },
-          {
-            "N": "aapl",
-            "V": 1
           }
         ]
       },
@@ -1218,138 +315,19 @@
         "V": 14,
         "VC": 14,
         "P": "B",
-        "K": [
-          {
-            "N": "longbench pro",
-            "V": 1
-          },
-          {
-            "N": "lpe",
-            "V": 1
-          },
-          {
-            "N": "dtml",
-            "V": 1
-          },
-          {
-            "N": "an mdp",
-            "V": 1
-          },
-          {
-            "N": "cwa",
-            "V": 1
-          },
-          {
-            "N": "the decode stage",
-            "V": 1
-          },
-          {
-            "N": "fpf",
-            "V": 1
-          },
-          {
-            "N": "twin",
-            "V": 1
-          },
-          {
-            "N": "dtkd",
-            "V": 1
-          },
-          {
-            "N": "cfg",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "B14": {
         "V": 19,
         "VC": 19,
         "P": "B",
-        "K": [
-          {
-            "N": "panther",
-            "V": 1
-          },
-          {
-            "N": "instruction-tune model",
-            "V": 0
-          },
-          {
-            "N": "hyperbolic space",
-            "V": 1
-          },
-          {
-            "N": "the question",
-            "V": 2
-          },
-          {
-            "N": "instruction-tune variant",
-            "V": 0
-          },
-          {
-            "N": "a reliance",
-            "V": 2
-          },
-          {
-            "N": "dft",
-            "V": 1
-          },
-          {
-            "N": "answer generation",
-            "V": 1
-          },
-          {
-            "N": "mad",
-            "V": 1
-          },
-          {
-            "N": "motion",
-            "V": 2
-          }
-        ]
+        "K": []
       },
       "B15": {
         "V": 11,
         "VC": 11,
         "P": "B",
-        "K": [
-          {
-            "N": "veri-sure",
-            "V": 1
-          },
-          {
-            "N": "private",
-            "V": 1
-          },
-          {
-            "N": "the uncertainty",
-            "V": 1
-          },
-          {
-            "N": "rtl",
-            "V": 1
-          },
-          {
-            "N": "disability",
-            "V": 1
-          },
-          {
-            "N": "the class",
-            "V": 1
-          },
-          {
-            "N": "the aim",
-            "V": 2
-          },
-          {
-            "N": "mean",
-            "V": 1
-          },
-          {
-            "N": "the graph",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "B16": {
         "V": 8,
@@ -1357,40 +335,12 @@
         "P": "B",
         "K": [
           {
-            "N": "pufs",
-            "V": 1
-          },
-          {
-            "N": "high throughput",
-            "V": 1
-          },
-          {
-            "N": "low latency",
-            "V": 1
+            "N": "algo",
+            "V": 3
           },
           {
             "N": "free",
             "V": 2
-          },
-          {
-            "N": "empirical result",
-            "V": 2
-          },
-          {
-            "N": "independent",
-            "V": 2
-          },
-          {
-            "N": "observation",
-            "V": 2
-          },
-          {
-            "N": "action",
-            "V": 2
-          },
-          {
-            "N": "machine learn technique",
-            "V": 0
           }
         ]
       },
@@ -1402,42 +352,6 @@
           {
             "N": "rpo",
             "V": 4
-          },
-          {
-            "N": "stm",
-            "V": 1
-          },
-          {
-            "N": "muse",
-            "V": 1
-          },
-          {
-            "N": "organization",
-            "V": 1
-          },
-          {
-            "N": "mhc",
-            "V": 1
-          },
-          {
-            "N": "reasoning model",
-            "V": 1
-          },
-          {
-            "N": "non-expert user",
-            "V": 1
-          },
-          {
-            "N": "the graph scale",
-            "V": 1
-          },
-          {
-            "N": "classical datum",
-            "V": 0
-          },
-          {
-            "N": "long-form song generation",
-            "V": 1
           }
         ]
       },
@@ -1445,138 +359,19 @@
         "V": 31,
         "VC": 31,
         "P": "C",
-        "K": [
-          {
-            "N": "pii",
-            "V": 1
-          },
-          {
-            "N": "label noise",
-            "V": 1
-          },
-          {
-            "N": "cloud",
-            "V": 1
-          },
-          {
-            "N": "deephit",
-            "V": 1
-          },
-          {
-            "N": "reflect-then-retry",
-            "V": 1
-          },
-          {
-            "N": "isac",
-            "V": 1
-          },
-          {
-            "N": "neuro-symbolic prior",
-            "V": 1
-          },
-          {
-            "N": "difficult task",
-            "V": 1
-          },
-          {
-            "N": "wave",
-            "V": 2
-          },
-          {
-            "N": "icon",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "C03": {
         "V": 26,
         "VC": 26,
         "P": "C",
-        "K": [
-          {
-            "N": "fwi",
-            "V": 1
-          },
-          {
-            "N": "mathbf",
-            "V": 1
-          },
-          {
-            "N": "feta-pro",
-            "V": 1
-          },
-          {
-            "N": "phasecoder",
-            "V": 1
-          },
-          {
-            "N": "eavesdropper",
-            "V": 1
-          },
-          {
-            "N": "central image",
-            "V": 1
-          },
-          {
-            "N": "ambshield",
-            "V": 1
-          },
-          {
-            "N": "dp-sgd",
-            "V": 1
-          },
-          {
-            "N": "client",
-            "V": 1
-          },
-          {
-            "N": "drl",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "C04": {
         "V": 4,
         "VC": 4,
         "P": "C",
-        "K": [
-          {
-            "N": "selectivity",
-            "V": 1
-          },
-          {
-            "N": "ood performance",
-            "V": 1
-          },
-          {
-            "N": "leakage",
-            "V": 1
-          },
-          {
-            "N": "pii",
-            "V": 1
-          },
-          {
-            "N": "differential privacy",
-            "V": 1
-          },
-          {
-            "N": "their decision-making",
-            "V": 1
-          },
-          {
-            "N": "four public dataset",
-            "V": 1
-          },
-          {
-            "N": "their trade-off",
-            "V": 1
-          },
-          {
-            "N": "model input",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "C05": {
         "V": 10,
@@ -1584,43 +379,7 @@
         "P": "C",
         "K": [
           {
-            "N": "attention layer",
-            "V": 1
-          },
-          {
             "N": "xai",
-            "V": 2
-          },
-          {
-            "N": "muon",
-            "V": 1
-          },
-          {
-            "N": "the random forest classifier",
-            "V": 1
-          },
-          {
-            "N": "keyword",
-            "V": 1
-          },
-          {
-            "N": "the estimator",
-            "V": 1
-          },
-          {
-            "N": "momentum",
-            "V": 1
-          },
-          {
-            "N": "edge device",
-            "V": 1
-          },
-          {
-            "N": "exist model",
-            "V": 0
-          },
-          {
-            "N": "rag",
             "V": 2
           }
         ]
@@ -1629,48 +388,7 @@
         "V": 2,
         "VC": 2,
         "P": "C",
-        "K": [
-          {
-            "N": "bm\u03bc",
-            "V": 1
-          },
-          {
-            "N": "prog-powerhp",
-            "V": 1
-          },
-          {
-            "N": "mathbb",
-            "V": 1
-          },
-          {
-            "N": "eeg",
-            "V": 1
-          },
-          {
-            "N": "sim",
-            "V": 1
-          },
-          {
-            "N": "mathcal",
-            "V": 1
-          },
-          {
-            "N": "suppress artifact",
-            "V": 1
-          },
-          {
-            "N": "multitask",
-            "V": 1
-          },
-          {
-            "N": "prog-powerhp converge",
-            "V": 1
-          },
-          {
-            "N": "the global optimum",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "C07": {
         "V": 0,
@@ -1682,48 +400,7 @@
         "V": 3,
         "VC": 3,
         "P": "C",
-        "K": [
-          {
-            "N": "cyclist",
-            "V": 1
-          },
-          {
-            "N": "vivo",
-            "V": 1
-          },
-          {
-            "N": "generality",
-            "V": 1
-          },
-          {
-            "N": "the expansion",
-            "V": 1
-          },
-          {
-            "N": "inference speed",
-            "V": 1
-          },
-          {
-            "N": "acceptance rate",
-            "V": 1
-          },
-          {
-            "N": "abundance",
-            "V": 1
-          },
-          {
-            "N": "a generative diffusion model",
-            "V": 1
-          },
-          {
-            "N": "a 12",
-            "V": 1
-          },
-          {
-            "N": "pedestrian",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "C09": {
         "V": 0,
@@ -1735,71 +412,13 @@
         "V": 3,
         "VC": 3,
         "P": "C",
-        "K": [
-          {
-            "N": "non-expert user",
-            "V": 1
-          },
-          {
-            "N": "necc",
-            "V": 1
-          },
-          {
-            "N": "certain user",
-            "V": 1
-          },
-          {
-            "N": "the insight",
-            "V": 1
-          },
-          {
-            "N": "the customize cca implementation problem",
-            "V": 0
-          },
-          {
-            "N": "possible future research direction",
-            "V": 1
-          },
-          {
-            "N": "their customize cca",
-            "V": 0
-          },
-          {
-            "N": "the expertise",
-            "V": 1
-          },
-          {
-            "N": "real-world cca",
-            "V": 1
-          },
-          {
-            "N": "the specific requirement",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "C11": {
         "V": 3,
         "VC": 3,
         "P": "C",
-        "K": [
-          {
-            "N": "the random forest classifier",
-            "V": 1
-          },
-          {
-            "N": "the high accuracy",
-            "V": 0
-          },
-          {
-            "N": "its efficacy",
-            "V": 1
-          },
-          {
-            "N": "customer",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "C12": {
         "V": 32,
@@ -1807,44 +426,8 @@
         "P": "C",
         "K": [
           {
-            "N": "tabpfn",
-            "V": 1
-          },
-          {
-            "N": "rl post",
-            "V": 1
-          },
-          {
-            "N": "synapse",
-            "V": 1
-          },
-          {
-            "N": "hfl",
-            "V": 1
-          },
-          {
-            "N": "hpc",
-            "V": 1
-          },
-          {
-            "N": "the original dataset",
-            "V": 1
-          },
-          {
-            "N": "the learn dynamic",
-            "V": 0
-          },
-          {
-            "N": "channel condition",
+            "N": "cognitive science",
             "V": 2
-          },
-          {
-            "N": "path tracing",
-            "V": 1
-          },
-          {
-            "N": "semantic knowledge",
-            "V": 1
           }
         ]
       },
@@ -1856,38 +439,6 @@
           {
             "N": "lts",
             "V": 5
-          },
-          {
-            "N": "gapnet",
-            "V": 1
-          },
-          {
-            "N": "the tot framework",
-            "V": 1
-          },
-          {
-            "N": "vote",
-            "V": 1
-          },
-          {
-            "N": "trap question",
-            "V": 1
-          },
-          {
-            "N": "eye-q",
-            "V": 1
-          },
-          {
-            "N": "clone",
-            "V": 1
-          },
-          {
-            "N": "problem-solve task",
-            "V": 0
-          },
-          {
-            "N": "phrase",
-            "V": 1
           }
         ]
       },
@@ -1897,44 +448,12 @@
         "P": "D",
         "K": [
           {
-            "N": "mimo-v2-flash",
-            "V": 1
-          },
-          {
-            "N": "ambshield",
-            "V": 1
-          },
-          {
-            "N": "eavesdropper",
-            "V": 1
-          },
-          {
-            "N": "\u03c3 0",
-            "V": 0
-          },
-          {
-            "N": "fat",
-            "V": 1
-          },
-          {
             "N": "sqrt",
             "V": 2
           },
           {
             "N": "the decoder",
             "V": 2
-          },
-          {
-            "N": "the encoder",
-            "V": 1
-          },
-          {
-            "N": "ambds",
-            "V": 1
-          },
-          {
-            "N": "dna",
-            "V": 1
           }
         ]
       },
@@ -1942,48 +461,7 @@
         "V": 86,
         "VC": 86,
         "P": "D",
-        "K": [
-          {
-            "N": "ladp",
-            "V": 1
-          },
-          {
-            "N": "agripinn",
-            "V": 1
-          },
-          {
-            "N": "multimodal sentiment analysis",
-            "V": 1
-          },
-          {
-            "N": "kid",
-            "V": 1
-          },
-          {
-            "N": "coda",
-            "V": 1
-          },
-          {
-            "N": "sciml",
-            "V": 1
-          },
-          {
-            "N": "objectforesight",
-            "V": 1
-          },
-          {
-            "N": "prediction accuracy",
-            "V": 1
-          },
-          {
-            "N": " validity",
-            "V": 1
-          },
-          {
-            "N": "text datum",
-            "V": 0
-          }
-        ]
+        "K": []
       },
       "D04": {
         "V": 42,
@@ -1991,44 +469,8 @@
         "P": "D",
         "K": [
           {
-            "N": "ladp",
-            "V": 1
-          },
-          {
-            "N": "sciml",
-            "V": 1
-          },
-          {
-            "N": "objectforesight",
-            "V": 1
-          },
-          {
-            "N": "sras",
-            "V": 1
-          },
-          {
-            "N": "the dpt",
-            "V": 1
-          },
-          {
-            "N": "diffcot",
-            "V": 1
-          },
-          {
-            "N": "passenger",
-            "V": 1
-          },
-          {
-            "N": "the subspace",
-            "V": 3
-          },
-          {
-            "N": "pot",
-            "V": 8
-          },
-          {
-            "N": "textsc",
-            "V": 1
+            "N": "opo",
+            "V": 25
           }
         ]
       },
@@ -2038,44 +480,8 @@
         "P": "D",
         "K": [
           {
-            "N": "pidr",
-            "V": 1
-          },
-          {
-            "N": "metaphor",
-            "V": 1
-          },
-          {
-            "N": "mimo-v2-flash",
-            "V": 1
-          },
-          {
             "N": "stm",
             "V": 2
-          },
-          {
-            "N": "verpo",
-            "V": 1
-          },
-          {
-            "N": "memocr",
-            "V": 1
-          },
-          {
-            "N": "the undercarriage",
-            "V": 1
-          },
-          {
-            "N": "u \u03c1",
-            "V": 0
-          },
-          {
-            "N": "small function",
-            "V": 1
-          },
-          {
-            "N": "monte carlo method",
-            "V": 1
           }
         ]
       },
@@ -2083,185 +489,25 @@
         "V": 33,
         "VC": 33,
         "P": "D",
-        "K": [
-          {
-            "N": "sag",
-            "V": 1
-          },
-          {
-            "N": "muse",
-            "V": 1
-          },
-          {
-            "N": "memocr",
-            "V": 1
-          },
-          {
-            "N": "the sample complexity",
-            "V": 1
-          },
-          {
-            "N": "pacevolve",
-            "V": 1
-          },
-          {
-            "N": "sdp",
-            "V": 1
-          },
-          {
-            "N": "sprout",
-            "V": 1
-          },
-          {
-            "N": "style",
-            "V": 3
-          },
-          {
-            "N": "underline",
-            "V": 1
-          },
-          {
-            "N": "difference",
-            "V": 3
-          }
-        ]
+        "K": []
       },
       "D07": {
         "V": 16,
         "VC": 16,
         "P": "D",
-        "K": [
-          {
-            "N": "danqing",
-            "V": 1
-          },
-          {
-            "N": "tad-lora",
-            "V": 1
-          },
-          {
-            "N": "analogous",
-            "V": 1
-          },
-          {
-            "N": "sc-sam",
-            "V": 1
-          },
-          {
-            "N": "texttt",
-            "V": 1
-          },
-          {
-            "N": "u-net",
-            "V": 1
-          },
-          {
-            "N": "jailbreak attack",
-            "V": 1
-          },
-          {
-            "N": "edge",
-            "V": 4
-          },
-          {
-            "N": "this observation",
-            "V": 2
-          }
-        ]
+        "K": []
       },
       "D08": {
         "V": 12,
         "VC": 12,
         "P": "D",
-        "K": [
-          {
-            "N": "t2v model",
-            "V": 1
-          },
-          {
-            "N": "tuneclip",
-            "V": 1
-          },
-          {
-            "N": "locomo",
-            "V": 1
-          },
-          {
-            "N": "tier",
-            "V": 1
-          },
-          {
-            "N": "hierarchical level",
-            "V": 1
-          },
-          {
-            "N": "miss cancer",
-            "V": 0
-          },
-          {
-            "N": "adaptive trust metric",
-            "V": 1
-          },
-          {
-            "N": "symbolic verification",
-            "V": 1
-          },
-          {
-            "N": "registry workflow",
-            "V": 1
-          },
-          {
-            "N": "child",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "D09": {
         "V": 30,
         "VC": 30,
         "P": "D",
-        "K": [
-          {
-            "N": "rslcpp",
-            "V": 1
-          },
-          {
-            "N": "manhattan",
-            "V": 1
-          },
-          {
-            "N": "ssa",
-            "V": 1
-          },
-          {
-            "N": "aries",
-            "V": 1
-          },
-          {
-            "N": "berlin",
-            "V": 1
-          },
-          {
-            "N": "t2v model",
-            "V": 1
-          },
-          {
-            "N": "gapnet",
-            "V": 1
-          },
-          {
-            "N": "ha-ssa",
-            "V": 1
-          },
-          {
-            "N": "tier",
-            "V": 3
-          },
-          {
-            "N": "standard fine-tuning",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "D10": {
         "V": 4,
@@ -2269,44 +515,8 @@
         "P": "D",
         "K": [
           {
-            "N": "cir",
-            "V": 1
-          },
-          {
-            "N": "subdistill",
-            "V": 1
-          },
-          {
-            "N": "sepsis",
-            "V": 1
-          },
-          {
-            "N": "multi-agent reinforcement learning",
-            "V": 1
-          },
-          {
             "N": "environment",
             "V": 2
-          },
-          {
-            "N": "the interpretation",
-            "V": 1
-          },
-          {
-            "N": "convolutional and transformer model",
-            "V": 1
-          },
-          {
-            "N": "interpretable feature",
-            "V": 1
-          },
-          {
-            "N": "subtask",
-            "V": 1
-          },
-          {
-            "N": "low computational overhead",
-            "V": 1
           }
         ]
       },
@@ -2314,95 +524,13 @@
         "V": 49,
         "VC": 49,
         "P": "D",
-        "K": [
-          {
-            "N": "density distribution",
-            "V": 1
-          },
-          {
-            "N": "dr agent",
-            "V": 1
-          },
-          {
-            "N": "caster",
-            "V": 1
-          },
-          {
-            "N": "taar",
-            "V": 1
-          },
-          {
-            "N": "eeg-base emotion classification",
-            "V": 0
-          },
-          {
-            "N": "fopng",
-            "V": 1
-          },
-          {
-            "N": "test-time adaptation",
-            "V": 1
-          },
-          {
-            "N": "vits",
-            "V": 1
-          },
-          {
-            "N": "chatgpt",
-            "V": 1
-          },
-          {
-            "N": "hallucination detection",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "D12": {
         "V": 35,
         "VC": 35,
         "P": "D",
-        "K": [
-          {
-            "N": "density distribution",
-            "V": 1
-          },
-          {
-            "N": "mfc",
-            "V": 1
-          },
-          {
-            "N": "gai",
-            "V": 4
-          },
-          {
-            "N": "taxonomy",
-            "V": 1
-          },
-          {
-            "N": "the teacher",
-            "V": 1
-          },
-          {
-            "N": "all cluster",
-            "V": 1
-          },
-          {
-            "N": "a precision",
-            "V": 1
-          },
-          {
-            "N": "the fundamental limitation",
-            "V": 1
-          },
-          {
-            "N": "the heart",
-            "V": 2
-          },
-          {
-            "N": "peer",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "D13": {
         "V": 49,
@@ -2410,44 +538,12 @@
         "P": "D",
         "K": [
           {
-            "N": "gradestc",
-            "V": 1
+            "N": "symphony",
+            "V": 2
           },
           {
-            "N": "berlin",
-            "V": 1
-          },
-          {
-            "N": "ssa",
-            "V": 4
-          },
-          {
-            "N": "manhattan",
-            "V": 1
-          },
-          {
-            "N": "ha-ssa",
-            "V": 1
-          },
-          {
-            "N": "contexts",
-            "V": 4
-          },
-          {
-            "N": "bot",
-            "V": 17
-          },
-          {
-            "N": "kernel",
-            "V": 1
-          },
-          {
-            "N": "human value",
-            "V": 1
-          },
-          {
-            "N": "xgboost",
-            "V": 1
+            "N": "moes",
+            "V": 2
           }
         ]
       },
@@ -2455,48 +551,7 @@
         "V": 4,
         "VC": 4,
         "P": "D",
-        "K": [
-          {
-            "N": "7t knee mri",
-            "V": 1
-          },
-          {
-            "N": "sr image",
-            "V": 1
-          },
-          {
-            "N": "deep learning superresolution",
-            "V": 1
-          },
-          {
-            "N": "diagnostic performance",
-            "V": 1
-          },
-          {
-            "N": "each ",
-            "V": 1
-          },
-          {
-            "N": "001",
-            "V": 1
-          },
-          {
-            "N": "image quality",
-            "V": 1
-          },
-          {
-            "N": "menisci",
-            "V": 1
-          },
-          {
-            "N": "musculoskeletal mr image quality",
-            "V": 1
-          },
-          {
-            "N": "low-resolution",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "E01": {
         "V": 63,
@@ -2504,44 +559,8 @@
         "P": "E",
         "K": [
           {
-            "N": "counterfactual explanation",
-            "V": 1
-          },
-          {
-            "N": "taar",
-            "V": 1
-          },
-          {
-            "N": "veri-sure",
-            "V": 1
-          },
-          {
-            "N": "test-time adaptation",
-            "V": 1
-          },
-          {
-            "N": "clarity",
-            "V": 2
-          },
-          {
-            "N": "dp-sgd",
-            "V": 1
-          },
-          {
-            "N": "frac",
-            "V": 1
-          },
-          {
-            "N": "the teacher",
-            "V": 2
-          },
-          {
-            "N": "definition",
-            "V": 4
-          },
-          {
-            "N": "gdwm",
-            "V": 1
+            "N": "rema",
+            "V": 18
           }
         ]
       },
@@ -2549,48 +568,7 @@
         "V": 2,
         "VC": 2,
         "P": "E",
-        "K": [
-          {
-            "N": "the dynamic range",
-            "V": 1
-          },
-          {
-            "N": "camera parameter",
-            "V": 1
-          },
-          {
-            "N": "a diverse dataset",
-            "V": 1
-          },
-          {
-            "N": "risk assessment",
-            "V": 1
-          },
-          {
-            "N": "motion planning",
-            "V": 1
-          },
-          {
-            "N": "scene understanding",
-            "V": 1
-          },
-          {
-            "N": "fast inference",
-            "V": 1
-          },
-          {
-            "N": "a comprehensive framework",
-            "V": 1
-          },
-          {
-            "N": "an optimization problem",
-            "V": 1
-          },
-          {
-            "N": "minimal computational overhead",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "E03": {
         "V": 1,
@@ -2608,48 +586,7 @@
         "V": 4,
         "VC": 4,
         "P": "E",
-        "K": [
-          {
-            "N": "mrr",
-            "V": 1
-          },
-          {
-            "N": "whilst",
-            "V": 1
-          },
-          {
-            "N": "hit",
-            "V": 1
-          },
-          {
-            "N": "the original model size",
-            "V": 1
-          },
-          {
-            "N": "the embed layer",
-            "V": 0
-          },
-          {
-            "N": "voice-base interface",
-            "V": 0
-          },
-          {
-            "N": "their activity",
-            "V": 0
-          },
-          {
-            "N": "token embedding",
-            "V": 1
-          },
-          {
-            "N": "visual stimulus",
-            "V": 0
-          },
-          {
-            "N": "unanswered",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "E06": {
         "V": 9,
@@ -2657,44 +594,12 @@
         "P": "E",
         "K": [
           {
-            "N": "anatomy",
-            "V": 1
+            "N": "agi",
+            "V": 2
           },
           {
-            "N": "week",
-            "V": 1
-          },
-          {
-            "N": "day",
-            "V": 1
-          },
-          {
-            "N": "a major barrier",
-            "V": 1
-          },
-          {
-            "N": "image feature",
-            "V": 1
-          },
-          {
-            "N": "artificial general intelligence",
-            "V": 1
-          },
-          {
-            "N": "ece score",
-            "V": 1
-          },
-          {
-            "N": "heterogeneous component",
-            "V": 1
-          },
-          {
-            "N": "severe overconfidence",
-            "V": 1
-          },
-          {
-            "N": "synchronization",
-            "V": 1
+            "N": "ari",
+            "V": 5
           }
         ]
       },
@@ -2702,48 +607,7 @@
         "V": 12,
         "VC": 12,
         "P": "E",
-        "K": [
-          {
-            "N": "goal",
-            "V": 1
-          },
-          {
-            "N": "genai",
-            "V": 1
-          },
-          {
-            "N": "the frontier",
-            "V": 1
-          },
-          {
-            "N": "csi",
-            "V": 1
-          },
-          {
-            "N": "textbf",
-            "V": 1
-          },
-          {
-            "N": "mlp",
-            "V": 1
-          },
-          {
-            "N": "the agent",
-            "V": 1
-          },
-          {
-            "N": "exploration",
-            "V": 1
-          },
-          {
-            "N": "diverse benchmark",
-            "V": 1
-          },
-          {
-            "N": "the case",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "E08": {
         "V": 8,
@@ -2753,42 +617,6 @@
           {
             "N": "highly competitive performance",
             "V": 2
-          },
-          {
-            "N": "mathematical reasoning",
-            "V": 1
-          },
-          {
-            "N": "the coupling",
-            "V": 1
-          },
-          {
-            "N": "ssms",
-            "V": 1
-          },
-          {
-            "N": "the practical applicability",
-            "V": 1
-          },
-          {
-            "N": "probabilistic modeling",
-            "V": 1
-          },
-          {
-            "N": "kalman filtering",
-            "V": 1
-          },
-          {
-            "N": "this network",
-            "V": 1
-          },
-          {
-            "N": "safety alignment",
-            "V": 1
-          },
-          {
-            "N": "the main challenge",
-            "V": 1
           }
         ]
       },
@@ -2796,134 +624,19 @@
         "V": 4,
         "VC": 4,
         "P": "E",
-        "K": [
-          {
-            "N": "stable diffusion",
-            "V": 1
-          },
-          {
-            "N": "bird",
-            "V": 1
-          },
-          {
-            "N": "gbm",
-            "V": 1
-          },
-          {
-            "N": "image generation model",
-            "V": 1
-          },
-          {
-            "N": " cache",
-            "V": 2
-          },
-          {
-            "N": "mha",
-            "V": 1
-          },
-          {
-            "N": "a single llm call",
-            "V": 1
-          },
-          {
-            "N": "careful hyperparameter tuning",
-            "V": 1
-          },
-          {
-            "N": "cyclegan",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "E10": {
         "V": 3,
         "VC": 3,
         "P": "E",
-        "K": [
-          {
-            "N": "spin",
-            "V": 1
-          },
-          {
-            "N": "human intervention",
-            "V": 1
-          },
-          {
-            "N": "average return",
-            "V": 1
-          },
-          {
-            "N": "multiple sub",
-            "V": 1
-          },
-          {
-            "N": "the plan",
-            "V": 1
-          },
-          {
-            "N": "challenge discrete dm control benchmark",
-            "V": 0
-          },
-          {
-            "N": "coherent combination",
-            "V": 1
-          },
-          {
-            "N": "the decision-make process",
-            "V": 0
-          },
-          {
-            "N": "a quantitative analysis",
-            "V": 1
-          },
-          {
-            "N": "llm-base extraction",
-            "V": 0
-          }
-        ]
+        "K": []
       },
       "E11": {
         "V": 5,
         "VC": 5,
         "P": "E",
-        "K": [
-          {
-            "N": "latent-imh",
-            "V": 1
-          },
-          {
-            "N": "tilde",
-            "V": 1
-          },
-          {
-            "N": "rule",
-            "V": 1
-          },
-          {
-            "N": "a cost-effective approximation",
-            "V": 1
-          },
-          {
-            "N": " sampler",
-            "V": 1
-          },
-          {
-            "N": "the approximate ",
-            "V": 1
-          },
-          {
-            "N": "a manner",
-            "V": 1
-          },
-          {
-            "N": "physical reasoning",
-            "V": 1
-          },
-          {
-            "N": "reasonable assumption",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "E12": {
         "V": 64,
@@ -2931,44 +644,8 @@
         "P": "E",
         "K": [
           {
-            "N": "proteus",
-            "V": 1
-          },
-          {
-            "N": "agentic system",
-            "V": 1
-          },
-          {
-            "N": "hcai",
-            "V": 1
-          },
-          {
-            "N": "couple therapy",
-            "V": 0
-          },
-          {
-            "N": "haii",
-            "V": 1
-          },
-          {
-            "N": "tau",
-            "V": 1
-          },
-          {
-            "N": " rate",
-            "V": 5
-          },
-          {
-            "N": "tuneclip",
-            "V": 1
-          },
-          {
-            "N": "alrm",
-            "V": 1
-          },
-          {
-            "N": "scalpel",
-            "V": 1
+            "N": "card",
+            "V": 3
           }
         ]
       },
@@ -2976,48 +653,7 @@
         "V": 24,
         "VC": 24,
         "P": "E",
-        "K": [
-          {
-            "N": "prophet",
-            "V": 1
-          },
-          {
-            "N": "pdr",
-            "V": 1
-          },
-          {
-            "N": "child",
-            "V": 1
-          },
-          {
-            "N": "natural language instruction",
-            "V": 1
-          },
-          {
-            "N": "hotpotqa",
-            "V": 1
-          },
-          {
-            "N": "offer",
-            "V": 4
-          },
-          {
-            "N": "the university",
-            "V": 1
-          },
-          {
-            "N": "1-8b",
-            "V": 1
-          },
-          {
-            "N": "this thesis",
-            "V": 1
-          },
-          {
-            "N": "zsre",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "E14": {
         "V": 7,
@@ -3025,44 +661,8 @@
         "P": "E",
         "K": [
           {
-            "N": "rumor",
-            "V": 1
-          },
-          {
-            "N": "dlm",
-            "V": 1
-          },
-          {
-            "N": "wavlm",
-            "V": 1
-          },
-          {
-            "N": "the head",
-            "V": 1
-          },
-          {
-            "N": "the pythagorean theorem",
-            "V": 1
-          },
-          {
-            "N": "delta",
-            "V": 1
-          },
-          {
-            "N": " sample",
-            "V": 1
-          },
-          {
             "N": "fusion",
             "V": 3
-          },
-          {
-            "N": "multi-domain setting",
-            "V": 1
-          },
-          {
-            "N": "bilstm network",
-            "V": 1
           }
         ]
       },
@@ -3072,44 +672,12 @@
         "P": "E",
         "K": [
           {
-            "N": "gm-100",
-            "V": 1
-          },
-          {
             "N": "imitation learning",
             "V": 2
           },
           {
-            "N": "robotic agent",
-            "V": 1
-          },
-          {
-            "N": "disease detection",
-            "V": 1
-          },
-          {
-            "N": "monitoring",
-            "V": 1
-          },
-          {
-            "N": "the capability",
-            "V": 0
-          },
-          {
             "N": "outcome",
             "V": 2
-          },
-          {
-            "N": "11b",
-            "V": 1
-          },
-          {
-            "N": "overall farm productivity",
-            "V": 1
-          },
-          {
-            "N": "marital status",
-            "V": 1
           }
         ]
       },
@@ -3119,44 +687,8 @@
         "P": "E",
         "K": [
           {
-            "N": "gradestc",
-            "V": 1
-          },
-          {
-            "N": "prism",
-            "V": 1
-          },
-          {
             "N": "satellite imagery",
             "V": 2
-          },
-          {
-            "N": "sam",
-            "V": 5
-          },
-          {
-            "N": "diadem",
-            "V": 1
-          },
-          {
-            "N": "activation steering",
-            "V": 1
-          },
-          {
-            "N": "diadembench",
-            "V": 1
-          },
-          {
-            "N": "mdm",
-            "V": 1
-          },
-          {
-            "N": "the phenomenon",
-            "V": 2
-          },
-          {
-            "N": "megalodon",
-            "V": 1
           }
         ]
       },
@@ -3164,142 +696,19 @@
         "V": 24,
         "VC": 24,
         "P": "E",
-        "K": [
-          {
-            "N": "gm-100",
-            "V": 1
-          },
-          {
-            "N": "its decision",
-            "V": 1
-          },
-          {
-            "N": "oscd",
-            "V": 1
-          },
-          {
-            "N": "the iterative hessian",
-            "V": 1
-          },
-          {
-            "N": "this chapter",
-            "V": 1
-          },
-          {
-            "N": "robotic agent",
-            "V": 1
-          },
-          {
-            "N": "dp-ols",
-            "V": 1
-          },
-          {
-            "N": "engineer",
-            "V": 1
-          },
-          {
-            "N": "gaussian sketch",
-            "V": 1
-          },
-          {
-            "N": "iec61850",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F01": {
         "V": 4,
         "VC": 4,
         "P": "F",
-        "K": [
-          {
-            "N": "mfc",
-            "V": 1
-          },
-          {
-            "N": "mathcal",
-            "V": 1
-          },
-          {
-            "N": "eag-pt",
-            "V": 1
-          },
-          {
-            "N": "path tracing",
-            "V": 1
-          },
-          {
-            "N": "transformer",
-            "V": 1
-          },
-          {
-            "N": "log",
-            "V": 1
-          },
-          {
-            "N": "reconstruction",
-            "V": 1
-          },
-          {
-            "N": "scene",
-            "V": 1
-          },
-          {
-            "N": "relie",
-            "V": 1
-          },
-          {
-            "N": "a novel perturbation scheme",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F02": {
         "V": 2,
         "VC": 2,
         "P": "F",
-        "K": [
-          {
-            "N": "dementia",
-            "V": 1
-          },
-          {
-            "N": "lda",
-            "V": 1
-          },
-          {
-            "N": "high quality",
-            "V": 0
-          },
-          {
-            "N": "quadratic discriminant analysis",
-            "V": 1
-          },
-          {
-            "N": "the correlation",
-            "V": 1
-          },
-          {
-            "N": "diabete",
-            "V": 1
-          },
-          {
-            "N": "python",
-            "V": 1
-          },
-          {
-            "N": "predictive capability",
-            "V": 0
-          },
-          {
-            "N": "k-nearest neighbors",
-            "V": 1
-          },
-          {
-            "N": "ros",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F03": {
         "V": 21,
@@ -3307,44 +716,16 @@
         "P": "F",
         "K": [
           {
-            "N": "prophet",
-            "V": 1
+            "N": "collab",
+            "V": 3
           },
           {
-            "N": "centric",
-            "V": 1
-          },
-          {
-            "N": "code understanding",
-            "V": 1
-          },
-          {
-            "N": "slam",
-            "V": 1
-          },
-          {
-            "N": "the full potential",
+            "N": "proper",
             "V": 2
           },
           {
-            "N": "a threshold",
-            "V": 1
-          },
-          {
-            "N": "the width",
-            "V": 1
-          },
-          {
-            "N": "driver",
-            "V": 1
-          },
-          {
-            "N": "the user",
-            "V": 1
-          },
-          {
-            "N": "accessibility",
-            "V": 3
+            "N": "thor",
+            "V": 2
           }
         ]
       },
@@ -3352,48 +733,7 @@
         "V": 10,
         "VC": 10,
         "P": "F",
-        "K": [
-          {
-            "N": "spring",
-            "V": 1
-          },
-          {
-            "N": "pdr",
-            "V": 1
-          },
-          {
-            "N": "deep learning method",
-            "V": 1
-          },
-          {
-            "N": "mmdr-bench",
-            "V": 1
-          },
-          {
-            "N": "bitcoin",
-            "V": 1
-          },
-          {
-            "N": "token-level score",
-            "V": 1
-          },
-          {
-            "N": "cow",
-            "V": 1
-          },
-          {
-            "N": "shadow",
-            "V": 1
-          },
-          {
-            "N": "narrative",
-            "V": 2
-          },
-          {
-            "N": "a large dataset",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F05": {
         "V": 58,
@@ -3401,44 +741,12 @@
         "P": "F",
         "K": [
           {
-            "N": "cure",
-            "V": 1
-          },
-          {
-            "N": "the load",
-            "V": 1
-          },
-          {
-            "N": "cybersecurity",
-            "V": 3
-          },
-          {
-            "N": "debate",
-            "V": 4
-          },
-          {
-            "N": "agora",
-            "V": 1
-          },
-          {
-            "N": "option",
+            "N": "probe",
             "V": 2
           },
           {
-            "N": "shard",
-            "V": 1
-          },
-          {
-            "N": "mad",
-            "V": 4
-          },
-          {
-            "N": "a-judge",
-            "V": 1
-          },
-          {
-            "N": "mathrm",
-            "V": 1
+            "N": "hid",
+            "V": 2
           }
         ]
       },
@@ -3452,279 +760,37 @@
         "V": 19,
         "VC": 19,
         "P": "F",
-        "K": [
-          {
-            "N": "textsc",
-            "V": 1
-          },
-          {
-            "N": "rayleigh",
-            "V": 1
-          },
-          {
-            "N": "chip",
-            "V": 1
-          },
-          {
-            "N": "mimo",
-            "V": 1
-          },
-          {
-            "N": "sram",
-            "V": 1
-          },
-          {
-            "N": "equity",
-            "V": 1
-          },
-          {
-            "N": "parallel datum",
-            "V": 0
-          },
-          {
-            "N": "anonymization",
-            "V": 1
-          },
-          {
-            "N": "the article",
-            "V": 1
-          },
-          {
-            "N": "moe",
-            "V": 2
-          }
-        ]
+        "K": []
       },
       "F08": {
         "V": 1,
         "VC": 1,
         "P": "F",
-        "K": [
-          {
-            "N": "s behavior",
-            "V": 1
-          },
-          {
-            "N": "sampling time",
-            "V": 1
-          },
-          {
-            "N": "the optimizer",
-            "V": 1
-          },
-          {
-            "N": "expectation",
-            "V": 1
-          },
-          {
-            "N": "minute",
-            "V": 1
-          },
-          {
-            "N": "adjustment",
-            "V": 1
-          },
-          {
-            "N": "bayesian optimization",
-            "V": 1
-          },
-          {
-            "N": "noise",
-            "V": 1
-          },
-          {
-            "N": "reliable",
-            "V": 1
-          },
-          {
-            "N": "candidate",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F09": {
         "V": 3,
         "VC": 3,
         "P": "F",
-        "K": [
-          {
-            "N": "next-token prediction",
-            "V": 1
-          },
-          {
-            "N": "guardrail",
-            "V": 1
-          },
-          {
-            "N": "caregiver",
-            "V": 1
-          },
-          {
-            "N": "a neural architecture",
-            "V": 1
-          },
-          {
-            "N": "plus",
-            "V": 1
-          },
-          {
-            "N": "emph",
-            "V": 1
-          },
-          {
-            "N": "speech",
-            "V": 1
-          },
-          {
-            "N": "cross-domain datum",
-            "V": 0
-          },
-          {
-            "N": "this combination",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F10": {
         "V": 4,
         "VC": 4,
         "P": "F",
-        "K": [
-          {
-            "N": "academic",
-            "V": 1
-          },
-          {
-            "N": "emission",
-            "V": 1
-          },
-          {
-            "N": "external knowledge",
-            "V": 1
-          },
-          {
-            "N": "explainability",
-            "V": 1
-          },
-          {
-            "N": "a give question",
-            "V": 0
-          },
-          {
-            "N": "many approach",
-            "V": 1
-          },
-          {
-            "N": "large-model training",
-            "V": 1
-          },
-          {
-            "N": "a simple path",
-            "V": 0
-          },
-          {
-            "N": "some work",
-            "V": 1
-          },
-          {
-            "N": "sage",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F11": {
         "V": 6,
         "VC": 6,
         "P": "F",
-        "K": [
-          {
-            "N": "planet",
-            "V": 1
-          },
-          {
-            "N": "grad-cam",
-            "V": 1
-          },
-          {
-            "N": "change",
-            "V": 3
-          },
-          {
-            "N": "layer",
-            "V": 2
-          },
-          {
-            "N": "point",
-            "V": 1
-          },
-          {
-            "N": "neural network",
-            "V": 3
-          },
-          {
-            "N": "conventional deep learning approach",
-            "V": 1
-          },
-          {
-            "N": "mechanistic understanding",
-            "V": 1
-          },
-          {
-            "N": "ddpm",
-            "V": 1
-          },
-          {
-            "N": "training throughput",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F12": {
         "V": 2,
         "VC": 2,
         "P": "F",
-        "K": [
-          {
-            "N": "corpora",
-            "V": 1
-          },
-          {
-            "N": "environmental condition",
-            "V": 1
-          },
-          {
-            "N": "a low-cost alternative",
-            "V": 1
-          },
-          {
-            "N": "a comprehensive framework",
-            "V": 1
-          },
-          {
-            "N": "this document",
-            "V": 1
-          },
-          {
-            "N": "the creation",
-            "V": 1
-          },
-          {
-            "N": "definition",
-            "V": 1
-          },
-          {
-            "N": "sharing",
-            "V": 1
-          },
-          {
-            "N": "each step",
-            "V": 1
-          },
-          {
-            "N": "drone",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F13": {
         "V": 10,
@@ -3734,38 +800,6 @@
           {
             "N": "red",
             "V": 8
-          },
-          {
-            "N": "gem",
-            "V": 3
-          },
-          {
-            "N": "i-gem",
-            "V": 1
-          },
-          {
-            "N": "the total number",
-            "V": 1
-          },
-          {
-            "N": " pt",
-            "V": 1
-          },
-          {
-            "N": "forecasting model",
-            "V": 1
-          },
-          {
-            "N": "pass",
-            "V": 2
-          },
-          {
-            "N": "vae",
-            "V": 1
-          },
-          {
-            "N": "election",
-            "V": 2
           }
         ]
       },
@@ -3773,95 +807,13 @@
         "V": 46,
         "VC": 46,
         "P": "F",
-        "K": [
-          {
-            "N": "dllms",
-            "V": 1
-          },
-          {
-            "N": "rumor",
-            "V": 1
-          },
-          {
-            "N": "apex",
-            "V": 1
-          },
-          {
-            "N": "novelty",
-            "V": 3
-          },
-          {
-            "N": "spring",
-            "V": 1
-          },
-          {
-            "N": "appropriateness",
-            "V": 1
-          },
-          {
-            "N": "dat",
-            "V": 28
-          },
-          {
-            "N": "u \u03c1",
-            "V": 0
-          },
-          {
-            "N": "recoverability",
-            "V": 1
-          },
-          {
-            "N": "creativity",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "G01": {
         "V": 7,
         "VC": 7,
         "P": "G",
-        "K": [
-          {
-            "N": "shopsimulator",
-            "V": 1
-          },
-          {
-            "N": "res-mia",
-            "V": 1
-          },
-          {
-            "N": "gfm",
-            "V": 1
-          },
-          {
-            "N": "unseen kg",
-            "V": 1
-          },
-          {
-            "N": "feasibility",
-            "V": 1
-          },
-          {
-            "N": "resolution erosion",
-            "V": 1
-          },
-          {
-            "N": "control downsampling and restoration operation",
-            "V": 0
-          },
-          {
-            "N": "context-aware access-control policy",
-            "V": 0
-          },
-          {
-            "N": "tool call",
-            "V": 1
-          },
-          {
-            "N": "conformal prediction",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "G02": {
         "V": 1,
@@ -3873,189 +825,25 @@
         "V": 7,
         "VC": 7,
         "P": "G",
-        "K": [
-          {
-            "N": "the provider",
-            "V": 1
-          },
-          {
-            "N": "sde",
-            "V": 1
-          },
-          {
-            "N": "backdoor",
-            "V": 1
-          },
-          {
-            "N": "purpose",
-            "V": 1
-          },
-          {
-            "N": "gaia",
-            "V": 1
-          },
-          {
-            "N": "medicine",
-            "V": 1
-          },
-          {
-            "N": "defense",
-            "V": 1
-          },
-          {
-            "N": "execution",
-            "V": 1
-          },
-          {
-            "N": "textit",
-            "V": 1
-          },
-          {
-            "N": "stage",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "G04": {
         "V": 13,
         "VC": 13,
         "P": "G",
-        "K": [
-          {
-            "N": "cloudmatch",
-            "V": 1
-          },
-          {
-            "N": "distractor",
-            "V": 1
-          },
-          {
-            "N": "user intent",
-            "V": 1
-          },
-          {
-            "N": " relative improvement",
-            "V": 1
-          },
-          {
-            "N": "compositional generalization",
-            "V": 1
-          },
-          {
-            "N": "livecodebench",
-            "V": 1
-          },
-          {
-            "N": "bm\u03bc",
-            "V": 1
-          },
-          {
-            "N": "isac",
-            "V": 1
-          },
-          {
-            "N": "cloud pattern",
-            "V": 1
-          },
-          {
-            "N": "gs scholarship",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "G05": {
         "V": 4,
         "VC": 4,
         "P": "G",
-        "K": [
-          {
-            "N": "teleportation",
-            "V": 1
-          },
-          {
-            "N": "noisy edge",
-            "V": 1
-          },
-          {
-            "N": "edge weight",
-            "V": 1
-          },
-          {
-            "N": "the graph scale",
-            "V": 1
-          },
-          {
-            "N": "detection",
-            "V": 1
-          },
-          {
-            "N": "these edge weight",
-            "V": 1
-          },
-          {
-            "N": "while preserving node",
-            "V": 1
-          },
-          {
-            "N": "an edge-weight-aware attention network",
-            "V": 1
-          },
-          {
-            "N": "the receiver operate characteristic curve",
-            "V": 0
-          },
-          {
-            "N": "a contractile edge-weight-aware graph cluster network",
-            "V": 0
-          }
-        ]
+        "K": []
       },
       "G06": {
         "V": 24,
         "VC": 24,
         "P": "G",
-        "K": [
-          {
-            "N": "counterfactual explanation",
-            "V": 1
-          },
-          {
-            "N": "vlp",
-            "V": 1
-          },
-          {
-            "N": "permeability",
-            "V": 1
-          },
-          {
-            "N": "qlstma",
-            "V": 1
-          },
-          {
-            "N": "map function",
-            "V": 1
-          },
-          {
-            "N": "the most optimize number",
-            "V": 0
-          },
-          {
-            "N": "clique",
-            "V": 1
-          },
-          {
-            "N": "helpfulness",
-            "V": 1
-          },
-          {
-            "N": "qubit",
-            "V": 1
-          },
-          {
-            "N": "benchmarking",
-            "V": 3
-          }
-        ]
+        "K": []
       },
       "G07": {
         "V": 7,
@@ -4065,38 +853,6 @@
           {
             "N": "trace",
             "V": 2
-          },
-          {
-            "N": "the most optimize number",
-            "V": 0
-          },
-          {
-            "N": "map function",
-            "V": 1
-          },
-          {
-            "N": "node",
-            "V": 2
-          },
-          {
-            "N": "a service",
-            "V": 1
-          },
-          {
-            "N": "sensitive information",
-            "V": 1
-          },
-          {
-            "N": "both execution time",
-            "V": 1
-          },
-          {
-            "N": "the word frequency",
-            "V": 1
-          },
-          {
-            "N": "the high concurrency",
-            "V": 1
           }
         ]
       },
@@ -4104,91 +860,13 @@
         "V": 11,
         "VC": 11,
         "P": "G",
-        "K": [
-          {
-            "N": "longbench pro",
-            "V": 1
-          },
-          {
-            "N": "dtml",
-            "V": 1
-          },
-          {
-            "N": "lpe",
-            "V": 1
-          },
-          {
-            "N": "twin",
-            "V": 1
-          },
-          {
-            "N": "dtkd",
-            "V": 1
-          },
-          {
-            "N": "gs scholarship",
-            "V": 1
-          },
-          {
-            "N": "fpf",
-            "V": 1
-          },
-          {
-            "N": "cwa",
-            "V": 1
-          },
-          {
-            "N": "digital",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "G09": {
         "V": 2,
         "VC": 2,
         "P": "G",
-        "K": [
-          {
-            "N": "low validation loss",
-            "V": 0
-          },
-          {
-            "N": "the transformer architecture",
-            "V": 1
-          },
-          {
-            "N": "spatial understanding",
-            "V": 1
-          },
-          {
-            "N": "high variability",
-            "V": 1
-          },
-          {
-            "N": "a robust solution",
-            "V": 1
-          },
-          {
-            "N": "improved",
-            "V": 1
-          },
-          {
-            "N": "strong robustness",
-            "V": 1
-          },
-          {
-            "N": "attention head",
-            "V": 1
-          },
-          {
-            "N": "two key component",
-            "V": 1
-          },
-          {
-            "N": "the input",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "G10": {
         "V": 75,
@@ -4196,44 +874,12 @@
         "P": "G",
         "K": [
           {
-            "N": "caveagent",
-            "V": 1
+            "N": "jailbreak",
+            "V": 3
           },
           {
             "N": "eca",
             "V": 9
-          },
-          {
-            "N": "cloudmatch",
-            "V": 1
-          },
-          {
-            "N": "central image",
-            "V": 1
-          },
-          {
-            "N": "res-mia",
-            "V": 1
-          },
-          {
-            "N": "gfm",
-            "V": 1
-          },
-          {
-            "N": "shopsimulator",
-            "V": 1
-          },
-          {
-            "N": "feta-pro",
-            "V": 1
-          },
-          {
-            "N": "etracer",
-            "V": 1
-          },
-          {
-            "N": "abundance",
-            "V": 1
           }
         ]
       },
@@ -4247,44 +893,7 @@
         "V": 2,
         "VC": 2,
         "P": "G",
-        "K": [
-          {
-            "N": "latent-imh",
-            "V": 1
-          },
-          {
-            "N": "tilde",
-            "V": 1
-          },
-          {
-            "N": "mllm",
-            "V": 1
-          },
-          {
-            "N": "the metropolis-hastings independence ",
-            "V": 1
-          },
-          {
-            "N": "bayesian linear inverse problem",
-            "V": 1
-          },
-          {
-            "N": "exist scheme",
-            "V": 0
-          },
-          {
-            "N": "an offline phase",
-            "V": 1
-          },
-          {
-            "N": "-u-turn",
-            "V": 1
-          },
-          {
-            "N": "posterior distribution",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "G13": {
         "V": 0,
@@ -4296,48 +905,7 @@
         "V": 5,
         "VC": 5,
         "P": "H",
-        "K": [
-          {
-            "N": "randomness",
-            "V": 1
-          },
-          {
-            "N": "mathrm",
-            "V": 1
-          },
-          {
-            "N": "the devil",
-            "V": 1
-          },
-          {
-            "N": "the team",
-            "V": 1
-          },
-          {
-            "N": "dicey games",
-            "V": 1
-          },
-          {
-            "N": "a team",
-            "V": 1
-          },
-          {
-            "N": "probability",
-            "V": 1
-          },
-          {
-            "N": "retrieve evidence",
-            "V": 0
-          },
-          {
-            "N": "optimizer",
-            "V": 2
-          },
-          {
-            "N": "emph",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "H02": {
         "V": 120,
@@ -4345,44 +913,8 @@
         "P": "H",
         "K": [
           {
-            "N": "textsf",
-            "V": 1
-          },
-          {
-            "N": "hint",
+            "N": "cyberattack",
             "V": 2
-          },
-          {
-            "N": "cir",
-            "V": 7
-          },
-          {
-            "N": "verpo",
-            "V": 1
-          },
-          {
-            "N": "keeplora",
-            "V": 1
-          },
-          {
-            "N": "apex",
-            "V": 1
-          },
-          {
-            "N": "site",
-            "V": 3
-          },
-          {
-            "N": "farm",
-            "V": 2
-          },
-          {
-            "N": "ai assistance",
-            "V": 1
-          },
-          {
-            "N": "cryptographic quantum supremacy",
-            "V": 1
           }
         ]
       },
@@ -4390,87 +922,13 @@
         "V": 44,
         "VC": 44,
         "P": "H",
-        "K": [
-          {
-            "N": "pidr",
-            "V": 1
-          },
-          {
-            "N": "keeplora",
-            "V": 1
-          },
-          {
-            "N": "compass",
-            "V": 1
-          },
-          {
-            "N": "pacevolve",
-            "V": 1
-          },
-          {
-            "N": "logical constraint",
-            "V": 1
-          },
-          {
-            "N": "cryptographic quantum supremacy",
-            "V": 1
-          },
-          {
-            "N": "difference",
-            "V": 2
-          },
-          {
-            "N": "the residual subspace",
-            "V": 1
-          },
-          {
-            "N": "context pollution",
-            "V": 1
-          },
-          {
-            "N": "pure inertial navigation",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "H04": {
         "V": 2,
         "VC": 2,
         "P": "H",
-        "K": [
-          {
-            "N": "multimodal model",
-            "V": 1
-          },
-          {
-            "N": "qwen3-0",
-            "V": 1
-          },
-          {
-            "N": "video analysis",
-            "V": 1
-          },
-          {
-            "N": "efficient inference",
-            "V": 1
-          },
-          {
-            "N": "exist tool",
-            "V": 0
-          },
-          {
-            "N": " high throughput",
-            "V": 0
-          },
-          {
-            "N": "our implementation",
-            "V": 1
-          },
-          {
-            "N": "demand",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "H05": {
         "V": 0,
@@ -4488,189 +946,25 @@
         "V": 5,
         "VC": 5,
         "P": "H",
-        "K": [
-          {
-            "N": "register",
-            "V": 1
-          },
-          {
-            "N": "the server",
-            "V": 1
-          },
-          {
-            "N": "client",
-            "V": 1
-          },
-          {
-            "N": "vit",
-            "V": 1
-          },
-          {
-            "N": "non-iid datum",
-            "V": 0
-          },
-          {
-            "N": "a generative diffusion model",
-            "V": 1
-          },
-          {
-            "N": "recent finding",
-            "V": 1
-          },
-          {
-            "N": "continuous parameter",
-            "V": 1
-          },
-          {
-            "N": "a constant",
-            "V": 1
-          },
-          {
-            "N": "remarkable potential",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "H08": {
         "V": 1,
         "VC": 1,
         "P": "H",
-        "K": [
-          {
-            "N": "the subset",
-            "V": 1
-          },
-          {
-            "N": "the hypothesis",
-            "V": 1
-          },
-          {
-            "N": "multiple public dataset",
-            "V": 1
-          },
-          {
-            "N": "subsequent task",
-            "V": 1
-          },
-          {
-            "N": "frozen",
-            "V": 1
-          },
-          {
-            "N": "disjoint task",
-            "V": 1
-          },
-          {
-            "N": "different stage",
-            "V": 1
-          },
-          {
-            "N": "a principled approach",
-            "V": 1
-          },
-          {
-            "N": "consistent performance improvement",
-            "V": 1
-          },
-          {
-            "N": "supervised fine-tuning ",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "H09": {
         "V": 2,
         "VC": 2,
         "P": "H",
-        "K": [
-          {
-            "N": "ell",
-            "V": 1
-          },
-          {
-            "N": "mathbb",
-            "V": 1
-          },
-          {
-            "N": "maximum",
-            "V": 1
-          },
-          {
-            "N": " code",
-            "V": 1
-          },
-          {
-            "N": "observed datum",
-            "V": 0
-          },
-          {
-            "N": "saeas",
-            "V": 1
-          },
-          {
-            "N": " point",
-            "V": 1
-          },
-          {
-            "N": "a construction",
-            "V": 1
-          },
-          {
-            "N": "crystals-kyber",
-            "V": 1
-          },
-          {
-            "N": "iterative evaluation",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "H10": {
         "V": 5,
         "VC": 5,
         "P": "H",
-        "K": [
-          {
-            "N": "item",
-            "V": 1
-          },
-          {
-            "N": "rca",
-            "V": 1
-          },
-          {
-            "N": "molecule",
-            "V": 1
-          },
-          {
-            "N": "fid",
-            "V": 1
-          },
-          {
-            "N": "the source domain",
-            "V": 1
-          },
-          {
-            "N": "semantic retrieval",
-            "V": 1
-          },
-          {
-            "N": "architectural modification",
-            "V": 1
-          },
-          {
-            "N": "psychology",
-            "V": 1
-          },
-          {
-            "N": "computational linguistic",
-            "V": 1
-          },
-          {
-            "N": "precise definition",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "H11": {
         "V": 19,
@@ -4678,44 +972,8 @@
         "P": "H",
         "K": [
           {
-            "N": "the evidence",
-            "V": 1
-          },
-          {
-            "N": "glove",
-            "V": 1
-          },
-          {
-            "N": "benchtgc",
-            "V": 1
-          },
-          {
-            "N": "conscious",
-            "V": 1
-          },
-          {
-            "N": "randomness",
-            "V": 1
-          },
-          {
-            "N": "es4r",
-            "V": 1
-          },
-          {
-            "N": "temporal graph",
-            "V": 1
-          },
-          {
-            "N": "threshold collective action problem",
-            "V": 1
-          },
-          {
-            "N": "temporal graph clustering",
-            "V": 1
-          },
-          {
-            "N": "tgc task",
-            "V": 1
+            "N": "laps",
+            "V": 2
           }
         ]
       },
@@ -4723,48 +981,7 @@
         "V": 9,
         "VC": 9,
         "P": "I",
-        "K": [
-          {
-            "N": "stm",
-            "V": 1
-          },
-          {
-            "N": "svm",
-            "V": 1
-          },
-          {
-            "N": "outlier",
-            "V": 1
-          },
-          {
-            "N": "logistic regression",
-            "V": 1
-          },
-          {
-            "N": "random forest",
-            "V": 1
-          },
-          {
-            "N": "three relationship type",
-            "V": 1
-          },
-          {
-            "N": "system integrity",
-            "V": 1
-          },
-          {
-            "N": "a 10x scale increase",
-            "V": 1
-          },
-          {
-            "N": "only authorize action",
-            "V": 0
-          },
-          {
-            "N": " top-1 retrieval accuracy",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "I02": {
         "V": 35,
@@ -4772,40 +989,12 @@
         "P": "I",
         "K": [
           {
-            "N": "caveagent",
-            "V": 1
+            "N": "sal",
+            "V": 5
           },
           {
-            "N": "ssh",
-            "V": 1
-          },
-          {
-            "N": "i-gem",
-            "V": 1
-          },
-          {
-            "N": "cache",
-            "V": 1
-          },
-          {
-            "N": "diverge",
-            "V": 3
-          },
-          {
-            "N": "sparse datum",
-            "V": 0
-          },
-          {
-            "N": "volatility",
-            "V": 1
-          },
-          {
-            "N": " pt",
-            "V": 1
-          },
-          {
-            "N": "kgcm-vae",
-            "V": 1
+            "N": "mpe",
+            "V": 9
           }
         ]
       },
@@ -4813,48 +1002,7 @@
         "V": 49,
         "VC": 49,
         "P": "I",
-        "K": [
-          {
-            "N": "nas",
-            "V": 3
-          },
-          {
-            "N": "mathcal",
-            "V": 1
-          },
-          {
-            "N": "party",
-            "V": 1
-          },
-          {
-            "N": "commerce",
-            "V": 2
-          },
-          {
-            "N": "pil",
-            "V": 3
-          },
-          {
-            "N": "compositional generalization",
-            "V": 1
-          },
-          {
-            "N": "voter",
-            "V": 1
-          },
-          {
-            "N": "sqrt",
-            "V": 2
-          },
-          {
-            "N": "positive sample",
-            "V": 1
-          },
-          {
-            "N": "host",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "I04": {
         "V": 17,
@@ -4866,40 +1014,12 @@
             "V": 4
           },
           {
-            "N": "trademark",
-            "V": 1
-          },
-          {
             "N": "passenger",
             "V": 2
           },
           {
-            "N": "consumer",
-            "V": 1
-          },
-          {
-            "N": "the base policy",
-            "V": 1
-          },
-          {
-            "N": "bpe",
-            "V": 1
-          },
-          {
-            "N": "dag",
-            "V": 1
-          },
-          {
-            "N": "security vulnerability",
-            "V": 0
-          },
-          {
-            "N": "computational complexity",
-            "V": 1
-          },
-          {
-            "N": "miner",
-            "V": 1
+            "N": "vulnerable code",
+            "V": 2
           }
         ]
       },
@@ -4907,95 +1027,13 @@
         "V": 5,
         "VC": 5,
         "P": "I",
-        "K": [
-          {
-            "N": "conversational agent",
-            "V": 1
-          },
-          {
-            "N": "depth",
-            "V": 1
-          },
-          {
-            "N": "more accurate retrieval",
-            "V": 1
-          },
-          {
-            "N": "their personal problem",
-            "V": 1
-          },
-          {
-            "N": "the agent and shape user expectation",
-            "V": 1
-          },
-          {
-            "N": "how thinking transparency influence user experience",
-            "V": 0
-          },
-          {
-            "N": "the intention",
-            "V": 1
-          },
-          {
-            "N": "its practical value",
-            "V": 1
-          },
-          {
-            "N": "a 3 x 2 mixed design experiment",
-            "V": 1
-          },
-          {
-            "N": "fine-grain detail",
-            "V": 0
-          }
-        ]
+        "K": []
       },
       "I06": {
         "V": 14,
         "VC": 14,
         "P": "I",
-        "K": [
-          {
-            "N": "the undercarriage",
-            "V": 1
-          },
-          {
-            "N": "pcc",
-            "V": 1
-          },
-          {
-            "N": "genai",
-            "V": 1
-          },
-          {
-            "N": "low-parallax scene",
-            "V": 1
-          },
-          {
-            "N": "inspector",
-            "V": 1
-          },
-          {
-            "N": "wide-angle lens distortion",
-            "V": 1
-          },
-          {
-            "N": "survivor",
-            "V": 1
-          },
-          {
-            "N": "motion",
-            "V": 2
-          },
-          {
-            "N": "mdms",
-            "V": 1
-          },
-          {
-            "N": "swe",
-            "V": 3
-          }
-        ]
+        "K": []
       },
       "I07": {
         "V": 40,
@@ -5003,44 +1041,8 @@
         "P": "I",
         "K": [
           {
-            "N": "sop",
+            "N": "pal",
             "V": 2
-          },
-          {
-            "N": "pool",
-            "V": 1
-          },
-          {
-            "N": "ssh",
-            "V": 1
-          },
-          {
-            "N": "pie",
-            "V": 2
-          },
-          {
-            "N": "alrm",
-            "V": 1
-          },
-          {
-            "N": "textsc",
-            "V": 1
-          },
-          {
-            "N": "linearity",
-            "V": 1
-          },
-          {
-            "N": "mmd",
-            "V": 1
-          },
-          {
-            "N": "zsre",
-            "V": 1
-          },
-          {
-            "N": "kgcm-vae",
-            "V": 1
           }
         ]
       },
@@ -5048,138 +1050,19 @@
         "V": 4,
         "VC": 4,
         "P": "I",
-        "K": [
-          {
-            "N": "intelli-planner",
-            "V": 1
-          },
-          {
-            "N": "india",
-            "V": 1
-          },
-          {
-            "N": "each parameter",
-            "V": 1
-          },
-          {
-            "N": "global discourse",
-            "V": 1
-          },
-          {
-            "N": "arithmetic",
-            "V": 1
-          },
-          {
-            "N": "retention",
-            "V": 1
-          },
-          {
-            "N": "drl",
-            "V": 1
-          },
-          {
-            "N": "copyright",
-            "V": 1
-          },
-          {
-            "N": "story",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "I09": {
         "V": 37,
         "VC": 37,
         "P": "I",
-        "K": [
-          {
-            "N": "hcai",
-            "V": 1
-          },
-          {
-            "N": "couple therapy",
-            "V": 0
-          },
-          {
-            "N": "haii",
-            "V": 1
-          },
-          {
-            "N": "game",
-            "V": 1
-          },
-          {
-            "N": "dlm",
-            "V": 1
-          },
-          {
-            "N": "alicot",
-            "V": 1
-          },
-          {
-            "N": "invariance learning",
-            "V": 1
-          },
-          {
-            "N": "the ifan ecosystem",
-            "V": 1
-          },
-          {
-            "N": "autonomy",
-            "V": 1
-          },
-          {
-            "N": "bpm",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "I10": {
         "V": 17,
         "VC": 17,
         "P": "I",
-        "K": [
-          {
-            "N": "proteus",
-            "V": 1
-          },
-          {
-            "N": "intelli-planner",
-            "V": 1
-          },
-          {
-            "N": "tau",
-            "V": 1
-          },
-          {
-            "N": "scalpel",
-            "V": 1
-          },
-          {
-            "N": "ssms",
-            "V": 1
-          },
-          {
-            "N": "lung cancer",
-            "V": 1
-          },
-          {
-            "N": "routerbench",
-            "V": 1
-          },
-          {
-            "N": "accuracy target",
-            "V": 1
-          },
-          {
-            "N": "step-wise credit assignment",
-            "V": 1
-          },
-          {
-            "N": "sprout",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "I11": {
         "V": 0,
@@ -5197,40 +1080,8 @@
             "V": 3
           },
           {
-            "N": "mvp",
-            "V": 1
-          },
-          {
-            "N": "csi",
-            "V": 1
-          },
-          {
-            "N": "vocabulary",
-            "V": 2
-          },
-          {
-            "N": "lvlm",
-            "V": 1
-          },
-          {
-            "N": "3dgs",
-            "V": 1
-          },
-          {
-            "N": "underline",
-            "V": 1
-          },
-          {
-            "N": "manuscript",
-            "V": 1
-          },
-          {
-            "N": "web page",
-            "V": 1
-          },
-          {
-            "N": "softmax attention",
-            "V": 1
+            "N": "spec",
+            "V": 17
           }
         ]
       },
@@ -5238,48 +1089,7 @@
         "V": 4,
         "VC": 4,
         "P": "I",
-        "K": [
-          {
-            "N": "mas",
-            "V": 1
-          },
-          {
-            "N": "label",
-            "V": 1
-          },
-          {
-            "N": "a diverse suite",
-            "V": 1
-          },
-          {
-            "N": "whisper",
-            "V": 1
-          },
-          {
-            "N": "a multi-task learning problem",
-            "V": 1
-          },
-          {
-            "N": "the utilization",
-            "V": 1
-          },
-          {
-            "N": "the audio spectrogram transformer",
-            "V": 1
-          },
-          {
-            "N": " and ",
-            "V": 4
-          },
-          {
-            "N": "representational flexibility",
-            "V": 1
-          },
-          {
-            "N": "the original datum",
-            "V": 0
-          }
-        ]
+        "K": []
       }
     },
     "links": [
@@ -7117,40 +2927,12 @@
             "V": 2
           },
           {
-            "N": "suppression",
-            "V": 1
-          },
-          {
-            "N": "the learner",
-            "V": 1
-          },
-          {
-            "N": "the forget",
-            "V": 1
-          },
-          {
-            "N": "tabular datum",
-            "V": 0
-          },
-          {
             "N": "intermediate representation",
             "V": 2
           },
           {
-            "N": "ssl",
-            "V": 1
-          },
-          {
-            "N": "the original model",
-            "V": 1
-          },
-          {
             "N": "use",
             "V": 3
-          },
-          {
-            "N": "unlabeled datum",
-            "V": 0
           }
         ]
       },
@@ -7160,12 +2942,28 @@
         "P": "A",
         "K": [
           {
+            "N": "marl",
+            "V": 22
+          },
+          {
             "N": "rlvr",
             "V": 39
           },
           {
+            "N": "offline reinforcement learning",
+            "V": 17
+          },
+          {
             "N": "verifiable rewards",
             "V": 47
+          },
+          {
+            "N": "multi-agent reinforcement learning",
+            "V": 28
+          },
+          {
+            "N": "episode",
+            "V": 12
           },
           {
             "N": "grpo",
@@ -7182,14 +2980,6 @@
           {
             "N": "sparse reward",
             "V": 18
-          },
-          {
-            "N": "the reward",
-            "V": 26
-          },
-          {
-            "N": "pass",
-            "V": 40
           }
         ]
       },
@@ -7199,40 +2989,12 @@
         "P": "A",
         "K": [
           {
-            "N": "tagllm",
-            "V": 1
-          },
-          {
-            "N": "mllm-generate and human annotation",
-            "V": 0
-          },
-          {
             "N": "ssl",
             "V": 2
           },
           {
-            "N": "image tagging",
-            "V": 1
-          },
-          {
             "N": "semi-supervised learning",
             "V": 3
-          },
-          {
-            "N": "unlabeled datum",
-            "V": 0
-          },
-          {
-            "N": "use",
-            "V": 1
-          },
-          {
-            "N": "structured",
-            "V": 2
-          },
-          {
-            "N": "the gap",
-            "V": 1
           }
         ]
       },
@@ -7244,42 +3006,6 @@
           {
             "N": "ssl",
             "V": 2
-          },
-          {
-            "N": "video",
-            "V": 1
-          },
-          {
-            "N": "the result method",
-            "V": 0
-          },
-          {
-            "N": "the mutual information",
-            "V": 1
-          },
-          {
-            "N": "company",
-            "V": 0
-          },
-          {
-            "N": "continuous feature",
-            "V": 1
-          },
-          {
-            "N": "this uncertainty",
-            "V": 1
-          },
-          {
-            "N": "limited control",
-            "V": 1
-          },
-          {
-            "N": "an object",
-            "V": 1
-          },
-          {
-            "N": "causal representation learning",
-            "V": 1
           }
         ]
       },
@@ -7297,28 +3023,12 @@
             "V": 17
           },
           {
-            "N": "raw datum",
-            "V": 0
+            "N": "non-iid",
+            "V": 5
           },
           {
-            "N": "communication cost",
-            "V": 3
-          },
-          {
-            "N": "datum heterogeneity",
-            "V": 0
-          },
-          {
-            "N": "the web",
-            "V": 1
-          },
-          {
-            "N": "the client",
-            "V": 3
-          },
-          {
-            "N": "linear speedup",
-            "V": 1
+            "N": "fedps",
+            "V": 2
           }
         ]
       },
@@ -7326,48 +3036,7 @@
         "V": 1,
         "VC": 2,
         "P": "A",
-        "K": [
-          {
-            "N": "familiar",
-            "V": 1
-          },
-          {
-            "N": "exchange",
-            "V": 1
-          },
-          {
-            "N": "episodic memory",
-            "V": 1
-          },
-          {
-            "N": "consolidation",
-            "V": 1
-          },
-          {
-            "N": "destructive interference",
-            "V": 1
-          },
-          {
-            "N": "cls",
-            "V": 1
-          },
-          {
-            "N": "a pathway",
-            "V": 1
-          },
-          {
-            "N": "generalization",
-            "V": 1
-          },
-          {
-            "N": "rapid",
-            "V": 1
-          },
-          {
-            "N": "replay",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "A08": {
         "V": 10,
@@ -7381,34 +3050,6 @@
           {
             "N": "annotation cost",
             "V": 5
-          },
-          {
-            "N": "mllm-generate and human annotation",
-            "V": 0
-          },
-          {
-            "N": "tagllm",
-            "V": 1
-          },
-          {
-            "N": "previous episode",
-            "V": 1
-          },
-          {
-            "N": "active learning algorithm",
-            "V": 3
-          },
-          {
-            "N": "the most informative sample",
-            "V": 2
-          },
-          {
-            "N": "aleatoric and epistemic uncertainty",
-            "V": 1
-          },
-          {
-            "N": "each episode",
-            "V": 1
           }
         ]
       },
@@ -7418,44 +3059,8 @@
         "P": "A",
         "K": [
           {
-            "N": "each episode",
-            "V": 1
-          },
-          {
-            "N": "previous episode",
-            "V": 1
-          },
-          {
             "N": "continual learning",
             "V": 2
-          },
-          {
-            "N": "the datum",
-            "V": 0
-          },
-          {
-            "N": "catastrophic forgetting",
-            "V": 1
-          },
-          {
-            "N": "subsequent episode",
-            "V": 1
-          },
-          {
-            "N": "the continuously change class distribution",
-            "V": 0
-          },
-          {
-            "N": "acil",
-            "V": 1
-          },
-          {
-            "N": "the human annotation effort",
-            "V": 1
-          },
-          {
-            "N": "every episode",
-            "V": 1
           }
         ]
       },
@@ -7481,28 +3086,12 @@
             "V": 18
           },
           {
-            "N": "catastrophic forgetting",
-            "V": 12
+            "N": "continual learning system",
+            "V": 3
           },
           {
-            "N": "replay",
-            "V": 9
-          },
-          {
-            "N": "loda",
-            "V": 1
-          },
-          {
-            "N": "crl-vla",
-            "V": 1
-          },
-          {
-            "N": "new knowledge",
-            "V": 2
-          },
-          {
-            "N": "orthogonality",
-            "V": 1
+            "N": "ness",
+            "V": 7
           }
         ]
       },
@@ -7518,38 +3107,6 @@
           {
             "N": "mtl",
             "V": 2
-          },
-          {
-            "N": "a group",
-            "V": 1
-          },
-          {
-            "N": "negative transfer",
-            "V": 1
-          },
-          {
-            "N": "share parameter",
-            "V": 0
-          },
-          {
-            "N": "predictor",
-            "V": 1
-          },
-          {
-            "N": "residual error",
-            "V": 1
-          },
-          {
-            "N": "conventional method",
-            "V": 1
-          },
-          {
-            "N": "a fundamental problem",
-            "V": 1
-          },
-          {
-            "N": "the similarity",
-            "V": 1
           }
         ]
       },
@@ -7561,6 +3118,10 @@
           {
             "N": "imitation learning",
             "V": 15
+          },
+          {
+            "N": "mimic",
+            "V": 2
           },
           {
             "N": "robot",
@@ -7575,20 +3136,8 @@
             "V": 2
           },
           {
-            "N": "fabco",
-            "V": 1
-          },
-          {
             "N": "behavior cloning",
             "V": 4
-          },
-          {
-            "N": "policy learning",
-            "V": 5
-          },
-          {
-            "N": "grail",
-            "V": 1
           }
         ]
       },
@@ -7598,44 +3147,12 @@
         "P": "A",
         "K": [
           {
-            "N": "mepo",
-            "V": 1
-          },
-          {
-            "N": "meta-sel",
-            "V": 1
-          },
-          {
-            "N": "loda",
-            "V": 1
-          },
-          {
-            "N": "demonstration selection",
-            "V": 1
-          },
-          {
             "N": "meta-learning",
             "V": 5
           },
           {
-            "N": "gcl",
-            "V": 1
-          },
-          {
             "N": "lora",
             "V": 3
-          },
-          {
-            "N": "negative transfer",
-            "V": 1
-          },
-          {
-            "N": "rapid adaptation",
-            "V": 2
-          },
-          {
-            "N": "low-rank adaptation",
-            "V": 2
           }
         ]
       },
@@ -7643,40 +3160,7 @@
         "V": 4,
         "VC": 7,
         "P": "A",
-        "K": [
-          {
-            "N": "robot",
-            "V": 1
-          },
-          {
-            "N": "foundation model",
-            "V": 1
-          },
-          {
-            "N": "robotic",
-            "V": 1
-          },
-          {
-            "N": "transfer learning",
-            "V": 1
-          },
-          {
-            "N": "different level",
-            "V": 1
-          },
-          {
-            "N": "an overview",
-            "V": 1
-          },
-          {
-            "N": "abstraction",
-            "V": 1
-          },
-          {
-            "N": "this article",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "A15": {
         "V": 19,
@@ -7684,44 +3168,28 @@
         "P": "A",
         "K": [
           {
+            "N": "sfda",
+            "V": 2
+          },
+          {
             "N": "the target domain",
             "V": 6
+          },
+          {
+            "N": "the source model",
+            "V": 2
           },
           {
             "N": "tta",
             "V": 2
           },
           {
-            "N": "steer2adapt",
-            "V": 1
-          },
-          {
             "N": "test-time adaptation",
             "V": 3
           },
           {
-            "N": "the target model",
-            "V": 1
-          },
-          {
-            "N": "gda",
-            "V": 2
-          },
-          {
             "N": "tempora",
             "V": 2
-          },
-          {
-            "N": "temporal pressure",
-            "V": 1
-          },
-          {
-            "N": "colora",
-            "V": 1
-          },
-          {
-            "N": "domain shift",
-            "V": 3
           }
         ]
       },
@@ -7731,6 +3199,10 @@
         "P": "B",
         "K": [
           {
+            "N": "ssa",
+            "V": 5
+          },
+          {
             "N": "vits",
             "V": 6
           },
@@ -7739,28 +3211,16 @@
             "V": 13
           },
           {
+            "N": "pape",
+            "V": 5
+          },
+          {
             "N": "softmax attention",
             "V": 5
           },
           {
             "N": "self-attention",
             "V": 14
-          },
-          {
-            "N": "ovq-attention",
-            "V": 1
-          },
-          {
-            "N": "linear attention",
-            "V": 7
-          },
-          {
-            "N": "vision transformers",
-            "V": 7
-          },
-          {
-            "N": "the attention mechanism",
-            "V": 4
           }
         ]
       },
@@ -7776,38 +3236,6 @@
           {
             "N": "convolutional network",
             "V": 2
-          },
-          {
-            "N": "this project",
-            "V": 1
-          },
-          {
-            "N": "depth",
-            "V": 1
-          },
-          {
-            "N": "perspective",
-            "V": 1
-          },
-          {
-            "N": "conventional cnn",
-            "V": 1
-          },
-          {
-            "N": "s role",
-            "V": 1
-          },
-          {
-            "N": "feedforward network",
-            "V": 1
-          },
-          {
-            "N": "deep network",
-            "V": 1
-          },
-          {
-            "N": "a comparative study",
-            "V": 1
           }
         ]
       },
@@ -7817,6 +3245,10 @@
         "P": "B",
         "K": [
           {
+            "N": "lrnn",
+            "V": 2
+          },
+          {
             "N": "rnns",
             "V": 8
           },
@@ -7825,28 +3257,12 @@
             "V": 6
           },
           {
-            "N": "transformers",
-            "V": 5
+            "N": "recurrent model",
+            "V": 4
           },
           {
-            "N": "block size",
-            "V": 1
-          },
-          {
-            "N": " complexity",
+            "N": "bptt",
             "V": 2
-          },
-          {
-            "N": "channel",
-            "V": 1
-          },
-          {
-            "N": "expressivity",
-            "V": 1
-          },
-          {
-            "N": "such datum",
-            "V": 0
           }
         ]
       },
@@ -7855,6 +3271,10 @@
         "VC": 126,
         "P": "B",
         "K": [
+          {
+            "N": "mpnn",
+            "V": 5
+          },
           {
             "N": "gnn",
             "V": 37
@@ -7872,20 +3292,16 @@
             "V": 19
           },
           {
+            "N": "large graph",
+            "V": 3
+          },
+          {
+            "N": "hgnn",
+            "V": 2
+          },
+          {
             "N": "graph learning",
             "V": 12
-          },
-          {
-            "N": "node feature",
-            "V": 9
-          },
-          {
-            "N": "the graph",
-            "V": 11
-          },
-          {
-            "N": "link prediction",
-            "V": 5
           }
         ]
       },
@@ -7895,44 +3311,20 @@
         "P": "B",
         "K": [
           {
-            "N": "sere",
-            "V": 1
-          },
-          {
             "N": "moe",
             "V": 22
           },
           {
-            "N": "moe model",
+            "N": "expert specialization",
             "V": 6
           },
           {
-            "N": "expert",
-            "V": 26
+            "N": "conditional computation",
+            "V": 5
           },
           {
-            "N": "mixture",
-            "V": 25
-          },
-          {
-            "N": "the router",
-            "V": 2
-          },
-          {
-            "N": "the strength",
-            "V": 2
-          },
-          {
-            "N": "collaboration",
-            "V": 2
-          },
-          {
-            "N": "each expert",
-            "V": 3
-          },
-          {
-            "N": "experts",
-            "V": 25
+            "N": "moe model",
+            "V": 6
           }
         ]
       },
@@ -7946,35 +3338,19 @@
             "V": 39
           },
           {
-            "N": "fade",
-            "V": 1
-          },
-          {
             "N": "discrete diffusion",
             "V": 7
           },
           {
-            "N": "autoregressive model",
-            "V": 5
-          },
-          {
-            "N": "generative modeling",
-            "V": 8
-          },
-          {
-            "N": "the data distribution",
+            "N": "dits",
             "V": 4
           },
           {
-            "N": "mdms",
+            "N": "the denoiser",
             "V": 3
           },
           {
-            "N": "the diffusion model",
-            "V": 4
-          },
-          {
-            "N": "the target distribution",
+            "N": "diffusion transformers",
             "V": 4
           }
         ]
@@ -7993,36 +3369,8 @@
             "V": 2
           },
           {
-            "N": "mae",
-            "V": 1
-          },
-          {
-            "N": "autoencoder",
-            "V": 11
-          },
-          {
-            "N": "representation learning",
+            "N": "their activation",
             "V": 2
-          },
-          {
-            "N": "latent representation",
-            "V": 3
-          },
-          {
-            "N": "the latent space",
-            "V": 2
-          },
-          {
-            "N": "generative model",
-            "V": 4
-          },
-          {
-            "N": "vector",
-            "V": 5
-          },
-          {
-            "N": "degradation",
-            "V": 1
           }
         ]
       },
@@ -8030,48 +3378,7 @@
         "V": 6,
         "VC": 12,
         "P": "B",
-        "K": [
-          {
-            "N": "world model",
-            "V": 2
-          },
-          {
-            "N": "sound",
-            "V": 1
-          },
-          {
-            "N": "able",
-            "V": 2
-          },
-          {
-            "N": "rule",
-            "V": 2
-          },
-          {
-            "N": "transformer",
-            "V": 2
-          },
-          {
-            "N": "the soundness",
-            "V": 1
-          },
-          {
-            "N": "othello",
-            "V": 1
-          },
-          {
-            "N": "tokenization",
-            "V": 1
-          },
-          {
-            "N": "convolutional neural network",
-            "V": 1
-          },
-          {
-            "N": "a crucial question",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "B09": {
         "V": 12,
@@ -8081,38 +3388,6 @@
           {
             "N": "decision tree",
             "V": 6
-          },
-          {
-            "N": "tree-boosting",
-            "V": 1
-          },
-          {
-            "N": "the floor",
-            "V": 1
-          },
-          {
-            "N": "circuit",
-            "V": 1
-          },
-          {
-            "N": "a decision",
-            "V": 1
-          },
-          {
-            "N": "the gradient",
-            "V": 1
-          },
-          {
-            "N": "tabular datum",
-            "V": 0
-          },
-          {
-            "N": "tractable",
-            "V": 2
-          },
-          {
-            "N": "our contribution",
-            "V": 2
           }
         ]
       },
@@ -8120,48 +3395,7 @@
         "V": 2,
         "VC": 4,
         "P": "B",
-        "K": [
-          {
-            "N": "such model",
-            "V": 1
-          },
-          {
-            "N": "their dependency",
-            "V": 0
-          },
-          {
-            "N": "random variable",
-            "V": 1
-          },
-          {
-            "N": "most exist work",
-            "V": 0
-          },
-          {
-            "N": "latent variable",
-            "V": 1
-          },
-          {
-            "N": "the applicability",
-            "V": 1
-          },
-          {
-            "N": "mean",
-            "V": 1
-          },
-          {
-            "N": "the result model",
-            "V": 0
-          },
-          {
-            "N": "the rest",
-            "V": 1
-          },
-          {
-            "N": "each group",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "B11": {
         "V": 16,
@@ -8169,8 +3403,8 @@
         "P": "B",
         "K": [
           {
-            "N": "ode",
-            "V": 15
+            "N": "neural ode",
+            "V": 7
           },
           {
             "N": "pde",
@@ -8179,34 +3413,6 @@
           {
             "N": "node",
             "V": 3
-          },
-          {
-            "N": "dynamical system",
-            "V": 8
-          },
-          {
-            "N": "the pde model",
-            "V": 1
-          },
-          {
-            "N": "rational function",
-            "V": 1
-          },
-          {
-            "N": "neural operator",
-            "V": 2
-          },
-          {
-            "N": "physical law",
-            "V": 1
-          },
-          {
-            "N": "partial differential equation",
-            "V": 3
-          },
-          {
-            "N": "associative memory",
-            "V": 1
           }
         ]
       },
@@ -8228,32 +3434,12 @@
             "V": 10
           },
           {
-            "N": "physical law",
-            "V": 4
-          },
-          {
             "N": "neural operator",
             "V": 4
           },
           {
-            "N": "engineering",
-            "V": 3
-          },
-          {
-            "N": "residual",
-            "V": 10
-          },
-          {
-            "N": "physical constraint",
-            "V": 3
-          },
-          {
-            "N": "the loss landscape",
-            "V": 2
-          },
-          {
-            "N": "the solution",
-            "V": 2
+            "N": "physical law",
+            "V": 4
           }
         ]
       },
@@ -8267,8 +3453,16 @@
             "V": 6
           },
           {
-            "N": "seis",
-            "V": 1
+            "N": "gdl",
+            "V": 2
+          },
+          {
+            "N": "spd",
+            "V": 2
+          },
+          {
+            "N": "geometric deep learning",
+            "V": 4
           },
           {
             "N": "geometric transformation",
@@ -8279,27 +3473,7 @@
             "V": 2
           },
           {
-            "N": "eeg",
-            "V": 1
-          },
-          {
-            "N": "invariance",
-            "V": 3
-          },
-          {
-            "N": "vits",
-            "V": 1
-          },
-          {
-            "N": "deep learning",
-            "V": 7
-          },
-          {
-            "N": "encoding",
-            "V": 3
-          },
-          {
-            "N": "computer vision",
+            "N": "strict equivariance",
             "V": 2
           }
         ]
@@ -8318,32 +3492,20 @@
             "V": 12
           },
           {
-            "N": "spike neuron",
-            "V": 0
-          },
-          {
             "N": "neural networks",
             "V": 19
           },
           {
-            "N": "anns",
+            "N": "surrogate gradient",
             "V": 3
           },
           {
-            "N": "chip",
-            "V": 1
+            "N": "bnn",
+            "V": 2
           },
           {
-            "N": "artificial neural network",
-            "V": 4
-          },
-          {
-            "N": "spiking neural networks",
-            "V": 16
-          },
-          {
-            "N": "parallel training",
-            "V": 1
+            "N": "anns",
+            "V": 3
           }
         ]
       },
@@ -8355,42 +3517,6 @@
           {
             "N": "symbolic reasoning",
             "V": 5
-          },
-          {
-            "N": "logitext",
-            "V": 1
-          },
-          {
-            "N": "mmd",
-            "V": 1
-          },
-          {
-            "N": "sub-symbolic environment",
-            "V": 1
-          },
-          {
-            "N": "raw observation",
-            "V": 1
-          },
-          {
-            "N": "a neuro-symbolic framework",
-            "V": 2
-          },
-          {
-            "N": "neural activity",
-            "V": 1
-          },
-          {
-            "N": "adoption",
-            "V": 1
-          },
-          {
-            "N": "trajectory",
-            "V": 0
-          },
-          {
-            "N": "concept",
-            "V": 2
           }
         ]
       },
@@ -8400,8 +3526,12 @@
         "P": "B",
         "K": [
           {
-            "N": "ssms",
-            "V": 6
+            "N": "modern ssms",
+            "V": 3
+          },
+          {
+            "N": "the hippo framework",
+            "V": 2
           },
           {
             "N": "state-space model",
@@ -8410,30 +3540,6 @@
           {
             "N": "mamba",
             "V": 4
-          },
-          {
-            "N": "sequence model",
-            "V": 7
-          },
-          {
-            "N": "linear",
-            "V": 4
-          },
-          {
-            "N": "transformer",
-            "V": 6
-          },
-          {
-            "N": "history",
-            "V": 2
-          },
-          {
-            "N": "transformers",
-            "V": 4
-          },
-          {
-            "N": "attention head",
-            "V": 1
           }
         ]
       },
@@ -8455,32 +3561,8 @@
             "V": 4
           },
           {
-            "N": "shampoo",
-            "V": 1
-          },
-          {
             "N": "momentum",
             "V": 8
-          },
-          {
-            "N": "signum",
-            "V": 2
-          },
-          {
-            "N": "weight matrix",
-            "V": 0
-          },
-          {
-            "N": "adamo",
-            "V": 1
-          },
-          {
-            "N": "weight decay",
-            "V": 3
-          },
-          {
-            "N": "deep learning",
-            "V": 7
           }
         ]
       },
@@ -8490,43 +3572,11 @@
         "P": "C",
         "K": [
           {
+            "N": "model complexity",
+            "V": 2
+          },
+          {
             "N": "task interference",
-            "V": 2
-          },
-          {
-            "N": "freedom",
-            "V": 1
-          },
-          {
-            "N": "pecl",
-            "V": 1
-          },
-          {
-            "N": "ell",
-            "V": 6
-          },
-          {
-            "N": "relaxation",
-            "V": 1
-          },
-          {
-            "N": "golddiff",
-            "V": 1
-          },
-          {
-            "N": "degradation",
-            "V": 3
-          },
-          {
-            "N": "ptm",
-            "V": 1
-          },
-          {
-            "N": "quantization",
-            "V": 2
-          },
-          {
-            "N": "reconstruction",
             "V": 2
           }
         ]
@@ -8537,28 +3587,8 @@
         "P": "C",
         "K": [
           {
-            "N": "mepo",
-            "V": 1
-          },
-          {
-            "N": "task interference",
-            "V": 1
-          },
-          {
             "N": "ptm",
             "V": 2
-          },
-          {
-            "N": "methodname",
-            "V": 1
-          },
-          {
-            "N": "roast",
-            "V": 1
-          },
-          {
-            "N": "pecl",
-            "V": 1
           },
           {
             "N": "plasticity",
@@ -8567,10 +3597,6 @@
           {
             "N": "activation steering",
             "V": 3
-          },
-          {
-            "N": "ewc-lora",
-            "V": 1
           }
         ]
       },
@@ -8584,40 +3610,16 @@
             "V": 3
           },
           {
-            "N": "uniform sampling",
-            "V": 1
+            "N": "neural architecture search",
+            "V": 3
           },
           {
             "N": "cifar-10",
             "V": 2
           },
           {
-            "N": "imagenet",
-            "V": 1
-          },
-          {
             "N": "neural network",
             "V": 4
-          },
-          {
-            "N": "the dataset",
-            "V": 1
-          },
-          {
-            "N": "adaptability",
-            "V": 1
-          },
-          {
-            "N": "population",
-            "V": 1
-          },
-          {
-            "N": "top-1",
-            "V": 2
-          },
-          {
-            "N": "maintainability",
-            "V": 1
           }
         ]
       },
@@ -8627,8 +3629,8 @@
         "P": "C",
         "K": [
           {
-            "N": "tree-boosting",
-            "V": 1
+            "N": "hpo",
+            "V": 3
           },
           {
             "N": "hyperparameter optimization",
@@ -8639,24 +3641,8 @@
             "V": 6
           },
           {
-            "N": "model discovery",
-            "V": 1
-          },
-          {
-            "N": "the search space",
+            "N": "the default",
             "V": 2
-          },
-          {
-            "N": "this perspective",
-            "V": 1
-          },
-          {
-            "N": "end",
-            "V": 5
-          },
-          {
-            "N": "all consider hyperparameter",
-            "V": 0
           }
         ]
       },
@@ -8670,40 +3656,8 @@
             "V": 2
           },
           {
-            "N": "our pipeline",
-            "V": 1
-          },
-          {
-            "N": "datum augmentation",
-            "V": 0
-          },
-          {
-            "N": "the effect",
-            "V": 1
-          },
-          {
-            "N": "the algorithm dependence",
-            "V": 1
-          },
-          {
-            "N": "the group diameter",
-            "V": 1
-          },
-          {
-            "N": "the original data distribution",
-            "V": 1
-          },
-          {
-            "N": "new possibility",
-            "V": 0
-          },
-          {
-            "N": "a unified control parameter",
-            "V": 1
-          },
-          {
-            "N": "mild sub-gaussian assumption",
-            "V": 1
+            "N": "the augmentation",
+            "V": 2
           }
         ]
       },
@@ -8723,40 +3677,8 @@
             "V": 3
           },
           {
-            "N": "alphaevolve",
-            "V": 1
-          },
-          {
             "N": "landscape",
             "V": 2
-          },
-          {
-            "N": "most exist method",
-            "V": 0
-          },
-          {
-            "N": "the early phase",
-            "V": 1
-          },
-          {
-            "N": "local optima",
-            "V": 1
-          },
-          {
-            "N": "problem structure",
-            "V": 1
-          },
-          {
-            "N": "evolutionary search",
-            "V": 1
-          },
-          {
-            "N": "some setting",
-            "V": 1
-          },
-          {
-            "N": "program",
-            "V": 1
           }
         ]
       },
@@ -8770,95 +3692,13 @@
         "V": 3,
         "VC": 6,
         "P": "C",
-        "K": [
-          {
-            "N": "perturbation",
-            "V": 1
-          },
-          {
-            "N": " sequential operator",
-            "V": 1
-          },
-          {
-            "N": "the first comprehensive theoretical analysis",
-            "V": 1
-          },
-          {
-            "N": "composite optimization problem",
-            "V": 1
-          },
-          {
-            "N": "gradient noise",
-            "V": 1
-          },
-          {
-            "N": "the gradient spike phenomenon",
-            "V": 0
-          },
-          {
-            "N": "the computational graph",
-            "V": 1
-          },
-          {
-            "N": "convex and non-convex regularization validate",
-            "V": 1
-          },
-          {
-            "N": "derive convergence guarantee",
-            "V": 1
-          },
-          {
-            "N": "the asymptotic convergence order",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "C11": {
         "V": 3,
         "VC": 6,
         "P": "C",
-        "K": [
-          {
-            "N": "these operation",
-            "V": 1
-          },
-          {
-            "N": "up to 50",
-            "V": 1
-          },
-          {
-            "N": "our recipe",
-            "V": 1
-          },
-          {
-            "N": "ffn",
-            "V": 1
-          },
-          {
-            "N": "a large part",
-            "V": 1
-          },
-          {
-            "N": "the transformer architecture",
-            "V": 1
-          },
-          {
-            "N": "the end",
-            "V": 1
-          },
-          {
-            "N": "quantization",
-            "V": 1
-          },
-          {
-            "N": "applicable",
-            "V": 1
-          },
-          {
-            "N": "this approach",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "C12": {
         "V": 32,
@@ -8874,32 +3714,8 @@
             "V": 4
           },
           {
-            "N": "lids",
-            "V": 1
-          },
-          {
-            "N": "token sparse attention",
-            "V": 1
-          },
-          {
-            "N": "ntp",
-            "V": 1
-          },
-          {
-            "N": "chatgpt",
-            "V": 1
-          },
-          {
-            "N": "sofari",
-            "V": 1
-          },
-          {
-            "N": "multi-token prediction",
-            "V": 1
-          },
-          {
-            "N": "specific layer",
-            "V": 2
+            "N": "the e",
+            "V": 6
           }
         ]
       },
@@ -8909,40 +3725,8 @@
         "P": "D",
         "K": [
           {
-            "N": "colora",
-            "V": 1
-          },
-          {
-            "N": "pre-train model",
-            "V": 0
-          },
-          {
-            "N": "sqrt",
-            "V": 1
-          },
-          {
-            "N": "zero-shot performance",
-            "V": 1
-          },
-          {
-            "N": "the sample complexity",
-            "V": 1
-          },
-          {
-            "N": "tilde",
-            "V": 1
-          },
-          {
-            "N": "similar task",
-            "V": 1
-          },
-          {
             "N": "the convergence rate",
             "V": 2
-          },
-          {
-            "N": "label",
-            "V": 3
           }
         ]
       },
@@ -8966,30 +3750,6 @@
           {
             "N": "peft",
             "V": 8
-          },
-          {
-            "N": "low-rank adaptation",
-            "V": 12
-          },
-          {
-            "N": "methodname",
-            "V": 1
-          },
-          {
-            "N": "trainable parameter",
-            "V": 5
-          },
-          {
-            "N": "adapter rank",
-            "V": 1
-          },
-          {
-            "N": "full finetuning",
-            "V": 1
-          },
-          {
-            "N": "the rank",
-            "V": 4
           }
         ]
       },
@@ -9013,26 +3773,6 @@
           {
             "N": "reward model",
             "V": 18
-          },
-          {
-            "N": "appo",
-            "V": 1
-          },
-          {
-            "N": "icrm",
-            "V": 1
-          },
-          {
-            "N": "the reward",
-            "V": 4
-          },
-          {
-            "N": "rlpt",
-            "V": 1
-          },
-          {
-            "N": "gradalign",
-            "V": 1
           }
         ]
       },
@@ -9054,28 +3794,8 @@
             "V": 18
           },
           {
-            "N": "pairwise comparison",
-            "V": 5
-          },
-          {
-            "N": "dedpo",
-            "V": 1
-          },
-          {
-            "N": "the reference",
+            "N": "hypo",
             "V": 2
-          },
-          {
-            "N": "reward model",
-            "V": 13
-          },
-          {
-            "N": "rlhf",
-            "V": 4
-          },
-          {
-            "N": "diamond maps",
-            "V": 1
           }
         ]
       },
@@ -9085,6 +3805,10 @@
         "P": "D",
         "K": [
           {
+            "N": "post-training quantization",
+            "V": 25
+          },
+          {
             "N": "ptq",
             "V": 24
           },
@@ -9093,36 +3817,12 @@
             "V": 6
           },
           {
-            "N": "quantization",
-            "V": 55
-          },
-          {
-            "N": "mathbf",
-            "V": 1
-          },
-          {
             "N": "qat",
             "V": 4
           },
           {
-            "N": "spq",
-            "V": 1
-          },
-          {
             "N": "quantization error",
             "V": 10
-          },
-          {
-            "N": "s2o",
-            "V": 1
-          },
-          {
-            "N": "umpire",
-            "V": 1
-          },
-          {
-            "N": "innerq",
-            "V": 1
           }
         ]
       },
@@ -9132,44 +3832,20 @@
         "P": "D",
         "K": [
           {
-            "N": "fade",
-            "V": 1
-          },
-          {
-            "N": "mop",
-            "V": 1
+            "N": "corp",
+            "V": 2
           },
           {
             "N": "pruning",
             "V": 18
           },
           {
-            "N": "ptl",
-            "V": 1
-          },
-          {
-            "N": "scalpel",
-            "V": 1
-          },
-          {
             "N": "structured pruning",
             "V": 4
           },
           {
-            "N": "cnn",
-            "V": 2
-          },
-          {
-            "N": "pop",
-            "V": 2
-          },
-          {
-            "N": "textbf",
-            "V": 4
-          },
-          {
-            "N": "width",
-            "V": 2
+            "N": "rat",
+            "V": 26
           }
         ]
       },
@@ -9179,12 +3855,16 @@
         "P": "D",
         "K": [
           {
+            "N": "student model",
+            "V": 6
+          },
+          {
             "N": "knowledge distillation",
             "V": 12
           },
           {
-            "N": "student",
-            "V": 15
+            "N": "-kd",
+            "V": 2
           },
           {
             "N": "the teacher",
@@ -9193,22 +3873,6 @@
           {
             "N": "new knowledge",
             "V": 3
-          },
-          {
-            "N": "mathcal",
-            "V": 1
-          },
-          {
-            "N": "opcd",
-            "V": 1
-          },
-          {
-            "N": "a student model",
-            "V": 3
-          },
-          {
-            "N": "idea",
-            "V": 2
           }
         ]
       },
@@ -9216,48 +3880,7 @@
         "V": 13,
         "VC": 25,
         "P": "D",
-        "K": [
-          {
-            "N": "manipt",
-            "V": 1
-          },
-          {
-            "N": "appo",
-            "V": 1
-          },
-          {
-            "N": "tatra",
-            "V": 1
-          },
-          {
-            "N": "underspecified prompt",
-            "V": 1
-          },
-          {
-            "N": "etgpo",
-            "V": 1
-          },
-          {
-            "N": "the pretraine manifold",
-            "V": 0
-          },
-          {
-            "N": "gps",
-            "V": 1
-          },
-          {
-            "N": "asa",
-            "V": 1
-          },
-          {
-            "N": "few iteration",
-            "V": 1
-          },
-          {
-            "N": "joint adaptation",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "D09": {
         "V": 32,
@@ -9265,44 +3888,8 @@
         "P": "D",
         "K": [
           {
-            "N": "tatra",
-            "V": 1
-          },
-          {
-            "N": "manipt",
-            "V": 1
-          },
-          {
             "N": "icl",
             "V": 5
-          },
-          {
-            "N": "steer2adapt",
-            "V": 1
-          },
-          {
-            "N": "ecs",
-            "V": 1
-          },
-          {
-            "N": "meta-sel",
-            "V": 1
-          },
-          {
-            "N": "tta",
-            "V": 2
-          },
-          {
-            "N": "etgpo",
-            "V": 1
-          },
-          {
-            "N": "underspecified prompt",
-            "V": 1
-          },
-          {
-            "N": "ape",
-            "V": 8
           }
         ]
       },
@@ -9312,44 +3899,16 @@
         "P": "D",
         "K": [
           {
-            "N": "underline",
-            "V": 1
-          },
-          {
             "N": "model merging",
             "V": 3
           },
           {
-            "N": "a single model",
-            "V": 1
+            "N": "merge",
+            "V": 3
           },
           {
             "N": "merged model",
             "V": 3
-          },
-          {
-            "N": "the single-multi evolution loop",
-            "V": 1
-          },
-          {
-            "N": "the strength",
-            "V": 1
-          },
-          {
-            "N": "collaboration",
-            "V": 1
-          },
-          {
-            "N": "the collaboration",
-            "V": 1
-          },
-          {
-            "N": "diverse model",
-            "V": 1
-          },
-          {
-            "N": "collaborate",
-            "V": 1
           }
         ]
       },
@@ -9379,24 +3938,12 @@
             "V": 2
           },
           {
-            "N": "bar-rag",
-            "V": 1
-          },
-          {
-            "N": "rqa",
-            "V": 1
-          },
-          {
             "N": "test-time compute",
             "V": 6
           },
           {
             "N": "thought",
             "V": 25
-          },
-          {
-            "N": "the generator",
-            "V": 1
           }
         ]
       },
@@ -9410,6 +3957,10 @@
             "V": 32
           },
           {
+            "N": "retrieval augmented generation",
+            "V": 6
+          },
+          {
             "N": "the generator",
             "V": 3
           },
@@ -9420,30 +3971,6 @@
           {
             "N": "retrieval-augmented generation",
             "V": 24
-          },
-          {
-            "N": "lcr",
-            "V": 1
-          },
-          {
-            "N": "retrieval-augment generation",
-            "V": 0
-          },
-          {
-            "N": "bar-rag",
-            "V": 1
-          },
-          {
-            "N": "rag system",
-            "V": 11
-          },
-          {
-            "N": "the reranker",
-            "V": 2
-          },
-          {
-            "N": "external knowledge",
-            "V": 8
           }
         ]
       },
@@ -9453,20 +3980,8 @@
         "P": "D",
         "K": [
           {
-            "N": "rankllm",
-            "V": 1
-          },
-          {
             "N": "refine",
             "V": 5
-          },
-          {
-            "N": "uno",
-            "V": 1
-          },
-          {
-            "N": "ecs",
-            "V": 1
           },
           {
             "N": "context length",
@@ -9479,18 +3994,6 @@
           {
             "N": "rope",
             "V": 3
-          },
-          {
-            "N": "pic",
-            "V": 7
-          },
-          {
-            "N": "ruler",
-            "V": 3
-          },
-          {
-            "N": "ntp",
-            "V": 1
           }
         ]
       },
@@ -9498,48 +4001,7 @@
         "V": 4,
         "VC": 8,
         "P": "D",
-        "K": [
-          {
-            "N": "share",
-            "V": 1
-          },
-          {
-            "N": "sft",
-            "V": 1
-          },
-          {
-            "N": "diversity",
-            "V": 1
-          },
-          {
-            "N": "scalable",
-            "V": 1
-          },
-          {
-            "N": "catastrophic forgetting",
-            "V": 2
-          },
-          {
-            "N": "parameter efficient continual finetuning",
-            "V": 1
-          },
-          {
-            "N": "a single share model",
-            "V": 1
-          },
-          {
-            "N": "parameter reduction",
-            "V": 1
-          },
-          {
-            "N": "reward feedback",
-            "V": 1
-          },
-          {
-            "N": "catastrophic interference",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "E01": {
         "V": 63,
@@ -9561,30 +4023,6 @@
           {
             "N": "lrms",
             "V": 6
-          },
-          {
-            "N": "rqa",
-            "V": 1
-          },
-          {
-            "N": "counterfactual",
-            "V": 3
-          },
-          {
-            "N": "reasoning trace",
-            "V": 7
-          },
-          {
-            "N": "large reasoning models",
-            "V": 7
-          },
-          {
-            "N": "participant",
-            "V": 4
-          },
-          {
-            "N": "logic",
-            "V": 21
           }
         ]
       },
@@ -9594,44 +4032,8 @@
         "P": "E",
         "K": [
           {
-            "N": "color",
-            "V": 1
-          },
-          {
             "N": "project page",
             "V": 2
-          },
-          {
-            "N": "image generation",
-            "V": 1
-          },
-          {
-            "N": " recent advance",
-            "V": 0
-          },
-          {
-            "N": "these edit",
-            "V": 1
-          },
-          {
-            "N": "sampling cost",
-            "V": 1
-          },
-          {
-            "N": "prohibitive training cost",
-            "V": 1
-          },
-          {
-            "N": "visual generation",
-            "V": 1
-          },
-          {
-            "N": "the total number",
-            "V": 1
-          },
-          {
-            "N": "the disparity",
-            "V": 1
           }
         ]
       },
@@ -9653,40 +4055,8 @@
         "P": "E",
         "K": [
           {
-            "N": "query complexity",
-            "V": 1
-          },
-          {
-            "N": "item embedding",
-            "V": 1
-          },
-          {
             "N": "indexing",
             "V": 2
-          },
-          {
-            "N": "ann",
-            "V": 1
-          },
-          {
-            "N": "recall",
-            "V": 2
-          },
-          {
-            "N": "diversity",
-            "V": 1
-          },
-          {
-            "N": "ood",
-            "V": 1
-          },
-          {
-            "N": "domain",
-            "V": 3
-          },
-          {
-            "N": "a quality-diversity trade-off",
-            "V": 1
           }
         ]
       },
@@ -9700,36 +4070,8 @@
             "V": 10
           },
           {
-            "N": "anomaly detection",
-            "V": 10
-          },
-          {
-            "N": "comet",
-            "V": 1
-          },
-          {
-            "N": "explanation",
-            "V": 1
-          },
-          {
-            "N": "normalize flow",
-            "V": 0
-          },
-          {
-            "N": "the training dataset",
-            "V": 1
-          },
-          {
-            "N": "deep generative model",
-            "V": 1
-          },
-          {
-            "N": "temporal dependency",
-            "V": 0
-          },
-          {
-            "N": "precision",
-            "V": 2
+            "N": "unsupervised anomaly detection",
+            "V": 3
           }
         ]
       },
@@ -9739,44 +4081,12 @@
         "P": "E",
         "K": [
           {
-            "N": "series",
-            "V": 12
+            "N": "time series forecasting",
+            "V": 10
           },
           {
-            "N": "a critical role",
-            "V": 3
-          },
-          {
-            "N": "multiple dataset",
-            "V": 3
-          },
-          {
-            "N": "many real-world application",
+            "N": "meteorology",
             "V": 2
-          },
-          {
-            "N": "energy",
-            "V": 2
-          },
-          {
-            "N": "decision-making",
-            "V": 3
-          },
-          {
-            "N": "time",
-            "V": 12
-          },
-          {
-            "N": "retrieval",
-            "V": 1
-          },
-          {
-            "N": "competitive performance",
-            "V": 2
-          },
-          {
-            "N": "memory",
-            "V": 3
           }
         ]
       },
@@ -9794,31 +4104,7 @@
             "V": 8
           },
           {
-            "N": "peft",
-            "V": 1
-          },
-          {
-            "N": "explanation",
-            "V": 1
-          },
-          {
-            "N": "the user",
-            "V": 1
-          },
-          {
-            "N": "trend",
-            "V": 2
-          },
-          {
-            "N": "item",
-            "V": 8
-          },
-          {
-            "N": "contrastive learning",
-            "V": 2
-          },
-          {
-            "N": "personalization",
+            "N": "strong recommendation performance",
             "V": 2
           }
         ]
@@ -9829,44 +4115,12 @@
         "P": "E",
         "K": [
           {
-            "N": "revision",
-            "V": 1
-          },
-          {
             "N": "specification",
             "V": 3
           },
           {
-            "N": "stream",
-            "V": 1
-          },
-          {
             "N": "gpt-5",
             "V": 2
-          },
-          {
-            "N": "programming",
-            "V": 1
-          },
-          {
-            "N": "recent large language model",
-            "V": 1
-          },
-          {
-            "N": "codebase",
-            "V": 1
-          },
-          {
-            "N": "an open question",
-            "V": 1
-          },
-          {
-            "N": "the strong performance",
-            "V": 0
-          },
-          {
-            "N": "week",
-            "V": 1
           }
         ]
       },
@@ -9874,95 +4128,13 @@
         "V": 3,
         "VC": 6,
         "P": "E",
-        "K": [
-          {
-            "N": "line",
-            "V": 1
-          },
-          {
-            "N": "classical planning",
-            "V": 1
-          },
-          {
-            "N": "learner",
-            "V": 1
-          },
-          {
-            "N": "people",
-            "V": 1
-          },
-          {
-            "N": "goal",
-            "V": 3
-          },
-          {
-            "N": "human",
-            "V": 2
-          },
-          {
-            "N": "various kind",
-            "V": 1
-          },
-          {
-            "N": "relational reinforcement learning",
-            "V": 1
-          },
-          {
-            "N": "scientific discovery",
-            "V": 1
-          },
-          {
-            "N": "most model",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "E11": {
         "V": 6,
         "VC": 11,
         "P": "E",
-        "K": [
-          {
-            "N": "propensity",
-            "V": 1
-          },
-          {
-            "N": "vsm",
-            "V": 1
-          },
-          {
-            "N": "idea",
-            "V": 4
-          },
-          {
-            "N": "behavior change technology",
-            "V": 0
-          },
-          {
-            "N": "asm",
-            "V": 1
-          },
-          {
-            "N": "item response theory",
-            "V": 2
-          },
-          {
-            "N": "ai self-modeling",
-            "V": 1
-          },
-          {
-            "N": "ai evaluation",
-            "V": 2
-          },
-          {
-            "N": "a broad range",
-            "V": 1
-          },
-          {
-            "N": "capability",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "E12": {
         "V": 66,
@@ -9974,36 +4146,12 @@
             "V": 61
           },
           {
-            "N": "pce",
-            "V": 1
-          },
-          {
             "N": "ai agent",
             "V": 13
           },
           {
             "N": "skill",
             "V": 7
-          },
-          {
-            "N": "mcp",
-            "V": 6
-          },
-          {
-            "N": "the agent",
-            "V": 18
-          },
-          {
-            "N": " long-horizon task",
-            "V": 5
-          },
-          {
-            "N": "agentic system",
-            "V": 11
-          },
-          {
-            "N": "tool",
-            "V": 33
           }
         ]
       },
@@ -10025,31 +4173,7 @@
             "V": 3
           },
           {
-            "N": "bagpiper",
-            "V": 1
-          },
-          {
             "N": "editing",
-            "V": 7
-          },
-          {
-            "N": "blv",
-            "V": 2
-          },
-          {
-            "N": "adcanvas",
-            "V": 1
-          },
-          {
-            "N": "audio description",
-            "V": 2
-          },
-          {
-            "N": "generation",
-            "V": 19
-          },
-          {
-            "N": "direct",
             "V": 7
           }
         ]
@@ -10058,44 +4182,7 @@
         "V": 7,
         "VC": 14,
         "P": "E",
-        "K": [
-          {
-            "N": "its dialect",
-            "V": 1
-          },
-          {
-            "N": "the source language",
-            "V": 1
-          },
-          {
-            "N": "native text",
-            "V": 1
-          },
-          {
-            "N": "high-resource language",
-            "V": 1
-          },
-          {
-            "N": "translationese",
-            "V": 1
-          },
-          {
-            "N": "machine-translate datum",
-            "V": 0
-          },
-          {
-            "N": "cross-lingual knowledge transfer",
-            "V": 1
-          },
-          {
-            "N": "low-resource language",
-            "V": 1
-          },
-          {
-            "N": "english",
-            "V": 2
-          }
-        ]
+        "K": []
       },
       "E15": {
         "V": 7,
@@ -10107,40 +4194,8 @@
             "V": 2
           },
           {
-            "N": "lids",
-            "V": 1
-          },
-          {
             "N": "ram",
             "V": 3
-          },
-          {
-            "N": "summarization",
-            "V": 5
-          },
-          {
-            "N": "close reading",
-            "V": 1
-          },
-          {
-            "N": "chatgpt",
-            "V": 1
-          },
-          {
-            "N": "dial-summer",
-            "V": 1
-          },
-          {
-            "N": "dialogue summary",
-            "V": 1
-          },
-          {
-            "N": "sofari",
-            "V": 1
-          },
-          {
-            "N": "our taxonomy",
-            "V": 1
           }
         ]
       },
@@ -10150,44 +4205,20 @@
         "P": "E",
         "K": [
           {
+            "N": "table",
+            "V": 10
+          },
+          {
+            "N": "mcq",
+            "V": 4
+          },
+          {
             "N": "answer",
             "V": 30
           },
           {
-            "N": "rankllm",
-            "V": 1
-          },
-          {
             "N": "question",
             "V": 32
-          },
-          {
-            "N": "the answer",
-            "V": 4
-          },
-          {
-            "N": "correct answer",
-            "V": 7
-          },
-          {
-            "N": "parse",
-            "V": 3
-          },
-          {
-            "N": "open-end question",
-            "V": 0
-          },
-          {
-            "N": "factual consistency",
-            "V": 2
-          },
-          {
-            "N": "column",
-            "V": 2
-          },
-          {
-            "N": "human evaluation",
-            "V": 4
           }
         ]
       },
@@ -10201,40 +4232,20 @@
             "V": 22
           },
           {
-            "N": "uno",
-            "V": 1
-          },
-          {
-            "N": "intent",
-            "V": 4
-          },
-          {
-            "N": "dialogue",
-            "V": 15
-          },
-          {
-            "N": "active perception",
-            "V": 1
-          },
-          {
-            "N": "user log",
-            "V": 1
-          },
-          {
-            "N": "conversational agent",
+            "N": "rein",
             "V": 2
           },
           {
-            "N": "turn",
-            "V": 11
+            "N": "their intent",
+            "V": 2
           },
           {
-            "N": "the summary",
-            "V": 1
+            "N": "multi-turn conversation",
+            "V": 3
           },
           {
-            "N": "dial-summer",
-            "V": 1
+            "N": "lic",
+            "V": 10
           }
         ]
       },
@@ -10244,44 +4255,12 @@
         "P": "F",
         "K": [
           {
-            "N": "lcr",
-            "V": 1
-          },
-          {
-            "N": "ai-generate text",
-            "V": 0
+            "N": "eve",
+            "V": 4
           },
           {
             "N": "natural language processing",
             "V": 2
-          },
-          {
-            "N": "hallucination",
-            "V": 1
-          },
-          {
-            "N": "more effective learning",
-            "V": 1
-          },
-          {
-            "N": "human language",
-            "V": 1
-          },
-          {
-            "N": "specialized training",
-            "V": 1
-          },
-          {
-            "N": "prior syntax-aware transformer model",
-            "V": 1
-          },
-          {
-            "N": "the unified feature representation model",
-            "V": 1
-          },
-          {
-            "N": "high-confidence query",
-            "V": 0
           }
         ]
       },
@@ -10289,48 +4268,7 @@
         "V": 2,
         "VC": 4,
         "P": "F",
-        "K": [
-          {
-            "N": "online model",
-            "V": 1
-          },
-          {
-            "N": "detection performance",
-            "V": 1
-          },
-          {
-            "N": "large margin",
-            "V": 1
-          },
-          {
-            "N": "low-bit quantization",
-            "V": 1
-          },
-          {
-            "N": "reconstruction error",
-            "V": 1
-          },
-          {
-            "N": "softmax attention",
-            "V": 1
-          },
-          {
-            "N": "contextual information",
-            "V": 1
-          },
-          {
-            "N": "human perception",
-            "V": 1
-          },
-          {
-            "N": "the key insight",
-            "V": 1
-          },
-          {
-            "N": "test-time training",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F03": {
         "V": 21,
@@ -10340,6 +4278,14 @@
           {
             "N": "music",
             "V": 8
+          },
+          {
+            "N": "lalm",
+            "V": 4
+          },
+          {
+            "N": "environmental sound",
+            "V": 4
           },
           {
             "N": "audio",
@@ -10352,30 +4298,6 @@
           {
             "N": "speech",
             "V": 12
-          },
-          {
-            "N": "bagpiper",
-            "V": 1
-          },
-          {
-            "N": "echo",
-            "V": 1
-          },
-          {
-            "N": "chat",
-            "V": 2
-          },
-          {
-            "N": "metadata",
-            "V": 1
-          },
-          {
-            "N": "asr",
-            "V": 3
-          },
-          {
-            "N": "knn",
-            "V": 1
           }
         ]
       },
@@ -10385,44 +4307,12 @@
         "P": "F",
         "K": [
           {
-            "N": "adcanvas",
-            "V": 1
-          },
-          {
             "N": "audio",
             "V": 6
           },
           {
             "N": "mllm",
             "V": 5
-          },
-          {
-            "N": "the world",
-            "V": 2
-          },
-          {
-            "N": "mova",
-            "V": 1
-          },
-          {
-            "N": "visual scene",
-            "V": 1
-          },
-          {
-            "N": "audio description",
-            "V": 1
-          },
-          {
-            "N": "blv",
-            "V": 2
-          },
-          {
-            "N": "mllms",
-            "V": 5
-          },
-          {
-            "N": "generation capability",
-            "V": 0
           }
         ]
       },
@@ -10452,20 +4342,12 @@
             "V": 9
           },
           {
+            "N": "robot learning",
+            "V": 7
+          },
+          {
             "N": "vision-language-action ",
             "V": 20
-          },
-          {
-            "N": "pce",
-            "V": 1
-          },
-          {
-            "N": "vlm",
-            "V": 10
-          },
-          {
-            "N": "the robot",
-            "V": 9
           }
         ]
       },
@@ -10481,44 +4363,16 @@
         "P": "F",
         "K": [
           {
-            "N": "sequential decision-making",
+            "N": "trading",
+            "V": 8
+          },
+          {
+            "N": "herding",
             "V": 2
           },
           {
-            "N": "estimation error",
-            "V": 1
-          },
-          {
-            "N": " estimator",
-            "V": 4
-          },
-          {
-            "N": "two key challenge",
-            "V": 2
-          },
-          {
-            "N": "13 model",
-            "V": 1
-          },
-          {
-            "N": "textual information",
-            "V": 2
-          },
-          {
-            "N": "news",
-            "V": 3
-          },
-          {
-            "N": "extrapolation",
-            "V": 1
-          },
-          {
-            "N": "the sample size",
-            "V": 1
-          },
-          {
-            "N": "drl",
-            "V": 1
+            "N": "asset",
+            "V": 8
           }
         ]
       },
@@ -10526,54 +4380,17 @@
         "V": 1,
         "VC": 2,
         "P": "F",
-        "K": [
-          {
-            "N": "four llm family",
-            "V": 0
-          },
-          {
-            "N": "empirical datum",
-            "V": 0
-          },
-          {
-            "N": "directional",
-            "V": 1
-          },
-          {
-            "N": "concordance",
-            "V": 1
-          },
-          {
-            "N": "clinical",
-            "V": 1
-          },
-          {
-            "N": "unmeasured",
-            "V": 1
-          },
-          {
-            "N": "gemini 3 pro",
-            "V": 1
-          },
-          {
-            "N": "deepseek-r1",
-            "V": 1
-          },
-          {
-            "N": "modest",
-            "V": 1
-          },
-          {
-            "N": "all model",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F09": {
         "V": 4,
         "VC": 7,
         "P": "F",
         "K": [
+          {
+            "N": "tutoring",
+            "V": 3
+          },
           {
             "N": "learner",
             "V": 2
@@ -10593,26 +4410,6 @@
           {
             "N": "the evaluation",
             "V": 2
-          },
-          {
-            "N": "demand",
-            "V": 1
-          },
-          {
-            "N": "this assistant",
-            "V": 1
-          },
-          {
-            "N": "new possibility",
-            "V": 0
-          },
-          {
-            "N": "the platform",
-            "V": 1
-          },
-          {
-            "N": "a grow need",
-            "V": 0
           }
         ]
       },
@@ -10622,44 +4419,8 @@
         "P": "F",
         "K": [
           {
-            "N": "standard rag",
-            "V": 1
-          },
-          {
-            "N": "decision point",
-            "V": 1
-          },
-          {
-            "N": "human judge",
-            "V": 1
-          },
-          {
-            "N": "1-8b",
-            "V": 1
-          },
-          {
-            "N": "textbf",
-            "V": 1
-          },
-          {
-            "N": "rightarrow",
-            "V": 1
-          },
-          {
-            "N": "llama-3",
-            "V": 1
-          },
-          {
-            "N": "document",
-            "V": 3
-          },
-          {
-            "N": "transformative potential",
-            "V": 1
-          },
-          {
-            "N": "both dataset",
-            "V": 1
+            "N": "legal judgment prediction",
+            "V": 2
           }
         ]
       },
@@ -10669,40 +4430,16 @@
         "P": "F",
         "K": [
           {
-            "N": "sos",
-            "V": 1
+            "N": "the game",
+            "V": 2
           },
           {
-            "N": "the game",
+            "N": "general game playing",
             "V": 2
           },
           {
             "N": "player",
             "V": 3
-          },
-          {
-            "N": "hierarchy",
-            "V": 1
-          },
-          {
-            "N": "a proof",
-            "V": 2
-          },
-          {
-            "N": "bayesian optimization",
-            "V": 1
-          },
-          {
-            "N": "human",
-            "V": 1
-          },
-          {
-            "N": "strategic interaction",
-            "V": 1
-          },
-          {
-            "N": "a longstanding challenge",
-            "V": 1
           }
         ]
       },
@@ -10710,48 +4447,7 @@
         "V": 2,
         "VC": 4,
         "P": "F",
-        "K": [
-          {
-            "N": "simulation",
-            "V": 1
-          },
-          {
-            "N": "end",
-            "V": 1
-          },
-          {
-            "N": "open-source software",
-            "V": 1
-          },
-          {
-            "N": "such a model",
-            "V": 1
-          },
-          {
-            "N": "logistic",
-            "V": 1
-          },
-          {
-            "N": "the umbrella term",
-            "V": 1
-          },
-          {
-            "N": "networking",
-            "V": 1
-          },
-          {
-            "N": " perception",
-            "V": 1
-          },
-          {
-            "N": "the development",
-            "V": 2
-          },
-          {
-            "N": "comfort",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "F13": {
         "V": 11,
@@ -10763,40 +4459,16 @@
             "V": 2
           },
           {
-            "N": "the transferability",
-            "V": 1
-          },
-          {
-            "N": "automation",
+            "N": "malware",
             "V": 2
           },
           {
-            "N": "red teaming",
-            "V": 1
-          },
-          {
-            "N": "shap",
-            "V": 3
-          },
-          {
-            "N": "xgboost",
-            "V": 1
-          },
-          {
-            "N": "the study",
+            "N": "the critical need",
             "V": 2
           },
           {
-            "N": "detection",
-            "V": 9
-          },
-          {
-            "N": "feature",
-            "V": 6
-          },
-          {
-            "N": "projected gradient descent ",
-            "V": 1
+            "N": "new threat",
+            "V": 2
           }
         ]
       },
@@ -10814,6 +4486,10 @@
             "V": 8
           },
           {
+            "N": "greek",
+            "V": 4
+          },
+          {
             "N": "english",
             "V": 17
           },
@@ -10824,22 +4500,6 @@
           {
             "N": "multilingual",
             "V": 28
-          },
-          {
-            "N": "speech",
-            "V": 4
-          },
-          {
-            "N": "machine translation",
-            "V": 9
-          },
-          {
-            "N": "multilingual nlp",
-            "V": 3
-          },
-          {
-            "N": "pos",
-            "V": 26
           }
         ]
       },
@@ -10848,38 +4508,6 @@
         "VC": 14,
         "P": "G",
         "K": [
-          {
-            "N": "dare-bench",
-            "V": 1
-          },
-          {
-            "N": "latent factor model",
-            "V": 1
-          },
-          {
-            "N": "law",
-            "V": 1
-          },
-          {
-            "N": "varepsilon",
-            "V": 1
-          },
-          {
-            "N": "structured capability",
-            "V": 0
-          },
-          {
-            "N": "measurement error",
-            "V": 1
-          },
-          {
-            "N": "construct validity",
-            "V": 1
-          },
-          {
-            "N": "benchmark result",
-            "V": 1
-          },
           {
             "N": "saturation",
             "V": 2
@@ -10902,40 +4530,8 @@
             "V": 3
           },
           {
-            "N": "line",
-            "V": 4
-          },
-          {
-            "N": "learnability",
-            "V": 1
-          },
-          {
-            "N": "datum selection",
-            "V": 0
-          },
-          {
-            "N": "log",
+            "N": "halfspace",
             "V": 2
-          },
-          {
-            "N": "term",
-            "V": 3
-          },
-          {
-            "N": "the complexity",
-            "V": 1
-          },
-          {
-            "N": "possible",
-            "V": 1
-          },
-          {
-            "N": "this correspondence",
-            "V": 1
-          },
-          {
-            "N": "the door",
-            "V": 1
           }
         ]
       },
@@ -10945,44 +4541,16 @@
         "P": "G",
         "K": [
           {
-            "N": "compositional generalization",
-            "V": 1
-          },
-          {
-            "N": "performative prediction",
-            "V": 1
+            "N": "lls",
+            "V": 2
           },
           {
             "N": "our bound",
             "V": 3
           },
           {
-            "N": "unseen combination",
-            "V": 1
-          },
-          {
-            "N": "the covariate",
-            "V": 1
-          },
-          {
-            "N": "2020",
-            "V": 1
-          },
-          {
             "N": "generalization error",
             "V": 2
-          },
-          {
-            "N": "the population",
-            "V": 1
-          },
-          {
-            "N": "the linear structure",
-            "V": 2
-          },
-          {
-            "N": "the outcome",
-            "V": 1
           }
         ]
       },
@@ -10990,48 +4558,7 @@
         "V": 4,
         "VC": 8,
         "P": "G",
-        "K": [
-          {
-            "N": "pop",
-            "V": 1
-          },
-          {
-            "N": "grpo",
-            "V": 1
-          },
-          {
-            "N": "match budget constraint",
-            "V": 0
-          },
-          {
-            "N": "non-convex optimization",
-            "V": 1
-          },
-          {
-            "N": "coordinate-wise step size",
-            "V": 1
-          },
-          {
-            "N": "gradient accumulation",
-            "V": 1
-          },
-          {
-            "N": "classical gradient-base optimizer",
-            "V": 0
-          },
-          {
-            "N": "various complexity",
-            "V": 1
-          },
-          {
-            "N": "carefully tune learn rate",
-            "V": 0
-          },
-          {
-            "N": "synthetic optimization problem",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "G06": {
         "V": 24,
@@ -11047,36 +4574,16 @@
             "V": 7
           },
           {
-            "N": "self-explanation",
-            "V": 1
+            "N": "these explanation",
+            "V": 2
           },
           {
-            "N": "these explanation",
+            "N": "natural language explanation",
             "V": 2
           },
           {
             "N": "explainability",
             "V": 7
-          },
-          {
-            "N": "nldd",
-            "V": 1
-          },
-          {
-            "N": "explainable ai",
-            "V": 6
-          },
-          {
-            "N": "counterfactual",
-            "V": 3
-          },
-          {
-            "N": "traceability",
-            "V": 2
-          },
-          {
-            "N": "edge",
-            "V": 5
           }
         ]
       },
@@ -11090,19 +4597,7 @@
             "V": 2
           },
           {
-            "N": "gnn",
-            "V": 1
-          },
-          {
             "N": "mechanistic interpretability",
-            "V": 2
-          },
-          {
-            "N": "exist cbm",
-            "V": 0
-          },
-          {
-            "N": "two dimension",
             "V": 2
           },
           {
@@ -11110,20 +4605,12 @@
             "V": 3
           },
           {
+            "N": "two dimension",
+            "V": 2
+          },
+          {
             "N": "interpretable",
             "V": 3
-          },
-          {
-            "N": "knowledge",
-            "V": 2
-          },
-          {
-            "N": "an llm",
-            "V": 2
-          },
-          {
-            "N": "functional form",
-            "V": 1
           }
         ]
       },
@@ -11137,40 +4624,12 @@
             "V": 2
           },
           {
-            "N": "equivariance",
-            "V": 1
-          },
-          {
-            "N": "riemannian graph learning",
-            "V": 1
-          },
-          {
             "N": "riemannian geometry",
             "V": 2
           },
           {
-            "N": "seis",
-            "V": 1
-          },
-          {
-            "N": "unseen combination",
-            "V": 1
-          },
-          {
-            "N": "identifiability",
-            "V": 1
-          },
-          {
-            "N": "geometric transformation",
-            "V": 1
-          },
-          {
-            "N": "invariance",
-            "V": 1
-          },
-          {
-            "N": "superposition",
-            "V": 1
+            "N": "global geometry",
+            "V": 2
           }
         ]
       },
@@ -11178,48 +4637,7 @@
         "V": 2,
         "VC": 4,
         "P": "G",
-        "K": [
-          {
-            "N": "classification task",
-            "V": 1
-          },
-          {
-            "N": "both regression",
-            "V": 1
-          },
-          {
-            "N": "evaluation tool",
-            "V": 1
-          },
-          {
-            "N": "s efficacy",
-            "V": 1
-          },
-          {
-            "N": "standard metric",
-            "V": 1
-          },
-          {
-            "N": "the interpretation",
-            "V": 1
-          },
-          {
-            "N": "rmse",
-            "V": 1
-          },
-          {
-            "N": "react",
-            "V": 1
-          },
-          {
-            "N": "average",
-            "V": 1
-          },
-          {
-            "N": "tabular datum",
-            "V": 0
-          }
-        ]
+        "K": []
       },
       "G10": {
         "V": 76,
@@ -11231,16 +4649,12 @@
             "V": 24
           },
           {
-            "N": "horizon-lm",
-            "V": 1
+            "N": "fsl",
+            "V": 2
           },
           {
             "N": "model behavior",
             "V": 2
-          },
-          {
-            "N": "dare-bench",
-            "V": 1
           },
           {
             "N": "weight decay",
@@ -11249,22 +4663,6 @@
           {
             "N": "dataset size",
             "V": 4
-          },
-          {
-            "N": "optimizer",
-            "V": 6
-          },
-          {
-            "N": "adamw",
-            "V": 3
-          },
-          {
-            "N": "pre-train model",
-            "V": 0
-          },
-          {
-            "N": "mse",
-            "V": 2
           }
         ]
       },
@@ -11278,48 +4676,7 @@
         "V": 3,
         "VC": 5,
         "P": "G",
-        "K": [
-          {
-            "N": "vsm",
-            "V": 1
-          },
-          {
-            "N": "propensity",
-            "V": 1
-          },
-          {
-            "N": "asm",
-            "V": 1
-          },
-          {
-            "N": "behavior change technology",
-            "V": 0
-          },
-          {
-            "N": "ai self-modeling",
-            "V": 1
-          },
-          {
-            "N": "control",
-            "V": 1
-          },
-          {
-            "N": "short-term effect",
-            "V": 1
-          },
-          {
-            "N": "either direction",
-            "V": 1
-          },
-          {
-            "N": "newly develop task-agnostic rubric",
-            "V": 0
-          },
-          {
-            "N": "one benchmark",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "G13": {
         "V": 0,
@@ -11333,40 +4690,8 @@
         "P": "H",
         "K": [
           {
-            "N": "gpu efficiency",
-            "V": 1
-          },
-          {
-            "N": "latency minimization",
-            "V": 1
-          },
-          {
-            "N": "cpu",
-            "V": 1
-          },
-          {
-            "N": "the pipeline",
-            "V": 1
-          },
-          {
             "N": "device",
             "V": 2
-          },
-          {
-            "N": "adapter",
-            "V": 1
-          },
-          {
-            "N": "runtime",
-            "V": 2
-          },
-          {
-            "N": "memory",
-            "V": 3
-          },
-          {
-            "N": "dt-generate datum",
-            "V": 0
           }
         ]
       },
@@ -11380,20 +4705,16 @@
             "V": 22
           },
           {
-            "N": "speculative decoding",
-            "V": 22
-          },
-          {
             "N": "dllms",
             "V": 6
           },
           {
-            "N": "the target model",
-            "V": 10
+            "N": "speculative decoding",
+            "V": 22
           },
           {
-            "N": "sere",
-            "V": 1
+            "N": "the target model",
+            "V": 10
           },
           {
             "N": "dlm",
@@ -11406,10 +4727,6 @@
           {
             "N": "the kv cache",
             "V": 5
-          },
-          {
-            "N": "minima",
-            "V": 15
           }
         ]
       },
@@ -11419,40 +4736,8 @@
         "P": "H",
         "K": [
           {
-            "N": "spq",
-            "V": 1
-          },
-          {
-            "N": "mop",
-            "V": 1
-          },
-          {
-            "N": "nanoquant",
-            "V": 1
-          },
-          {
             "N": "model compression",
             "V": 7
-          },
-          {
-            "N": "ptl",
-            "V": 1
-          },
-          {
-            "N": "angelslim",
-            "V": 1
-          },
-          {
-            "N": "quantization",
-            "V": 8
-          },
-          {
-            "N": "pruning",
-            "V": 14
-          },
-          {
-            "N": "gptq",
-            "V": 1
           }
         ]
       },
@@ -11460,48 +4745,7 @@
         "V": 2,
         "VC": 4,
         "P": "H",
-        "K": [
-          {
-            "N": "the architecture",
-            "V": 1
-          },
-          {
-            "N": "practical applicability",
-            "V": 1
-          },
-          {
-            "N": "predictable latency",
-            "V": 1
-          },
-          {
-            "N": "frequent update",
-            "V": 1
-          },
-          {
-            "N": "enterprise",
-            "V": 1
-          },
-          {
-            "N": "b testing",
-            "V": 1
-          },
-          {
-            "N": "auditability",
-            "V": 1
-          },
-          {
-            "N": "a key feature",
-            "V": 1
-          },
-          {
-            "N": "our solution",
-            "V": 1
-          },
-          {
-            "N": "economic",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "H05": {
         "V": 0,
@@ -11521,44 +4765,8 @@
         "P": "H",
         "K": [
           {
-            "N": "reproducible",
-            "V": 1
-          },
-          {
-            "N": "iso",
-            "V": 1
-          },
-          {
-            "N": "testing",
-            "V": 1
-          },
-          {
             "N": "machine learning",
             "V": 4
-          },
-          {
-            "N": "advance",
-            "V": 2
-          },
-          {
-            "N": "training efficiency",
-            "V": 1
-          },
-          {
-            "N": "the system",
-            "V": 2
-          },
-          {
-            "N": "reproducibility",
-            "V": 1
-          },
-          {
-            "N": "the benchmark",
-            "V": 1
-          },
-          {
-            "N": "datum size",
-            "V": 0
           }
         ]
       },
@@ -11566,67 +4774,13 @@
         "V": 1,
         "VC": 2,
         "P": "H",
-        "K": [
-          {
-            "N": "this chapter",
-            "V": 1
-          },
-          {
-            "N": "synthetic datum generation",
-            "V": 0
-          },
-          {
-            "N": "benefit",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "H09": {
         "V": 2,
         "VC": 4,
         "P": "H",
-        "K": [
-          {
-            "N": "benchmark performance",
-            "V": 1
-          },
-          {
-            "N": "visual understanding",
-            "V": 1
-          },
-          {
-            "N": " content",
-            "V": 1
-          },
-          {
-            "N": "datum filtering",
-            "V": 0
-          },
-          {
-            "N": "widespread",
-            "V": 1
-          },
-          {
-            "N": "stem reasoning",
-            "V": 1
-          },
-          {
-            "N": "duplicate",
-            "V": 1
-          },
-          {
-            "N": "the decomposition",
-            "V": 1
-          },
-          {
-            "N": "llm training datum",
-            "V": 0
-          },
-          {
-            "N": "a sample",
-            "V": 1
-          }
-        ]
+        "K": []
       },
       "H10": {
         "V": 6,
@@ -11634,44 +4788,16 @@
         "P": "H",
         "K": [
           {
-            "N": "ai-generate image",
-            "V": 0
-          },
-          {
-            "N": "ai-generate text",
-            "V": 0
+            "N": "watermarking",
+            "V": 5
           },
           {
             "N": "scheme",
             "V": 3
           },
           {
-            "N": "attribution",
-            "V": 1
-          },
-          {
-            "N": "the entropy",
-            "V": 1
-          },
-          {
-            "N": "style",
-            "V": 1
-          },
-          {
             "N": "content",
             "V": 5
-          },
-          {
-            "N": "process",
-            "V": 2
-          },
-          {
-            "N": "respect",
-            "V": 2
-          },
-          {
-            "N": "decay",
-            "V": 1
           }
         ]
       },
@@ -11681,40 +4807,8 @@
         "P": "H",
         "K": [
           {
-            "N": "horizon-lm",
-            "V": 1
-          },
-          {
-            "N": "budgetmem",
-            "V": 1
-          },
-          {
-            "N": "gpu",
-            "V": 6
-          },
-          {
-            "N": "gpu efficiency",
-            "V": 1
-          },
-          {
-            "N": "lu-kv",
-            "V": 1
-          },
-          {
-            "N": "gpu memory",
-            "V": 4
-          },
-          {
-            "N": "energy consumption",
-            "V": 3
-          },
-          {
-            "N": "textsc",
-            "V": 1
-          },
-          {
-            "N": "sparse-vllm",
-            "V": 1
+            "N": "ttl",
+            "V": 2
           }
         ]
       },
@@ -11732,32 +4826,8 @@
             "V": 2
           },
           {
-            "N": "a society",
-            "V": 1
-          },
-          {
-            "N": "the adaptive ai ensemble",
-            "V": 1
-          },
-          {
-            "N": "pbmorl",
-            "V": 1
-          },
-          {
-            "N": "the critic",
-            "V": 1
-          },
-          {
             "N": "ai system",
             "V": 5
-          },
-          {
-            "N": "behaviour",
-            "V": 2
-          },
-          {
-            "N": "a foundation",
-            "V": 2
           }
         ]
       },
@@ -11775,36 +4845,16 @@
             "V": 26
           },
           {
+            "N": "adversarial example",
+            "V": 6
+          },
+          {
             "N": "adversarial attack",
             "V": 9
           },
           {
-            "N": "monotonicity",
-            "V": 1
-          },
-          {
-            "N": "pgd",
-            "V": 2
-          },
-          {
-            "N": "rllm",
-            "V": 1
-          },
-          {
-            "N": "jailbreak attack",
+            "N": "gcg",
             "V": 3
-          },
-          {
-            "N": "vulnerable",
-            "V": 7
-          },
-          {
-            "N": "phase",
-            "V": 2
-          },
-          {
-            "N": "the data distribution",
-            "V": 2
           }
         ]
       },
@@ -11814,44 +4864,28 @@
         "P": "I",
         "K": [
           {
-            "N": "privacy",
-            "V": 49
+            "N": "differential privacy",
+            "V": 29
           },
           {
-            "N": "curation",
-            "V": 2
-          },
-          {
-            "N": "an adversary",
+            "N": "ldp",
             "V": 4
           },
           {
-            "N": "client",
-            "V": 6
+            "N": "dp-sgd",
+            "V": 5
           },
           {
-            "N": "these bound",
+            "N": "mia",
             "V": 3
           },
           {
-            "N": "private datum",
-            "V": 0
+            "N": "-dp",
+            "V": 6
           },
           {
-            "N": "leakage",
-            "V": 7
-          },
-          {
-            "N": "datum privacy",
-            "V": 0
-          },
-          {
-            "N": "the server",
-            "V": 2
-          },
-          {
-            "N": " noise",
-            "V": 19
+            "N": "privacy preservation",
+            "V": 4
           }
         ]
       },
@@ -11865,40 +4899,16 @@
             "V": 16
           },
           {
+            "N": "the fairness",
+            "V": 6
+          },
+          {
             "N": "sensitive attribute",
             "V": 3
           },
           {
-            "N": "tower",
-            "V": 1
-          },
-          {
-            "N": "equalized odd",
+            "N": "unfairness",
             "V": 3
-          },
-          {
-            "N": "our theoretical prediction",
-            "V": 2
-          },
-          {
-            "N": "demographic parity",
-            "V": 2
-          },
-          {
-            "N": "bridge",
-            "V": 1
-          },
-          {
-            "N": "individual",
-            "V": 5
-          },
-          {
-            "N": "race",
-            "V": 2
-          },
-          {
-            "N": "generalization bound",
-            "V": 1
           }
         ]
       },
@@ -11908,16 +4918,8 @@
         "P": "I",
         "K": [
           {
-            "N": "umpire",
-            "V": 1
-          },
-          {
             "N": "epistemic uncertainty",
             "V": 3
-          },
-          {
-            "N": "external tool",
-            "V": 1
           },
           {
             "N": "the set",
@@ -11926,26 +4928,6 @@
           {
             "N": "construction",
             "V": 2
-          },
-          {
-            "N": "mllm",
-            "V": 1
-          },
-          {
-            "N": "unreliable query",
-            "V": 0
-          },
-          {
-            "N": "sample mllm response",
-            "V": 0
-          },
-          {
-            "N": "key performance indicator",
-            "V": 1
-          },
-          {
-            "N": "video-text benchmark",
-            "V": 1
           }
         ]
       },
@@ -11955,44 +4937,12 @@
         "P": "I",
         "K": [
           {
-            "N": "ood",
-            "V": 9
+            "N": "ood detection",
+            "V": 6
           },
           {
-            "N": "detection",
-            "V": 9
-          },
-          {
-            "N": "apex",
-            "V": 1
-          },
-          {
-            "N": "the feature space",
-            "V": 1
-          },
-          {
-            "N": "outlier",
+            "N": "the safe deployment",
             "V": 3
-          },
-          {
-            "N": "graph neural networks",
-            "V": 2
-          },
-          {
-            "N": "resnet-18",
-            "V": 1
-          },
-          {
-            "N": "distribution",
-            "V": 11
-          },
-          {
-            "N": "unlearning",
-            "V": 3
-          },
-          {
-            "N": "set",
-            "V": 7
           }
         ]
       },
@@ -12006,6 +4956,10 @@
             "V": 22
           },
           {
+            "N": "stealthiness",
+            "V": 5
+          },
+          {
             "N": "trigger",
             "V": 29
           },
@@ -12014,28 +4968,16 @@
             "V": 23
           },
           {
-            "N": "an adversary",
+            "N": "chat template",
+            "V": 2
+          },
+          {
+            "N": "the trigger",
             "V": 5
           },
           {
-            "N": "asr",
-            "V": 6
-          },
-          {
-            "N": "the attack",
-            "V": 6
-          },
-          {
-            "N": "persistence",
-            "V": 3
-          },
-          {
-            "N": "attacker",
-            "V": 11
-          },
-          {
-            "N": "injection",
-            "V": 12
+            "N": "malicious instruction",
+            "V": 4
           }
         ]
       },
@@ -12045,44 +4987,8 @@
         "P": "I",
         "K": [
           {
-            "N": "the carbon footprint",
-            "V": 1
-          },
-          {
-            "N": "genai-assist development",
-            "V": 0
-          },
-          {
-            "N": "cagg",
-            "V": 1
-          },
-          {
-            "N": "validation pipeline",
-            "V": 1
-          },
-          {
-            "N": "development activity",
-            "V": 0
-          },
-          {
-            "N": "the software development life cycle",
-            "V": 1
-          },
-          {
-            "N": "documentation",
-            "V": 1
-          },
-          {
-            "N": "sustainability-aware validation orchestration",
-            "V": 1
-          },
-          {
-            "N": "these governance mechanism",
-            "V": 1
-          },
-          {
-            "N": "reusable design pattern",
-            "V": 1
+            "N": "carbon emission",
+            "V": 2
           }
         ]
       },
@@ -12096,39 +5002,27 @@
             "V": 6
           },
           {
-            "N": "mint",
-            "V": 1
-          },
-          {
             "N": "human-ai interaction",
             "V": 8
+          },
+          {
+            "N": "common ground",
+            "V": 3
+          },
+          {
+            "N": "ai assistance",
+            "V": 5
+          },
+          {
+            "N": "knowledge gap",
+            "V": 3
           },
           {
             "N": "participant",
             "V": 14
           },
           {
-            "N": "belief",
-            "V": 3
-          },
-          {
-            "N": "user experience",
-            "V": 4
-          },
-          {
-            "N": "ai agent",
-            "V": 9
-          },
-          {
-            "N": "people",
-            "V": 4
-          },
-          {
-            "N": "human oversight",
-            "V": 3
-          },
-          {
-            "N": "human input",
+            "N": "cognitive offloading",
             "V": 2
           }
         ]
@@ -12139,6 +5033,10 @@
         "P": "I",
         "K": [
           {
+            "N": "sovereignty",
+            "V": 2
+          },
+          {
             "N": "responsibility",
             "V": 4
           },
@@ -12147,36 +5045,8 @@
             "V": 16
           },
           {
-            "N": "creator",
-            "V": 1
-          },
-          {
-            "N": "participation",
-            "V": 1
-          },
-          {
             "N": "compliance",
             "V": 2
-          },
-          {
-            "N": "type",
-            "V": 1
-          },
-          {
-            "N": "compensation",
-            "V": 1
-          },
-          {
-            "N": "this article",
-            "V": 3
-          },
-          {
-            "N": "generative ai",
-            "V": 4
-          },
-          {
-            "N": "accountability",
-            "V": 5
           }
         ]
       },
@@ -12192,6 +5062,10 @@
         "P": "I",
         "K": [
           {
+            "N": "object hallucination",
+            "V": 4
+          },
+          {
             "N": "large vision-language models",
             "V": 9
           },
@@ -12200,36 +5074,12 @@
             "V": 8
           },
           {
-            "N": "hallucination",
-            "V": 33
-          },
-          {
-            "N": "halt",
-            "V": 1
-          },
-          {
-            "N": "iris",
-            "V": 1
-          },
-          {
-            "N": "kvsmooth",
-            "V": 1
+            "N": "hallucination detection",
+            "V": 6
           },
           {
             "N": "air",
             "V": 8
-          },
-          {
-            "N": "scalpel",
-            "V": 1
-          },
-          {
-            "N": "chair",
-            "V": 3
-          },
-          {
-            "N": "the language decoder",
-            "V": 1
           }
         ]
       },
@@ -12239,44 +5089,8 @@
         "P": "I",
         "K": [
           {
-            "N": "the image",
-            "V": 1
-          },
-          {
             "N": "copying",
             "V": 2
-          },
-          {
-            "N": "ownership",
-            "V": 1
-          },
-          {
-            "N": "regulation",
-            "V": 1
-          },
-          {
-            "N": "rightarrow",
-            "V": 1
-          },
-          {
-            "N": "memorization",
-            "V": 1
-          },
-          {
-            "N": "the original model",
-            "V": 1
-          },
-          {
-            "N": "mllm",
-            "V": 1
-          },
-          {
-            "N": "the widespread use",
-            "V": 1
-          },
-          {
-            "N": "frequent",
-            "V": 1
           }
         ]
       }
