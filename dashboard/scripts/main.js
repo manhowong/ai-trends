@@ -12,7 +12,7 @@ import { goOverview, focusCategory, focusChildNode }   from './views.js';
 import { setSortMode }                                 from './panel.js';
 import { buildDateRangeControls, updateDateText,
          toggleSidebar, initEdgeToggles } from './controls.js';
-
+import { initSearch } from './search.js';
 
 
 // Expose functions used by inline HTML event handlers -------------------------
@@ -49,6 +49,7 @@ document.getElementById('fontSizeReset')
 
 // ECharts event listeners -----------------------------------------------------
 
+// Hover on a node to highlight it
 echart.on('mouseover', params => {
   if (params.dataType !== 'node') return;
   const id = params.data.id;
@@ -57,30 +58,53 @@ echart.on('mouseover', params => {
   applyHover(id);
 });
 
+// Clear hover
 echart.on('mouseout', params => {
   if (params.dataType !== 'node') return;
   state.hoveredNode = null;
   clearHover();
 });
 
+// Mobile: Long-press instead of hover on node to hightlight it
+let nodeLongPressTimer = null;
+echart.getZr().on('mousedown', e => {
+  if (!e.target) return;  // only for nodes
+  nodeLongPressTimer = setTimeout(() => {
+    const id = e.target.__hostTarget?.id ?? e.target.id;
+    if (!id) return;
+    state.hoveredNode = id;
+    applyHover(id);
+  }, 500);
+});
+echart.getZr().on('mouseup', () => clearTimeout(nodeLongPressTimer));
+echart.getZr().on('mousemove', () => clearTimeout(nodeLongPressTimer));
+
+// Clear hover after long-press by tapping
+echart.getZr().on('click', e => {
+  if (e.target) return;  // tapped empty canvas
+  state.hoveredNode = null;
+  clearHover();
+});
+
+// Click a node to navigate one level down
 echart.on('click', params => {
   if (params.dataType !== 'node') return;
   const d = params.data;
   state.hoveredNode = null;
-  if (state.currentView === 'overview' && d._type === 'parent')                        focusCategory(d._catId || d.id);
+  if (state.currentView === 'overview' && d._type === 'parent') focusCategory(d._catId || d.id);
   if (state.currentView === 'category' && (d._type === 'child' || d._type === 'ext')) focusChildNode(d.id);
-  if (state.currentView === 'child'    && d._type === 'conn')                          focusChildNode(d.id);
+  if (state.currentView === 'child' && d._type === 'conn') focusChildNode(d.id);
 });
 
-// Click on empty canvas → navigate one level back up
+// Click on empty canvas, navigate one level back up
 echart.getZr().on('dblclick', e => {
   if (e.target) return;
   state.hoveredNode = null;
-  if      (state.currentView === 'child')    focusCategory(state.currentCat);
+  if (state.currentView === 'child') focusCategory(state.currentCat);
   else if (state.currentView === 'category') goOverview();
 });
 
-// Long-press on empty canvas (mobile) → navigate back up
+// Mobile: Long-press on empty canvas (mobile), navigate back up
 let longPressTimer = null;
 
 echart.getZr().on('mousedown', e => {
@@ -94,7 +118,6 @@ echart.getZr().on('mousedown', e => {
 echart.getZr().on('mouseup',   () => clearTimeout(longPressTimer));
 echart.getZr().on('mousemove', () => clearTimeout(longPressTimer));
 
-
 // Responsive resize -----------------------------------------------------------
 
 window.addEventListener('resize', () => echart.resize());
@@ -104,6 +127,15 @@ if (window.innerWidth <= 768) {
   document.getElementById('right-panel').classList.add('collapsed');
   document.getElementById('sidebar').classList.add('collapsed');
 }
+
+//Mobile: click outside of sidebar, close it automatically
+document.addEventListener('click', e => {
+  if (window.innerWidth > 768) return;
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar.classList.contains('collapsed')) return;
+  if (sidebar.contains(e.target)) return;
+  toggleSidebar();
+});
 
 // Boot ------------------------------------------------------------------------
 
@@ -116,6 +148,7 @@ async function initializeApp() {
   initializeRichStyles();
   goOverview();
   initEdgeToggles();
+  initSearch();
 }
 
 initializeApp().catch(err => {

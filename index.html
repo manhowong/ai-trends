@@ -32,7 +32,7 @@
         <div id="chart-wrapper">
             <div id="chart"></div>
         </div>
-        <aside id="sidebar">
+        <div id="sidebar">
             <button id="sidebarToggle" title="Collapse sidebar"></button>
 
             <div id="sidebarContent">
@@ -44,6 +44,8 @@
                         <select id="endMonthSelect" class="date-range-select"></select>
                     </div>
                 </div>
+
+                <button id="searchBtn">⌕ Go to Topics...</button>
 
                 <div id="edgeToggleControl">
                     <label class="edge-toggle-row">
@@ -90,7 +92,7 @@
                     <p class="legend-note">Link width = overlap score (DSC)</p>
                 </div>
             </div>
-        </aside>
+        </div>
 
         <div id="right-panel">
             <button id="panelToggle" title="Collapse panel"></button>
@@ -127,6 +129,20 @@
         </div><!-- /right-panel -->
 
     </div><!-- /main-container -->
+
+    <div id="search-overlay">
+        <div id="search-backdrop"></div>
+        <div id="search-modal">
+            <input
+            id="search-input"
+            type="text"
+            placeholder="Search topics or categories..."
+            autocomplete="off"
+            spellcheck="false"
+            />
+            <div id="search-results"></div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
     <script type="module" src="./dashboard/scripts/main.js"></script>
