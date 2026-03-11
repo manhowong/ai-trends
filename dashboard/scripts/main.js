@@ -85,8 +85,7 @@ let longPressTimer = null;
 
 const isTouch = (e) => {
   const sourceEvent = e?.event?.event || e?.event || e;
-  // Added type.includes('touch') for physical device detection
-  const touch = (sourceEvent && (sourceEvent.pointerType === 'touch' || sourceEvent.type.includes('touch'))) || (Date.now() - lastTouchTime < GHOST_LOCK);
+  const touch = (sourceEvent && sourceEvent.pointerType === 'touch') || (Date.now() - lastTouchTime < GHOST_LOCK);
   if (touch) lastTouchTime = Date.now();
   return touch;
 };
@@ -110,14 +109,13 @@ echart.getZr().on('dblclick', (e) => {
 // Mobile or hybrid events (touch or click)
 
 // --- Long-press on node
-// Changed to 'touchstart' so physical devices trigger the timer immediately
-echart.on('touchstart', (p) => {
+echart.on('mousedown', (p) => {
   if (p.dataType !== 'node') return;
   
   if (isTouch(p)) {
     longPressTimer = setTimeout(() => {
       mobileActions.onNodeLongPress(p.data);
-      longPressTimer = 'triggered';
+      longPressTimer = 'triggered'; // This is the KEY to blocking the click later
     }, 600);
   }
 });
@@ -129,17 +127,20 @@ echart.on('click', (p) => {
   if (p.dataType !== 'node') return;
 
   if (isTouch(p)) {
-    if (longPressTimer !== 'triggered') mobileActions.onNodeTap(p.data.id); // Highlight node
+    // If longPressTimer is 'triggered', we SKIP this so we don't highlight the node
+    if (longPressTimer !== 'triggered') {
+        mobileActions.onNodeTap(p.data.id); // Highlight node
+    }
   } else {
     mouseActions.onNodeClick(p.data); // Navigate down
   }
+  
   clearTimeout(longPressTimer);
   longPressTimer = null;
 });
 
 // --- Long-press on canvas
-// Changed to 'touchstart' so physical devices trigger the timer immediately
-echart.getZr().on('touchstart', (e) => {
+echart.getZr().on('mousedown', (e) => {
   if (e.target) return;
 
   if (isTouch(e)) {
@@ -152,15 +153,14 @@ echart.getZr().on('touchstart', (e) => {
 });
 
 // Global Cleanup
-// Added touchend for physical mobile release cleanup
-const cleanup = () => {
+echart.getZr().on('mouseup', () => {
+  // If the finger is lifted BEFORE 600ms, the timer is cleared
+  // If it's already 'triggered', we don't clear it yet so 'click' can check it
   if (longPressTimer !== 'triggered') {
-    clearTimeout(longPressTimer);
-    longPressTimer = null;
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
   }
-};
-echart.getZr().on('touchend', cleanup);
-echart.getZr().on('mouseup', cleanup);
+});
 
 
 // Helper functions
