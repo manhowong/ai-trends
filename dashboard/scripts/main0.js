@@ -61,123 +61,79 @@ document.getElementById('fontSizeReset')
 
 // ECharts event listeners -----------------------------------------------------
 
-// Define the actions by mouse (e.g. desktop) and mobile devices
-
-const mouseActions = {
-  onNodeHover: (id) => { state.hoveredNode = id; applyHover(id); },
-  onNodeLeave: () => { state.hoveredNode = null; clearHover(); },
-  onNodeClick: (data) => navigateDown(data),
-  onCanvasDblClick: () => navigateUp()
-};
-
-const mobileActions = {
-  onNodeTap: (id) => { state.hoveredNode = id; applyHover(id); },
-  onNodeLongPress: (data) => navigateDown(data),
-  onCanvasTap: () => { state.hoveredNode = null; clearHover(); },
-  onCanvasLongPress: () => navigateUp()
-};
-
-// Determine the action type
-
-let lastTouchTime = 0;
-const GHOST_LOCK = 500;
-let longPressTimer = null;
-
-const isTouch = (e) => {
-  const sourceEvent = e?.event?.event || e?.event || e;
-  // Added type.includes('touch') for physical device detection
-  const touch = (sourceEvent && (sourceEvent.pointerType === 'touch' || sourceEvent.type.includes('touch'))) || (Date.now() - lastTouchTime < GHOST_LOCK);
-  if (touch) lastTouchTime = Date.now();
-  return touch;
-};
-
-// Mouse events (when isTouch is false)
-
-// --- Hover on node
-echart.on('mouseover', (p) => {
-  if (p.dataType === 'node' && !isTouch(p)) mouseActions.onNodeHover(p.data.id);
-});
-// --- Move away from node
-echart.on('mouseout', (p) => {
-  if (p.dataType === 'node' && !isTouch(p)) mouseActions.onNodeLeave();
+// Hover on a node to highlight it
+echart.on('mouseover', params => {
+  if (params.dataType !== 'node') return;
+  const id = params.data.id;
+  if (state.hoveredNode === id) return;
+  state.hoveredNode = id;
+  applyHover(id);
 });
 
-// --- Double click on canvas
-echart.getZr().on('dblclick', (e) => {
-  if (!e.target && !isTouch(e)) mouseActions.onCanvasDblClick();
+// Clear hover
+echart.on('mouseout', params => {
+  if (params.dataType !== 'node') return;
+  state.hoveredNode = null;
+  clearHover();
 });
 
-// Mobile or hybrid events (touch or click)
+// Mobile: Long-press instead of hover on node to hightlight it
+let nodeLongPressTimer = null;
+let wasLongPress = false;
 
-// --- Long-press on node
-// Changed to 'touchstart' so physical devices trigger the timer immediately
-echart.on('touchstart', (p) => {
-  if (p.dataType !== 'node') return;
-  
-  if (isTouch(p)) {
-    longPressTimer = setTimeout(() => {
-      mobileActions.onNodeLongPress(p.data);
-      longPressTimer = 'triggered';
-    }, 600);
-  }
+echart.on('mousedown', params => {
+  if (params.dataType !== 'node') return;
+  wasLongPress = false;
+  nodeLongPressTimer = setTimeout(() => {
+    wasLongPress = true;
+    state.hoveredNode = params.data.id;
+    applyHover(params.data.id);
+  }, 500);
 });
 
-// --- Top on node or click on node
-//     mobile tap: isTouch is true and longPressTimer is not triggered
-//     mouse click: everything else
-echart.on('click', (p) => {
-  if (p.dataType !== 'node') return;
+echart.on('mouseup',   () => clearTimeout(nodeLongPressTimer));
+echart.on('mousemove', () => clearTimeout(nodeLongPressTimer));
 
-  if (isTouch(p)) {
-    if (longPressTimer !== 'triggered') mobileActions.onNodeTap(p.data.id); // Highlight node
-  } else {
-    mouseActions.onNodeClick(p.data); // Navigate down
-  }
-  clearTimeout(longPressTimer);
-  longPressTimer = null;
+// Clear hover after long-press by tapping
+echart.getZr().on('click', e => {
+  if (e.target) return;  // tapped empty canvas
+  state.hoveredNode = null;
+  clearHover();
 });
 
-// --- Long-press on canvas
-// Changed to 'touchstart' so physical devices trigger the timer immediately
-echart.getZr().on('touchstart', (e) => {
-  if (e.target) return;
+// Click a node to go one level down
+echart.on('click', params => {
+  if (params.dataType !== 'node') return;
+  if (wasLongPress) { wasLongPress = false; return; }  // block navigation
 
-  if (isTouch(e)) {
-    mobileActions.onCanvasTap(); // Clear hover immediately on tap
-    longPressTimer = setTimeout(() => {
-      mobileActions.onCanvasLongPress(); // Navigate up
-      longPressTimer = 'triggered';
-    }, 600);
-  }
-});
-
-// Global Cleanup
-// Added touchend for physical mobile release cleanup
-const cleanup = () => {
-  if (longPressTimer !== 'triggered') {
-    clearTimeout(longPressTimer);
-    longPressTimer = null;
-  }
-};
-echart.getZr().on('touchend', cleanup);
-echart.getZr().on('mouseup', cleanup);
-
-
-// Helper functions
-
-function navigateDown(d) {
+  const d = params.data;
   state.hoveredNode = null;
   if (state.currentView === 'overview' && d._type === 'parent') focusCategory(d._catId || d.id);
-  else if (state.currentView === 'category' && (d._type === 'child' || d._type === 'ext')) focusChildNode(d.id);
-  else if (state.currentView === 'child' && d._type === 'conn') focusChildNode(d.id);
-}
+  if (state.currentView === 'category' && (d._type === 'child' || d._type === 'ext')) focusChildNode(d.id);
+  if (state.currentView === 'child' && d._type === 'conn') focusChildNode(d.id);
+});
 
-function navigateUp() {
+// Click on empty canvas, navigate one level back up
+echart.getZr().on('dblclick', e => {
+  if (e.target) return;
   state.hoveredNode = null;
   if (state.currentView === 'child') focusCategory(state.currentCat);
   else if (state.currentView === 'category') goOverview();
-}
+});
 
+// Mobile: Long-press on empty canvas (mobile), navigate back up
+let longPressTimer = null;
+
+echart.getZr().on('mousedown', e => {
+  if (e.target) return;
+  longPressTimer = setTimeout(() => {
+    state.hoveredNode = null;
+    if      (state.currentView === 'child')    focusCategory(state.currentCat);
+    else if (state.currentView === 'category') goOverview();
+  }, 500);
+});
+echart.getZr().on('mouseup',   () => clearTimeout(longPressTimer));
+echart.getZr().on('mousemove', () => clearTimeout(longPressTimer));
 
 // Responsive ------------------------------------------------------------------
 
