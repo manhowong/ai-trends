@@ -22,7 +22,7 @@ export function setSortMode(level, mode) {
 }
 
 export function buildSortDropdown(level, modes, activeMode) {
-  const labelMap = { papers: '# papers', hotness: 'hotness', links: '# links' };
+  const labelMap = { papers: '# articles', hotness: 'hotness', links: '# links' };
   const options  = modes.map(mode => `
       <option value="${mode}" ${activeMode === mode ? 'selected' : ''}>
         ${labelMap[mode] || mode}
@@ -140,7 +140,7 @@ export function renderCategoryPanel() {
     </div>`;
 
   setPanelContent('info-top',    'Topics',              sortDropdown,                                      topHTML);
-  setPanelContent('info-bottom', 'Unclassified Topics', '<span class="rank-bar-title"># papers</span>',   '<p class="empty-state">None</p>');
+  setPanelContent('info-bottom', 'Unclassified Topics', '<span class="rank-bar-title"># articles</span>',   '<p class="empty-state">None</p>');
 }
 
 
@@ -191,7 +191,7 @@ export function renderChildPanel() {
        </div>`
     : '<p class="empty-state">No related topics found.</p>';
 
-  setPanelContent('info-top',    'Keywords',       '<span class="rank-bar-title"># papers</span>',      topHTML);
+  setPanelContent('info-top',    'Keywords',       '<span class="rank-bar-title"># articles</span>',      topHTML);
   setPanelContent('info-bottom', 'Overlapping Topics', '<span class="rank-bar-title">Overlap score (DSC)</span>', bottomHTML);
 }
 

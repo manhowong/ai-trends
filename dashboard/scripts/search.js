@@ -119,13 +119,18 @@ function navigateToNode(id, level) {
   } else {
     focusChildNode(id);
   }
-  // Delay hover so the chart has rendered first
-  requestAnimationFrame(() => {
-    setTimeout(() => {
-      state.hoveredNode = id;
-      applyHover(id);
-    }, 400);
-  });
+
+  // Only hightlight nodes when a level 2 node (topic node) is selected
+  if (level === 2) {
+    // Delay node highlight so the chart has rendered first
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+        state.hoveredNode = id;
+        applyHover(id);
+        }, 800);
+    });
+  }
+
 }
 
 // Select result by keyboard Up/Down arrows

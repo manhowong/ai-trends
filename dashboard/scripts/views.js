@@ -11,7 +11,7 @@ import {
 import { updateRightPanel } from './panel.js';
 
 
-// ── Breadcrumb ───────────────────────────────────────────────
+// -- Breadcrumb -----------------------------------------------
 
 export function updateTreeBreadcrumb() {
   const container = document.getElementById('treeItems');
@@ -47,7 +47,7 @@ export function updateTreeBreadcrumb() {
 }
 
 
-// ── Overview ─────────────────────────────────────────────────
+// -- Overview -------------------------------------------------
 
 export function goOverview() {
   document.getElementById('toggleIntraEdges').disabled = true; // disable intra edge toggle
@@ -57,13 +57,6 @@ export function goOverview() {
   state.hoveredNode  = null;
   updateTreeBreadcrumb();
 
-  const W  = echart.getWidth();
-  const H  = echart.getHeight();
-  const cx = W / 2;
-  const cy = H / 2 + 20;
-  const R  = Math.min(W, H) * 0.25;
-
-  const angles = circleAngles(state.cats.length);
   const maxW   = Math.max(...state.parentEdges.map(e => e.w), 1);
 
   const nodes = state.cats.map((cat, i) => {
@@ -111,7 +104,7 @@ export function goOverview() {
 }
 
 
-// ── Category focus ───────────────────────────────────────────
+// -- Category focus -------------------------------------------
 
 export function focusCategory(catId) {
   document.getElementById('toggleIntraEdges').disabled = false; // enable intra edge toggle
@@ -123,11 +116,6 @@ export function focusCategory(catId) {
   updateTreeBreadcrumb();
 
   const cat = state.catMap[catId];
-  const W   = echart.getWidth();
-  const H   = echart.getHeight();
-  const cx  = W / 2;
-  const cy  = H / 2 + 20;
-
   const focusIds = new Set(cat.children.map(c => c.id));
 
   // Edges that cross the category boundary
@@ -144,16 +132,11 @@ export function focusCategory(catId) {
   });
 
   // Inner ring: this category's own children
-  const innerR  = Math.min(W, H) * 0.13;
-  const fAngles = circleAngles(cat.children.length);
-
   const nodes = cat.children.map((child, i) => {
     const tc        = trendColor(child.trend);
     const itemStyle = { color: tc, borderColor: tc, borderWidth: 2, opacity: 0.9 };
     return {
       id:         child.id,
-      x:          cx + innerR * Math.cos(fAngles[i]),
-      y:          cy + innerR * Math.sin(fAngles[i]),
       symbolSize: nodeSize(child.papers, 'category'),
       itemStyle:  { ...itemStyle },
       label: {
@@ -182,8 +165,6 @@ export function focusCategory(catId) {
 
   // Outer ring: external nodes grouped by their parent category
   const extByCat     = {};
-  const outerR       = Math.min(W, H) * 0.34;
-
   extIds.forEach(id => {
     const cid = state.childToCat[id];
     if (!cid) return;
@@ -192,26 +173,17 @@ export function focusCategory(catId) {
   });
 
   const extCatIds    = Object.keys(extByCat);
-  const extCatAngles = circleAngles(extCatIds.length);
 
   // Only add external nodes if cross-category links are enabled
   if (state.showCrossEdges) {
     extCatIds.forEach((ecid, ci) => {
       const group     = extByCat[ecid];
-      const baseAngle = extCatAngles[ci];
-      const spread    = 0.7;
-      const gAngles   = group.length === 1
-        ? [baseAngle]
-        : group.map((_, gi) => baseAngle - spread / 2 + spread * gi / (group.length - 1));
-
       group.forEach((id, gi) => {
         const child     = state.childMap[id];
         const extCat    = state.catMap[ecid];
         const itemStyle = { color: '#333', borderColor: '#444', borderWidth: 1, opacity: 0.35 };
         nodes.push({
           id:         child.id,
-          x:          cx + outerR * Math.cos(gAngles[gi]),
-          y:          cy + outerR * Math.sin(gAngles[gi]),
           symbolSize: nodeSize(child.papers, 'category') * 0.7,
           itemStyle:  { ...itemStyle },
           label: {
@@ -275,7 +247,7 @@ export function focusCategory(catId) {
 }
 
 
-// ── Child (topic) focus ──────────────────────────────────────
+// -- Child (topic) focus --------------------------------------
 
 export function focusChildNode(childId) {
   document.getElementById('toggleIntraEdges').disabled = false; // enable intra edge toggle

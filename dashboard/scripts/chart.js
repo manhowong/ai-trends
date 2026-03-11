@@ -118,9 +118,10 @@ export function getChartCenter() {
 // ── Core render function ─────────────────────────────────────
 
 export function renderChart(nodes, links) {
-  // Check number of nodes in chart. If only 1 node, don't center at chart
-  // (because the node won't sit at screen center in circular layout)
+  // Check number of nodes in chart. If only 1 node, don't center by chart
+  // (because the node sits at the edge of chart in circular layout)
   const isSingle = nodes.length === 1;
+  const cx = window.innerWidth / window.innerHeight * 0.2 * 100 ; // calculate horizontal center
 
   echart.setOption({
     backgroundColor:   'transparent',
@@ -131,7 +132,7 @@ export function renderChart(nodes, links) {
       layout:    'circular',
       roam:      true,
       zoom:      0.85,
-      center:    isSingle?['0%', '50%'] : getChartCenter(), // 0%, 50% for 1 node
+      center:    isSingle?[ `${cx}%`, '50%'] : getChartCenter(), // 40%, 50% for 1 node
       draggable: false,
       data:      nodes,
       links,
@@ -251,13 +252,14 @@ export function clearHover() {
 
 export function fitScreen() {
 
-  // Check number of nodes in chart. If only 1 node, don't center at chart
-  // (because the node won't sit at screen center in circular layout)
-  const isSingle = echart.getOption().series[0].data.length === 1; 
+  // Check number of nodes in chart. If only 1 node, don't center by chart
+  // (because the node sits at the edge of chart in circular layout)
+  const isSingle = echart.getOption().series[0].data.length === 1;
+  const cx = window.innerWidth / window.innerHeight * 0.2 * 100 ; // calculate horizontal center
   echart.resize();
   echart.setOption({ series: [{ 
       zoom: 0.85, 
-      center: isSingle?['0%', '50%'] : getChartCenter() // 0%, 50% for 1 node
+      center: isSingle?[ `${cx}%`, '50%'] : getChartCenter()
     }] 
   });
 }
