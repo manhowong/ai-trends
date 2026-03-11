@@ -85,7 +85,9 @@ let longPressTimer = null;
 
 const isTouch = (e) => {
   const sourceEvent = e?.event?.event || e?.event || e;
-  const touch = (sourceEvent && sourceEvent.pointerType === 'touch') || (Date.now() - lastTouchTime < GHOST_LOCK);
+  // Added type.includes('touch') to catch physical touch events
+  const touch = (sourceEvent && (sourceEvent.pointerType === 'touch' || sourceEvent.type.includes('touch'))) || 
+                (Date.now() - lastTouchTime < GHOST_LOCK);
   if (touch) lastTouchTime = Date.now();
   return touch;
 };
@@ -109,62 +111,57 @@ echart.getZr().on('dblclick', (e) => {
 // Mobile or hybrid events (touch or click)
 
 // --- Long-press on node
-echart.on('mousedown', (p) => {
+// Listen to both mousedown and touchstart to ensure immediate trigger
+const startNodeInteraction = (p) => {
   if (p.dataType !== 'node') return;
-  
   if (isTouch(p)) {
     longPressTimer = setTimeout(() => {
       mobileActions.onNodeLongPress(p.data);
-      longPressTimer = 'triggered'; // This is the KEY to blocking the click later
+      longPressTimer = 'triggered';
     }, 600);
   }
-});
+};
+echart.on('mousedown', startNodeInteraction);
+echart.on('touchstart', startNodeInteraction);
 
 // --- Top on node or click on node
-//     mobile tap: isTouch is true and longPressTimer is not triggered
-//     mouse click: everything else
 echart.on('click', (p) => {
   if (p.dataType !== 'node') return;
 
   if (isTouch(p)) {
-    // If longPressTimer is 'triggered', we SKIP this so we don't highlight the node
-    if (longPressTimer !== 'triggered') {
-        mobileActions.onNodeTap(p.data.id); // Highlight node
-    }
+    if (longPressTimer !== 'triggered') mobileActions.onNodeTap(p.data.id);
   } else {
-    mouseActions.onNodeClick(p.data); // Navigate down
+    mouseActions.onNodeClick(p.data);
   }
-  
   clearTimeout(longPressTimer);
   longPressTimer = null;
 });
 
 // --- Long-press on canvas
-echart.getZr().on('mousedown', (e) => {
+const startCanvasInteraction = (e) => {
   if (e.target) return;
-
   if (isTouch(e)) {
-    mobileActions.onCanvasTap(); // Clear hover immediately on tap
+    mobileActions.onCanvasTap();
     longPressTimer = setTimeout(() => {
-      mobileActions.onCanvasLongPress(); // Navigate up
+      mobileActions.onCanvasLongPress();
       longPressTimer = 'triggered';
     }, 600);
   }
-});
+};
+echart.getZr().on('mousedown', startCanvasInteraction);
+echart.getZr().on('touchstart', startCanvasInteraction);
 
 // Global Cleanup
-echart.getZr().on('mouseup', () => {
-  // If the finger is lifted BEFORE 600ms, the timer is cleared
-  // If it's already 'triggered', we don't clear it yet so 'click' can check it
+const cleanup = () => {
   if (longPressTimer !== 'triggered') {
-      clearTimeout(longPressTimer);
-      longPressTimer = null;
+    clearTimeout(longPressTimer);
+    longPressTimer = null;
   }
-});
-
+};
+echart.getZr().on('mouseup', cleanup);
+echart.getZr().on('touchend', cleanup);
 
 // Helper functions
-
 function navigateDown(d) {
   state.hoveredNode = null;
   if (state.currentView === 'overview' && d._type === 'parent') focusCategory(d._catId || d.id);
