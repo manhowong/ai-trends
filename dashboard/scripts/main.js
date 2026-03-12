@@ -64,107 +64,94 @@ document.getElementById('fontSizeReset')
 // Define the actions by mouse (e.g. desktop) and mobile devices
 
 const mouseActions = {
-  onNodeHover: (id) => { state.hoveredNode = id; applyHover(id); },
-  onNodeLeave: () => { state.hoveredNode = null; clearHover(); },
-  onNodeClick: (data) => navigateDown(data),
-  onCanvasDblClick: () => navigateUp()
+    onNodeHover: (id) => { state.hoveredNode = id; applyHover(id); },
+    onNodeLeave: () => { state.hoveredNode = null; clearHover(); },
+    onNodeClick: (data) => navigateDown(data),
+    onCanvasDblClick: () => navigateUp()
 };
 
 const mobileActions = {
-  onNodeTap: (id) => { state.hoveredNode = id; applyHover(id); },
-  onNodeLongPress: (data) => navigateDown(data),
-  onCanvasTap: () => { state.hoveredNode = null; clearHover(); },
-  onCanvasLongPress: () => navigateUp()
+    onNodeTap: (id) => { state.hoveredNode = id; applyHover(id); },
+    onNodeLongPress: (data) => navigateDown(data),
+    onCanvasTap: () => { state.hoveredNode = null; clearHover(); },
+    onCanvasLongPress: () => navigateUp()
 };
 
 // Navigation functions
 
 function navigateDown(d) {
-  state.hoveredNode = null;
-  if (state.currentView === 'overview' && d._type === 'parent') focusCategory(d._catId || d.id);
-  else if (state.currentView === 'category' && (d._type === 'child' || d._type === 'ext')) focusChildNode(d.id);
-  else if (state.currentView === 'child' && d._type === 'conn') focusChildNode(d.id);
+    state.hoveredNode = null;
+    if (state.currentView === 'overview' && d._type === 'parent') focusCategory(d._catId || d.id);
+    else if (state.currentView === 'category' && (d._type === 'child' || d._type === 'ext')) focusChildNode(d.id);
+    else if (state.currentView === 'child' && d._type === 'conn') focusChildNode(d.id);
 }
 
 function navigateUp() {
-  state.hoveredNode = null;
-  if (state.currentView === 'child') focusCategory(state.currentCat);
-  else if (state.currentView === 'category') goOverview();
+    state.hoveredNode = null;
+    if (state.currentView === 'child') focusCategory(state.currentCat);
+    else if (state.currentView === 'category') goOverview();
 }
 
 // Determine if the event is touch
 const isTouch = (e) => {
-  const sourceEvent = e?.event?.event || e?.event || e;
-  const touch = (sourceEvent && sourceEvent.pointerType === 'touch');
-  return touch;
+    const sourceEvent = e?.event?.event || e?.event || e;
+    const touch = (sourceEvent && sourceEvent.pointerType === 'touch');
+    return touch;
 };
 
 // Mouse events (when isTouch is false)
 
-// --- Hover on node
+// --- Hover on node (highlight node)
 echart.on('mouseover', (p) => {
-  if (p.dataType === 'node' && !isTouch(p)) mouseActions.onNodeHover(p.data.id);
+     if (p.dataType === 'node' && !isTouch(p)) mouseActions.onNodeHover(p.data.id);
 });
-// --- Move away from node
+// --- Move away from node (clear highlight)
 echart.on('mouseout', (p) => {
-  if (p.dataType === 'node' && !isTouch(p)) mouseActions.onNodeLeave();
+     if (p.dataType === 'node' && !isTouch(p)) mouseActions.onNodeLeave();
 });
-// --- Click on node
+// --- Click on node (navigate down 1 level)
 echart.on('click', (p) => {
-  if (p.dataType !== 'node' && !isTouch(p)) mouseActions.onNodeClick(p.data);
+      if (p.dataType === 'node' && !isTouch(p)) mouseActions.onNodeClick(p.data);
 });
-// --- Double click on canvas
+// --- Double click on canvas (navigate up 1 level)
 echart.getZr().on('dblclick', (e) => {
-  if (!e.target && !isTouch(e)) mouseActions.onCanvasDblClick();
+    if (!e.target && !isTouch(e)) mouseActions.onCanvasDblClick();
 });
 
 
-// Mobile or hybrid events (touch or click)
+// Mobile events
 
-// --- Top on node or click on node
-//     mobile tap: isTouch is true and longPressTimer is not triggered
-//     mouse click: everything else
-echart.on('click', (p) => {
-  if (p.dataType !== 'node') return;
-
-  if (isTouch(p) || state.hoveredNode != p.data.id) {
-    mobileActions.onNodeTap(p.data.id); // Highlight node
-  } else {
-    mouseActions.onNodeClick(p.data); // Navigate down
-  }
-
-});
-
-let longPressTimer = null;
-
-// --- Long-press on node
+// --- Top on node (highlight node)
 echart.on('mousedown', (p) => {
-  if (p.dataType !== 'node') return;
-  
-
-    longPressTimer = setTimeout(() => {
-      mobileActions.onNodeLongPress(p.data);
-      longPressTimer = 'triggered';
-    }, 600);
-
+    if (p.dataType === 'node' ) mobileActions.onNodeTap(p.data.id);
 });
 
-// --- Long-press on canvas
+let pressTimer;
+let isLongPress = false;
+
+// --- Long-press on node (navigate down 1 level)
+echart.on('mousedown', (p) => {
+    if (p.dataType !== 'node') return;
+    pressTimer = setTimeout(() => {
+        mobileActions.onNodeLongPress(p.data);
+        isLongPress = true;;
+    }, 600);
+});
+
+// --- Long-press on canvas (navigate up 1 level)
 echart.getZr().on('mousedown', (e) => {
-  if (e.target) return;
-
-  if (isTouch(e)) {
+    if (e.target) return;
     mobileActions.onCanvasTap(); // Clear hover immediately on tap
-    longPressTimer = setTimeout(() => {
-      mobileActions.onCanvasLongPress(); // Navigate up
-      longPressTimer = 'triggered';
+    pressTimer = setTimeout(() => {
+    mobileActions.onCanvasLongPress(); // Navigate up
+    isLongPress = true;
     }, 600);
-  }
 });
 
-// Reset long press
+// --- Reset long press timer
 echart.getZr().on('mouseup', () => {
-  if (longPressTimer !== 'triggered') clearTimeout(longPressTimer);
+    clearTimeout(pressTimer);
+    isLongPress = false;
 });
 
 
