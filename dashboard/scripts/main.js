@@ -126,7 +126,7 @@ echart.on('click', (p) => {
     if (p.dataType === 'node' ) mobileActions.onNodeTap(p.data.id);
 });
 
-let pressTimer;
+let pressTimer = 0;
 let isLongPress = false;
 
 // --- Long-press on node (navigate down 1 level)
@@ -143,7 +143,7 @@ echart.getZr().on('mousedown', (e) => {
     if (e.target) return;
     mobileActions.onCanvasTap(); // Clear hover immediately on tap
     pressTimer = setTimeout(() => {
-    mobileActions.onCanvasLongPress(); // Navigate up
+    mobileActions.onCanvasLongPress();
     isLongPress = true;
     }, 600);
 });
