@@ -13,7 +13,7 @@ function getAllNodes() {
   const results = [];
 
   // L1 — categories
-  state.cats.forEach(cat => {
+  state.catsAll.forEach(cat => {
     results.push({
       id:      cat.id,
       name:    cat.name,
@@ -22,12 +22,13 @@ function getAllNodes() {
       trend:   cat.trend,
       catName: null,
       catColor: null,
+      disabled: !!cat.isUnassigned,
     });
   });
 
   // L2 — topics
-  Object.values(state.childMap).forEach(child => {
-    const cat = state.catMap[child.catId];
+  Object.values(state.childMapAll).forEach(child => {
+    const cat = state.catMapAll[child.catId];
     results.push({
       id:       child.id,
       name:     child.name,
@@ -36,6 +37,7 @@ function getAllNodes() {
       trend:    child.trend,
       catName:  cat ? cat.name  : '',
       catColor: cat ? cat.color : '#94a3b8',
+      disabled: !!child.isUnassigned,
     });
   });
 
@@ -72,12 +74,13 @@ function renderResults(nodes, query) {
   }
 
   if (!nodes.length) {
-    container.innerHTML = '<p class="search-empty">No results in selected date range.</p>';
+    container.innerHTML = '<p class="search-empty">No results in selected period.</p>';
     return;
   }
 
   container.innerHTML = nodes.map(node => `
-    <div class="search-result-row" data-id="${node.id}" data-level="${node.level}">
+    <div class="search-result-row${node.disabled ? ' search-result-row--disabled' : ''}"
+         data-id="${node.id}" data-level="${node.level}" data-disabled="${node.disabled ? '1' : '0'}">
       <span class="search-result-dot" style="background:${trendColor(node.trend)}"></span>
       <span class="search-result-name">${highlightMatch(node.name, query)}</span>
       <span class="search-result-papers">${formatCount(node.papers)}</span>
@@ -91,6 +94,7 @@ function renderResults(nodes, query) {
   // Attach click handlers
   container.querySelectorAll('.search-result-row').forEach(row => {
     row.addEventListener('click', () => {
+      if (row.dataset.disabled === '1') return;
       const id    = row.dataset.id;
       const level = parseInt(row.dataset.level, 10);
       closeSearch();

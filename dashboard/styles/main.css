@@ -641,6 +641,15 @@ label:has(#toggleIntraEdges:disabled) {
     background: #1e293b;
 }
 
+.ranked-row--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.ranked-row--disabled:hover {
+    background: transparent;
+}
+
 .rank-num {
     width: 16px;
     text-align: right;
@@ -795,6 +804,15 @@ label:has(#toggleIntraEdges:disabled) {
 
 .search-result-row:hover {
     background: #1e293b;
+}
+
+.search-result-row--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.search-result-row--disabled:hover {
+    background: transparent;
 }
 
 /* select result by keyboard arrows */
@@ -1027,4 +1045,3 @@ label:has(#toggleIntraEdges:disabled) {
     }
 
 }
-
