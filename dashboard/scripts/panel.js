@@ -85,7 +85,7 @@ export function renderOverviewPanel() {
 
   const bottomHTML = `
     <div class="instructions">
-      <span><b>Desktop (best):</b></span>
+      <span><b>Desktop (optimal):</b></span>
       <ul class="bullet-list">
         <li><b>Click a node</b> to go down a level.</li>
         <li><b>Hover</b> over a node to highlight its links.</li>
@@ -95,7 +95,7 @@ export function renderOverviewPanel() {
       <span><b>Mobile:</b></span>
       <ul class="bullet-list">
         <li><b>Tap</b> a node <b>once</b> to highlight its links.</li>
-        <li><b>Tap</b> a node <b>twice</b> to go down a level.</li>
+        <li><b>Tap</b> the node <b>again</b> to go down a level.</li>
         <li><b>Long-press on empty canvas</b> to navigate back up.</li>
       </ul>
       <span>
@@ -150,7 +150,7 @@ export function renderCategoryPanel() {
     </div>`;
 
   setPanelContent('info-top',    'Topics',              sortDropdown,                                      topHTML);
-  setPanelContent('info-bottom', 'Unclassified Topics', '<span class="rank-bar-title"># articles</span>',   '<p class="empty-state">None</p>');
+  setPanelContent('info-bottom', 'Unassigned Topics', '<span class="rank-bar-title"># articles</span>',   '<p class="empty-state">None</p>');
 }
 
 
@@ -201,8 +201,8 @@ export function renderChildPanel() {
        </div>`
     : '<p class="empty-state">No related topics found.</p>';
 
-  setPanelContent('info-top',    'Keywords',       '<span class="rank-bar-title"># articles</span>',      topHTML);
-  setPanelContent('info-bottom', 'Overlapping Topics', '<span class="rank-bar-title">Overlap score (DSC)</span>', bottomHTML);
+  setPanelContent('info-top', 'Relevant Terms', '<span class="rank-bar-title"># articles</span>',      topHTML);
+  setPanelContent('info-bottom', 'Relevant Topics', '<span class="rank-bar-title">Relevance score (DSC)</span>', bottomHTML);
 }
 
 
