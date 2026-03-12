@@ -1,47 +1,51 @@
-/* ============================================================
-   state.js — Single source of truth for all mutable state
+﻿/* ============================================================
+   state.js - Single source of truth for all mutable state
    ============================================================ */
 
 export const state = {
-  // ── Raw data from JSON files ──
+  // Raw data from JSON files
   cats:               [],   // runtime category array (built by applyNormalizedData)
+  catsAll:            [],   // all categories (including zero-article) for lists/search
   childEdges:         [],   // L2-level co-occurrence edges
-  keywordData:        {},   // topicId → [{ id, name, papers, trend }]
+  keywordData:        {},   // topicId â†’ [{ id, name, papers, trend }]
   rawMetadata:        null,
   rawTimeseries:      null,
   dataMonths:         [],   // sorted month strings, e.g. ["2024-01", ...]
   selectedStartMonth: null,
   selectedEndMonth:   null,
 
-  // ── Derived lookup tables (built by initializeDerivedData) ──
-  childMap:    {},   // nodeId   → L2 node object
-  childToCat:  {},   // L2 id   → parent category id
-  catMap:      {},   // cat id  → category object
+  // Derived lookup tables (built by initializeDerivedData)
+  childMap:    {},   // nodeId   â†’ L2 node object
+  childToCat:  {},   // L2 id   â†’ parent category id
+  catMap:      {},   // cat id  â†’ category object
   parentEdges: [],   // category-level rolled-up edges
+  childMapAll:   {}, // nodeId to L2 node object (all, incl. unassigned)
+  childToCatAll: {}, // L2 id to parent category id (all)
+  catMapAll:     {}, // cat id to category object (all)
 
-  // ── View state ──
+  // View state
   currentView:  'overview',  // 'overview' | 'category' | 'child'
   currentCat:   null,
   currentChild: null,
   hoveredNode:  null,
 
-  // ── Current render snapshot (used for hover diff) ──
+  // Current render snapshot (used for hover diff)
   curNodes:  [],
   curLinks:  [],
   curAdjMap: {},
 
-  // ── Sort modes ──
+  // Sort modes
   level1SortMode: 'papers',  // 'papers' | 'hotness'
   level2SortMode: 'papers',  // 'papers' | 'hotness' | 'links'
 
-  // ── ECharts rich-label styles ──
+  // ECharts rich-label styles
   allColors:  [],
   richStyles: {},
 
-  // ── Font ──
+  // Font
   currentFontSize: 10,
 
-  // ── Edge ──
+  // Edge
   showIntraEdges: true,   // within-category links
   showCrossEdges: true,   // cross-category links
 };

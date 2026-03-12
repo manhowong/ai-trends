@@ -1,12 +1,12 @@
 /* ============================================================
-   panel.js — Right-panel renderers and sort-control helpers
+   panel.js - Right-panel renderers and sort-control helpers
    ============================================================ */
 
 import { state } from './state.js';
 import { trendColor, formatCount, makeLabel } from './chart.js';
 
 
-// ── Generic panel helpers ────────────────────────────────────
+// Generic panel helpers ------------------------------------
 
 export function setPanelContent(boxId, title, sortHTML, contentHTML) {
   document.getElementById(boxId + '-title').textContent = title;
@@ -54,10 +54,10 @@ export function metricBarWidths(mode, values) {
 }
 
 
-// ── Overview panel ───────────────────────────────────────────
+// Overview panel -------------------------------------------
 
 export function renderOverviewPanel() {
-  const sorted = [...state.cats].sort((a, b) =>
+  const sorted = [...state.catsAll].sort((a, b) =>
     state.level1SortMode === 'hotness'
       ? b.hotness - a.hotness
       : b.totalpapers - a.totalpapers
@@ -71,16 +71,22 @@ export function renderOverviewPanel() {
 
   const topHTML = `
     <div class="ranked-list">
-      ${sorted.map((cat, i) => `
-        <div class="ranked-row" data-id="${cat.id}"
-            onmouseenter="applyHover('${cat.id}')" onmouseleave="clearHover()"
-            onclick="focusCategory('${cat.id}')" style="cursor:pointer">
+      ${sorted.map((cat, i) => {
+        const disabled = !!cat.isUnassigned;
+        const rowClass = `ranked-row${disabled ? ' ranked-row--disabled' : ''}`;
+        const attrs = disabled
+          ? ''
+          : `onmouseenter="applyHover('${cat.id}')" onmouseleave="clearHover()"
+             onclick="focusCategory('${cat.id}')" style="cursor:pointer"`;
+        return `
+        <div class="${rowClass}" data-id="${cat.id}" ${attrs}>
           <span class="rank-num">${i + 1}</span>
           <span class="rank-dot" style="background:${trendColor(cat.trend)}"></span>
           <span class="rank-name">${cat.name}</span>
           <span class="rank-count">${formatMetricValue(state.level1SortMode, metricValues[i])}</span>
           <div class="rank-bar-wrap"><div class="rank-bar" style="width:${barWidths[i]}%"></div></div>
-        </div>`).join('')}
+        </div>`;
+      }).join('')}
     </div>`;
 
   const bottomHTML = `
@@ -109,10 +115,10 @@ export function renderOverviewPanel() {
 }
 
 
-// ── Category panel ───────────────────────────────────────────
+// Category panel -------------------------------------------
 
 export function renderCategoryPanel() {
-  const cat = state.catMap[state.currentCat];
+  const cat = state.catMapAll[state.currentCat] || state.catMap[state.currentCat];
 
   const connCount = {};
   cat.children.forEach(ch => {
@@ -137,24 +143,30 @@ export function renderCategoryPanel() {
 
   const topHTML = `
     <div class="ranked-list">
-      ${sorted.map((child, i) => `
-        <div class="ranked-row" data-id="${child.id}"
-            onmouseenter="applyHover('${child.id}')" onmouseleave="clearHover()"
-            onclick="focusChildNode('${child.id}')" style="cursor:pointer">
+      ${sorted.map((child, i) => {
+        const disabled = !!child.isUnassigned;
+        const rowClass = `ranked-row${disabled ? ' ranked-row--disabled' : ''}`;
+        const attrs = disabled
+          ? ''
+          : `onmouseenter="applyHover('${child.id}')" onmouseleave="clearHover()"
+             onclick="focusChildNode('${child.id}')" style="cursor:pointer"`;
+        return `
+        <div class="${rowClass}" data-id="${child.id}" ${attrs}>
           <span class="rank-num">${i + 1}</span>
           <span class="rank-dot" style="background:${trendColor(child.trend)}"></span>
           <span class="rank-name">${child.name}</span>
           <span class="rank-count">${formatMetricValue(state.level2SortMode, metricValues[i])}</span>
           <div class="rank-bar-wrap"><div class="rank-bar" style="width:${barWidths[i]}%"></div></div>
-        </div>`).join('')}
+        </div>`;
+      }).join('')}
     </div>`;
 
   setPanelContent('info-top',    'Topics',              sortDropdown,                                      topHTML);
-  setPanelContent('info-bottom', 'Unassigned Topics', '<span class="rank-bar-title"># articles</span>',   '<p class="empty-state">None</p>');
+  setPanelContent('info-bottom', 'Out-of-Scope Topics', '<span class="rank-bar-title"># articles</span>',   '<p class="empty-state">In development</p>');
 }
 
 
-// ── Child (topic) panel ──────────────────────────────────────
+// Child (topic) panel --------------------------------------
 
 export function renderChildPanel() {
   const keywords = (state.keywordData[state.currentChild] || []).slice();
@@ -206,7 +218,7 @@ export function renderChildPanel() {
 }
 
 
-// ── Dispatcher ───────────────────────────────────────────────
+// Dispatch -----------------------------------------------
 
 export function updateRightPanel() {
   if (state.currentView === 'overview') renderOverviewPanel();

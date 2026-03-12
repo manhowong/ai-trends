@@ -1,10 +1,10 @@
 /* ============================================================
-   data.js — Data fetching, normalisation, and derived tables
+   data.js - Data fetching, normalisation, and derived tables
    ============================================================ */
 
 import { state, categoryColorById } from './state.js';
 
-// ── Fetch ────────────────────────────────────────────────────
+// Fetch ------------------------------------------------------ 
 
 /**
  * Fetch metadata.json + timeseries.json and store raw payloads
@@ -30,7 +30,7 @@ export async function loadData() {
 }
 
 
-// ── Timeseries helpers ───────────────────────────────────────
+// Timeseries helpers ----------------------------------------- 
 
 /** Return the cumulative volume (VC) for a node at a given month. */
 export function nodeVC(monthId, nodeId, level) {
@@ -93,7 +93,7 @@ export function toHotness(startValue, endValue) {
 }
 
 
-// ── Normalisation ────────────────────────────────────────────
+// Normalisation ---------------------------------------------- 
 
 /**
  * Derive state.cats / state.childEdges / state.keywordData from
@@ -109,7 +109,7 @@ export function applyNormalizedData() {
 
   state.keywordData = {};
 
-  // ── Separate L1 (category) and L2 (topic) nodes ──
+  // Separate L1 (category) and L2 (topic) nodes 
   const categoryMeta = [];   // { id, name }
   const topicMeta    = [];   // { id, name, parentId }
 
@@ -118,13 +118,16 @@ export function applyNormalizedData() {
     if (node.L === 2) topicMeta.push({ id, name: node.N, parentId: node.P });
   });
 
-  // ── Build L2 children grouped by parent category ──
+  // Build L2 children grouped by parent category
   const childrenByCategory = {};
-  categoryMeta.forEach(cat => { childrenByCategory[cat.id] = []; });
+  const childrenByCategoryAll = {};
+  categoryMeta.forEach(cat => {
+    childrenByCategory[cat.id] = [];
+    childrenByCategoryAll[cat.id] = [];
+  });
 
   topicMeta.forEach(topic => {
     const papers = nodeRangeVolume(topic.id, 2, startIdx, endIdx);
-    if (papers <= 0) return;
 
     const startVal = nodeMonthlyVolume(state.dataMonths[startIdx], topic.id, 2);
     const endVal   = nodeMonthlyVolume(state.dataMonths[endIdx],   topic.id, 2);
@@ -137,11 +140,26 @@ export function applyNormalizedData() {
       trend:   toTrend(delta),
       hotness: toHotness(startVal, endVal),
       delta,
+      isUnassigned: papers <= 0,
     };
 
-    if (!childrenByCategory[topic.parentId]) childrenByCategory[topic.parentId] = [];
-    childrenByCategory[topic.parentId].push(child);
+    if (!childrenByCategoryAll[topic.parentId]) childrenByCategoryAll[topic.parentId] = [];
+    childrenByCategoryAll[topic.parentId].push(child);
+
+    if (papers > 0) {
+      if (!childrenByCategory[topic.parentId]) childrenByCategory[topic.parentId] = [];
+      childrenByCategory[topic.parentId].push(child);
+    }
   });
+
+  state.catsAll = categoryMeta
+    .map((cat, i) => ({
+      id:       cat.id,
+      name:     cat.name,
+      color:    categoryColorById[cat.id] ||
+                ['#be185d', '#7c3aed', '#0d9488', '#0369a1', '#b45309'][i % 5],
+      children: childrenByCategoryAll[cat.id] || [],
+    }));
 
   state.cats = categoryMeta
     .map((cat, i) => ({
@@ -156,7 +174,7 @@ export function applyNormalizedData() {
   const visibleTopicIds = new Set();
   state.cats.forEach(cat => cat.children.forEach(ch => visibleTopicIds.add(ch.id)));
 
-  // ── Build keyword data by summing K[].V across the range ──
+  // Build keyword data by summing K[].V across the range
   const kwAccumulator = {};  // topicId → kwName → { papers, startV, endV }
 
   for (let i = startIdx; i <= endIdx; i++) {
@@ -189,7 +207,7 @@ export function applyNormalizedData() {
     });
   });
 
-  // ── Build child edges: Dice coefficient over the selected range ──
+  // Build child edges: Dice coefficient over the selected range
   //   Dice = 2 * CC_range / (VC_A_range + VC_B_range)
   //   Uses cumulative CC (consistent with how node volumes are computed).
 
@@ -218,7 +236,7 @@ export function applyNormalizedData() {
 }
 
 
-// ── Derived lookup tables ────────────────────────────────────
+// Derived lookup tables -------------------------------------- 
 
 /**
  * Populate state.childMap / childToCat / catMap / parentEdges
@@ -230,29 +248,38 @@ export function initializeDerivedData() {
   Object.keys(state.childMap).forEach(k => delete state.childMap[k]);
   Object.keys(state.childToCat).forEach(k => delete state.childToCat[k]);
   Object.keys(state.catMap).forEach(k => delete state.catMap[k]);
+  Object.keys(state.childMapAll).forEach(k => delete state.childMapAll[k]);
+  Object.keys(state.childToCatAll).forEach(k => delete state.childToCatAll[k]);
+  Object.keys(state.catMapAll).forEach(k => delete state.catMapAll[k]);
 
-  state.cats.forEach(cat => {
-    cat.totalpapers = 0;
+  function buildMaps(cats, childMap, childToCat, catMap) {
+    cats.forEach(cat => {
+      cat.totalpapers = 0;
 
-    cat.children.forEach(child => {
-      child.catId  = cat.id;
-      child.catName = cat.name;
-      child.color  = cat.color;
+      cat.children.forEach(child => {
+        child.catId   = cat.id;
+        child.catName = cat.name;
+        child.color   = cat.color;
 
-      state.childMap[child.id]   = child;
-      state.childToCat[child.id] = cat.id;
-      cat.totalpapers           += child.papers;
+        childMap[child.id]   = child;
+        childToCat[child.id] = cat.id;
+        cat.totalpapers     += child.papers;
+      });
+
+      const netDelta = cat.children.reduce((sum, ch) => sum + (ch.delta || 0), 0);
+      cat.trend   = toTrend(netDelta);
+      cat.hotness = toHotness(
+        cat.children.reduce((sum, ch) => sum + (ch.papers - (ch.delta || 0)), 0),
+        cat.children.reduce((sum, ch) => sum + ch.papers, 0),
+      );
+      cat.isUnassigned = cat.totalpapers <= 0;
+
+      catMap[cat.id] = cat;
     });
+  }
 
-    const netDelta = cat.children.reduce((sum, ch) => sum + (ch.delta || 0), 0);
-    cat.trend   = toTrend(netDelta);
-    cat.hotness = toHotness(
-      cat.children.reduce((sum, ch) => sum + (ch.papers - (ch.delta || 0)), 0),
-      cat.children.reduce((sum, ch) => sum + ch.papers, 0),
-    );
-
-    state.catMap[cat.id] = cat;
-  });
+  buildMaps(state.cats, state.childMap, state.childToCat, state.catMap);
+  buildMaps(state.catsAll, state.childMapAll, state.childToCatAll, state.catMapAll);
 
   // Roll L2 edges up to category-level
   const parentEdgeMap = {};
