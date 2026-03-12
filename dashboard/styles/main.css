@@ -30,9 +30,17 @@ a {
 }
 
 .bullet-list li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
+.noBullet-list {
+    list-style-type:none;
+    padding-left: 15px;
+}
+
+.noBullet-list li {
+    margin-bottom: 8px;
+}
 
 /* Layout =================================================================== */
 
@@ -935,10 +943,10 @@ label:has(#toggleIntraEdges:disabled) {
     padding: 2px 3px;
     font-family: monospace;
     font-weight: bold;
-    background: #e2e8f0;
+    background: #94a3b8;
     color: #141a26;
-    border: 1px solid #1e293b;
-    box-shadow: 0 1px 1px #334155, 0 2px 0 0 #64748b inset;
+    border: 1px solid #334155;
+    box-shadow: 1px 3px 2px #334155, 0 2px 0 1px #64748b;
     border-radius: 3px;
     font-size: 11px;
 }

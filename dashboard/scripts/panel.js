@@ -91,15 +91,15 @@ export function renderOverviewPanel() {
 
   const bottomHTML = `
     <div class="instructions">
-      <span><b>Desktop (optimal):</b></span>
-      <ul class="bullet-list">
+      <span><b>Desktop</b> (optimal):</span>
+      <ul class="noBullet-list">
         <li><b>Click a node</b> to go down a level.</li>
         <li><b>Hover</b> over a node to highlight its links.</li>
         <li><b>Double-click on empty canvas</b> to navigate back up.</li>
         <li><span class="mockKbd">Ctrl</span> + <span class="mockKbd">K</span> to look up a node.</li>
       </ul>
-      <span><b>Mobile:</b></span>
-      <ul class="bullet-list">
+      <span><b>Mobile</b>:</span>
+      <ul class="noBullet-list">
         <li><b>Tap</b> a node <b>once</b> to highlight its links.</li>
         <li><b>Tap</b> the node <b>again</b> to go down a level.</li>
         <li><b>Long-press on empty canvas</b> to navigate back up.</li>
