@@ -105,7 +105,7 @@ export function renderOverviewPanel() {
         <li><b>Long-press on empty canvas</b> to navigate back up.</li>
       </ul>
       <span>
-        Select a range (> 1 month) in <span class="mockToggle">☰ GRAPH CONTROL</span> to see trends.
+        To see <b>trends</b>, set a range ≥ 2 months in <span class="mockToggle">☰ GRAPH CONTROL</span>.
       </span>
       <span>You may also select a node by tapping the <b>node list</b>.</span>
     </div>`;
@@ -185,7 +185,7 @@ export function renderChildPanel() {
             <div class="rank-bar-wrap"><div class="rank-bar" style="width:${kwBars[i]}%"></div></div>
           </div>`).join('')}
        </div>`
-    : '<p class="empty-state">No keyword data available.</p>';
+    : '<p class="empty-state">No relevant terms found in selected period.</p>';
 
   const connEdges = state.childEdges
     .filter(e => e.s === state.currentChild || e.t === state.currentChild)
@@ -211,7 +211,7 @@ export function renderChildPanel() {
             </div>`;
         }).join('')}
        </div>`
-    : '<p class="empty-state">No related topics found.</p>';
+    : '<p class="empty-state">No relevant topics found in selected period.</p>';
 
   setPanelContent('info-top', 'Relevant Terms', '<span class="rank-bar-title"># articles</span>',      topHTML);
   setPanelContent('info-bottom', 'Relevant Topics', '<span class="rank-bar-title">Relevance score (DSC)</span>', bottomHTML);
