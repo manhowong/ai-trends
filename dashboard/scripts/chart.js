@@ -66,9 +66,24 @@ export function formatCount(n) {
 }
 
 export function nodeSize(papers, level) {
-  if (level === 'overview')  return Math.sqrt(papers) * 0.45 + 18;
-  if (level === 'category')  return Math.sqrt(papers) * 0.45 + 12;
-  return Math.sqrt(papers) * 0.5 + 14;
+
+  // Set node size range at different levels
+  // So nodes can't be too big that graph is dominated by super big nodes
+  const minSize = level === 'overview' ? 10 : (level === 'category' ? 5 : 5);
+  const maxSize = level === 'overview' ? 250 : (level === 'category' ? 70 : 70);
+
+  // Normalization: Nodes grow in size as data grows.
+  // Use relative size to keep the graph's node density consistent.
+
+  // method 1: normalize to max in current render
+//   const rangeMax = Math.max(state.nodeSizeMax || 0, 1);
+//   const t = Math.sqrt(Math.max(papers, 0) / rangeMax);
+//   return minSize + (maxSize - minSize) * t;
+
+  // method 2: normalize to total in current render (stable density)
+  const total = Math.max(state.nodeSizeTotal || 0, 1);
+  const t = Math.sqrt(Math.max(papers, 0) / total);
+  return minSize + (maxSize - minSize) * t;
 }
 
 export function circleAngles(n) {

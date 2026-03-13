@@ -17,6 +17,14 @@ export function updateTreeBreadcrumb() {
   const container = document.getElementById('treeItems');
   container.innerHTML = '';
 
+  function formatCountShort(n) {
+    if (n >= 1000) {
+      const kVal = Math.round(n / 100) / 10;
+      return Number.isInteger(kVal) ? `${kVal.toFixed(0)}k` : `${kVal.toFixed(1)}k`;
+    }
+    return String(n);
+  }
+
   function makeSegment(label, clickable, onclickFn) {
     const span = document.createElement('span');
     span.textContent = label;
@@ -42,7 +50,9 @@ export function updateTreeBreadcrumb() {
 
   if (state.currentView === 'child') {
     makeSeparator();
-    makeSegment(state.childMap[state.currentChild].name, false, null);
+    const child = state.childMap[state.currentChild];
+    const count = formatCountShort(child.papers || 0);
+    makeSegment(`${child.name} (${count})`, false, null);
   }
 }
 
@@ -58,6 +68,11 @@ export function goOverview() {
   updateTreeBreadcrumb();
 
   const maxW   = Math.max(...state.parentEdges.map(e => e.w), 1);
+
+  const maxPapers = Math.max(...state.cats.map(c => c.totalpapers), 1);
+  const totalPapers = state.cats.reduce((sum, c) => sum + (c.totalpapers || 0), 0);
+  state.nodeSizeMax = maxPapers;
+  state.nodeSizeTotal = totalPapers;
 
   const nodes = state.cats.map((cat, i) => {
     const tc        = trendColor(cat.trend);
@@ -132,6 +147,11 @@ export function focusCategory(catId) {
   });
 
   // Inner ring: this category's own children
+  const maxPapers = Math.max(...cat.children.map(c => c.papers), 1);
+  const totalPapers = cat.children.reduce((sum, c) => sum + (c.papers || 0), 0);
+  state.nodeSizeMax = maxPapers;
+  state.nodeSizeTotal = totalPapers;
+
   const nodes = cat.children.map((child, i) => {
     const tc        = trendColor(child.trend);
     const itemStyle = { color: tc, borderColor: tc, borderWidth: 2, opacity: 0.9 };
@@ -272,6 +292,11 @@ export function focusChildNode(childId) {
   connIds.delete(childId);
 
   const allNodes = [childId, ...[...connIds]];
+
+  const maxPapers = Math.max(...allNodes.map(id => state.childMap[id]?.papers || 0), 1);
+  const totalPapers = allNodes.reduce((sum, id) => sum + (state.childMap[id]?.papers || 0), 0);
+  state.nodeSizeMax = maxPapers;
+  state.nodeSizeTotal = totalPapers;
 
   const nodes = allNodes.map(id => {
     const isFocus = id === childId;

@@ -34,6 +34,10 @@ export const state = {
   curLinks:  [],
   curAdjMap: {},
 
+  // Node-size scaling inputs (set per view)
+  nodeSizeMax: 0,
+  nodeSizeTotal: 0,
+
   // Sort modes
   level1SortMode: 'papers',  // 'papers' | 'hotness'
   level2SortMode: 'papers',  // 'papers' | 'hotness' | 'links'

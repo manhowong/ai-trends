@@ -109,14 +109,14 @@ export function renderOverviewPanel() {
           Press <span class="mockKbd">Ctrl</span> + <span class="mockKbd">K</span> or 
           "Go to Topics" in
           <span class="mockToggle">
-            <span class="hamburger-icon">GRAPH CONTROL</span>
+            <span class="mock-hamburger-icon">GRAPH CONTROL</span>
           </span>
       </span>
 
       <span>
         To see <b>trends</b>, set a range ≥ 2 months in 
         <span class="mockToggle">
-          <span class="hamburger-icon">GRAPH CONTROL</span>
+          <span class="mock-hamburger-icon">GRAPH CONTROL</span>
         </span>
       </span>
     </div>`;
