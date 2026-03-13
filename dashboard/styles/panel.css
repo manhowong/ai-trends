@@ -55,7 +55,7 @@
 }
 
 #panelToggle::after {
-    content: "▼ HIDE";
+    content: "\23F7\2003 HIDE";
     font-family:monospace;
     font-weight:bold;
 }
@@ -70,7 +70,7 @@
 }
 
 #right-panel.collapsed #panelToggle::after {
-    content: "▲ NODE LIST";
+    content: "\26EC\2003 NODE LIST";
     color: var(--color-accent);
     font-family:monospace;
     font-weight:bold;
