@@ -237,7 +237,7 @@
     font-size: 13px;
     color: var(--color-muted);
     cursor: pointer;
-    margin: 0px 0;
+    margin: 4px 0;
 }
 
 .edge-toggle-row input[type="checkbox"] {

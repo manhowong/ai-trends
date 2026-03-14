@@ -158,7 +158,7 @@ export function focusCategory(catId) {
       itemStyle:  { ...itemStyle },
       label: {
         show:      true,
-        formatter: makeLabel(child.name, child.papers, ),
+        formatter: makeLabel(child.name, child.papers, null, null, false),
         rich:      state.richStyles,
       },
       _catId: catId,
@@ -208,7 +208,7 @@ export function focusCategory(catId) {
           itemStyle:  { ...itemStyle },
           label: {
             show:      true,
-            formatter: makeLabel(child.name, child.papers),
+            formatter: makeLabel(child.name, child.papers, null, null, true),
             rich:      state.richStyles,
           },
           _catId: ecid,
