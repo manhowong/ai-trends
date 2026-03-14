@@ -5,7 +5,7 @@
 import { state, EDGE_WIDTH_SCALE } from './state.js';
 import {
   echart,
-  trendColor, themeVar, makeLabel, nodeSize, circleAngles, buildAdjMap,
+  trendColor, themeVar, makeLabel, nodeSize, buildAdjMap,
   renderChart,
 } from './chart.js';
 import { updateRightPanel } from './panel.js';
@@ -85,8 +85,6 @@ export function goOverview() {
         show:      true,
         formatter: makeLabel(cat.name, cat.totalpapers),
         rich:      state.richStyles,
-        position:  'bottom',
-        distance:  5,
       },
       _catId: cat.id,
       _type:  'parent',
@@ -99,7 +97,6 @@ export function goOverview() {
       },
     };
   });
-
   const visibleEdges = state.showCrossEdges ? state.parentEdges : [];
   const links = visibleEdges.map(edge => {
     const w   = Math.max(0.5, edge.w / maxW * 5 * EDGE_WIDTH_SCALE);
@@ -163,8 +160,6 @@ export function focusCategory(catId) {
         show:      true,
         formatter: makeLabel(child.name, child.papers, ),
         rich:      state.richStyles,
-        position:  'bottom',
-        distance:  5,
       },
       _catId: catId,
       _type:  'child',
@@ -215,8 +210,6 @@ export function focusCategory(catId) {
             show:      true,
             formatter: makeLabel(child.name, child.papers),
             rich:      state.richStyles,
-            position:  'bottom',
-            distance:  5,
           },
           _catId: ecid,
           _type:  'ext',
@@ -236,7 +229,6 @@ export function focusCategory(catId) {
       });
     });
   }
-
   const intraEdges        = state.childEdges.filter(e => focusIds.has(e.s) && focusIds.has(e.t));
   const visibleCrossEdges = state.showCrossEdges ? crossEdges : [];
   const visibleIntraEdges = state.showIntraEdges ? intraEdges : [];
@@ -315,8 +307,6 @@ export function focusChildNode(childId) {
         show:      true,
         formatter: makeLabel(c.name, c.papers, extCat.name, extCat.color, false),
         rich:      state.richStyles,
-        position:  'bottom',
-        distance:  isFocus ? 8 : 5,
       },
       _catId: state.childToCat[id],
       _type:  isFocus ? 'focus' : 'conn',
@@ -334,7 +324,6 @@ export function focusChildNode(childId) {
       },
     };
   });
-
   const visibleEdges = connEdges.filter(e => {
     const sameCategory = state.childToCat[e.s] === state.childToCat[e.t];
     if (sameCategory  && !state.showIntraEdges) return false;

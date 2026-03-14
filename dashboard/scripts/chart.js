@@ -43,7 +43,7 @@ export function themeVar(key) {
   return themeVars[key];
 }
 
-// ── ECharts instance ─────────────────────────────────────────
+// ECharts instance ------------------------------------------------------------
 
 export const echart = echarts.init(
   document.getElementById('chart'),
@@ -52,7 +52,7 @@ export const echart = echarts.init(
 );
 
 
-// ── Colour / size helpers ────────────────────────────────────
+// Colour / size helpers -------------------------------------------------------
 
 export function trendColor(trend) {
   if (!themeVars) readThemeVars();
@@ -103,8 +103,52 @@ export function buildAdjMap(links) {
   return map;
 }
 
+function setLabelPostions(nodes, distance) {
+  const rads = circleAngles(nodes.length);  // node radians from circleAngles
+  nodes.forEach((node, i) => {
+    
+    const rad = - rads[i]; // Negative radian: measured clockwise
 
-// ── Rich-label helpers ───────────────────────────────────────
+    // Align label either left or right of the node depending on 
+    // node's position in the circular layout
+    const sin = Math.sin(rad);
+    // Option 1: Labels outside the ring of nodes
+    let align = Math.abs(sin) < 0.01 ? 'right' : (sin >= 0 ? 'left' : 'right');
+    // Option 2: Labels inside the ring of nodes
+    // const align = Math.abs(sin) < 0.01 ? 'left' : (sin >= 0 ? 'right' : 'left');
+
+    // Rotate labels radially (clockwise) if there are more than 12 nodes
+    let deg = 0;
+    let placement = 'inside'; // label placed inside the node
+
+    if (nodes.length > 24) {
+      deg = rad * 180 / Math.PI  // convert radian to degree
+      // Shift the rotation (so labels of nodes at 90 deg remain horizontal)
+      deg = deg + 90;
+      // switch rotation direction for nodes in the opposite part of the circular layout
+      if (deg > 90 || deg < -90) deg += 180;  
+    } else {
+      align = 'center'; // label aligned to the center of the node
+      placement = 'bottom'; // label placed below the node
+    };
+
+    node.label = {
+      ...(node.label || {}),
+      position: placement,
+      distance, // Distance from the node, if position is set to outside (e.g. bottom)
+      rotate: deg,
+      align,
+      verticalAlign: 'middle',
+    };
+  });
+  return nodes;
+}
+
+function labelDistance() {
+  return state.currentView === 'overview' ? 8 : 15;
+}
+
+// Rich-label helpers ----------------------------------------------------------
 
 /**
  * Build an ECharts formatter string using the `rich` style map.
@@ -114,7 +158,7 @@ export function makeLabel(name, papers, catName, catColor, dim = false) {
   const nameKey  = dim ? 'nameDim'  : 'name';
   const countKey = dim ? 'countDim' : 'count';
 
-  let label = `{${nameKey}|${name}}\n{${countKey}|${formatCount(papers)}}`;
+  let label = `{${nameKey}|${name} | }{${countKey}|${formatCount(papers)}}`;
 
   if (catName && catColor) {
     const badgeKey = 'badge' + catColor.replace('#', '') + (dim ? 'Dim' : '');
@@ -128,21 +172,21 @@ export function makeLabel(name, papers, catName, catColor, dim = false) {
 export function buildRichStyles() {
   if (!themeVars) readThemeVars();
   const rich = {
-    name:     { fontSize: 10, color: themeVars.chartLabel, padding: [0, 0, 2, 0], align: 'center' },
-    nameDim:  { fontSize: 10, color: themeVars.chartLabelDim, padding: [0, 0, 2, 0], align: 'center' },
-    count:    { fontSize:  8, fontWeight: 'bold', color: themeVars.chartCount, padding: [0, 0, 2, 0], align: 'center' },
-    countDim: { fontSize:  8, fontWeight: 'bold', color: themeVars.chartCountDim, padding: [0, 0, 2, 0], align: 'center' },
+    name:     { fontSize: 10, color: themeVars.chartLabel, padding: [0, 0, 2, 0] },
+    nameDim:  { fontSize: 10, color: themeVars.chartLabelDim, padding: [0, 0, 2, 0] },
+    count:    { fontSize:  8, fontWeight: 'bold', color: themeVars.chartCount, padding: [0, 0, 2, 0] },
+    countDim: { fontSize:  8, fontWeight: 'bold', color: themeVars.chartCountDim, padding: [0, 0, 2, 0] },
   };
 
   state.allColors.forEach(hex => {
     const key = 'badge' + hex.replace('#', '');
     rich[key] = {
       fontSize: 7, color: '#fff', backgroundColor: hex,
-      borderRadius: 3, padding: [2, 5], align: 'center',
+      borderRadius: 3, padding: [2, 5],
     };
     rich[key + 'Dim'] = {
       fontSize: 7, color: themeVars.badgeDimText, backgroundColor: themeVars.badgeDimBg,
-      borderRadius: 3, padding: [2, 5], align: 'center',
+      borderRadius: 3, padding: [2, 5],
     };
   });
 
@@ -157,7 +201,7 @@ export function initializeRichStyles() {
 }
 
 
-// ── Chart centre ─────────────────────────────────────────────
+// Chart centre ----------------------------------------------------------------
 
 export function getChartCenter() {
 // Center by chart
@@ -171,13 +215,17 @@ export function getChartCenter() {
 }
 
 
-// ── Core render function ─────────────────────────────────────
+// Core render function --------------------------------------------------------
 
 export function renderChart(nodes, links) {
   // Check number of nodes in chart. If only 1 node, don't center by chart
   // (because the node sits at the edge of chart in circular layout)
   const isSingle = nodes.length === 1;
   const cx = window.innerWidth / window.innerHeight * 0.2 * 100 ; // calculate horizontal center
+
+  const centerPct = isSingle ? [ `${cx}%`, '50%' ] : getChartCenter();
+
+  const labeledNodes = setLabelPostions(nodes, labelDistance());
 
   echart.setOption({
     backgroundColor:   'transparent',
@@ -187,10 +235,10 @@ export function renderChart(nodes, links) {
       type:      'graph',
       layout:    'circular',
       roam:      true,
-      zoom:      0.85,
-      center:    isSingle?[ `${cx}%`, '50%'] : getChartCenter(),
+      zoom:      0.7,
+      center:    centerPct,
       draggable: false,
-      data:      nodes,
+      data:      labeledNodes,
       links,
       emphasis:  { disabled: true },
       label:     { show: true, color: themeVar('chartLabel'), fontSize: 10, silent: true}, // silent labels (i.e. no response to click)
@@ -202,7 +250,7 @@ export function renderChart(nodes, links) {
 }
 
 
-// ── Hover highlighting ───────────────────────────────────────
+// Hover highlighting ----------------------------------------------------------
 
 export function applyHover(hoveredId) {
   if (!state.curNodes.length) return;
@@ -236,8 +284,6 @@ export function applyHover(hoveredId) {
         show:      true,
         formatter: makeLabel(orig._name, orig._papers, orig._catName, orig._catColor, isDim),
         rich:      state.richStyles,
-        position:  'bottom',
-        distance:  orig._type === 'focus' ? 8 : 5,
       },
       _catId: orig._catId,
       _type:  orig._type,
@@ -259,7 +305,8 @@ export function applyHover(hoveredId) {
     };
   });
 
-  echart.setOption({ series: [{ data: nodes, links }] }, false);
+  const labeledNodes = setLabelPostions(nodes, labelDistance());
+  echart.setOption({ series: [{ data: labeledNodes, links }]}, false);
 }
 
 export function clearHover() {
@@ -279,8 +326,6 @@ export function clearHover() {
                      state.currentView === 'child' ? orig._catColor : null, 
                      orig._dim),
         rich:      state.richStyles,
-        position:  'bottom',
-        distance:  orig._type === 'focus' ? 8 : 5,
       },
       _catId: orig._catId,
       _type:  orig._type,
@@ -300,11 +345,12 @@ export function clearHover() {
     _origColor: link._origColor,
   }));
 
-  echart.setOption({ series: [{ data: nodes, links }] }, false);
+  const labeledNodes = setLabelPostions(nodes, labelDistance());
+  echart.setOption({ series: [{ data: labeledNodes, links }]}, false);
 }
 
 
-// ── Fit-screen ───────────────────────────────────────────────
+// Fit-screen ------------------------------------------------------------------
 
 export function fitScreen() {
 
@@ -320,7 +366,7 @@ export function fitScreen() {
   });
 }
 
-// ── Font-size control ────────────────────────────────────────
+// Font-size control -----------------------------------------------------------
 
 export function updateFontSize(size) {
   state.currentFontSize = parseInt(size, 10);
@@ -341,7 +387,8 @@ export function updateFontSize(size) {
     label: { ...node.label, fontSize: state.currentFontSize, rich: state.richStyles },
   }));
 
-  echart.setOption({ series: [{ data: nodes }] }, false);
+  const labeledNodes = setLabelPostions(nodes, labelDistance());
+  echart.setOption({ series: [{ data: labeledNodes }]}, false);
 }
 
 export function resetFontSize() {
