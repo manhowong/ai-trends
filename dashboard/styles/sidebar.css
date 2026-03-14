@@ -10,6 +10,25 @@
     border-radius: 8px;
     font-size: 13px;
     font-weight: normal;
+    
+    /* Set maximum height and scroll if overflow */
+    max-height: calc(100% - 24px); /*So sidebar doesn't exceed screen height*/
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-surface-2) transparent;
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: var(--color-surface-2);
+    border-radius: 2px;
 }
 
 #sidebarToggle {
@@ -69,49 +88,9 @@
     z-index: 8;  /* Move it just below right-panel, otherwise they may overlap on small screen */
 }
 
-/* Legend =================================================================== */
-
-#legend {
-    padding: 1px 14px 10px 14px;
-    border-top: 1px solid var(--color-panel-border);
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin: 3px 0;
-    color: var(--color-muted);
-}
-
-.legend-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.legend-note {
-    color: var(--color-note);
-}
-
-
 /* Sidebar Controls ========================================================= */
 
-/* Form buttons */
-
-#fitBtn {
-    font-weight: 600;
-    margin: 0px 14px;
-}
-
-#reloadBtn {
-    font-weight: 600;
-    margin: 8px 14px;
-}
-
-/* Date range */
+/* Date range --------------------------------------------------------------- */
 
 #dateRangeControl {
     padding: 4px 14px;
@@ -130,7 +109,6 @@
 }
 
 .date-range-select {
-    font-weight: 600;
     width: calc(100% - 28px);
 }
 
@@ -139,10 +117,78 @@
     font-size: 12px;
 }
 
-/* Font size */
+/* Paper threshold ---------------------------------------------------------- */
+
+#paperThresholdControl {
+    padding: 4px 14px;
+}
+
+.paper-threshold-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.paper-threshold-label {
+    color: var(--color-muted);
+    font-size: 13px;
+}
+
+.paper-threshold-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#paperThresholdVal {
+    color: var(--color-muted);
+    font-size: 13px;
+}
+
+#paperThresholdVal::before {
+    content: "\2265";
+}
+
+/* Edge toggle -------------------------------------------------------------- */
+
+#edgeToggleControl {
+    padding: 4px 14px;
+}
+
+.edge-toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--color-muted);
+    cursor: pointer;
+    margin: 4px 0;
+}
+
+.edge-toggle-row input[type="checkbox"] {
+    display: none;
+}
+
+.edge-toggle-row.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+#toggleIntraEdges:disabled + .ui-switch {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+label:has(#toggleIntraEdges:disabled) {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Font size ---------------------------------------------------------------- */
 
 #fontSizeControl {
-    padding: 8px 14px;
+    padding: 4px 14px;
+    border-top: 1px solid var(--color-panel-border);
 }
 
 .font-size-header {
@@ -180,93 +226,39 @@
     color: var(--color-muted);
 }
 
-#fontSlider {
-    width: 100%;
-    accent-color: var(--color-accent);
-    cursor: pointer;
+#fontSlider:hover {
+    background: var(--color-surface-2); 
 }
 
-/* Paper threshold */
-
-#paperThresholdControl {
-    padding: 0px 14px;
+/* Reload button spacing ---------------------------------------------------- */
+#reloadBtn {
+    margin-bottom: 10px;
 }
 
-.paper-threshold-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Legend =================================================================== */
+
+#legend {
+    padding: 1px 14px 10px 14px;
+    border-top: 1px solid var(--color-panel-border);
 }
 
-.paper-threshold-label {
-    color: var(--color-muted);
-    font-size: 13px;
-}
-
-.paper-threshold-right {
+.legend-item {
     display: flex;
     align-items: center;
     gap: 6px;
-}
-
-#paperThresholdVal {
+    margin: 3px 0;
     color: var(--color-muted);
-    font-size: 13px;
 }
 
-#paperThresholdVal::before {
-    content: "\2265";
+.legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
-#paperThresholdSlider {
-    width: 100%;
-    accent-color: var(--color-accent);
-    cursor: pointer;
+.legend-note {
+    color: var(--color-note);
 }
-
-/* Edge toggle */
-
-#edgeToggleControl {
-    padding: 4px 14px;
-}
-
-.edge-toggle-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 13px;
-    color: var(--color-muted);
-    cursor: pointer;
-    margin: 4px 0;
-}
-
-.edge-toggle-row input[type="checkbox"] {
-    display: none;
-}
-
-.edge-toggle-row.disabled {
-    opacity: 0.3;
-    pointer-events: none;
-}
-
-#toggleIntraEdges:disabled + .ui-switch {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-label:has(#toggleIntraEdges:disabled) {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-
-
-/* Search Button (in sidebar) ============================================== */
-
-#searchBtn {
-    font-weight: 600;
-    margin: 8px 14px;
-}
-
-
 

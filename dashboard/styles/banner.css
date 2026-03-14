@@ -82,3 +82,11 @@
 #themeToggle .toggle-label {
     line-height: 1;
 }
+
+#themeToggle[aria-pressed="true"] .ui-switch {
+    background: var(--color-accent);
+}
+
+#themeToggle[aria-pressed="true"] .ui-switch .ui-switch-thumb {
+    transform: translateX(13px);
+}

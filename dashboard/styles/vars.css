@@ -31,7 +31,7 @@
 
   --trend-up: #e84b4b;
   --trend-down: #1f53fd;
-  --trend-flat: #d1bf7e;
+  --trend-flat: #dccc8f;
 
   --chart-label: #1f2937;
   --chart-label-dim: #9ca3af;
@@ -49,8 +49,8 @@
   --node-dim-border: #cbd5e1;
   --node-hover-border: #ffffff;
   --node-hover-shadow: #64748b;
-  --ext-node-fill: #9ca3af;
-  --ext-node-border: #6b7280;
+  --ext-node-fill: #b3bac4;
+  --ext-node-border: #8e95a1;
 }
 
 [data-theme="dark"] {
@@ -82,7 +82,7 @@
 
   --trend-up: #e84b4b;
   --trend-down: #1f53fd;
-  --trend-flat: #d1bf7e;
+  --trend-flat: #dccc8f;
 
   --chart-label: #ccc;
   --chart-label-dim: #444;

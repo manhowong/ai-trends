@@ -8,7 +8,7 @@
     width: 32%;
     min-width: min-content; /*Must fit the smallest element inside*/
     min-height: calc(100% - 24px); /*Content fills the height of screen*/
-    max-height: calc(100% - 24px); /*So content doesn't overflow if it exceed screen height*/
+    max-height: calc(100% - 24px); /*So panel doesn't exceed screen height*/
     display: flex;
     flex-direction: column;
     background: var(--color-panel-bg);
