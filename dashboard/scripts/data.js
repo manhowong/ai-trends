@@ -121,7 +121,7 @@ export function applyNormalizedData() {
 
   // Build L2 children grouped by parent category
   const childrenByCategory = {};
-  const childrenByCategoryAll = {};
+  const childrenByCategoryAll = {};  // All data, including topics with 0 count or below paper threshold
   categoryMeta.forEach(cat => {
     childrenByCategory[cat.id] = [];
     childrenByCategoryAll[cat.id] = [];
@@ -144,12 +144,12 @@ export function applyNormalizedData() {
       isUnassigned: papers <= 0,
     };
 
-    if (papers >= threshold) {
-      if (!childrenByCategoryAll[topic.parentId]) childrenByCategoryAll[topic.parentId] = [];
-      childrenByCategoryAll[topic.parentId].push(child);
+    if (!childrenByCategoryAll[topic.parentId]) childrenByCategoryAll[topic.parentId] = [];
+    childrenByCategoryAll[topic.parentId].push(child); // Does not check for paper count; include all topics even with 0 count
 
+    if (papers >= threshold) {
       if (!childrenByCategory[topic.parentId]) childrenByCategory[topic.parentId] = [];
-      childrenByCategory[topic.parentId].push(child);
+      childrenByCategory[topic.parentId].push(child); // Only topics with paper count >= threshold
     }
   });
 

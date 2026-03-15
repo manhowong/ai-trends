@@ -7,7 +7,7 @@ export const state = {
   cats:               [],   // runtime category array (built by applyNormalizedData)
   catsAll:            [],   // all categories (including zero-article) for lists/search
   childEdges:         [],   // L2-level co-occurrence edges
-  keywordData:        {},   // topicId â†’ [{ id, name, papers, trend }]
+  keywordData:        {},   // topicId : [{ id, name, papers, trend }]
   rawMetadata:        null,
   rawTimeseries:      null,
   dataMonths:         [],   // sorted month strings, e.g. ["2024-01", ...]
@@ -15,9 +15,9 @@ export const state = {
   selectedEndMonth:   null,
 
   // Derived lookup tables (built by initializeDerivedData)
-  childMap:    {},   // nodeId   â†’ L2 node object
-  childToCat:  {},   // L2 id   â†’ parent category id
-  catMap:      {},   // cat id  â†’ category object
+  childMap:    {},   // nodeId : L2 node object
+  childToCat:  {},   // L2 id : parent category id
+  catMap:      {},   // cat id : category object
   parentEdges: [],   // category-level rolled-up edges
   childMapAll:   {}, // nodeId to L2 node object (all, incl. unassigned)
   childToCatAll: {}, // L2 id to parent category id (all)

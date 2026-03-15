@@ -7,6 +7,7 @@ import { applyNormalizedData, initializeDerivedData } from './data.js';
 import { initializeRichStyles } from './chart.js';
 import { goOverview, focusCategory, focusChildNode } from './views.js';
 import { renderChart, buildAdjMap } from './chart.js';
+import { updateRightPanel } from './panel.js';
 
 const PAPER_THRESHOLD_STEPS = [1, 10, 50, 100, 500, 1000];
 
@@ -110,14 +111,14 @@ export function initPaperThresholdControl() {
 
   const initialIndex = Math.max(0, PAPER_THRESHOLD_STEPS.indexOf(state.paperThreshold));
   slider.value = String(initialIndex);
-  value.textContent = `${PAPER_THRESHOLD_STEPS[initialIndex]}`;
+  value.textContent = `${PAPER_THRESHOLD_STEPS[initialIndex]} article(s)`;
 
   slider.addEventListener('input', e => {
     const idx = parseInt(e.target.value, 10);
     const next = PAPER_THRESHOLD_STEPS[idx] || PAPER_THRESHOLD_STEPS[0];
     if (next === state.paperThreshold) return;
     state.paperThreshold = next;
-    value.textContent = `${next}`;
+    value.textContent = `${next} article(s)`;
     applyNormalizedData();
     initializeDerivedData();
     initializeRichStyles();
@@ -134,7 +135,8 @@ function refreshCurrentView() {
       state.curNodes = [];
       state.curLinks = [];
       state.curAdjMap = buildAdjMap([]);
-      return renderChart([], []);
+      renderChart([], []);
+      return updateRightPanel();
     }
     return focusCategory(state.currentCat);
   }
@@ -144,7 +146,8 @@ function refreshCurrentView() {
       state.curNodes = [];
       state.curLinks = [];
       state.curAdjMap = buildAdjMap([]);
-      return renderChart([], []);
+      renderChart([], []);
+      return updateRightPanel();
     }
     return focusChildNode(state.currentChild);
   }

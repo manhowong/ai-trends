@@ -42,6 +42,13 @@ export function formatMetricValue(mode, value) {
   return formatCount(value);
 }
 
+function formatCountWithThreshold(value) {
+  const threshold = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
+  if (value === 0) return '0';
+  if (value < threshold) return `< ${threshold}`;
+  return formatCount(value);
+}
+
 export function metricBarWidths(mode, values) {
   if (!values.length) return [];
   if (mode === 'hotness') {
@@ -54,36 +61,51 @@ export function metricBarWidths(mode, values) {
 }
 
 
-// Overview panel -------------------------------------------
+// Overview panel (showing all categories) -------------------------------------
 
 export function renderOverviewPanel() {
-  const sorted = [...state.catsAll].sort((a, b) =>
+  const threshold = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
+  const catsWithMetrics = state.catsAll.map(cat => {
+    const filtered = state.catMap[cat.id];
+    return {
+      cat,
+      papers: filtered ? filtered.totalpapers : 0,
+      hotness: filtered ? filtered.hotness : 0,
+    };
+  });
+
+  const sorted = [...catsWithMetrics].sort((a, b) =>
     state.level1SortMode === 'hotness'
       ? b.hotness - a.hotness
-      : b.totalpapers - a.totalpapers
+      : b.papers - a.papers
   );
 
-  const metricValues = sorted.map(cat =>
-    state.level1SortMode === 'hotness' ? cat.hotness : cat.totalpapers
+  const metricValues = sorted.map(item =>
+    state.level1SortMode === 'hotness' ? item.hotness : item.papers
   );
   const barWidths    = metricBarWidths(state.level1SortMode, metricValues);
   const sortDropdown = buildSortDropdown(1, ['papers', 'hotness'], state.level1SortMode);
 
   const topHTML = `
     <div class="ranked-list">
-      ${sorted.map((cat, i) => {
-        const disabled = !!cat.isUnassigned;
+      ${sorted.map((item, i) => {
+        const cat = item.cat;
+        const belowThreshold = item.papers < threshold;
+        const disabled = !!cat.isUnassigned || belowThreshold || !state.catMap[cat.id];
         const rowClass = `ranked-row${disabled ? ' ranked-row--disabled' : ''}`;
         const attrs = disabled
           ? ''
           : `onmouseenter="applyHover('${cat.id}')" onmouseleave="clearHover()"
              onclick="focusCategory('${cat.id}')" style="cursor:pointer"`;
+        const countLabel = (state.level1SortMode === 'papers')
+          ? formatCountWithThreshold(metricValues[i])
+          : formatMetricValue(state.level1SortMode, metricValues[i]);
         return `
         <div class="${rowClass}" data-id="${cat.id}" ${attrs}>
           <span class="rank-num">${i + 1}</span>
           <span class="rank-dot" style="background:${trendColor(cat.trend)}"></span>
           <span class="rank-name">${cat.name}</span>
-          <span class="rank-count">${formatMetricValue(state.level1SortMode, metricValues[i])}</span>
+          <span class="rank-count">${countLabel}</span>
           <div class="rank-bar-wrap"><div class="rank-bar" style="width:${barWidths[i]}%"></div></div>
         </div>`;
       }).join('')}
@@ -126,9 +148,10 @@ export function renderOverviewPanel() {
 }
 
 
-// Category panel -------------------------------------------
+// Category panel (showing child topics) ---------------------------------------
 
 export function renderCategoryPanel() {
+  const threshold = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
   const cat = state.catMapAll[state.currentCat] || state.catMap[state.currentCat];
 
   const connCount = {};
@@ -137,16 +160,16 @@ export function renderCategoryPanel() {
   });
 
   const sorted = [...cat.children].sort((a, b) => {
-    if (state.level2SortMode === 'papers')      return b.papers       - a.papers;
-    if (state.level2SortMode === 'hotness')     return b.hotness      - a.hotness;
-    if (state.level2SortMode === 'links') return connCount[b.id] - connCount[a.id];
+    if (state.level2SortMode === 'papers')  return b.papers  - a.papers;
+    if (state.level2SortMode === 'hotness') return b.hotness - a.hotness;
+    if (state.level2SortMode === 'links')   return (connCount[b.id] || 0) - (connCount[a.id] || 0);
     return 0;
   });
 
   const metricValues = sorted.map(child => {
-    if (state.level2SortMode === 'papers')      return child.papers;
-    if (state.level2SortMode === 'hotness')     return child.hotness;
-    if (state.level2SortMode === 'links') return connCount[child.id];
+    if (state.level2SortMode === 'papers')  return child.papers;
+    if (state.level2SortMode === 'hotness') return child.hotness;
+    if (state.level2SortMode === 'links')   return connCount[child.id] || 0;
     return child.papers;
   });
   const barWidths    = metricBarWidths(state.level2SortMode, metricValues);
@@ -155,18 +178,22 @@ export function renderCategoryPanel() {
   const topHTML = `
     <div class="ranked-list">
       ${sorted.map((child, i) => {
-        const disabled = !!child.isUnassigned;
+        const belowThreshold = child.papers < threshold;
+        const disabled = !!child.isUnassigned || belowThreshold;
         const rowClass = `ranked-row${disabled ? ' ranked-row--disabled' : ''}`;
         const attrs = disabled
           ? ''
           : `onmouseenter="applyHover('${child.id}')" onmouseleave="clearHover()"
              onclick="focusChildNode('${child.id}')" style="cursor:pointer"`;
+        const countLabel = (state.level2SortMode === 'papers')
+          ? formatCountWithThreshold(child.papers)
+          : formatMetricValue(state.level2SortMode, metricValues[i]);
         return `
         <div class="${rowClass}" data-id="${child.id}" ${attrs}>
           <span class="rank-num">${i + 1}</span>
           <span class="rank-dot" style="background:${trendColor(child.trend)}"></span>
           <span class="rank-name">${child.name}</span>
-          <span class="rank-count">${formatMetricValue(state.level2SortMode, metricValues[i])}</span>
+          <span class="rank-count">${countLabel}</span>
           <div class="rank-bar-wrap"><div class="rank-bar" style="width:${barWidths[i]}%"></div></div>
         </div>`;
       }).join('')}
@@ -177,7 +204,7 @@ export function renderCategoryPanel() {
 }
 
 
-// Child (topic) panel --------------------------------------
+// Child (single-topic) panel --------------------------------------------------
 
 export function renderChildPanel() {
   const keywords = (state.keywordData[state.currentChild] || []).slice();

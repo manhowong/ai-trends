@@ -67,6 +67,7 @@ function filterNodes(query) {
 
 function renderResults(nodes, query) {
   const container = document.getElementById('search-results');
+  const threshold = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
 
   if (!query.trim()) {
     container.innerHTML = '';
@@ -78,18 +79,25 @@ function renderResults(nodes, query) {
     return;
   }
 
-  container.innerHTML = nodes.map(node => `
-    <div class="search-result-row${node.disabled ? ' search-result-row--disabled' : ''}"
-         data-id="${node.id}" data-level="${node.level}" data-disabled="${node.disabled ? '1' : '0'}">
+  container.innerHTML = nodes.map(node => {
+    const belowThreshold = node.papers < threshold;
+    const isDisabled = node.disabled || belowThreshold;
+    const countLabel = node.papers === 0
+      ? '0'
+      : (belowThreshold ? `&lt; ${threshold}` : formatCount(node.papers));
+    return `
+    <div class="search-result-row${isDisabled ? ' search-result-row--disabled' : ''}"
+         data-id="${node.id}" data-level="${node.level}" data-disabled="${isDisabled ? '1' : '0'}">
       <span class="search-result-dot" style="background:${trendColor(node.trend)}"></span>
       <span class="search-result-name">${highlightMatch(node.name, query)}</span>
-      <span class="search-result-papers">${formatCount(node.papers)}</span>
+      <span class="search-result-papers">${countLabel}</span>
       ${node.catName
         ? `<span class="search-result-badge" style="background:${node.catColor}">${node.catName}</span>`
         : `<span class="search-result-badge search-result-badge--category">Category</span>`
       }
     </div>
-  `).join('');
+  `;
+  }).join('');
 
   // Attach click handlers
   container.querySelectorAll('.search-result-row').forEach(row => {
