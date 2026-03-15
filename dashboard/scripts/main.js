@@ -14,6 +14,7 @@ import { setSortMode }                                 from './panel.js';
 import { buildDateRangeControls, updateDateText,
          toggleSidebar, initEdgeToggles, initPaperThresholdControl } from './controls.js';
 import { initSearch } from './search.js';
+import { runIntroTour } from './animation.js';
 
 
 // Expose functions used by inline HTML event handlers -------------------------
@@ -256,6 +257,7 @@ async function initializeApp() {
   initEdgeToggles();
   initPaperThresholdControl();
   initSearch();
+  runIntroTour();
 }
 
 initializeApp().catch(err => {

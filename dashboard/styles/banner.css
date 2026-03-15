@@ -87,7 +87,7 @@
 
 #site-info {
     font-size: var(--font-norm);
-    color: var(--color-muted);
+    color: var(--color-muted-2);
     padding-top: 10px;
     line-height: 1.5;
 }

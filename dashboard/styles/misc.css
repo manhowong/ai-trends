@@ -1,6 +1,11 @@
 ﻿/* Misc ===================================================================== */
 
-/* Text blocks */
+/* Vertical bar (Separator) */
+
+v-bar::after {
+  content: "|";
+  color: var(--color-muted-3);
+}
 
 /* Icons */
 
