@@ -31,8 +31,9 @@
     }
 
     #site-banner h1 {
-        font-size: 35px;
+        font-size: var(--font-xx-lg);
     }
+
 
     #chart-wrapper {
         position: fixed;
@@ -80,10 +81,6 @@
 
 @media (max-width: 480px) {
 
-    #site-banner h1 {
-        font-size: 30px;
-    }
-
     .date-range-row {
         flex-wrap: wrap;
     }
@@ -94,10 +91,6 @@
 
     .date-range-sep {
         display: none;
-    }
-
-    .rank-bar-wrap {
-        width: 46px;
     }
 
 }

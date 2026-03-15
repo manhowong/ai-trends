@@ -4,16 +4,16 @@
     position: fixed;
     z-index: 1;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
     pointer-events: none; /*To allow clickable elements underneath it*/
 }
 
 #site-banner h1 {
-    font-size: 55px;
-    /* font-weight: 300; */
+    font-size: var(--font-huge);
     color: var(--color-accent2);
     text-decoration: none;
     font-family: "Book Antiqua", Georgia, "Times New Roman", Times, serif;
+    line-height: 1.1;
 }
 
 #slash-mark::after {
@@ -25,58 +25,51 @@
     line-height: 0px;  /* Set to 0 so it's size does not affect line spacing */
 }
 
-#site-info {
-    color: var(--color-muted);
-    padding-top: 10px;
-}
+/* Banner menu -------------------------------------------------------------- */
 
-#dateText {
-    font-size: 18px;
-    color: var(--color-text-strong);
-    z-index: 1;
-}
-
-#report-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+#banner-menu {
     margin-top: 10px;
+    line-height: 1em; /* Ensure buttons of different heights are aligned */
 }
 
-#report-link a {
-    font-size: 12px;
+/* Report button */
+
+#report-btn {
+    display: inline-flex;
+    font-size: var(--font-x-sm);
     font-weight: bold;
     font-family: monospace;
-    color: var(--color-accent);
     text-transform: uppercase;
-    text-decoration: none;
     pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
 }
 
-#report-link a:hover {
+#report-btn a {
+    color: var(--color-accent);
+}
+
+#report-btn a:hover {
     color: var(--color-muted);
 }
 
+/* Theme toggle */
+
 #themeToggle {
-    pointer-events: auto;
-    border: none;
-    background: transparent;
-    color: var(--color-muted);
+    display: inline-flex;
+    align-items: center;
     padding: 0;
-    font-size: 12px;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: var(--color-muted);
+    font-size: var(--font-x-sm);
     font-family: monospace;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
     transition: color 0.15s, text-decoration-color 0.15s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    pointer-events: auto;
 }
 
-#themeToggle .toggle-label {
-    line-height: 1;
-}
 
 #themeToggle[aria-pressed="true"] .ui-switch {
     background: var(--color-accent);
@@ -84,4 +77,18 @@
 
 #themeToggle[aria-pressed="true"] .ui-switch .ui-switch-thumb {
     transform: translateX(16px);
+}
+
+/* Info in banner ----------------------------------------------------------- */
+
+#site-info {
+    font-size: var(--font-norm);
+    color: var(--color-muted);
+    padding-top: 10px;
+}
+
+#dateText {
+    font-size: var(--font-x-lg);
+    color: var(--color-text-strong);
+    z-index: 1;
 }

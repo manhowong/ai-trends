@@ -19,14 +19,8 @@
                 Explorer 
             </h1>
 
-            <div id="site-info">
-                <div id="dateText"></div>
-                arXiv article statistics (preliminary)
-            </div>
-
-            <div id="menu">
-
-                <div id="report-link">
+            <div id="banner-menu">
+                <div id="report-btn">
                     <a href="https://github.com/manhowong/ai-trends/issues/new" target="_blank">
                         <span class="github-icon"></span> Report an issue
                     </a>
@@ -40,7 +34,11 @@
                         <span class="ui-switch-thumb"></span>
                     </span>
                 </button>
+            </div>
 
+            <div id="site-info">
+                <div id="dateText"></div>
+                arXiv article statistics (preliminary)
             </div>
 
         </div>
@@ -55,7 +53,7 @@
                     <span class="down-icon">Hide</span> 
                 </div>
                 <div class="transformed-label">
-                    <span class="hamburger-icon">Graph Control</span> 
+                    <span class="hamburger-icon">Options</span> 
                 </div>
             </button>
 
@@ -100,13 +98,13 @@
                     <div class="font-size-header">
                         <span class="font-size-label">Font Size</span>
                         <div class="font-size-right">
-                            <span id="fontSizeVal">10px</span>
+                            <span id="fontSizeVal">12px</span>
                             <span id="fontSizeReset" title="Reset to default">
                                 <span class="icon anticlock-nospace-icon"></span>
                             </span>
                         </div>
                     </div>
-                    <input type="range" id="fontSlider" min="6" max="20" value="10">
+                    <input type="range" id="fontSlider" min="6" max="20" value="12">
                 </div>
 
                 <button id="fitBtn" class="form-btn">
@@ -154,22 +152,22 @@
 
                 <div class="info-box" id="info-top">
                     <div class="info-box-header">
-                        <span class="info-box-title" id="info-top-title">Categories</span>
-                        <div class="info-sort-controls" id="info-top-sort"></div>
+                        <span class="info-box-title" id="info-top-title"></span>
+                        <div id="info-top-sort"></div>
                     </div>
                     <div class="info-box-content" id="info-top-content"></div>
                 </div>
 
                 <div class="info-box" id="info-bottom">
                     <div class="info-box-header">
-                        <span class="info-box-title" id="info-bottom-title">About</span>
-                        <div class="info-sort-controls" id="info-bottom-sort"></div>
+                        <span class="info-box-title" id="info-bottom-title"></span>
+                        <div id="info-bottom-sort"></div>
                     </div>
                     <div class="info-box-content" id="info-bottom-content"></div>
                 </div>
 
                 <div id="panel-footer">
-                    <span class="info-box-title">Created by:</span>
+                    <span class="info-box-title">About</span>
                     <a href="https://github.com/manhowong/" target="_blank">Man Ho Wong</a> |
                     <a href="https://github.com/manhowong/ai-trends" target="_blank">data + code</a> |
                     <a href="https://github.com/manhowong/ai-trends/blob/main/LICENSE"

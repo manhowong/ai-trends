@@ -30,7 +30,7 @@ export function buildSortDropdown(level, modes, activeMode) {
 
   return `
     <div class="sort-select-wrap">
-      <select id="sort-select-level-${level}" class="sort-select"
+      <select id="sort-select-level-${level}" class="form-select"
               onchange="setSortMode(${level}, this.value)">
         ${options}
       </select>
@@ -112,7 +112,7 @@ export function renderOverviewPanel() {
     </div>`;
 
   const bottomHTML = `
-    <div class="instructions">
+    <div id="instructions">
 
       <span><i>Desktop</i></span>
       <ul class="noBullet-list">
@@ -131,14 +131,14 @@ export function renderOverviewPanel() {
           Press <span class="mockKbd">Ctrl</span> + <span class="mockKbd">K</span> or 
           "Go to Topics" in
           <span class="mockToggle">
-            <span class="mock-hamburger-icon">GRAPH CONTROL</span>
+            <span class="mock-hamburger-icon">OPTIONS</span>
           </span>
       </span>
 
       <span>
         To see <b>trends</b>, set a range ≥ 2 months in 
         <span class="mockToggle">
-          <span class="mock-hamburger-icon">GRAPH CONTROL</span>
+          <span class="mock-hamburger-icon">OPTIONS</span>
         </span>
       </span>
     </div>`;

@@ -172,10 +172,10 @@ export function makeLabel(name, papers, catName, catColor, dim = false) {
 export function buildRichStyles() {
   if (!themeVars) readThemeVars();
   const rich = {
-    name:     { fontSize: 10, color: themeVars.chartLabel, padding: [0, 0, 2, 0] },
-    nameDim:  { fontSize: 10, color: themeVars.chartLabelDim, padding: [0, 0, 2, 0] },
-    count:    { fontSize:  8, fontWeight: 'bold', color: themeVars.chartCount, padding: [0, 0, 2, 0] },
-    countDim: { fontSize:  8, fontWeight: 'bold', color: themeVars.chartCountDim, padding: [0, 0, 2, 0] },
+    name:     { fontSize: 12, color: themeVars.chartLabel, padding: [0, 0, 2, 0] },
+    nameDim:  { fontSize: 12, color: themeVars.chartLabelDim, padding: [0, 0, 2, 0] },
+    count:    { fontSize: 10, fontWeight: 'bold', color: themeVars.chartCount, padding: [0, 0, 2, 0] },
+    countDim: { fontSize: 10, fontWeight: 'bold', color: themeVars.chartCountDim, padding: [0, 0, 2, 0] },
   };
 
   state.allColors.forEach(hex => {
@@ -257,7 +257,7 @@ export function renderChart(nodes, links) {
       data:      labeledNodes,
       links,
       emphasis:  { disabled: true },
-      label:     { show: true, color: themeVar('chartLabel'), fontSize: 10, silent: true}, // silent labels (i.e. no response to click)
+      label:     { show: true, color: themeVar('chartLabel'), fontSize: 12, silent: true}, // silent labels (i.e. no response to click)
       lineStyle: { opacity: 1 },
       symbol:    'circle',
       cursor:    'pointer',

@@ -47,7 +47,7 @@ export const state = {
   richStyles: {},
 
   // Font
-  currentFontSize: 10,
+  currentFontSize: 12,
 
   // Paper count threshold
   paperThreshold: 1,
@@ -57,7 +57,7 @@ export const state = {
   showCrossEdges: true,   // cross-category links
 };
 
-export const DEFAULT_FONT_SIZE = 10;
+export const DEFAULT_FONT_SIZE = 12;
 
 export const categoryColorById = {
   A: '#be185d',

@@ -2,23 +2,6 @@
 
 /* Text blocks */
 
-.instructions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-    font-size: 13px;
-    color: var(--color-muted);
-    line-height: 1.2;
-}
-
-.empty-state {
-    font-size: 13px;
-    color: var(--color-muted-3);
-    font-style: italic;
-    padding: 4px 0;
-}
-
 /* Icons */
 
 /* Base settings applied to specific icons */
@@ -26,7 +9,6 @@
   display: inline-block;
   font-weight: bold;
   padding-right: 6px;
-  font-size: 16px;
   line-height: 0px; /* Prevent adding height to line if font size is big */
 }
 
@@ -61,10 +43,10 @@
   display: inline-block;
   width: 6px;
   height: 6px;
-  margin-right: 8px;
+  margin-right: 12px;
   border-right: 2px solid currentColor; /* Two borders form an L shape */
   border-bottom: 2px solid currentColor;
-  transform: rotate(45deg) translateY(-3px); /* Rotate 45deg to point down */
+  transform: rotate(45deg) translateY(-5px); /* Rotate 45deg to point down */
                                              /* and shift to align with text */
 }
 
@@ -73,10 +55,10 @@
   display: inline-block;
   width: 6px;
   height: 6px;
-  margin-right: 8px;
+  margin-right: 10px;
   border-right: 2px solid currentColor; /* Two borders form an L shape */
   border-bottom: 2px solid currentColor;
-  transform: rotate(225deg) translateY(-1px); /* Rotate 225deg to point up */
+  transform: rotate(225deg) translateY(0px); /* Rotate 225deg to point up */
                                              /* and shift to align with text */
 }
 
@@ -86,10 +68,10 @@
   width: 15px; /* Width of each line */
   height: 2px; /* Height of each line */
   background: currentColor;
-  box-shadow: 0 -6px 0 0 currentColor, /* Create top line */
-              0 6px 0 0 currentColor; /* Create bottom line */
+  box-shadow: 0 -5px 0 0 currentColor, /* Create top line */
+              0 5px 0 0 currentColor; /* Create bottom line */
   vertical-align: middle;
-  transform: translateY(-1px); /* Shift to align with text */
+  transform: translateY(-2px); /* Shift to align with text */
   margin-right: 8px;
 }
 
@@ -119,7 +101,7 @@
     color: var(--color-accent2);
     border: 1px solid var(--color-surface-2);
     border-radius: 5px;
-    font-size: 13px;
+    font-size: var(--font-x-sm);
 }
 
 .mock-hamburger-icon::before { /* Three-line menu icon */
@@ -141,9 +123,7 @@
     background: var(--color-surface);
     color: var(--color-accent2);
     border-radius: 8px;
-    font-size: 10px;
-    font-family:monospace;
-    font-weight:bold;
+    font-size: var(--font-x-sm);
 }
 
 .mockKbd {
@@ -156,7 +136,7 @@
     /* border: 1px solid var(--kbd-shade-1); */
     box-shadow: 0px 2px 2px var(--kbd-shade-1), 0 2px 0 2px var(--kbd-shade-2);
     border-radius: 2px;
-    font-size: 11px;
+    font-size: var(--font-x-sm);
 }
 
 

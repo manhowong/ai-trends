@@ -2,8 +2,16 @@
    vars.css - Theme tokens
    ============================================================ */
 
-:root {
+:root {                            /* Default variables */
   color-scheme: light;
+
+  --font-huge: 3.5em;
+  --font-xx-lg: 2.1em;
+  --font-x-lg: 1.2em;
+  --font-lg: 1.1em;
+  --font-norm: 1em;
+  --font-sm: 0.9em;
+  --font-x-sm: 0.8em;
 
   --color-bg: #ffffff;
   --color-text: #9ca3af;         /* e.g. default text color */
@@ -20,7 +28,7 @@
   --color-note: #6b7280;
 
   --color-accent: #b48e35;  /* Accent color: links, buttons, etc. */
-  --color-accent2: #000000; /* Accent color 2: e.g. website caption */
+  --color-accent2: #242424; /* Accent color 2: e.g. website caption */
   --color-white: #ffffff;
   --color-black: #000000;
 
@@ -103,4 +111,3 @@
   --ext-node-fill: #333;
   --ext-node-border: #444;
 }
-
