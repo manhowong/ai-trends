@@ -5,26 +5,33 @@
 export function initHelp() {
   const overlay = document.getElementById('help-overlay');
   const backdrop = document.getElementById('help-backdrop');
-  const modal = document.getElementById('help-modal');
   const titleEl = document.getElementById('help-title');
   const contentEl = document.getElementById('help-content');
   const closeBtn = document.getElementById('help-close');
+  const topBtn = document.getElementById('help-top');
 
-  if (!overlay || !backdrop || !modal || !titleEl || !contentEl || !closeBtn) return;
+  if (!overlay || !backdrop || !titleEl || !contentEl || !closeBtn || !topBtn) return;
+
+  const HIGHLIGHT_CLASS = 'help-highlight';
+  const HIGHLIGHT_MS = 1600;
+  const SCROLL_HIGHLIGHT_DELAY_MS = 200;
+  const SCROLL_OFFSET_PX = 8;
+
+  titleEl.textContent = 'Help';
 
   const clearHighlights = () => {
-    contentEl.querySelectorAll('.help-highlight').forEach(el => {
-      el.classList.remove('help-highlight');
+    contentEl.querySelectorAll(`.${HIGHLIGHT_CLASS}`).forEach(el => {
+      el.classList.remove(HIGHLIGHT_CLASS);
     });
   };
 
   const highlightTarget = target => {
     if (!target) return;
     clearHighlights();
-    target.classList.remove('help-highlight');
+    target.classList.remove(HIGHLIGHT_CLASS);
     void target.offsetWidth;
-    target.classList.add('help-highlight');
-    window.setTimeout(() => target.classList.remove('help-highlight'), 1600);
+    target.classList.add(HIGHLIGHT_CLASS);
+    window.setTimeout(() => target.classList.remove(HIGHLIGHT_CLASS), HIGHLIGHT_MS);
   };
 
   const scrollToSection = sectionId => {
@@ -39,15 +46,17 @@ export function initHelp() {
       contentEl.scrollTop = 0;
       return;
     }
-    target.scrollIntoView({ block: 'start' });
-    highlightTarget(target);
+    const headerHeight = document.getElementById('help-header')?.offsetHeight || 0;
+    const top = Math.max(0, target.offsetTop - headerHeight - SCROLL_OFFSET_PX);
+    contentEl.scrollTo({ top, behavior: 'smooth' });
+    window.setTimeout(() => highlightTarget(target), SCROLL_HIGHLIGHT_DELAY_MS);
   };
 
   const openHelp = async (helpId, sectionId) => {
     if (!helpId) return;
     overlay.classList.add('active');
-    titleEl.textContent = 'Help';
     contentEl.innerHTML = '<p class="empty-state">Loading...</p>';
+    topBtn.classList.remove('is-visible');
 
     try {
       const res = await fetch(`./docs/html/${helpId}.html`);
@@ -67,14 +76,53 @@ export function initHelp() {
   const closeHelp = () => {
     overlay.classList.remove('active');
     contentEl.innerHTML = '';
+    topBtn.classList.remove('is-visible');
   };
+
+  const extractHashId = link => {
+    if (!link) return null;
+    const href = link.getAttribute('href');
+    if (!href) return null;
+    if (href.startsWith('#')) return href.slice(1);
+    try {
+      const url = new URL(href, window.location.href);
+      if (url.pathname === window.location.pathname && url.hash) {
+        return url.hash.slice(1);
+      }
+    } catch {
+      return null;
+    }
+    return null;
+  };
+
+  const handleHelpIcon = icon => {
+    if (!icon) return;
+    openHelp(icon.dataset.help, icon.dataset.helpSection);
+  };
+
+  contentEl.addEventListener('click', e => {
+    const link = e.target.closest('a');
+    const sectionId = extractHashId(link);
+    if (!sectionId) return;
+    e.preventDefault();
+    scrollToSection(sectionId);
+  });
+
+  contentEl.addEventListener('scroll', () => {
+    if (contentEl.scrollTop > 120) {
+      topBtn.classList.add('is-visible');
+    } else {
+      topBtn.classList.remove('is-visible');
+    }
+  });
+
+  topBtn.addEventListener('click', () => {
+    contentEl.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   document.addEventListener('click', e => {
     const icon = e.target.closest('help-icon');
-    if (icon) {
-      openHelp(icon.dataset.help, icon.dataset.helpSection);
-      return;
-    }
+    handleHelpIcon(icon);
   });
 
   document.addEventListener('keydown', e => {
@@ -83,8 +131,7 @@ export function initHelp() {
     }
     if ((e.key === 'Enter' || e.key === ' ') && e.target?.tagName?.toLowerCase() === 'help-icon') {
       e.preventDefault();
-      const icon = e.target;
-      openHelp(icon.dataset.help, icon.dataset.helpSection);
+      handleHelpIcon(e.target);
     }
   });
 

@@ -40,6 +40,7 @@
     justify-content: space-between;
     padding: 12px 16px;
     border-bottom: 1px solid var(--color-surface);
+    flex-shrink: 0;
 }
 
 #help-title {
@@ -69,6 +70,33 @@
     font-size: var(--font-norm);
     line-height: 1.5;
     scroll-behavior: smooth;
+    flex: 1;
+    min-height: 0;
+}
+
+#help-top {
+    position: absolute;
+    right: 16px;
+    bottom: 14px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-surface-2);
+    color: var(--color-muted);
+    border-radius: 999px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: var(--font-sm);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s, background 0.15s;
+}
+
+#help-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#help-top:hover {
+    background: var(--color-surface-2);
 }
 
 #help-content h1,
@@ -105,7 +133,7 @@
 
 #help-content a{
     color: var(--color-accent);
-    text-decoration: underline;
+    font-weight: bold;
 }
 
 #help-content a:hover {
