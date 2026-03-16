@@ -41,6 +41,32 @@ help-icon:hover::after {
   margin-left: auto;
 }
 
+/* Mobile hint bubble */
+
+#mobile-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+  min-width: max-content;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-2);
+  color: var(--color-text-strong);
+  font-size: var(--font-norm);
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+}
+
+#mobile-hint.is-visible {
+  opacity: 1;
+}
+
 
 /* Base settings applied to specific icons */
 .icon::before {
@@ -176,4 +202,3 @@ help-icon:hover::after {
     border-radius: 2px;
     font-size: var(--font-x-sm);
 }
-

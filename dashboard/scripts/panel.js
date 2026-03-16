@@ -124,7 +124,7 @@ export function renderOverviewPanel() {
       <span><i>Mobile</i></span>
       <ul class="noBullet-list">
         <li><b>Tap</b> a node <b>twice</b> to go down a level.</li>
-        <li><b>Long-press on empty space</b> to go up a level.</li>
+        <li><b>Long-press anywhere</b> to go up a level.</li>
       </ul>
 
       <span>

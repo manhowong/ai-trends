@@ -110,7 +110,7 @@ const mouseActions = {
 };
 
 const mobileActions = {
-    onNodeTap: (id) => { state.hoveredNode = id; applyHover(id); },
+    onNodeTap: (id) => { state.hoveredNode = id; applyHover(id); showMobileHint(); },
     onSameNodeTap: (data) => navigateDown(data),
     onCanvasTap: () => { state.hoveredNode = null; clearHover(); },
     onCanvasLongPress: () => navigateUp()
@@ -140,6 +140,26 @@ const isTouch = (e) => {
     const isStandardTouch = !!(sourceEvent?.touches || sourceEvent?.targetTouches);
     return isPointerTouch || isStandardTouch;
 };
+
+// Mobile hint bubble (first tap)
+let mobileHintTimer = 0;
+let mobileHintShown = false;
+
+const isSmallScreen = () => window.matchMedia('(max-width: 768px)').matches;
+
+function showMobileHint() {
+    if (mobileHintShown) return;
+    if (!isSmallScreen()) return;
+    let hint = document.getElementById('mobile-hint');
+    window.requestAnimationFrame(() => {
+        hint.classList.add('is-visible');
+    });
+    mobileHintShown = true;
+    clearTimeout(mobileHintTimer);
+    mobileHintTimer = setTimeout(() => {
+        hint.classList.remove('is-visible');
+    }, 5000);
+}
 
 // Mouse events (when isTouch is false)
 
@@ -181,10 +201,11 @@ echart.on('click', (e) => {
 let pressTimer = 0;
 let isLongPress = false;
 
-// --- Long-press on canvas (navigate up 1 level)
+// --- Long-press anywhere (navigate up 1 level)
 echart.getZr().on('mousedown', (e) => {   // use getZr()
-    if (e.target) return;
-    mobileActions.onCanvasTap(); // Clear hover immediately on tap
+    // Uncomment the following two lines to switch to long-press on canvas only
+    // if (e.target) return;
+    // mobileActions.onCanvasTap(); // Clear hover immediately on tap
     pressTimer = setTimeout(() => {
     mobileActions.onCanvasLongPress();
     isLongPress = true;
