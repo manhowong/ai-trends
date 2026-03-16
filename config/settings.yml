@@ -25,6 +25,7 @@ embedding:
 
 classification:                # TODO: Tune these 
   confidence_threshold: 0.80   # routes to LLM if top score below this
+  relevance_threshold: 0.50    # only abstracts with topics passing this will be included in the analysis (even those passed to LLM)
   t1_gap: 0.02                 # max gap from top node to include a second T1
   top_n_candidates: 5          # candidates to be used as LLM context for classifying ambiguous papers
 
@@ -41,3 +42,9 @@ tfidf:
 
 Keyword_stat:
   min_abs: 1          # Only include terms that appear in > min_abs abstract(s)
+
+# Dashboard trend thresholds --------------------------------------------------
+
+dashboard:
+  trend_hotness_threshold: 10   # Percent change for determining trend up/down
+  trend_min_abs_volume: 10      # Minimum total volume within the selected range before applying trend

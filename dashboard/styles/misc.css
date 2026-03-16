@@ -9,6 +9,39 @@ v-bar::after {
 
 /* Icons */
 
+help-icon::after {
+  content:"?";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  background-color: var(--color-accent);
+  color: var(--color-panel-bg);
+  border-radius: 50%; /* circle */
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+}
+
+help-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+  cursor: pointer;
+  pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
+
+}
+
+help-icon:hover::after {
+  background-color: var(--color-muted-3);
+}
+
+.legend-help {
+  margin-left: auto;
+}
+
+
 /* Base settings applied to specific icons */
 .icon::before {
   display: inline-block;
@@ -143,6 +176,4 @@ v-bar::after {
     border-radius: 2px;
     font-size: var(--font-x-sm);
 }
-
-
 

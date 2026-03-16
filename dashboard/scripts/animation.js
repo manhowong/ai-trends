@@ -2,6 +2,9 @@
    animation.js — Intro tour animation on page load
    ============================================================ */
 
+// To include the intro animation, import runIntroTour from this file into
+// main.js and add `runIntroTour();` at the end of the function `initializeApp()`
+
 import { state } from './state.js';
 import { echart } from './chart.js';
 import { goOverview, focusCategory, focusChildNode } from './views.js';

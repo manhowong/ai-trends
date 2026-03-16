@@ -12,21 +12,34 @@ import { state, categoryColorById } from './state.js';
  * and initializeDerivedData() afterwards.
  */
 export async function loadData() {
-  const [metaRes, tsRes] = await Promise.all([
+  const [metaRes, tsRes, settingsRes] = await Promise.all([
     fetch('./data/metadata.json'),
     fetch('./data/timeseries.json'),
+    fetch('./config/settings.yml'),
   ]);
   if (!metaRes.ok) throw new Error(`Failed to load metadata.json (${metaRes.status})`);
   if (!tsRes.ok)   throw new Error(`Failed to load timeseries.json (${tsRes.status})`);
+  if (!settingsRes.ok) throw new Error(`Failed to load settings.yml (${settingsRes.status})`);
 
   state.rawMetadata   = await metaRes.json();
   state.rawTimeseries = await tsRes.json();
+
+  const settingsText = await settingsRes.text();
+  applyDashboardSettings(settingsText);
 
   state.dataMonths = Object.keys(state.rawTimeseries).sort();
   if (!state.dataMonths.length) throw new Error('timeseries.json has no months');
 
   state.selectedStartMonth = state.dataMonths[0];
   state.selectedEndMonth   = state.dataMonths[state.dataMonths.length - 1];
+}
+
+function applyDashboardSettings(yamlText) {
+  const hotnessMatch = yamlText.match(/trend_hotness_threshold:\s*([0-9.]+)/);
+  const minAbsMatch  = yamlText.match(/trend_min_abs_volume:\s*([0-9.]+)/);
+
+  if (hotnessMatch) state.trendHotnessThreshold = parseFloat(hotnessMatch[1]);
+  if (minAbsMatch)  state.trendMinAbsVolume = parseFloat(minAbsMatch[1]);
 }
 
 
@@ -81,14 +94,17 @@ export function linkRangeCC(s, t, startIdx, endIdx) {
   return endVal - prevVal;
 }
 
-export function toTrend(delta) {
-  if (delta > 0) return  1;
-  if (delta < 0) return -1;
+export function toTrend(hotness, rangeVolume) {
+  const minAbs = Math.max(0, state.trendMinAbsVolume || 0);
+  if (rangeVolume < minAbs) return 0;
+  const threshold = Math.abs(state.trendHotnessThreshold || 0);
+  if (hotness >= threshold) return  1;
+  if (hotness <= -threshold) return -1;
   return 0;
 }
 
 export function toHotness(startValue, endValue) {
-  if (startValue <= 0) return endValue > 0 ? 100 : 0;
+  if (startValue <= 0) return 0;
   return Math.round(((endValue - startValue) / startValue) * 100);
 }
 
@@ -133,13 +149,14 @@ export function applyNormalizedData() {
     const startVal = nodeMonthlyVolume(state.dataMonths[startIdx], topic.id, 2);
     const endVal   = nodeMonthlyVolume(state.dataMonths[endIdx],   topic.id, 2);
     const delta    = endVal - startVal;
+    const hotness  = toHotness(startVal, endVal);
 
     const child = {
       id:      topic.id,
       name:    topic.name,
       papers,
-      trend:   toTrend(delta),
-      hotness: toHotness(startVal, endVal),
+      trend:   toTrend(hotness, papers),
+      hotness,
       delta,
       isUnassigned: papers <= 0,
     };
@@ -199,11 +216,12 @@ export function applyNormalizedData() {
     Object.entries(kwMap).forEach(([kwName, stats]) => {
       if (stats.papers <= 0) return;
       if (!state.keywordData[topicId]) state.keywordData[topicId] = [];
+      const kwHotness = toHotness(stats.startV, stats.endV);
       state.keywordData[topicId].push({
         id:     `${topicId}--${kwName}`,
         name:   kwName,
         papers: stats.papers,
-        trend:  toTrend(stats.endV - stats.startV),
+        trend:  toTrend(kwHotness, stats.papers),
       });
     });
   });
@@ -268,11 +286,11 @@ export function initializeDerivedData() {
       });
 
       const netDelta = cat.children.reduce((sum, ch) => sum + (ch.delta || 0), 0);
-      cat.trend   = toTrend(netDelta);
       cat.hotness = toHotness(
         cat.children.reduce((sum, ch) => sum + (ch.papers - (ch.delta || 0)), 0),
         cat.children.reduce((sum, ch) => sum + ch.papers, 0),
       );
+      cat.trend   = toTrend(cat.hotness, cat.totalpapers);
       cat.isUnassigned = cat.totalpapers <= 0;
 
       catMap[cat.id] = cat;

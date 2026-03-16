@@ -172,6 +172,13 @@
     display: inline-flex;
 }
 
+/* Create spacing for help button */
+.sort-with-help {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 /* Ranked List  */
 
 .ranked-list {

@@ -55,6 +55,10 @@ export const state = {
   // Edge
   showIntraEdges: true,   // within-category links
   showCrossEdges: true,   // cross-category links
+
+  // Trend thresholds (custom values will be loaded from config/settings.yml)
+  trendHotnessThreshold: 10,  // percent
+  trendMinAbsVolume: 10,      // minimum range volume (papers)
 };
 
 export const DEFAULT_FONT_SIZE = 12;

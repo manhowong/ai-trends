@@ -9,7 +9,7 @@ import { trendColor, formatCount, makeLabel } from './chart.js';
 // Generic panel helpers ------------------------------------
 
 export function setPanelContent(boxId, title, sortHTML, contentHTML) {
-  document.getElementById(boxId + '-title').textContent = title;
+  document.getElementById(boxId + '-title').innerHTML = title;
   document.getElementById(boxId + '-sort').innerHTML    = sortHTML;
   document.getElementById(boxId + '-content').innerHTML = contentHTML;
 }
@@ -85,6 +85,7 @@ export function renderOverviewPanel() {
   );
   const barWidths    = metricBarWidths(state.level1SortMode, metricValues);
   const sortDropdown = buildSortDropdown(1, ['papers', 'hotness'], state.level1SortMode);
+  const sortWithHelp = `<div class="sort-with-help">${sortDropdown}<help-icon role="button" data-help="documentation" data-help-section="statistics"></help-icon></div>`;
 
   const topHTML = `
     <div class="ranked-list">
@@ -143,8 +144,10 @@ export function renderOverviewPanel() {
       </span>
     </div>`;
 
-  setPanelContent('info-top',    'Categories', sortDropdown, topHTML);
-  setPanelContent('info-bottom', 'How to Use', '',           bottomHTML);
+  setPanelContent('info-top', 
+    'Categories <help-icon role="button" data-help="documentation" data-help-section="taxonomy"></help-icon>', 
+    sortWithHelp, topHTML);
+  setPanelContent('info-bottom', 'How to Use', '', bottomHTML);
 }
 
 
@@ -174,6 +177,7 @@ export function renderCategoryPanel() {
   });
   const barWidths    = metricBarWidths(state.level2SortMode, metricValues);
   const sortDropdown = buildSortDropdown(2, ['papers', 'hotness', 'links'], state.level2SortMode);
+  const sortWithHelp = `<div class="sort-with-help">${sortDropdown}<help-icon role="button" data-help="documentation" data-help-section="statistics"></help-icon></div>`;
 
   const topHTML = `
     <div class="ranked-list">
@@ -199,8 +203,12 @@ export function renderCategoryPanel() {
       }).join('')}
     </div>`;
 
-  setPanelContent('info-top',    'Topics',              sortDropdown,                                      topHTML);
-  setPanelContent('info-bottom', 'Out-of-Scope Topics', '<span class="rank-bar-title"># articles</span>',   '<p class="empty-state">In development</p>');
+  setPanelContent('info-top',
+    'Topics <help-icon role="button" data-help="documentation" data-help-section="classification"></help-icon>', 
+    sortWithHelp, topHTML);
+  setPanelContent('info-bottom', 
+    'Out-of-Scope Topics <help-icon role="button" data-help="documentation" data-help-section="stage-2-planned-llm-review-for-ambiguous-cases"></help-icon>', 
+    '<span class="rank-bar-title"># articles</span>', '<p class="empty-state">In development</p>');
 }
 
 
@@ -251,8 +259,10 @@ export function renderChildPanel() {
        </div>`
     : '<p class="empty-state">No relevant topics found in selected period.</p>';
 
-  setPanelContent('info-top', 'Relevant Terms', '<span class="rank-bar-title"># articles</span>',      topHTML);
-  setPanelContent('info-bottom', 'Relevant Topics', '<span class="rank-bar-title">Relevance score (DSC)</span>', bottomHTML);
+  setPanelContent('info-top', 
+    'Relevant Terms <help-icon role="button" data-help="documentation" data-help-section="keyword-extraction"></help-icon>', 
+    '<span class="rank-bar-title"># articles</span>', topHTML);
+  setPanelContent('info-bottom', 'Relevant Topics <help-icon role="button" data-help="documentation" data-help-section="links-and-relevance-dsc"></help-icon>', '<span class="rank-bar-title">Relevance score (DSC)</span>', bottomHTML);
 }
 
 
