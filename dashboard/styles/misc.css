@@ -9,6 +9,8 @@ v-bar::after {
 
 /* Icons */
 
+/* Help icon */
+
 help-icon::after {
   content:"?";
   display: inline-flex;
@@ -21,54 +23,16 @@ help-icon::after {
   border-radius: 50%; /* circle */
   font-family: system-ui, sans-serif;
   font-weight: bold;
-}
-
-help-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   margin-left: 6px;
   cursor: pointer;
   pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
-
 }
 
 help-icon:hover::after {
   background-color: var(--color-muted-3);
 }
 
-.legend-help {
-  margin-left: auto;
-}
-
-/* Mobile hint bubble */
-
-#mobile-hint {
-  position: fixed;
-  left: 50%;
-  bottom: 50%;
-  transform: translateX(-50%);
-  min-width: max-content;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-surface-2);
-  color: var(--color-text-strong);
-  font-size: var(--font-norm);
-  text-align: center;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-  z-index: 9999;
-}
-
-#mobile-hint.is-visible {
-  opacity: 1;
-}
-
-
-/* Base settings applied to specific icons */
+/* icon wrapper for base settings */
 .icon::before {
   display: inline-block;
   font-weight: bold;
@@ -201,4 +165,30 @@ help-icon:hover::after {
     box-shadow: 0px 2px 2px var(--kbd-shade-1), 0 2px 0 2px var(--kbd-shade-2);
     border-radius: 2px;
     font-size: var(--font-x-sm);
+}
+
+/* Mobile hint bubble */
+
+#mobile-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+  min-width: max-content;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-2);
+  color: var(--color-text-strong);
+  font-size: var(--font-norm);
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+}
+
+#mobile-hint.is-visible {
+  opacity: 1;
 }

@@ -257,7 +257,7 @@ export function renderChart(nodes, links) {
       data:      labeledNodes,
       links,
       emphasis:  { disabled: true },
-      label:     { show: true, color: themeVar('chartLabel'), fontSize: 12, silent: true}, // silent labels (i.e. no response to click)
+      label:     { show: true, color: themeVar('chartLabel'), fontSize: 12, silent: false}, // set labels to silent to disable click
       lineStyle: { opacity: 1 },
       symbol:    'circle',
       cursor:    'pointer',

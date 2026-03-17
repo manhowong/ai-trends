@@ -100,24 +100,9 @@ document.getElementById('fontSizeReset')
 
 // ECharts event listeners -----------------------------------------------------
 
-// Define the actions by mouse (e.g. desktop) and mobile devices
+// Actions to be triggered
 
-const mouseActions = {
-    onNodeHover: (id) => { state.hoveredNode = id; applyHover(id); },
-    onNodeLeave: () => { state.hoveredNode = null; clearHover(); },
-    onNodeClick: (data) => navigateDown(data),
-    onCanvasDblClick: () => navigateUp()
-};
-
-const mobileActions = {
-    onNodeTap: (id) => { state.hoveredNode = id; applyHover(id); showMobileHint(); },
-    onSameNodeTap: (data) => navigateDown(data),
-    onCanvasTap: () => { state.hoveredNode = null; clearHover(); },
-    onCanvasLongPress: () => navigateUp()
-};
-
-// Navigation functions
-
+// --- Navigate down
 function navigateDown(d) {
     state.hoveredNode = null;
     if (state.currentView === 'overview' && d._type === 'parent') focusCategory(d._catId || d.id);
@@ -125,31 +110,18 @@ function navigateDown(d) {
     else if (state.currentView === 'child' && d._type === 'conn') focusChildNode(d.id);
 }
 
+// --- Navigate up
 function navigateUp() {
     state.hoveredNode = null;
     if (state.currentView === 'child') focusCategory(state.currentCat);
     else if (state.currentView === 'category') goOverview();
 }
 
-// Determine if the event is touch
-const isTouch = (e) => {
-    // Dig through the ECharts layers to find the native event
-    const sourceEvent = e?.event?.event || e?.event || e;
-    // Check for PointerEvents (modern) OR TouchEvents (legacy/specific mobile)
-    const isPointerTouch = sourceEvent?.pointerType === 'touch';
-    const isStandardTouch = !!(sourceEvent?.touches || sourceEvent?.targetTouches);
-    return isPointerTouch || isStandardTouch;
-};
-
-// Mobile hint bubble (first tap)
+// --- Mobile hint bubble (first tap on mobile)
 let mobileHintTimer = 0;
 let mobileHintShown = false;
-
-const isSmallScreen = () => window.matchMedia('(max-width: 768px)').matches;
-
 function showMobileHint() {
     if (mobileHintShown) return;
-    if (!isSmallScreen()) return;
     let hint = document.getElementById('mobile-hint');
     window.requestAnimationFrame(() => {
         hint.classList.add('is-visible');
@@ -161,89 +133,109 @@ function showMobileHint() {
     }, 5000);
 }
 
-// Mouse events (when isTouch is false)
+// Map actions to events, grouped by cursor OR touch events
+
+const cursorActions = {
+    onNodeHover: (id) => { state.hoveredNode = id; applyHover(id); },
+    onNodeLeave: () => { state.hoveredNode = null; clearHover(); },
+    onNodeClick: (data) => navigateDown(data),
+    onCanvasDblClick: () => navigateUp()
+};
+
+const touchActions = {
+    onNodeFristTap: (id) => { state.hoveredNode = id; applyHover(id); },
+    onNodeSecondTap: (data) => navigateDown(data),
+    onCanvasTap: () => { state.hoveredNode = null; clearHover(); },
+    onCanvasLongPress: () => navigateUp(),
+};
+
+// Detect cursor events and trigger actions
 
 // --- Hover on node (highlight node)
 echart.on('mouseover', (e) => {
-     if (e.dataType === 'node' && !isTouch(e)) mouseActions.onNodeHover(e.data.id);
+     if (e.dataType === 'node' && !isTouch(e)) cursorActions.onNodeHover(e.data.id);
 });
 // --- Move away from node (clear highlight)
 echart.on('mouseout', (e) => {
-     if (e.dataType === 'node' && !isTouch(e)) mouseActions.onNodeLeave();
+     if (e.dataType === 'node' && !isTouch(e)) cursorActions.onNodeLeave();
 });
 // --- Click on node (navigate down 1 level)
 echart.on('click', (e) => {
-      if (e.dataType === 'node' && !isTouch(e)) mouseActions.onNodeClick(e.data);
+      if (e.dataType === 'node' && !isTouch(e)) cursorActions.onNodeClick(e.data);
 });
 // --- Double click on canvas (navigate up 1 level)
 echart.getZr().on('dblclick', (e) => {   // use getZr()
-    if (!e.target && !isTouch(e)) mouseActions.onCanvasDblClick();
+    if (!e.target && !isTouch(e)) cursorActions.onCanvasDblClick();
 });
 
 
-// Mobile events
+// Detect touch events and trigger actions
 
 // --- Tap on node
 echart.on('click', (e) => {
     if ( e.dataType === 'node' && isTouch(e) ) {
+        showMobileHint();
         if (state.hoveredNode != e.data.id) {
             // Tap on node first time, hightlight it
-            mobileActions.onNodeTap(e.data.id);
+            touchActions.onNodeFristTap(e.data.id);
         } else {
             // Tap on same node again, navigate down
-            mobileActions.onSameNodeTap(e.data);
+            touchActions.onNodeSecondTap(e.data);
         };
     }
-    // Tap elsewhere, clear hover
-    if ( e.dataType != 'node' && isTouch(e) ) mobileActions.onCanvasTap();
 });
 
+// --- Long-press anywhere (navigate up 1 level)
 let pressTimer = 0;
 let isLongPress = false;
-
-// --- Long-press anywhere (navigate up 1 level)
 echart.getZr().on('mousedown', (e) => {   // use getZr()
-    // Uncomment the following two lines to switch to long-press on canvas only
-    // if (e.target) return;
-    // mobileActions.onCanvasTap(); // Clear hover immediately on tap
     pressTimer = setTimeout(() => {
-    mobileActions.onCanvasLongPress();
+    touchActions.onCanvasLongPress();
     isLongPress = true;
     }, 600);
 });
 
-// The following block works but not needed
-// --- Long-press on node (navigate down 1 level)
-// echart.on('mousedown', (e) => {
-//     if (e.dataType !== 'node') return;
-//     pressTimer = setTimeout(() => {
-//         mobileActions.onSameNodeTap(e.data);
-//         isLongPress = true;
-//     }, 600);
-// });
 
-// --- Reset long press timer
-echart.getZr().on('mouseup', () => {   // use getZr()
-    clearTimeout(pressTimer);
-    isLongPress = false;
+// --- Tap anywhere besides nodes, clear hover
+//     To detect canvas events, we need to listen to both the chart events and 
+//     the chart container events. This is because echart.on() does not detect 
+//     canvas directly, so we use the chart events to filter the chart container events.
+// ------ 1. Listen to chart events
+let nodeClicked = false;
+echart.on('click', (e) => {
+  if (e.dataType === 'node') { // To exclude edges, add e.dataType === 'edge'
+    nodeClicked = true;
+  } else {
+    nodeClicked = false;
+  }
+});
+// ------ 2. Listen to chart container events
+document.getElementById('chart-wrapper').addEventListener('click', (e) => {
+  if (!nodeClicked && isTouch(e)) touchActions.onCanvasTap(); // Tap elsewhere
+  nodeClicked = false;
 });
 
-// This reset long press timer
+// Helpers
+
+// --- Determine if an event is a cursor OR touch event
+const isTouch = (e) => {
+    // Dig through the ECharts layers to find the native event
+    const sourceEvent = e?.event?.event || e?.event || e;
+    // Check for PointerEvents (modern) OR TouchEvents (legacy/specific mobile)
+    const isPointerTouch = sourceEvent?.pointerType === 'touch';
+    const isStandardTouch = !!(sourceEvent?.touches || sourceEvent?.targetTouches);
+    return isPointerTouch || isStandardTouch;
+};
+
+// --- Cancel long-press (i.e. reset long press timer)
 const cancelInteraction = () => {
   clearTimeout(pressTimer);
   isLongPress = false;
 };
-
-// --- Cancel if finger lifts
-echart.getZr().on('mouseup', cancelInteraction);
-echart.getZr().on('touchend', cancelInteraction);
-
-// --- Cancel if finger/mouse moves too much
-echart.getZr().on('mousemove', cancelInteraction);
-
-// --- Cancel if finger slides off the chart area
-echart.getZr().on('globalout', cancelInteraction);
-
+echart.getZr().on('mouseup', cancelInteraction); // mouse lifts
+echart.getZr().on('touchend', cancelInteraction); // finger lifts
+echart.getZr().on('mousemove', cancelInteraction); // finger moves too much
+echart.getZr().on('globalout', cancelInteraction); // finger slides off chart area
 
 // Responsive ------------------------------------------------------------------
 
@@ -255,7 +247,7 @@ if (window.innerWidth <= 768) {
   document.getElementById('sidebar').classList.add('collapsed');
 }
 
-//Mobile: click outside of sidebar, close it automatically
+//Mobile: tap outside of sidebar, close it automatically
 document.addEventListener('click', e => {
   if (window.innerWidth > 768) return;
   const sidebar = document.getElementById('sidebar');

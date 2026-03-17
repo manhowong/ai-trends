@@ -218,3 +218,12 @@ label:has(#toggleIntraEdges:disabled) {
     color: var(--color-note);
 }
 
+#legend help-icon {
+  margin-left: auto;
+  margin-top: 4px;
+}
+
+#legend help-icon::after {
+  width: 1.5em;
+  height: 1.5em;
+}

@@ -85,7 +85,7 @@ export function renderOverviewPanel() {
   );
   const barWidths    = metricBarWidths(state.level1SortMode, metricValues);
   const sortDropdown = buildSortDropdown(1, ['papers', 'hotness'], state.level1SortMode);
-  const sortWithHelp = `<div class="sort-with-help">${sortDropdown}<help-icon role="button" data-help="documentation" data-help-section="statistics"></help-icon></div>`;
+  const sortWithHelp = `<div class="sort-with-help"><help-icon role="button" data-help="documentation" data-help-section="statistics"></help-icon>${sortDropdown}</div>`;
 
   const topHTML = `
     <div class="ranked-list">
@@ -177,7 +177,7 @@ export function renderCategoryPanel() {
   });
   const barWidths    = metricBarWidths(state.level2SortMode, metricValues);
   const sortDropdown = buildSortDropdown(2, ['papers', 'hotness', 'links'], state.level2SortMode);
-  const sortWithHelp = `<div class="sort-with-help">${sortDropdown}<help-icon role="button" data-help="documentation" data-help-section="statistics"></help-icon></div>`;
+  const sortWithHelp = `<div class="sort-with-help"><help-icon role="button" data-help="documentation" data-help-section="statistics"></help-icon>${sortDropdown}</div>`;
 
   const topHTML = `
     <div class="ranked-list">

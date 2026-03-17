@@ -74,12 +74,15 @@
     min-height: 0;
 }
 
+/* Back to top button */
 #help-top {
     position: absolute;
-    right: 16px;
-    bottom: 14px;
+    right: 28px;
+    bottom: 28px;
+    height: 4em;
+    width: 4em;
     background: var(--color-surface);
-    border: 1px solid var(--color-surface-2);
+    border: none;
     color: var(--color-muted);
     border-radius: 999px;
     padding: 6px 12px;

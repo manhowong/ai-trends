@@ -6,7 +6,7 @@
     right: 10px;
     z-index: 10;
     width: 32%;
-    min-width: min-content; /*Must fit the smallest element inside*/
+    min-width: min-content; /*Must fit the smallest inline element inside*/
     min-height: calc(100% - 20px); /*Content fills the height of screen*/
     max-height: calc(100% - 20px); /*So panel doesn't exceed screen height*/
     display: flex;
@@ -176,8 +176,9 @@
 .sort-with-help {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 12px;
 }
+
 
 /* Ranked List  */
 

@@ -97,3 +97,8 @@
     color: var(--color-text-strong);
     z-index: 1;
 }
+
+#site-info help-icon::after{
+    height: 1.5em;
+    width: 1.5em;
+}

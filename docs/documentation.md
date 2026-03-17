@@ -31,7 +31,7 @@ export_on_save:
 
 ## Goal
 
-The project goal is to capture current trends in AI development from arXiv articles using cost-efficient and environmentally sustainable methods.
+The project goal is to capture current trends in AI development from arXiv articles using cost-efficient and low-carbon methods.
 
 ## Data Source
 
@@ -100,7 +100,7 @@ This stage has not yet been implemented. The preliminary data therefore contains
 
 # Keyword Extraction
 
-For each topic, representative terms are extracted from the abstracts of its highest-confidence articles using **TF-IDF** (Term Frequency-Inverse Document Frequency), after lemmatization with [spaCy](https://spacy.io/) (words in phrases are joined together as ngrams). TF-IDF down-weights terms that appear across many topics (e.g. "training", "model") and highlights terms distinctive to a specific topic. Candidate terms are then filtered by minimum abstract frequency to remove noise from rare mentions.
+For each topic, representative terms are extracted from the abstracts of its highest-confidence articles using **TF-IDF** (Term Frequency-Inverse Document Frequency), after lemmatization with [spaCy](https://spacy.io/) (words in phrases are joined together as ngrams). TF-IDF down-weights terms that appear across many topics (e.g. "training", "model") and highlights terms distinctive to a specific topic. Candidate terms are then filtered by minimum article count to remove noise from rare mentions (currently set to 2, which is sufficient to filter out most noise such as irrelevant or non-technical phrases).
 
 The result is a short list of representative terms shown in the info panel of the dashboard. As with classification, an LLM review step may be incorporated in the future to improve term quality.
 
@@ -108,7 +108,7 @@ The result is a short list of representative terms shown in the info panel of th
 
 At the current confidence threshold, the pipeline assigns topics to approximately 20% of articles. Whether this coverage is sufficient to capture reliable trend signals, and whether the classification is accurate enough for this purpose, has not been formally evaluated yet.
 
-The unclassified 80% is not necessarily a problem. Ambiguous cases include not only borderline-relevant articles but also articles with short or unclear abstracts, truly irrelevant articles, and spam. Classifying all articles is neither possible nor necessary. Improving coverage through LLM review or a tuned embedding model (e.g. a larger or domain-specific model) is possible, but given the project's emphasis on cost and environmental sustainability, any such improvement needs to be weighed against the additional compute required.
+The unclassified 80% is not necessarily a problem. Ambiguous cases include not only borderline-relevant articles but also articles with short or unclear abstracts, truly irrelevant articles, and spam. Classifying all articles is neither possible nor necessary. Improving coverage through LLM review or a tuned embedding model (e.g. a larger or domain-specific model) is possible, but given the project's consideration of cost and environmental sustainability, any such improvement needs to be weighed against the additional compute required.
 
 Formal evaluation is also constrained by the lack of suitable benchmark data. Accurate manual labelling would require domain experts across all AI fields, which is not currently feasible. As a proxy, we plan to assess internal consistency using the extracted terms and co-occurrence patterns. The preliminary results are encouraging: manual inspection of the top terms and connections of randomly selected topics appear coherent. For example, for the topic `RLHF / RLAIF`:
 
@@ -190,9 +190,6 @@ $$\text{DSC}(A, B) = \frac{2 \, |A \cap B|}{|A| + |B|}$$
 Where $|A|$ and $|B|$ are the article counts ($V$) for topics $A$ and $B$, and $|A \cap B|$ is the number of articles assigned to both topics within the selected range.
 
 DSC ranges from 0 (no co-occurrence) to 1 (complete overlap). A wider link indicates that two topics appear together frequently relative to their individual frequencies.
-
-* **Cross-category and within-category links**: These represent connections between nodes from different categories or the same category, respectively.
-* **Category-level links**: These are derived from the aggregated links of their constituent child topics.
 
 ## Node Size
 
