@@ -114,7 +114,7 @@ Formal evaluation is also constrained by the lack of suitable benchmark data. Ac
 
 | | Top 3 |
 |---|---|
-| Relevant terms | `human feedback`, `human preference`, `reward model` |
+| Frequent terms | `human feedback`, `human preference`, `reward model` |
 | Intra-category connections (Post-Training & Adaptation) | `Direct Preference Optimization`, `Prompt Engineering & Prompt Tuning`, `In-Context Learning` |
 | Cross-category connections | `Reinforcement Learning` (Learning Paradigms), `AI Alignment`, `Human-AI Interaction` (Safety & Society) |
 
@@ -177,7 +177,7 @@ Where $V_{\text{start}}$ and $V_{\text{end}}$ are the monthly volumes at the ran
 
 * **Heating Up**: Hotness $\ge 10\%$
 * **Cooling Off**: Hotness $\le -10\%$
-* **Stable**: Hotness between $-10\%$ and $10\%$
+* **No Trends Detected**: Hotness between $-10\%$ and $10\%$
 
 > **Note:** Topics with $V_{\text{end}} < 10$ articles ($V_{\text{min}}$) are not assigned a trend direction. These thresholds are currently set to relatively low values for preliminary data and are subject to change. Trend directions should be interpreted with caution at this stage.
 

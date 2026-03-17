@@ -13,7 +13,7 @@
     flex-direction: column;
     background: var(--color-panel-bg);
     border: 1px solid var(--color-panel-border);
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
 }
 
@@ -41,7 +41,7 @@
     background: var(--color-surface);
     color: var(--color-accent2);
     border: none;
-    border-radius: 8 8 0 0;
+    border-radius: 6 6 0 0;
     font-size: var(--font-sm);
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -250,13 +250,11 @@
     width: 80px;
     height: 8px;
     background: var(--color-surface);
-    border-radius: 3px;
     flex-shrink: 0;
 }
 
 .rank-bar {
     height: 100%;
-    border-radius: 3px;
     background: var(--color-muted-2);
 }
 

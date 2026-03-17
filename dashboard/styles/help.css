@@ -26,7 +26,7 @@
     max-height: 70vh;
     background: var(--color-bg);
     border: 1px solid var(--color-surface-2);
-    border-radius: 10px;
+    border-radius: 6px;
     overflow: hidden;
     z-index: 10000;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
@@ -110,9 +110,8 @@
 }
 
 .help-highlight {
-    animation: help-flash 1.4s ease-out;
+    animation: help-flash 1.5s ease-out;
     background: rgba(180, 142, 53, 0.18);
-    border-radius: 6px;
 }
 
 @keyframes help-flash {
@@ -190,7 +189,7 @@
 #help-content pre {
     background: var(--color-surface);
     border: 1px solid var(--color-surface-2);
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 10px 12px;
     overflow: auto;
     margin: 12px 0 16px;

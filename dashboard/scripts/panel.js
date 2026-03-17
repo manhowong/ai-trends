@@ -231,7 +231,7 @@ export function renderChildPanel() {
             <div class="rank-bar-wrap"><div class="rank-bar" style="width:${kwBars[i]}%"></div></div>
           </div>`).join('')}
        </div>`
-    : '<p class="empty-state">No topic-specific terms found in selected period.</p>';
+    : '<p class="empty-state">Insufficient data.</p>';
 
   const connEdges = state.childEdges
     .filter(e => e.s === state.currentChild || e.t === state.currentChild)
@@ -260,7 +260,7 @@ export function renderChildPanel() {
     : '<p class="empty-state">No relevant topics found in selected period.</p>';
 
   setPanelContent('info-top', 
-    'Relevant Terms <help-icon role="button" data-help="documentation" data-help-section="keyword-extraction"></help-icon>', 
+    'Frequent Terms <help-icon role="button" data-help="documentation" data-help-section="keyword-extraction"></help-icon>', 
     '<span class="rank-bar-title"># articles</span>', topHTML);
   setPanelContent('info-bottom', 'Relevant Topics <help-icon role="button" data-help="documentation" data-help-section="links-and-relevance-dsc"></help-icon>', '<span class="rank-bar-title">Relevance score (DSC)</span>', bottomHTML);
 }

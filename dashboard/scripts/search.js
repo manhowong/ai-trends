@@ -30,14 +30,37 @@ function getAllNodes() {
   Object.values(state.childMapAll).forEach(child => {
     const cat = state.catMapAll[child.catId];
     results.push({
-      id:       child.id,
-      name:     child.name,
-      level:    2,
-      papers:   child.papers,
-      trend:    child.trend,
-      catName:  cat ? cat.name  : '',
-      catColor: cat ? cat.color : themeVar('trendFlat'),
-      disabled: !!child.isUnassigned,
+      id:            child.id,
+      name:          child.name,
+      level:         2,
+      kind:          'topic',
+      papers:        child.papers,
+      thresholdPapers: child.papers,
+      trend:         child.trend,
+      catName:       cat ? cat.name  : '',
+      catColor:      cat ? cat.color : themeVar('trendFlat'),
+      disabled:      !!child.isUnassigned,
+    });
+  });
+
+  // Keywords - one row per (keyword, topic) pair
+  Object.entries(state.keywordData).forEach(([topicId, keywords]) => {
+    const child = state.childMapAll[topicId];
+    if (!child) return;
+
+    keywords.forEach(keyword => {
+      results.push({
+        id:              topicId,
+        name:            keyword.name,
+        level:           2,
+        kind:            'keyword',
+        papers:          keyword.papers,
+        thresholdPapers: child.papers,
+        trend:           keyword.trend,
+        catName:         child.name,
+        catColor:        child.color || themeVar('trendFlat'),
+        disabled:        !!child.isUnassigned,
+      });
     });
   });
 
@@ -80,21 +103,24 @@ function renderResults(nodes, query) {
   }
 
   container.innerHTML = nodes.map(node => {
-    const belowThreshold = node.papers < threshold;
+    const belowThreshold = node.thresholdPapers < threshold;
     const isDisabled = node.disabled || belowThreshold;
-    const countLabel = node.papers === 0
-      ? '0'
-      : (belowThreshold ? `&lt; ${threshold}` : formatCount(node.papers));
+    const countLabel = node.kind === 'keyword'
+      ? 'frequent term in'  // Show "frequent Term in" instead of count if the match is a frequent term
+      : (node.papers === 0
+          ? '0'
+          : (belowThreshold ? `&lt; ${threshold}` : formatCount(node.papers)));
+    const badgeHTML = node.kind === 'keyword'
+      ? `<span class="search-result-badge search-result-badge--topic">${node.catName}</span>`
+      : (node.catName
+          ? `<span class="search-result-badge" style="background:${node.catColor}">${node.catName}</span>`
+          : `<span class="search-result-badge search-result-badge--category">Category</span>`);
     return `
-    <div class="search-result-row${isDisabled ? ' search-result-row--disabled' : ''}"
+    <div class="search-result-row${node.kind === 'keyword' ? ' search-result-row--keyword' : ''}${isDisabled ? ' search-result-row--disabled' : ''}"
          data-id="${node.id}" data-level="${node.level}" data-disabled="${isDisabled ? '1' : '0'}">
-      <span class="search-result-dot" style="background:${trendColor(node.trend)}"></span>
       <span class="search-result-name">${highlightMatch(node.name, query)}</span>
       <span class="search-result-papers">${countLabel}</span>
-      ${node.catName
-        ? `<span class="search-result-badge" style="background:${node.catColor}">${node.catName}</span>`
-        : `<span class="search-result-badge search-result-badge--category">Category</span>`
-      }
+      ${badgeHTML}
     </div>
   `;
   }).join('');

@@ -16,8 +16,10 @@ help-icon::after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1em;
-  height: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  font-size: 0.85em;
+  padding: 0.3em;
   background-color: var(--color-accent);
   color: var(--color-panel-bg);
   border-radius: 50%; /* circle */
@@ -150,7 +152,7 @@ help-icon:hover::after {
     padding: 7px 7px;
     background: var(--color-surface);
     color: var(--color-accent2);
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: var(--font-x-sm);
 }
 

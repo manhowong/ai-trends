@@ -158,7 +158,7 @@ export function makeLabel(name, papers, catName, catColor, dim = false) {
   const nameKey  = dim ? 'nameDim'  : 'name';
   const countKey = dim ? 'countDim' : 'count';
 
-  let label = `{${nameKey}|${name} | }{${countKey}|${formatCount(papers)}}`;
+  let label = `{${nameKey}|${name}} {${countKey}|(${formatCount(papers)})}`;
 
   if (catName && catColor) {
     const badgeKey = 'badge' + catColor.replace('#', '') + (dim ? 'Dim' : '');
@@ -181,12 +181,11 @@ export function buildRichStyles() {
   state.allColors.forEach(hex => {
     const key = 'badge' + hex.replace('#', '');
     rich[key] = {
-      fontSize: 7, color: '#fff', backgroundColor: hex,
-      borderRadius: 3, padding: [2, 5],
+      fontSize: 7, color: '#fff', backgroundColor: hex, padding: [2, 5],
     };
     rich[key + 'Dim'] = {
-      fontSize: 7, color: themeVars.badgeDimText, backgroundColor: themeVars.badgeDimBg,
-      borderRadius: 3, padding: [2, 5],
+      fontSize: 7, color: themeVars.badgeDimText, 
+      backgroundColor: themeVars.badgeDimBg, padding: [2, 5],
     };
   });
 

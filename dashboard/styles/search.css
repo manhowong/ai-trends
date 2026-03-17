@@ -25,7 +25,7 @@
     width: min(480px, calc(100vw - 32px));
     background: var(--color-bg);
     border: 1px solid var(--color-surface-2);
-    border-radius: 10px;
+    border-radius: 6px;
     overflow: hidden;
     z-index: 10000;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
@@ -109,6 +109,13 @@
     text-overflow: ellipsis;
 }
 
+.search-result-row--keyword .search-result-name {
+    font-style: italic;
+    font-size: var(--font-sm);
+}
+.search-result-row--keyword .search-result-name::before { content: "\""; }
+.search-result-row--keyword .search-result-name::after { content: "\""; }
+
 .search-result-papers {
     font-size: var(--font-x-sm);
     color: var(--color-muted-2);
@@ -119,7 +126,6 @@
     font-size: var(--font-x-sm);
     color: var(--color-white);
     padding: 2px 6px;
-    border-radius: 3px;
     flex-shrink: 0;
     white-space: nowrap;
 }
@@ -127,6 +133,11 @@
 .search-result-badge--category {
     background: var(--color-surface-2);
     color: var(--color-muted);
+}
+
+.search-result-badge--topic {
+    background: transparent;
+    color: var(--color-text-strong);
 }
 
 .search-highlight {
