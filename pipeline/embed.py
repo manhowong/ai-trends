@@ -29,7 +29,7 @@ def load_l2_nodes():
     }
 
 def embed_texts(model, texts: list[str], batch_size: int = 256) -> np.ndarray:
-    return model.encode(texts, batch_size=64, show_progress_bar=True)
+    return model.encode(texts, batch_size=batch_size, show_progress_bar=True)
 
 def cosine_similarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     a = a / np.linalg.norm(a, axis=1, keepdims=True)
