@@ -61,6 +61,14 @@ export function nodeMonthlyVolume(monthId, nodeId, level) {
   return nodeObj.V || 0;
 }
 
+/** Return the total monthly volume (V) across all nodes at a level. */
+export function levelMonthlyVolumeTotal(monthId, level) {
+  const monthObj = state.rawTimeseries[monthId] || {};
+  const nodesKey = level === 1 ? 'nodes_L1' : 'nodes_L2';
+  return Object.values(monthObj[nodesKey] || {})
+    .reduce((sum, node) => sum + (node.V || 0), 0);
+}
+
 /**
  * Sum node volume over a month range using VC (cumulative):
  *   volume = VC[endMonth] − VC[monthBefore startMonth]
@@ -103,9 +111,19 @@ export function toTrend(hotness, rangeVolume) {
   return 0;
 }
 
-export function toHotness(startValue, endValue) {
+export function percentChange(startValue, endValue) {
   if (startValue <= 0) return 0;
   return Math.round(((endValue - startValue) / startValue) * 100);
+}
+
+export function nodeMonthlySharePercentChange(monthStart, monthEnd, nodeId, level) {
+  const startTotal = levelMonthlyVolumeTotal(monthStart, level);
+  const endTotal   = levelMonthlyVolumeTotal(monthEnd, level);
+  if (startTotal <= 0 || endTotal <= 0) return 0;
+
+  const startShare = nodeMonthlyVolume(monthStart, nodeId, level) / startTotal;
+  const endShare   = nodeMonthlyVolume(monthEnd, nodeId, level) / endTotal;
+  return percentChange(startShare, endShare);
 }
 
 
@@ -146,10 +164,15 @@ export function applyNormalizedData() {
   topicMeta.forEach(topic => {
     const papers = nodeRangeVolume(topic.id, 2, startIdx, endIdx);
 
-    const startVal = nodeMonthlyVolume(state.dataMonths[startIdx], topic.id, 2);
-    const endVal   = nodeMonthlyVolume(state.dataMonths[endIdx],   topic.id, 2);
-    const delta    = endVal - startVal;
-    const hotness  = toHotness(startVal, endVal);
+    const startMonthVolume = nodeMonthlyVolume(state.dataMonths[startIdx], topic.id, 2);
+    const endMonthVolume   = nodeMonthlyVolume(state.dataMonths[endIdx],   topic.id, 2);
+    const delta            = endMonthVolume - startMonthVolume;
+    const hotness          = nodeMonthlySharePercentChange(
+      state.dataMonths[startIdx],
+      state.dataMonths[endIdx],
+      topic.id,
+      2,
+    );
 
     const child = {
       id:      topic.id,
@@ -216,7 +239,7 @@ export function applyNormalizedData() {
     Object.entries(kwMap).forEach(([kwName, stats]) => {
       if (stats.papers <= 0) return;
       if (!state.keywordData[topicId]) state.keywordData[topicId] = [];
-      const kwHotness = toHotness(stats.startV, stats.endV);
+      const kwHotness = percentChange(stats.startV, stats.endV);
       state.keywordData[topicId].push({
         id:     `${topicId}--${kwName}`,
         name:   kwName,
@@ -285,10 +308,13 @@ export function initializeDerivedData() {
         cat.totalpapers     += child.papers;
       });
 
-      const netDelta = cat.children.reduce((sum, ch) => sum + (ch.delta || 0), 0);
-      cat.hotness = toHotness(
-        cat.children.reduce((sum, ch) => sum + (ch.papers - (ch.delta || 0)), 0),
-        cat.children.reduce((sum, ch) => sum + ch.papers, 0),
+      cat.delta  = nodeMonthlyVolume(state.selectedEndMonth, cat.id, 1)
+                 - nodeMonthlyVolume(state.selectedStartMonth, cat.id, 1);
+      cat.hotness = nodeMonthlySharePercentChange(
+        state.selectedStartMonth,
+        state.selectedEndMonth,
+        cat.id,
+        1,
       );
       cat.trend   = toTrend(cat.hotness, cat.totalpapers);
       cat.isUnassigned = cat.totalpapers <= 0;

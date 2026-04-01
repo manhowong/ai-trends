@@ -46,5 +46,5 @@ Keyword_stat:
 # Dashboard trend thresholds --------------------------------------------------
 
 dashboard:
-  trend_hotness_threshold: 10   # Percent change for determining trend up/down
+  trend_hotness_threshold: 20   # Percent change for determining trend up/down
   trend_min_abs_volume: 10      # Minimum total volume within the selected range before applying trend
