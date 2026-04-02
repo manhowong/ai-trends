@@ -110,22 +110,22 @@ export function goOverview() {
   });
 
   const visibleEdges = state.showCrossEdges ? state.l1Edges : [];
-  const links = visibleEdges.map(edge => ({
+  const edges = visibleEdges.map(edge => ({
     source: edge.s,
     target: edge.t,
     lineStyle: {
       width: Math.max(0.5, edge.w / maxEdgeWidth * 5 * EDGE_WIDTH_SCALE),
-      color: themeVar('linkCross'),
+      color: themeVar('edgeCross'),
       curveness: 0.15,
     },
     _origWidth: Math.max(0.5, edge.w / maxEdgeWidth * 5 * EDGE_WIDTH_SCALE),
-    _origColor: themeVar('linkCross'),
+    _origColor: themeVar('edgeCross'),
   }));
 
   state.curNodes = l1NodeItems;
-  state.curLinks = links;
-  state.curAdjMap = buildAdjMap(links);
-  renderChart(l1NodeItems, links);
+  state.curEdges = edges;
+  state.curAdjMap = buildAdjMap(edges);
+  renderChart(l1NodeItems, edges);
   updateRightPanel();
 }
 
@@ -244,35 +244,35 @@ export function focusL1Node(l1NodeId) {
   const allVisibleEdges = [...visibleCrossEdges, ...visibleIntraEdges];
   const maxEdgeWidth = Math.max(...allVisibleEdges.map(edge => edge.w), 1);
 
-  const links = [
+  const edges = [
     ...visibleCrossEdges.map(edge => ({
       source: edge.s,
       target: edge.t,
       lineStyle: {
         width: Math.max(0.5, edge.w / maxEdgeWidth * 3 * EDGE_WIDTH_SCALE),
-        color: themeVar('linkCrossDim'),
+        color: themeVar('edgeCrossDim'),
         curveness: 0.1,
       },
       _origWidth: Math.max(0.5, edge.w / maxEdgeWidth * 3 * EDGE_WIDTH_SCALE),
-      _origColor: themeVar('linkCrossDim'),
+      _origColor: themeVar('edgeCrossDim'),
     })),
     ...visibleIntraEdges.map(edge => ({
       source: edge.s,
       target: edge.t,
       lineStyle: {
         width: Math.max(0.5, edge.w / maxEdgeWidth * 4 * EDGE_WIDTH_SCALE),
-        color: themeVar('linkIntra'),
+        color: themeVar('edgeIntra'),
         curveness: 0.1,
       },
       _origWidth: Math.max(0.5, edge.w / maxEdgeWidth * 4 * EDGE_WIDTH_SCALE),
-      _origColor: themeVar('linkIntra'),
+      _origColor: themeVar('edgeIntra'),
     })),
   ];
 
   state.curNodes = l2NodeItems;
-  state.curLinks = links;
-  state.curAdjMap = buildAdjMap(links);
-  renderChart(l2NodeItems, links);
+  state.curEdges = edges;
+  state.curAdjMap = buildAdjMap(edges);
+  renderChart(l2NodeItems, edges);
   updateRightPanel();
 }
 
@@ -342,21 +342,21 @@ export function focusL2Node(l2NodeId) {
     return true;
   });
   const maxEdgeWidth = Math.max(...visibleEdges.map(edge => edge.w), 1);
-  const links = visibleEdges.map(edge => ({
+  const edges = visibleEdges.map(edge => ({
     source: edge.s,
     target: edge.t,
     lineStyle: {
       width: Math.max(1, edge.w / maxEdgeWidth * 5 * EDGE_WIDTH_SCALE),
-      color: themeVar('linkIntra'),
+      color: themeVar('edgeIntra'),
       curveness: 0.1,
     },
     _origWidth: Math.max(1, edge.w / maxEdgeWidth * 5 * EDGE_WIDTH_SCALE),
-    _origColor: themeVar('linkIntra'),
+    _origColor: themeVar('edgeIntra'),
   }));
 
   state.curNodes = l2NodeItems;
-  state.curLinks = links;
-  state.curAdjMap = buildAdjMap(links);
-  renderChart(l2NodeItems, links);
+  state.curEdges = edges;
+  state.curAdjMap = buildAdjMap(edges);
+  renderChart(l2NodeItems, edges);
   updateRightPanel();
 }

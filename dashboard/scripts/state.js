@@ -30,7 +30,7 @@ export const state = {
 
   // Current render snapshot (used for hover diff)
   curNodes:  [],
-  curLinks:  [],
+  curEdges:  [],
   curAdjMap: {},
 
   // Node-size scaling inputs (set per view)
@@ -52,8 +52,8 @@ export const state = {
   volumeThreshold: 1,
 
   // Edge
-  showIntraEdges: true,   // within-category links
-  showCrossEdges: true,   // cross-category links
+  showIntraEdges: true,   // within-category edges
+  showCrossEdges: true,   // cross-category edges
 
   // Trend thresholds (custom values will be loaded from config/settings.yml)
   trendBoundary: 10,  // percent

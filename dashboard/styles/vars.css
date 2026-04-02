@@ -48,11 +48,11 @@
   --chart-badge-dim-text: #6b7280;
   --chart-badge-dim-bg: #e5e7eb;
 
-  --link-cross: rgba(15,23,42,0.16);
-  --link-intra: rgba(15,23,42,0.22);
-  --link-cross-dim: rgba(15,23,42,0.10);
-  --link-hover-active: rgba(15,23,42,0.45);
-  --link-hover-dim: rgba(15,23,42,0.08);
+  --edge-cross: rgba(15,23,42,0.16);
+  --edge-intra: rgba(15,23,42,0.22);
+  --edge-cross-dim: rgba(15,23,42,0.10);
+  --edge-hover-active: rgba(15,23,42,0.45);
+  --edge-hover-dim: rgba(15,23,42,0.08);
   --node-dim-fill: #e5e7eb;
   --node-dim-border: #cbd5e1;
   --node-hover-border: #ffffff;
@@ -99,11 +99,11 @@
   --chart-badge-dim-text: #777;
   --chart-badge-dim-bg: #2a2a2a;
 
-  --link-cross: rgba(255,255,255,0.10);
-  --link-intra: rgba(255,255,255,0.12);
-  --link-cross-dim: rgba(255,255,255,0.04);
-  --link-hover-active: rgba(255,255,255,0.25);
-  --link-hover-dim: rgba(255,255,255,0.02);
+  --edge-cross: rgba(255,255,255,0.10);
+  --edge-intra: rgba(255,255,255,0.12);
+  --edge-cross-dim: rgba(255,255,255,0.04);
+  --edge-hover-active: rgba(255,255,255,0.25);
+  --edge-hover-dim: rgba(255,255,255,0.02);
   --node-dim-fill: #333;
   --node-dim-border: #444;
   --node-hover-border: #fff;

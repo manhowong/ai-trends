@@ -19,11 +19,11 @@ function readThemeVars() {
     chartCountDim: styles.getPropertyValue('--chart-count-dim').trim() || '#555',
     badgeDimText: styles.getPropertyValue('--chart-badge-dim-text').trim() || '#777',
     badgeDimBg: styles.getPropertyValue('--chart-badge-dim-bg').trim() || '#2a2a2a',
-    linkCross: styles.getPropertyValue('--link-cross').trim() || 'rgba(255,255,255,0.10)',
-    linkIntra: styles.getPropertyValue('--link-intra').trim() || 'rgba(255,255,255,0.12)',
-    linkCrossDim: styles.getPropertyValue('--link-cross-dim').trim() || 'rgba(255,255,255,0.04)',
-    linkHoverActive: styles.getPropertyValue('--link-hover-active').trim() || 'rgba(255,255,255,0.25)',
-    linkHoverDim: styles.getPropertyValue('--link-hover-dim').trim() || 'rgba(255,255,255,0.02)',
+    edgeCross: styles.getPropertyValue('--edge-cross').trim() || 'rgba(255,255,255,0.10)',
+    edgeIntra: styles.getPropertyValue('--edge-intra').trim() || 'rgba(255,255,255,0.12)',
+    edgeCrossDim: styles.getPropertyValue('--edge-cross-dim').trim() || 'rgba(255,255,255,0.04)',
+    edgeHoverActive: styles.getPropertyValue('--edge-hover-active').trim() || 'rgba(255,255,255,0.25)',
+    edgeHoverDim: styles.getPropertyValue('--edge-hover-dim').trim() || 'rgba(255,255,255,0.02)',
     nodeDimFill: styles.getPropertyValue('--node-dim-fill').trim() || '#333',
     nodeDimBorder: styles.getPropertyValue('--node-dim-border').trim() || '#444',
     nodeHoverBorder: styles.getPropertyValue('--node-hover-border').trim() || '#fff',
@@ -90,11 +90,11 @@ export function circleAngles(n) {
   return Array.from({ length: n }, (_, i) => (2 * Math.PI / n * i) - Math.PI / 2);
 }
 
-export function buildAdjMap(links) {
+export function buildAdjMap(edges) {
   const map = {};
-  links.forEach(link => {
-    const s = typeof link.source === 'string' ? link.source : (link.source.id || link.source);
-    const t = typeof link.target === 'string' ? link.target : (link.target.id || link.target);
+  edges.forEach(edge => {
+    const s = typeof edge.source === 'string' ? edge.source : (edge.source.id || edge.source);
+    const t = typeof edge.target === 'string' ? edge.target : (edge.target.id || edge.target);
     if (!map[s]) map[s] = new Set();
     if (!map[t]) map[t] = new Set();
     map[s].add(t);
@@ -216,7 +216,7 @@ export function getChartCenter() {
 
 // Core render function --------------------------------------------------------
 
-export function renderChart(nodes, links) {
+export function renderChart(nodes, edges) {
   // Check number of nodes in chart. If only 1 node, don't center by chart
   // (because the node sits at the edge of chart in circular layout)
   const isSingle = nodes.length === 1;
@@ -254,7 +254,7 @@ export function renderChart(nodes, links) {
       center:    centerPct,
       draggable: false,
       data:      labeledNodes,
-      links,
+      edges: edges,
       emphasis:  { disabled: true },
       label:     { show: true, color: themeVar('chartLabel'), fontSize: 12, silent: false}, // set labels to silent to disable click
       lineStyle: { opacity: 1 },
@@ -305,22 +305,22 @@ export function applyHover(hoveredId) {
     };
   });
 
-  const links = state.curLinks.map(link => {
-    const isActive = highlighted.has(link.source) && highlighted.has(link.target);
+  const edges = state.curEdges.map(edge => {
+    const isActive = highlighted.has(edge.source) && highlighted.has(edge.target);
     return {
-      source: link.source,
-      target: link.target,
+      source: edge.source,
+      target: edge.target,
       lineStyle: {
-        width:     isActive ? link._origWidth * 1.3 : 0.3,
-        color:     isActive ? themeVar('linkHoverActive') : themeVar('linkHoverDim'),
-        curveness: link.lineStyle.curveness,
+        width:     isActive ? edge._origWidth * 1.3 : 0.3,
+        color:     isActive ? themeVar('edgeHoverActive') : themeVar('edgeHoverDim'),
+        curveness: edge.lineStyle.curveness,
       },
-      _origWidth: link._origWidth,
+      _origWidth: edge._origWidth,
     };
   });
 
   const labeledNodes = setLabelPostions(nodes, labelDistance());
-  echart.setOption({ series: [{ data: labeledNodes, links }]}, false);
+  echart.setOption({ series: [{ data: labeledNodes, edges: edges }]}, false);
 }
 
 export function clearHover() {
@@ -347,20 +347,20 @@ export function clearHover() {
     };
   });
 
-  const links = state.curLinks.map(link => ({
-    source: link.source,
-    target: link.target,
+  const edges = state.curEdges.map(edge => ({
+    source: edge.source,
+    target: edge.target,
     lineStyle: {
-      width:     link._origWidth,
-      color:     link._origColor,
-      curveness: link.lineStyle.curveness,
+      width:     edge._origWidth,
+      color:     edge._origColor,
+      curveness: edge.lineStyle.curveness,
     },
-    _origWidth: link._origWidth,
-    _origColor: link._origColor,
+    _origWidth: edge._origWidth,
+    _origColor: edge._origColor,
   }));
 
   const labeledNodes = setLabelPostions(nodes, labelDistance());
-  echart.setOption({ series: [{ data: labeledNodes, links }]}, false);
+  echart.setOption({ series: [{ data: labeledNodes, edges: edges }]}, false);
 }
 
 

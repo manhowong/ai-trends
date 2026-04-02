@@ -131,7 +131,7 @@ function refreshCurrentView() {
   if (state.currentView === 'l1') {
     if (!state.activeL1NodeById[state.currentL1NodeId]) {
       state.curNodes = [];
-      state.curLinks = [];
+      state.curEdges = [];
       state.curAdjMap = buildAdjMap([]);
       renderChart([], []);
       return updateRightPanel();
@@ -142,7 +142,7 @@ function refreshCurrentView() {
   if (state.currentView === 'l2') {
     if (!state.activeL2NodeById[state.currentL2NodeId]) {
       state.curNodes = [];
-      state.curLinks = [];
+      state.curEdges = [];
       state.curAdjMap = buildAdjMap([]);
       renderChart([], []);
       return updateRightPanel();

@@ -35,8 +35,8 @@ export function getNodeVolumeInRange(rawTimeseries, timePoints, nodeId, level, s
 
 export function getEdgeCumulativeVolume(rawTimeseries, timePoint, s, t) {
   const timePointEdges = (rawTimeseries[timePoint] || {}).links || [];
-  const edge = timePointEdges.find(link =>
-    (link.S === s && link.T === t) || (link.S === t && link.T === s)
+  const edge = timePointEdges.find(edge =>
+    (edge.S === s && edge.T === t) || (edge.S === t && edge.T === s)
   );
   return edge ? (edge.CC || 0) : 0;
 }
