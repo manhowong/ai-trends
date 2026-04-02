@@ -24,7 +24,7 @@ export function buildGraphData({
   volumeThreshold,
   trendVolumeThreshold,
   trendBoundary,
-  categoryColorById,
+  badgeColorById,
 }) {
   const nodes = (rawMetadata || {}).nodes || {};
   const timeseries = rawTimeseries || {};
@@ -90,7 +90,7 @@ export function buildGraphData({
   const anyL1Nodes = l1NodeMetadata.map((node, i) => ({
     id: node.id,
     name: node.name,
-    color: categoryColorById[node.id] || FALLBACK_COLORS[i % FALLBACK_COLORS.length],
+    badgeColor: badgeColorById[node.id] || FALLBACK_COLORS[i % FALLBACK_COLORS.length],
     children: anyL2NodesByL1Id[node.id] || [],
   }));
 
@@ -98,13 +98,13 @@ export function buildGraphData({
     .map((node, i) => ({
       id: node.id,
       name: node.name,
-      color: categoryColorById[node.id] || FALLBACK_COLORS[i % FALLBACK_COLORS.length],
+      badgeColor: badgeColorById[node.id] || FALLBACK_COLORS[i % FALLBACK_COLORS.length],
       children: activeL2NodesByL1Id[node.id] || [],
     }))
     .filter(node => node.children.length > 0);
 
   const activeL2NodeIds = new Set();
-  activeL1Nodes.forEach(node => node.children.forEach(child => activeL2NodeIds.add(child.id)));
+  activeL1Nodes.forEach(node => node.children.forEach(l2Node => activeL2NodeIds.add(l2Node.id)));
 
   const keywordsByNode = {};
   const keywordStatsAccumulator = {};

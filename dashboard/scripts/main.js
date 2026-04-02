@@ -2,7 +2,7 @@
    main.js — Entry point: boot sequence and event listeners
    ============================================================ */
 
-import { state, categoryColorById }                    from './state.js';
+import { state, badgeColorById }                    from './state.js';
 import { loadDataset } from './data/load-data.js';
 import { buildGraphData } from './data/build-graph-data.js';
 import { buildNodeMaps } from './data/build-node-maps.js';
@@ -11,7 +11,7 @@ import { echart, initializeRichStyles,
          applyHover, clearHover,
          fitScreen, updateFontSize, resetFontSize,
          getChartCenter }                              from './chart.js';
-import { goOverview, focusCategory, focusChildNode }   from './views.js';
+import { goOverview, focusL1Node, focusL2Node }        from './views.js';
 import { setSortMode }                                 from './panel.js';
 import { buildDateRangeControls, updateDateText,
          toggleSidebar, initEdgeToggles, initVolumeThresholdControl } from './controls.js';
@@ -25,16 +25,16 @@ import { initHelp } from './help.js';
 
 window.applyHover     = applyHover;
 window.clearHover     = clearHover;
-window.focusCategory  = focusCategory;
-window.focusChildNode = focusChildNode;
+window.focusL1Node    = focusL1Node;
+window.focusL2Node    = focusL2Node;
 window.setSortMode    = setSortMode;
 
 // Theme toggle ---------------------------------------------------------------
 
 function rerenderCurrentView() {
   if (state.currentView === 'overview') return goOverview();
-  if (state.currentView === 'category') return focusCategory(state.currentCat);
-  if (state.currentView === 'child')    return focusChildNode(state.currentChild);
+  if (state.currentView === 'l1') return focusL1Node(state.currentL1NodeId);
+  if (state.currentView === 'l2') return focusL2Node(state.currentL2NodeId);
 }
 
 function applyTheme(theme, persist = true) {
@@ -105,18 +105,18 @@ document.getElementById('fontSizeReset')
 // Actions to be triggered
 
 // --- Navigate down
-function navigateDown(d) {
+function navigateDown(nodeData) {
     state.hoveredNode = null;
-    if (state.currentView === 'overview' && d._type === 'parent') focusCategory(d._catId || d.id);
-    else if (state.currentView === 'category' && (d._type === 'child' || d._type === 'ext')) focusChildNode(d.id);
-    else if (state.currentView === 'child' && d._type === 'conn') focusChildNode(d.id);
+    if (state.currentView === 'overview' && nodeData._type === 'l1') focusL1Node(nodeData._l1NodeId || nodeData.id);
+    else if (state.currentView === 'l1' && (nodeData._type === 'l2' || nodeData._type === 'externalL2')) focusL2Node(nodeData.id);
+    else if (state.currentView === 'l2' && nodeData._type === 'connectedL2') focusL2Node(nodeData.id);
 }
 
 // --- Navigate up
 function navigateUp() {
     state.hoveredNode = null;
-    if (state.currentView === 'child') focusCategory(state.currentCat);
-    else if (state.currentView === 'category') goOverview();
+    if (state.currentView === 'l2') focusL1Node(state.currentL1NodeId);
+    else if (state.currentView === 'l1') goOverview();
 }
 
 // --- Mobile hint bubble (first tap on mobile)
@@ -273,7 +273,7 @@ async function initializeApp() {
     volumeThreshold: state.volumeThreshold,
     trendVolumeThreshold: state.trendVolumeThreshold,
     trendBoundary: state.trendBoundary,
-    categoryColorById,
+    badgeColorById,
   }));
   updateDateText();
   Object.assign(state, buildNodeMaps({

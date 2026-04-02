@@ -23,9 +23,9 @@ export const state = {
   anyL1NodeById:    {},   // L1 id : L1 node object (all)
 
   // View state
-  currentView:  'overview',  // 'overview' | 'category' | 'child'
-  currentCat:   null,
-  currentChild: null,
+  currentView:  'overview',  // 'overview' | 'l1' | 'l2'
+  currentL1NodeId: null,
+  currentL2NodeId: null,
   hoveredNode:  null,
 
   // Current render snapshot (used for hover diff)
@@ -62,7 +62,7 @@ export const state = {
 
 export const DEFAULT_FONT_SIZE = 12;
 
-export const categoryColorById = {
+export const badgeColorById = {
   A: '#be185d',
   B: '#7c3aed',
   C: '#0d9488',

@@ -25,14 +25,14 @@ export function buildNodeMaps({
     l1Nodes.forEach(node => {
       node.volume = 0;
 
-      node.children.forEach(child => {
-        child.catId = node.id;
-        child.catName = node.name;
-        child.color = node.color;
+      node.children.forEach(l2Node => {
+        l2Node.l1NodeId = node.id;
+        l2Node.l1NodeName = node.name;
+        l2Node.badgeColor = node.badgeColor;
 
-        l2NodeById[child.id] = child;
-        if (includeParentLookup) l2ToL1NodeId[child.id] = node.id;
-        node.volume += child.volume;
+        l2NodeById[l2Node.id] = l2Node;
+        if (includeParentLookup) l2ToL1NodeId[l2Node.id] = node.id;
+        node.volume += l2Node.volume;
       });
 
       node.volumeChange = getNodeVolume(rawTimeseries, selectedEndTimePoint, node.id, 1)

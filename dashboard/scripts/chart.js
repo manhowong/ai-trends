@@ -65,24 +65,24 @@ export function formatCount(n) {
   return n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
 }
 
-export function nodeSize(papers, level) {
+export function nodeSize(volume, level) {
 
-  // Set node size range at different levels
+  // Set node size range at different view levels
   // So nodes can't be too big that graph is dominated by super big nodes
-  const minSize = level === 'overview' ? 10 : (level === 'category' ? 5 : 5);
-  const maxSize = level === 'overview' ? 250 : (level === 'category' ? 70 : 70);
+  const minSize = level === 'overview' ? 10 : (level === 'l1' ? 5 : 5);
+  const maxSize = level === 'overview' ? 250 : (level === 'l1' ? 70 : 70);
 
   // Normalization: Nodes grow in size as data grows.
   // Use relative size to keep the graph's node density consistent.
 
   // method 1: normalize to max in current render
 //   const rangeMax = Math.max(state.nodeSizeMax || 0, 1);
-//   const t = Math.sqrt(Math.max(papers, 0) / rangeMax);
+//   const t = Math.sqrt(Math.max(volume, 0) / rangeMax);
 //   return minSize + (maxSize - minSize) * t;
 
   // method 2: normalize to total in current render (stable density)
   const total = Math.max(state.nodeSizeTotal || 0, 1);
-  const t = Math.sqrt(Math.max(papers, 0) / total);
+  const t = Math.sqrt(Math.max(volume, 0) / total);
   return minSize + (maxSize - minSize) * t;
 }
 
@@ -152,17 +152,17 @@ function labelDistance() {
 
 /**
  * Build an ECharts formatter string using the `rich` style map.
- * Optionally includes a coloured category badge below the name.
+ * Optionally includes a coloured L1 node badge below the name.
  */
-export function makeLabel(name, papers, catName, catColor, dim = false) {
+export function makeLabel(name, volume, l1NodeName, badgeColor, dim = false) {
   const nameKey  = dim ? 'nameDim'  : 'name';
   const countKey = dim ? 'countDim' : 'count';
 
-  let label = `{${nameKey}|${name}} {${countKey}|(${formatCount(papers)})}`;
+  let label = `{${nameKey}|${name}} {${countKey}|(${formatCount(volume)})}`;
 
-  if (catName && catColor) {
-    const badgeKey = 'badge' + catColor.replace('#', '') + (dim ? 'Dim' : '');
-    label += `\n{${badgeKey}|${catName}}`;
+  if (l1NodeName && badgeColor) {
+    const badgeKey = 'badge' + badgeColor.replace('#', '') + (dim ? 'Dim' : '');
+    label += `\n{${badgeKey}|${l1NodeName}}`;
   }
 
   return label;
@@ -195,7 +195,7 @@ export function buildRichStyles() {
 /** Derive allColors from active L1 nodes and (re)build richStyles. */
 export function initializeRichStyles() {
   readThemeVars();
-  state.allColors  = [...new Set(state.activeL1Nodes.map(c => c.color))];
+  state.allColors  = [...new Set(state.activeL1Nodes.map(c => c.badgeColor))];
   state.richStyles = buildRichStyles();
 }
 
@@ -283,9 +283,8 @@ export function applyHover(hoveredId) {
       : {
           color:       tc,
           borderColor: node.id === hoveredId ? themeVar('nodeHoverBorder') : tc,
-          borderWidth: node.id === hoveredId ? 3 : (orig._type === 'focus' ? 3 : 2),
-          borderWidth: orig._type === 'focus' ? 3 : 2,
-          opacity:     orig._type === 'ext'   ? 0.6 : 0.9,
+          borderWidth: node.id === hoveredId ? 3 : (orig._type === 'focusL2' ? 3 : 2),
+          opacity:     orig._type === 'externalL2'   ? 0.6 : 0.9,
           shadowBlur:  node.id === hoveredId ? 20 : 0,
           shadowColor: node.id === hoveredId ? themeVar('nodeHoverShadow') : 'transparent',
         };
@@ -297,10 +296,10 @@ export function applyHover(hoveredId) {
       itemStyle,
       label: {
         show:      true,
-        formatter: makeLabel(orig._name, orig._papers, orig._catName, orig._catColor, isDim),
+        formatter: makeLabel(orig._name, orig._volume, orig._l1NodeName, orig._badgeColor, isDim),
         rich:      state.richStyles,
       },
-      _catId: orig._catId,
+      _l1NodeId: orig._l1NodeId,
       _type:  orig._type,
       _orig:  orig,
     };
@@ -336,13 +335,13 @@ export function clearHover() {
       itemStyle:  { ...orig._itemStyle },
       label: {
         show:      true,
-        formatter: makeLabel(orig._name, orig._papers, 
-                     state.currentView === 'child' ? orig._catName : null, 
-                     state.currentView === 'child' ? orig._catColor : null, 
+        formatter: makeLabel(orig._name, orig._volume, 
+                     state.currentView === 'l2' ? orig._l1NodeName : null, 
+                     state.currentView === 'l2' ? orig._badgeColor : null, 
                      orig._dim),
         rich:      state.richStyles,
       },
-      _catId: orig._catId,
+      _l1NodeId: orig._l1NodeId,
       _type:  orig._type,
       _orig:  orig,
     };

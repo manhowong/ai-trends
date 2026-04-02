@@ -2,64 +2,59 @@
    search.js — Search modal: find and navigate to any node
    ============================================================ */
 
-import { state }                               from './state.js';
-import { trendColor, themeVar, formatCount, applyHover } from './chart.js';
-import { focusCategory, focusChildNode }        from './views.js';
-
-
-// -- Helpers --------------------------------------------------
+import { state } from './state.js';
+import { themeVar, formatCount, applyHover } from './chart.js';
+import { focusL1Node, focusL2Node } from './views.js';
+import { L1_NODE_LABEL } from './ui-text.js';
 
 function getAllNodes() {
   const results = [];
 
-  // L1 — categories
-  state.anyL1Nodes.forEach(cat => {
+  state.anyL1Nodes.forEach(l1Node => {
     results.push({
-      id:      cat.id,
-      name:    cat.name,
-      level:   1,
-      volume:  cat.volume,
-      trend:   cat.trend,
-      catName: null,
-      catColor: null,
-      disabled: !!cat.isUnassigned,
+      id: l1Node.id,
+      name: l1Node.name,
+      level: 1,
+      volume: l1Node.volume,
+      trend: l1Node.trend,
+      badgeText: null,
+      badgeColor: null,
+      disabled: !!l1Node.isUnassigned,
     });
   });
 
-  // L2 — topics
-  Object.values(state.anyL2NodeById).forEach(child => {
-    const cat = state.anyL1NodeById[child.catId];
+  Object.values(state.anyL2NodeById).forEach(l2Node => {
+    const l1Node = state.anyL1NodeById[l2Node.l1NodeId];
     results.push({
-      id:            child.id,
-      name:          child.name,
-      level:         2,
-      kind:          'topic',
-      volume:        child.volume,
-      thresholdVolume: child.volume,
-      trend:         child.trend,
-      catName:       cat ? cat.name  : '',
-      catColor:      cat ? cat.color : themeVar('trendFlat'),
-      disabled:      !!child.isUnassigned,
+      id: l2Node.id,
+      name: l2Node.name,
+      level: 2,
+      kind: 'l2Node',
+      volume: l2Node.volume,
+      thresholdVolume: l2Node.volume,
+      trend: l2Node.trend,
+      badgeText: l1Node ? l1Node.name : '',
+      badgeColor: l1Node ? l1Node.badgeColor : themeVar('trendFlat'),
+      disabled: !!l2Node.isUnassigned,
     });
   });
 
-  // Keywords - one row per (keyword, topic) pair
-  Object.entries(state.keywordsByNode).forEach(([topicId, keywords]) => {
-    const child = state.anyL2NodeById[topicId];
-    if (!child) return;
+  Object.entries(state.keywordsByNode).forEach(([l2NodeId, keywords]) => {
+    const l2Node = state.anyL2NodeById[l2NodeId];
+    if (!l2Node) return;
 
     keywords.forEach(keyword => {
       results.push({
-        id:              topicId,
-        name:            keyword.name,
-        level:           2,
-        kind:            'keyword',
-        volume:          keyword.volume,
-        thresholdVolume: child.volume,
-        trend:           keyword.trend,
-        catName:         child.name,
-        catColor:        child.color || themeVar('trendFlat'),
-        disabled:        !!child.isUnassigned,
+        id: l2NodeId,
+        name: keyword.name,
+        level: 2,
+        kind: 'keyword',
+        volume: keyword.volume,
+        thresholdVolume: l2Node.volume,
+        trend: keyword.trend,
+        badgeText: l2Node.name,
+        badgeColor: l2Node.badgeColor || themeVar('trendFlat'),
+        disabled: !!l2Node.isUnassigned,
       });
     });
   });
@@ -71,22 +66,45 @@ function filterNodes(query) {
   if (!query.trim()) return [];
   const lower = query.toLowerCase();
   return getAllNodes()
-    .filter(n => n.name.toLowerCase().includes(lower))
+    .filter(node => node.name.toLowerCase().includes(lower))
     .sort((a, b) => {
-      // Exact match first, then starts-with, then contains
       const aName = a.name.toLowerCase();
       const bName = b.name.toLowerCase();
       if (aName === lower && bName !== lower) return -1;
-      if (bName === lower && aName !== lower) return  1;
+      if (bName === lower && aName !== lower) return 1;
       if (aName.startsWith(lower) && !bName.startsWith(lower)) return -1;
-      if (bName.startsWith(lower) && !aName.startsWith(lower)) return  1;
-      return b.volume - a.volume;  // sort by volume as tiebreaker
+      if (bName.startsWith(lower) && !aName.startsWith(lower)) return 1;
+      return b.volume - a.volume;
     })
-    .slice(0, 30);  // cap at 30 results
+    .slice(0, 30);
 }
 
+function highlightMatch(name, query) {
+  const matchIndex = name.toLowerCase().indexOf(query.toLowerCase());
+  if (matchIndex === -1) return name;
+  return (
+    name.slice(0, matchIndex) +
+    `<mark class="search-highlight">${name.slice(matchIndex, matchIndex + query.length)}</mark>` +
+    name.slice(matchIndex + query.length)
+  );
+}
 
-// -- Render results -------------------------------------------
+function navigateToNode(id, level) {
+  if (level === 1) {
+    focusL1Node(id);
+  } else {
+    focusL2Node(id);
+  }
+
+  if (level === 2) {
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        state.hoveredNode = id;
+        applyHover(id);
+      }, 500);
+    });
+  }
+}
 
 function renderResults(nodes, query) {
   const container = document.getElementById('search-results');
@@ -106,30 +124,27 @@ function renderResults(nodes, query) {
     const belowThreshold = node.thresholdVolume < threshold;
     const isDisabled = node.disabled || belowThreshold;
     const countLabel = node.kind === 'keyword'
-      ? 'frequent term in'  // Show "frequent Term in" instead of count if the match is a frequent term
-      : (node.volume === 0
-          ? '0'
-          : (belowThreshold ? `&lt; ${threshold}` : formatCount(node.volume)));
+      ? 'frequent term in'
+      : (node.volume === 0 ? '0' : (belowThreshold ? `&lt; ${threshold}` : formatCount(node.volume)));
     const badgeHTML = node.kind === 'keyword'
-      ? `<span class="search-result-badge search-result-badge--topic">${node.catName}</span>`
-      : (node.catName
-          ? `<span class="search-result-badge" style="background:${node.catColor}">${node.catName}</span>`
-          : `<span class="search-result-badge search-result-badge--category">Category</span>`);
+      ? `<span class="search-result-badge search-result-badge--topic">${node.badgeText}</span>`
+      : (node.badgeText
+          ? `<span class="search-result-badge" style="background:${node.badgeColor}">${node.badgeText}</span>`
+          : `<span class="search-result-badge search-result-badge--category">${L1_NODE_LABEL}</span>`);
+
     return `
     <div class="search-result-row${node.kind === 'keyword' ? ' search-result-row--keyword' : ''}${isDisabled ? ' search-result-row--disabled' : ''}"
          data-id="${node.id}" data-level="${node.level}" data-disabled="${isDisabled ? '1' : '0'}">
       <span class="search-result-name">${highlightMatch(node.name, query)}</span>
       <span class="search-result-papers">${countLabel}</span>
       ${badgeHTML}
-    </div>
-  `;
+    </div>`;
   }).join('');
 
-  // Attach click handlers
   container.querySelectorAll('.search-result-row').forEach(row => {
     row.addEventListener('click', () => {
       if (row.dataset.disabled === '1') return;
-      const id    = row.dataset.id;
+      const id = row.dataset.id;
       const level = parseInt(row.dataset.level, 10);
       closeSearch();
       navigateToNode(id, level);
@@ -137,46 +152,11 @@ function renderResults(nodes, query) {
   });
 }
 
-/** Wrap matched substring in a highlight span */
-function highlightMatch(name, query) {
-  const idx = name.toLowerCase().indexOf(query.toLowerCase());
-  if (idx === -1) return name;
-  return (
-    name.slice(0, idx) +
-    `<mark class="search-highlight">${name.slice(idx, idx + query.length)}</mark>` +
-    name.slice(idx + query.length)
-  );
-}
-
-
-// -- Navigation -----------------------------------------------
-
-function navigateToNode(id, level) {
-  if (level === 1) {
-    focusCategory(id);
-  } else {
-    focusChildNode(id);
-  }
-
-  // Only hightlight nodes when a level 2 node (topic node) is selected
-  if (level === 2) {
-    // Delay node highlight so the chart has finished rendering and animation
-    requestAnimationFrame(() => {
-        setTimeout(() => {
-        state.hoveredNode = id;
-        applyHover(id);
-        }, 500);
-    });
-  }
-
-}
-
-// Select result by keyboard Up/Down arrows
 let selectedIndex = -1;
 function updateSelection(rows) {
-  rows.forEach((row, i) => {
-    row.classList.toggle('search-result-selected', i === selectedIndex);
-    if (i === selectedIndex) row.scrollIntoView({ block: 'nearest' });
+  rows.forEach((row, index) => {
+    row.classList.toggle('search-result-selected', index === selectedIndex);
+    if (index === selectedIndex) row.scrollIntoView({ block: 'nearest' });
   });
 }
 
@@ -198,8 +178,6 @@ document.getElementById('search-input').addEventListener('keydown', e => {
   }
 });
 
-// -- Open / close ---------------------------------------------
-
 function openSearch() {
   document.getElementById('search-overlay').classList.add('active');
   document.getElementById('search-input').value = '';
@@ -211,9 +189,6 @@ function closeSearch() {
   document.getElementById('search-overlay').classList.remove('active');
 }
 
-
-// -- Init -----------------------------------------------------
-
 export function initSearch() {
   document.getElementById('searchBtn')
     .addEventListener('click', openSearch);
@@ -223,24 +198,18 @@ export function initSearch() {
 
   document.getElementById('search-input')
     .addEventListener('input', e => {
-      const query   = e.target.value;
-      const results = filterNodes(query);
-      renderResults(results, query);
+      const query = e.target.value;
+      renderResults(filterNodes(query), query);
     });
 
-  // Keyboard shortcuts: Ctrl+K to Open; Esc to close
   document.addEventListener('keydown', e => {
-
-    // Cmd+K or Ctrl+K
     if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();  // prevent browser default (e.g. focus address bar)
-        document.getElementById('search-overlay').classList.contains('active')
+      e.preventDefault();
+      document.getElementById('search-overlay').classList.contains('active')
         ? closeSearch()
         : openSearch();
     }
-    
-    // Escape
-    if (e.key === 'Escape') closeSearch();
 
+    if (e.key === 'Escape') closeSearch();
   });
 }

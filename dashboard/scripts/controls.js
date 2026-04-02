@@ -2,11 +2,11 @@
    controls.js — Sidebar UI: date-range, dateText, toggle
    ============================================================ */
 
-import { state, categoryColorById } from './state.js';
+import { state, badgeColorById } from './state.js';
 import { buildGraphData } from './data/build-graph-data.js';
 import { buildNodeMaps } from './data/build-node-maps.js';
 import { initializeRichStyles } from './chart.js';
-import { goOverview, focusCategory, focusChildNode } from './views.js';
+import { goOverview, focusL1Node, focusL2Node } from './views.js';
 import { renderChart, buildAdjMap } from './chart.js';
 import { updateRightPanel } from './panel.js';
 
@@ -22,7 +22,7 @@ function refreshGraphData() {
     volumeThreshold: state.volumeThreshold,
     trendVolumeThreshold: state.trendVolumeThreshold,
     trendBoundary: state.trendBoundary,
-    categoryColorById,
+    badgeColorById,
   }));
 
   Object.assign(state, buildNodeMaps({
@@ -154,25 +154,25 @@ export function initVolumeThresholdControl() {
 function refreshCurrentView() {
   if (state.currentView === 'overview') return goOverview();
 
-  if (state.currentView === 'category') {
-    if (!state.activeL1NodeById[state.currentCat]) {
+  if (state.currentView === 'l1') {
+    if (!state.activeL1NodeById[state.currentL1NodeId]) {
       state.curNodes = [];
       state.curLinks = [];
       state.curAdjMap = buildAdjMap([]);
       renderChart([], []);
       return updateRightPanel();
     }
-    return focusCategory(state.currentCat);
+    return focusL1Node(state.currentL1NodeId);
   }
   
-  if (state.currentView === 'child') {
-    if (!state.activeL2NodeById[state.currentChild]) {
+  if (state.currentView === 'l2') {
+    if (!state.activeL2NodeById[state.currentL2NodeId]) {
       state.curNodes = [];
       state.curLinks = [];
       state.curAdjMap = buildAdjMap([]);
       renderChart([], []);
       return updateRightPanel();
     }
-    return focusChildNode(state.currentChild);
+    return focusL2Node(state.currentL2NodeId);
   }
 }

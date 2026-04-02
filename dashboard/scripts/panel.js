@@ -3,18 +3,15 @@
    ============================================================ */
 
 import { state } from './state.js';
-import { trendColor, formatCount, makeLabel } from './chart.js';
-
-
-// Generic panel helpers ------------------------------------
+import { trendColor, formatCount } from './chart.js';
+import { L1_NODES_LABEL, L2_NODES_LABEL } from './ui-text.js';
 
 export function setPanelContent(boxId, title, sortHTML, contentHTML) {
-  document.getElementById(boxId + '-title').innerHTML = title;
-  document.getElementById(boxId + '-sort').innerHTML    = sortHTML;
-  document.getElementById(boxId + '-content').innerHTML = contentHTML;
+  document.getElementById(`${boxId}-title`).innerHTML = title;
+  document.getElementById(`${boxId}-sort`).innerHTML = sortHTML;
+  document.getElementById(`${boxId}-content`).innerHTML = contentHTML;
 }
 
-/** Called from inline onchange="setSortMode(...)" in generated HTML. */
 export function setSortMode(level, mode) {
   if (level === 1) state.level1SortMode = mode;
   if (level === 2) state.level2SortMode = mode;
@@ -23,7 +20,7 @@ export function setSortMode(level, mode) {
 
 export function buildSortDropdown(level, modes, activeMode) {
   const labelMap = { papers: '# articles', hotness: 'hotness', links: '# links' };
-  const options  = modes.map(mode => `
+  const options = modes.map(mode => `
       <option value="${mode}" ${activeMode === mode ? 'selected' : ''}>
         ${labelMap[mode] || mode}
       </option>`).join('');
@@ -52,29 +49,27 @@ function formatCountWithThreshold(value) {
 export function metricBarWidths(mode, values) {
   if (!values.length) return [];
   if (mode === 'hotness') {
-    const minV = Math.min(...values), maxV = Math.max(...values);
-    if (maxV === minV) return values.map(() => 100);
-    return values.map(v => Math.round((v - minV) / (maxV - minV) * 100));
+    const minValue = Math.min(...values);
+    const maxValue = Math.max(...values);
+    if (maxValue === minValue) return values.map(() => 100);
+    return values.map(value => Math.round((value - minValue) / (maxValue - minValue) * 100));
   }
-  const maxV = Math.max(...values, 1);
-  return values.map(v => Math.round(v / maxV * 100));
+  const maxValue = Math.max(...values, 1);
+  return values.map(value => Math.round(value / maxValue * 100));
 }
-
-
-// Overview panel (showing all categories) -------------------------------------
 
 export function renderOverviewPanel() {
   const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
-  const catsWithMetrics = state.anyL1Nodes.map(cat => {
-    const filtered = state.activeL1NodeById[cat.id];
+  const l1NodesWithMetrics = state.anyL1Nodes.map(l1Node => {
+    const filteredL1Node = state.activeL1NodeById[l1Node.id];
     return {
-      cat,
-      volume: filtered ? filtered.volume : 0,
-      hotness: filtered ? filtered.hotness : 0,
+      l1Node,
+      volume: filteredL1Node ? filteredL1Node.volume : 0,
+      hotness: filteredL1Node ? filteredL1Node.hotness : 0,
     };
   });
 
-  const sorted = [...catsWithMetrics].sort((a, b) =>
+  const sorted = [...l1NodesWithMetrics].sort((a, b) =>
     state.level1SortMode === 'hotness'
       ? b.hotness - a.hotness
       : b.volume - a.volume
@@ -83,29 +78,29 @@ export function renderOverviewPanel() {
   const metricValues = sorted.map(item =>
     state.level1SortMode === 'hotness' ? item.hotness : item.volume
   );
-  const barWidths    = metricBarWidths(state.level1SortMode, metricValues);
+  const barWidths = metricBarWidths(state.level1SortMode, metricValues);
   const sortDropdown = buildSortDropdown(1, ['papers', 'hotness'], state.level1SortMode);
   const sortWithHelp = `<div class="sort-with-help"><help-icon role="button" data-help="documentation" data-help-section="statistics"></help-icon>${sortDropdown}</div>`;
 
   const topHTML = `
     <div class="ranked-list">
       ${sorted.map((item, i) => {
-        const cat = item.cat;
+        const { l1Node } = item;
         const belowThreshold = item.volume < threshold;
-        const disabled = !!cat.isUnassigned || belowThreshold || !state.activeL1NodeById[cat.id];
+        const disabled = !!l1Node.isUnassigned || belowThreshold || !state.activeL1NodeById[l1Node.id];
         const rowClass = `ranked-row${disabled ? ' ranked-row--disabled' : ''}`;
         const attrs = disabled
           ? ''
-          : `onmouseenter="applyHover('${cat.id}')" onmouseleave="clearHover()"
-             onclick="focusCategory('${cat.id}')" style="cursor:pointer"`;
-        const countLabel = (state.level1SortMode === 'papers')
+          : `onmouseenter="applyHover('${l1Node.id}')" onmouseleave="clearHover()"
+             onclick="focusL1Node('${l1Node.id}')" style="cursor:pointer"`;
+        const countLabel = state.level1SortMode === 'papers'
           ? formatCountWithThreshold(metricValues[i])
           : formatMetricValue(state.level1SortMode, metricValues[i]);
         return `
-        <div class="${rowClass}" data-id="${cat.id}" ${attrs}>
+        <div class="${rowClass}" data-id="${l1Node.id}" ${attrs}>
           <span class="rank-num">${i + 1}</span>
-          <span class="rank-dot" style="background:${trendColor(cat.trend)}"></span>
-          <span class="rank-name">${cat.name}</span>
+          <span class="rank-dot" style="background:${trendColor(l1Node.trend)}"></span>
+          <span class="rank-name">${l1Node.name}</span>
           <span class="rank-count">${countLabel}</span>
           <div class="rank-bar-wrap"><div class="rank-bar" style="width:${barWidths[i]}%"></div></div>
         </div>`;
@@ -114,7 +109,6 @@ export function renderOverviewPanel() {
 
   const bottomHTML = `
     <div id="instructions">
-
       <span><i>Desktop</i></span>
       <ul class="noBullet-list">
         <li><b>Click</b> a node to go down a level.</li>
@@ -130,7 +124,7 @@ export function renderOverviewPanel() {
       <span>
           You can also go to a node in <b>this panel</b> or by <b>search</b>: <br /> 
           Press <span class="mockKbd">Ctrl</span> + <span class="mockKbd">K</span> or 
-          "Go to Topics" in
+          "Go to ${L2_NODES_LABEL}" in
           <span class="mockToggle">
             <span class="mock-hamburger-icon">OPTIONS</span>
           </span>
@@ -144,132 +138,140 @@ export function renderOverviewPanel() {
       </span>
     </div>`;
 
-  setPanelContent('info-top', 
-    'Categories <help-icon role="button" data-help="documentation" data-help-section="taxonomy"></help-icon>', 
-    sortWithHelp, topHTML);
+  setPanelContent(
+    'info-top',
+    `${L1_NODES_LABEL} <help-icon role="button" data-help="documentation" data-help-section="taxonomy"></help-icon>`,
+    sortWithHelp,
+    topHTML,
+  );
   setPanelContent('info-bottom', 'How to Use', '', bottomHTML);
 }
 
-
-// Category panel (showing child topics) ---------------------------------------
-
-export function renderCategoryPanel() {
+export function renderL1NodePanel() {
   const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
-  const cat = state.anyL1NodeById[state.currentCat] || state.activeL1NodeById[state.currentCat];
+  const currentL1Node = state.anyL1NodeById[state.currentL1NodeId] || state.activeL1NodeById[state.currentL1NodeId];
 
-  const connCount = {};
-  cat.children.forEach(ch => {
-    connCount[ch.id] = state.l2Edges.filter(e => e.s === ch.id || e.t === ch.id).length;
+  const connectedEdgeCountByL2NodeId = {};
+  currentL1Node.children.forEach(l2Node => {
+    connectedEdgeCountByL2NodeId[l2Node.id] = state.l2Edges.filter(edge => edge.s === l2Node.id || edge.t === l2Node.id).length;
   });
 
-  const sorted = [...cat.children].sort((a, b) => {
-    if (state.level2SortMode === 'papers')  return b.volume  - a.volume;
+  const sorted = [...currentL1Node.children].sort((a, b) => {
+    if (state.level2SortMode === 'papers') return b.volume - a.volume;
     if (state.level2SortMode === 'hotness') return b.hotness - a.hotness;
-    if (state.level2SortMode === 'links')   return (connCount[b.id] || 0) - (connCount[a.id] || 0);
+    if (state.level2SortMode === 'links') return (connectedEdgeCountByL2NodeId[b.id] || 0) - (connectedEdgeCountByL2NodeId[a.id] || 0);
     return 0;
   });
 
-  const metricValues = sorted.map(child => {
-    if (state.level2SortMode === 'papers')  return child.volume;
-    if (state.level2SortMode === 'hotness') return child.hotness;
-    if (state.level2SortMode === 'links')   return connCount[child.id] || 0;
-    return child.volume;
+  const metricValues = sorted.map(l2Node => {
+    if (state.level2SortMode === 'papers') return l2Node.volume;
+    if (state.level2SortMode === 'hotness') return l2Node.hotness;
+    if (state.level2SortMode === 'links') return connectedEdgeCountByL2NodeId[l2Node.id] || 0;
+    return l2Node.volume;
   });
-  const barWidths    = metricBarWidths(state.level2SortMode, metricValues);
+  const barWidths = metricBarWidths(state.level2SortMode, metricValues);
   const sortDropdown = buildSortDropdown(2, ['papers', 'hotness', 'links'], state.level2SortMode);
   const sortWithHelp = `<div class="sort-with-help"><help-icon role="button" data-help="documentation" data-help-section="statistics"></help-icon>${sortDropdown}</div>`;
 
   const topHTML = `
     <div class="ranked-list">
-      ${sorted.map((child, i) => {
-        const belowThreshold = child.volume < threshold;
-        const disabled = !!child.isUnassigned || belowThreshold;
+      ${sorted.map((l2Node, i) => {
+        const belowThreshold = l2Node.volume < threshold;
+        const disabled = !!l2Node.isUnassigned || belowThreshold;
         const rowClass = `ranked-row${disabled ? ' ranked-row--disabled' : ''}`;
         const attrs = disabled
           ? ''
-          : `onmouseenter="applyHover('${child.id}')" onmouseleave="clearHover()"
-             onclick="focusChildNode('${child.id}')" style="cursor:pointer"`;
-        const countLabel = (state.level2SortMode === 'papers')
-          ? formatCountWithThreshold(child.volume)
+          : `onmouseenter="applyHover('${l2Node.id}')" onmouseleave="clearHover()"
+             onclick="focusL2Node('${l2Node.id}')" style="cursor:pointer"`;
+        const countLabel = state.level2SortMode === 'papers'
+          ? formatCountWithThreshold(l2Node.volume)
           : formatMetricValue(state.level2SortMode, metricValues[i]);
         return `
-        <div class="${rowClass}" data-id="${child.id}" ${attrs}>
+        <div class="${rowClass}" data-id="${l2Node.id}" ${attrs}>
           <span class="rank-num">${i + 1}</span>
-          <span class="rank-dot" style="background:${trendColor(child.trend)}"></span>
-          <span class="rank-name">${child.name}</span>
+          <span class="rank-dot" style="background:${trendColor(l2Node.trend)}"></span>
+          <span class="rank-name">${l2Node.name}</span>
           <span class="rank-count">${countLabel}</span>
           <div class="rank-bar-wrap"><div class="rank-bar" style="width:${barWidths[i]}%"></div></div>
         </div>`;
       }).join('')}
     </div>`;
 
-  setPanelContent('info-top',
-    'Topics <help-icon role="button" data-help="documentation" data-help-section="classification"></help-icon>', 
-    sortWithHelp, topHTML);
-  setPanelContent('info-bottom', 
-    'Out-of-Scope Topics <help-icon role="button" data-help="documentation" data-help-section="stage-2-planned-llm-review-for-ambiguous-cases"></help-icon>', 
-    '<span class="rank-bar-title"># articles</span>', '<p class="empty-state">In development</p>');
+  setPanelContent(
+    'info-top',
+    `${L2_NODES_LABEL} <help-icon role="button" data-help="documentation" data-help-section="classification"></help-icon>`,
+    sortWithHelp,
+    topHTML,
+  );
+  setPanelContent(
+    'info-bottom',
+    `Out-of-Scope ${L2_NODES_LABEL} <help-icon role="button" data-help="documentation" data-help-section="stage-2-planned-llm-review-for-ambiguous-cases"></help-icon>`,
+    '<span class="rank-bar-title"># articles</span>',
+    '<p class="empty-state">In development</p>',
+  );
 }
 
-
-// Child (single-topic) panel --------------------------------------------------
-
-export function renderChildPanel() {
-  const keywords = (state.keywordsByNode[state.currentChild] || []).slice();
+export function renderL2NodePanel() {
+  const keywords = (state.keywordsByNode[state.currentL2NodeId] || []).slice();
   keywords.sort((a, b) => b.volume - a.volume);
-  const kwMetrics  = keywords.map(kw => kw.volume);
-  const kwBars     = metricBarWidths('papers', kwMetrics);
+  const keywordMetrics = keywords.map(keyword => keyword.volume);
+  const keywordBarWidths = metricBarWidths('papers', keywordMetrics);
 
   const topHTML = keywords.length
     ? `<div class="ranked-list">
-        ${keywords.map((kw, i) => `
+        ${keywords.map((keyword, i) => `
           <div class="ranked-row">
             <span class="rank-num">${i + 1}</span>
-            <span class="rank-dot" style="background:${trendColor(kw.trend)}"></span>
-            <span class="rank-name">${kw.name}</span>
-            <span class="rank-count">${formatMetricValue('papers', kwMetrics[i])}</span>
-            <div class="rank-bar-wrap"><div class="rank-bar" style="width:${kwBars[i]}%"></div></div>
+            <span class="rank-dot" style="background:${trendColor(keyword.trend)}"></span>
+            <span class="rank-name">${keyword.name}</span>
+            <span class="rank-count">${formatMetricValue('papers', keywordMetrics[i])}</span>
+            <div class="rank-bar-wrap"><div class="rank-bar" style="width:${keywordBarWidths[i]}%"></div></div>
           </div>`).join('')}
        </div>`
     : '<p class="empty-state">Insufficient data.</p>';
 
-  const connEdges = state.l2Edges
-    .filter(e => e.s === state.currentChild || e.t === state.currentChild)
+  const connectedEdges = state.l2Edges
+    .filter(edge => edge.s === state.currentL2NodeId || edge.t === state.currentL2NodeId)
     .sort((a, b) => b.w - a.w);
 
-  const maxW = Math.max(...connEdges.map(e => e.w), 1);
+  const maxEdgeWidth = Math.max(...connectedEdges.map(edge => edge.w), 1);
 
-  const bottomHTML = connEdges.length
+  const bottomHTML = connectedEdges.length
     ? `<div class="ranked-list">
-        ${connEdges.map((e, i) => {
-          const connId   = e.s === state.currentChild ? e.t : e.s;
-          const connNode = state.activeL2NodeById[connId];
-          if (!connNode) return '';
+        ${connectedEdges.map((edge, i) => {
+          const connectedL2NodeId = edge.s === state.currentL2NodeId ? edge.t : edge.s;
+          const connectedL2Node = state.activeL2NodeById[connectedL2NodeId];
+          if (!connectedL2Node) return '';
           return `
-            <div class="ranked-row" data-id="${connId}"
-                onmouseenter="applyHover('${connId}')" onmouseleave="clearHover()"
-                onclick="focusChildNode('${connId}')" style="cursor:pointer">
+            <div class="ranked-row" data-id="${connectedL2NodeId}"
+                onmouseenter="applyHover('${connectedL2NodeId}')" onmouseleave="clearHover()"
+                onclick="focusL2Node('${connectedL2NodeId}')" style="cursor:pointer">
               <span class="rank-num">${i + 1}</span>
-              <span class="rank-dot" style="background:${trendColor(connNode.trend)}"></span>
-              <span class="rank-name">${connNode.name}</span>
-              <span class="rank-count">${(e.w * 100).toFixed(1)} %</span>
-              <div class="rank-bar-wrap"><div class="rank-bar" style="width:${Math.round(e.w / maxW * 100)}%"></div></div>
+              <span class="rank-dot" style="background:${trendColor(connectedL2Node.trend)}"></span>
+              <span class="rank-name">${connectedL2Node.name}</span>
+              <span class="rank-count">${(edge.w * 100).toFixed(1)} %</span>
+              <div class="rank-bar-wrap"><div class="rank-bar" style="width:${Math.round(edge.w / maxEdgeWidth * 100)}%"></div></div>
             </div>`;
         }).join('')}
        </div>`
     : '<p class="empty-state">No relevant topics found in selected period.</p>';
 
-  setPanelContent('info-top', 
-    'Frequent Terms <help-icon role="button" data-help="documentation" data-help-section="keyword-extraction"></help-icon>', 
-    '<span class="rank-bar-title"># articles</span>', topHTML);
-  setPanelContent('info-bottom', 'Relevant Topics <help-icon role="button" data-help="documentation" data-help-section="links-and-relevance-dsc"></help-icon>', '<span class="rank-bar-title">Relevance score (DSC)</span>', bottomHTML);
+  setPanelContent(
+    'info-top',
+    'Frequent Terms <help-icon role="button" data-help="documentation" data-help-section="keyword-extraction"></help-icon>',
+    '<span class="rank-bar-title"># articles</span>',
+    topHTML,
+  );
+  setPanelContent(
+    'info-bottom',
+    `Relevant ${L2_NODES_LABEL} <help-icon role="button" data-help="documentation" data-help-section="links-and-relevance-dsc"></help-icon>`,
+    '<span class="rank-bar-title">Relevance score (DSC)</span>',
+    bottomHTML,
+  );
 }
-
-
-// Dispatch -----------------------------------------------
 
 export function updateRightPanel() {
   if (state.currentView === 'overview') renderOverviewPanel();
-  if (state.currentView === 'category') renderCategoryPanel();
-  if (state.currentView === 'child')    renderChildPanel();
+  if (state.currentView === 'l1') renderL1NodePanel();
+  if (state.currentView === 'l2') renderL2NodePanel();
 }
