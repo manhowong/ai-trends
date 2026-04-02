@@ -120,7 +120,7 @@
 
 /* Paper threshold ---------------------------------------------------------- */
 
-#paperThresholdControl {
+#volumeThresholdControl {
     padding: 4px 14px;
 }
 
@@ -129,7 +129,7 @@
     justify-content: space-between;
 }
 
-#paperThresholdVal::before {
+#volumeThresholdVal::before {
     content: "\2265";  /* greater or equal to symbol */
 }
 

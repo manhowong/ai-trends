@@ -2,14 +2,40 @@
    controls.js — Sidebar UI: date-range, dateText, toggle
    ============================================================ */
 
-import { state } from './state.js';
-import { buildViewModel, buildDerivedIndexes } from './data.js';
+import { state, categoryColorById } from './state.js';
+import { buildGraphData } from './data/build-graph-data.js';
+import { buildNodeMaps } from './data/build-node-maps.js';
 import { initializeRichStyles } from './chart.js';
 import { goOverview, focusCategory, focusChildNode } from './views.js';
 import { renderChart, buildAdjMap } from './chart.js';
 import { updateRightPanel } from './panel.js';
 
 const PAPER_THRESHOLD_STEPS = [1, 10, 50, 100, 500, 1000];
+
+function refreshGraphData() {
+  Object.assign(state, buildGraphData({
+    rawMetadata: state.rawMetadata,
+    rawTimeseries: state.rawTimeseries,
+    timePoints: state.timePoints,
+    selectedStartTimePoint: state.selectedStartTimePoint,
+    selectedEndTimePoint: state.selectedEndTimePoint,
+    volumeThreshold: state.volumeThreshold,
+    trendVolumeThreshold: state.trendVolumeThreshold,
+    trendBoundary: state.trendBoundary,
+    categoryColorById,
+  }));
+
+  Object.assign(state, buildNodeMaps({
+    activeL1Nodes: state.activeL1Nodes,
+    anyL1Nodes: state.anyL1Nodes,
+    l2Edges: state.l2Edges,
+    rawTimeseries: state.rawTimeseries,
+    selectedStartTimePoint: state.selectedStartTimePoint,
+    selectedEndTimePoint: state.selectedEndTimePoint,
+    trendVolumeThreshold: state.trendVolumeThreshold,
+    trendBoundary: state.trendBoundary,
+  }));
+}
 
 
 // Date-range selects ----------------------------------------------------------
@@ -55,8 +81,7 @@ export function onDateRangeChange() {
   }
 
   updateDateText();
-  buildViewModel();
-  buildDerivedIndexes();
+  refreshGraphData();
   initializeRichStyles();
   goOverview();
 }
@@ -100,27 +125,26 @@ export function initEdgeToggles() {
     });
 }
 
-export function initPaperThresholdControl() {
-  const slider = document.getElementById('paperThresholdSlider');
-  const value  = document.getElementById('paperThresholdVal');
+export function initVolumeThresholdControl() {
+  const slider = document.getElementById('volumeThresholdSlider');
+  const value  = document.getElementById('volumeThresholdVal');
   if (!slider || !value) return;
 
   slider.min = 0;
   slider.max = PAPER_THRESHOLD_STEPS.length - 1;
   slider.step = 1;
 
-  const initialIndex = Math.max(0, PAPER_THRESHOLD_STEPS.indexOf(state.paperThreshold));
+  const initialIndex = Math.max(0, PAPER_THRESHOLD_STEPS.indexOf(state.volumeThreshold));
   slider.value = String(initialIndex);
   value.textContent = `${PAPER_THRESHOLD_STEPS[initialIndex]} article(s)`;
 
   slider.addEventListener('input', e => {
     const idx = parseInt(e.target.value, 10);
     const next = PAPER_THRESHOLD_STEPS[idx] || PAPER_THRESHOLD_STEPS[0];
-    if (next === state.paperThreshold) return;
-    state.paperThreshold = next;
+    if (next === state.volumeThreshold) return;
+    state.volumeThreshold = next;
     value.textContent = `${next} article(s)`;
-    buildViewModel();
-    buildDerivedIndexes();
+    refreshGraphData();
     initializeRichStyles();
     refreshCurrentView();
   });

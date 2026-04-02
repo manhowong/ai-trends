@@ -43,7 +43,7 @@ export function formatMetricValue(mode, value) {
 }
 
 function formatCountWithThreshold(value) {
-  const threshold = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
+  const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
   if (value === 0) return '0';
   if (value < threshold) return `< ${threshold}`;
   return formatCount(value);
@@ -64,7 +64,7 @@ export function metricBarWidths(mode, values) {
 // Overview panel (showing all categories) -------------------------------------
 
 export function renderOverviewPanel() {
-  const threshold = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
+  const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
   const catsWithMetrics = state.anyL1Nodes.map(cat => {
     const filtered = state.activeL1NodeById[cat.id];
     return {
@@ -154,7 +154,7 @@ export function renderOverviewPanel() {
 // Category panel (showing child topics) ---------------------------------------
 
 export function renderCategoryPanel() {
-  const threshold = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
+  const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
   const cat = state.anyL1NodeById[state.currentCat] || state.activeL1NodeById[state.currentCat];
 
   const connCount = {};

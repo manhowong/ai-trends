@@ -90,7 +90,7 @@ function filterNodes(query) {
 
 function renderResults(nodes, query) {
   const container = document.getElementById('search-results');
-  const threshold = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
+  const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
 
   if (!query.trim()) {
     container.innerHTML = '';

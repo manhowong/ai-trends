@@ -4,7 +4,7 @@
 
 export const state = {
   // Raw data from JSON files
-  activeL1Nodes:      [],   // runtime L1 node array (built by buildViewModel)
+  activeL1Nodes:      [],   // runtime L1 node array (built by buildGraphData)
   anyL1Nodes:         [],   // all L1 nodes (including zero-volume) for lists/search
   l2Edges:            [],   // L2-level co-occurrence edges
   keywordsByNode:     {},   // nodeId : [{ id, name, volume, trend }]
@@ -14,7 +14,7 @@ export const state = {
   selectedStartTimePoint: null,
   selectedEndTimePoint:   null,
 
-  // Derived lookup tables (built by buildDerivedIndexes)
+  // Derived lookup tables (built by buildNodeMaps)
   activeL2NodeById: {},   // nodeId : active L2 node object
   l2ToL1NodeId:     {},   // L2 id : parent L1 id
   activeL1NodeById: {},   // L1 id : active L1 node object
@@ -49,15 +49,15 @@ export const state = {
   currentFontSize: 12,
 
   // Paper count threshold
-  paperThreshold: 1,
+  volumeThreshold: 1,
 
   // Edge
   showIntraEdges: true,   // within-category links
   showCrossEdges: true,   // cross-category links
 
   // Trend thresholds (custom values will be loaded from config/settings.yml)
-  trendHotnessThreshold: 10,  // percent
-  trendMinAbsVolume: 10,      // minimum range volume (papers)
+  trendBoundary: 10,  // percent
+  trendVolumeThreshold: 10,      // minimum range volume (papers)
 };
 
 export const DEFAULT_FONT_SIZE = 12;
