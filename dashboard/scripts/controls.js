@@ -2,40 +2,14 @@
    controls.js — Sidebar UI: date-range, dateText, toggle
    ============================================================ */
 
-import { state, badgeColorById } from './state.js';
-import { buildGraphData } from './data/build-graph-data.js';
-import { buildNodeMaps } from './data/build-node-maps.js';
+import { state } from './state.js';
+import { refreshGraphData } from './data/refresh-graph-data.js';
 import { initializeRichStyles } from './chart.js';
 import { goOverview, focusL1Node, focusL2Node } from './views.js';
 import { renderChart, buildAdjMap } from './chart.js';
 import { updateRightPanel } from './panel.js';
 
 const PAPER_THRESHOLD_STEPS = [1, 10, 50, 100, 500, 1000];
-
-function refreshGraphData() {
-  Object.assign(state, buildGraphData({
-    rawMetadata: state.rawMetadata,
-    rawTimeseries: state.rawTimeseries,
-    timePoints: state.timePoints,
-    selectedStartTimePoint: state.selectedStartTimePoint,
-    selectedEndTimePoint: state.selectedEndTimePoint,
-    volumeThreshold: state.volumeThreshold,
-    trendVolumeThreshold: state.trendVolumeThreshold,
-    trendBoundary: state.trendBoundary,
-    badgeColorById,
-  }));
-
-  Object.assign(state, buildNodeMaps({
-    activeL1Nodes: state.activeL1Nodes,
-    anyL1Nodes: state.anyL1Nodes,
-    l2Edges: state.l2Edges,
-    rawTimeseries: state.rawTimeseries,
-    selectedStartTimePoint: state.selectedStartTimePoint,
-    selectedEndTimePoint: state.selectedEndTimePoint,
-    trendVolumeThreshold: state.trendVolumeThreshold,
-    trendBoundary: state.trendBoundary,
-  }));
-}
 
 
 // Date-range selects ----------------------------------------------------------
@@ -81,7 +55,7 @@ export function onDateRangeChange() {
   }
 
   updateDateText();
-  refreshGraphData();
+  refreshGraphData(state);
   initializeRichStyles();
   goOverview();
 }
@@ -144,7 +118,7 @@ export function initVolumeThresholdControl() {
     if (next === state.volumeThreshold) return;
     state.volumeThreshold = next;
     value.textContent = `${next} article(s)`;
-    refreshGraphData();
+    refreshGraphData(state);
     initializeRichStyles();
     refreshCurrentView();
   });

@@ -2,10 +2,9 @@
    main.js — Entry point: boot sequence and event listeners
    ============================================================ */
 
-import { state, badgeColorById }                    from './state.js';
+import { state }                    from './state.js';
 import { loadDataset } from './data/load-data.js';
-import { buildGraphData } from './data/build-graph-data.js';
-import { buildNodeMaps } from './data/build-node-maps.js';
+import { refreshGraphData } from './data/refresh-graph-data.js';
 import { echart, initializeRichStyles,
          refreshThemeVars,
          applyHover, clearHover,
@@ -264,28 +263,8 @@ async function initializeApp() {
   initThemeToggle();
   await loadDataset();
   buildDateRangeControls();
-  Object.assign(state, buildGraphData({
-    rawMetadata: state.rawMetadata,
-    rawTimeseries: state.rawTimeseries,
-    timePoints: state.timePoints,
-    selectedStartTimePoint: state.selectedStartTimePoint,
-    selectedEndTimePoint: state.selectedEndTimePoint,
-    volumeThreshold: state.volumeThreshold,
-    trendVolumeThreshold: state.trendVolumeThreshold,
-    trendBoundary: state.trendBoundary,
-    badgeColorById,
-  }));
+  refreshGraphData(state);
   updateDateText();
-  Object.assign(state, buildNodeMaps({
-    activeL1Nodes: state.activeL1Nodes,
-    anyL1Nodes: state.anyL1Nodes,
-    l2Edges: state.l2Edges,
-    rawTimeseries: state.rawTimeseries,
-    selectedStartTimePoint: state.selectedStartTimePoint,
-    selectedEndTimePoint: state.selectedEndTimePoint,
-    trendVolumeThreshold: state.trendVolumeThreshold,
-    trendBoundary: state.trendBoundary,
-  }));
   initializeRichStyles();
   goOverview();
   initEdgeToggles();
