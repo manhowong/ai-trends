@@ -3,6 +3,7 @@
    ============================================================ */
 
 import { state } from './state.js';
+import { filterByNameMatch, sortByNameMatch } from './data/data-helpers.js';
 import { themeVar, formatCount, applyHover } from './chart.js';
 import { focusL1Node, focusL2Node } from './views.js';
 import { L1_NODE_LABEL } from './ui-text.js';
@@ -63,20 +64,8 @@ function getAllNodes() {
 }
 
 function filterNodes(query) {
-  if (!query.trim()) return [];
-  const lower = query.toLowerCase();
-  return getAllNodes()
-    .filter(node => node.name.toLowerCase().includes(lower))
-    .sort((a, b) => {
-      const aName = a.name.toLowerCase();
-      const bName = b.name.toLowerCase();
-      if (aName === lower && bName !== lower) return -1;
-      if (bName === lower && aName !== lower) return 1;
-      if (aName.startsWith(lower) && !bName.startsWith(lower)) return -1;
-      if (bName.startsWith(lower) && !aName.startsWith(lower)) return 1;
-      return b.volume - a.volume;
-    })
-    .slice(0, 30);
+  const matchedNodes = filterByNameMatch(getAllNodes(), query);
+  return sortByNameMatch(matchedNodes, query).slice(0, 30);
 }
 
 function highlightMatch(name, query) {

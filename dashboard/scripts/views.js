@@ -3,6 +3,7 @@
    ============================================================ */
 
 import { state, EDGE_WIDTH_SCALE } from './state.js';
+import { groupNodeIdsByL1NodeId } from './data/data-helpers.js';
 import {
   trendColor,
   themeVar, makeLabel, nodeSize, buildAdjMap,
@@ -190,13 +191,10 @@ export function focusL1Node(l1NodeId) {
     };
   });
 
-  const externalL2NodeIdsByL1Id = {};
-  externalL2NodeIds.forEach(l2NodeId => {
-    const externalL1NodeId = state.l2ToL1NodeId[l2NodeId];
-    if (!externalL1NodeId) return;
-    if (!externalL2NodeIdsByL1Id[externalL1NodeId]) externalL2NodeIdsByL1Id[externalL1NodeId] = [];
-    externalL2NodeIdsByL1Id[externalL1NodeId].push(l2NodeId);
-  });
+  const externalL2NodeIdsByL1Id = groupNodeIdsByL1NodeId(
+    [...externalL2NodeIds],
+    state.l2ToL1NodeId,
+  );
 
   if (state.showCrossEdges) {
     Object.entries(externalL2NodeIdsByL1Id).forEach(([externalL1NodeId, groupedL2NodeIds]) => {

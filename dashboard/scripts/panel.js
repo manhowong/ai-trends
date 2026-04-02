@@ -3,6 +3,13 @@
    ============================================================ */
 
 import { state } from './state.js';
+import {
+  collectEdgesForNode,
+  countEdgesByNodeId,
+  getMetricBarWidths,
+  sortByMetric,
+  sortByMetricSelector,
+} from './data/data-helpers.js';
 import { trendColor, formatCount } from './chart.js';
 import { L1_NODES_LABEL, L2_NODES_LABEL } from './ui-text.js';
 
@@ -46,18 +53,6 @@ function formatCountWithThreshold(value) {
   return formatCount(value);
 }
 
-export function metricBarWidths(mode, values) {
-  if (!values.length) return [];
-  if (mode === 'hotness') {
-    const minValue = Math.min(...values);
-    const maxValue = Math.max(...values);
-    if (maxValue === minValue) return values.map(() => 100);
-    return values.map(value => Math.round((value - minValue) / (maxValue - minValue) * 100));
-  }
-  const maxValue = Math.max(...values, 1);
-  return values.map(value => Math.round(value / maxValue * 100));
-}
-
 export function renderOverviewPanel() {
   const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
   const l1NodesWithMetrics = state.anyL1Nodes.map(l1Node => {
@@ -69,16 +64,15 @@ export function renderOverviewPanel() {
     };
   });
 
-  const sorted = [...l1NodesWithMetrics].sort((a, b) =>
-    state.level1SortMode === 'hotness'
-      ? b.hotness - a.hotness
-      : b.volume - a.volume
+  const sorted = sortByMetric(
+    l1NodesWithMetrics,
+    state.level1SortMode === 'hotness' ? 'hotness' : 'volume',
   );
 
   const metricValues = sorted.map(item =>
     state.level1SortMode === 'hotness' ? item.hotness : item.volume
   );
-  const barWidths = metricBarWidths(state.level1SortMode, metricValues);
+  const barWidths = getMetricBarWidths(state.level1SortMode, metricValues);
   const sortDropdown = buildSortDropdown(1, ['papers', 'hotness'], state.level1SortMode);
   const sortWithHelp = `<div class="sort-with-help"><help-icon role="button" data-help="documentation" data-help-section="statistics"></help-icon>${sortDropdown}</div>`;
 
@@ -151,15 +145,15 @@ export function renderL1NodePanel() {
   const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
   const currentL1Node = state.anyL1NodeById[state.currentL1NodeId] || state.activeL1NodeById[state.currentL1NodeId];
 
-  const connectedEdgeCountByL2NodeId = {};
-  currentL1Node.children.forEach(l2Node => {
-    connectedEdgeCountByL2NodeId[l2Node.id] = state.l2Edges.filter(edge => edge.s === l2Node.id || edge.t === l2Node.id).length;
-  });
+  const connectedEdgeCountByL2NodeId = countEdgesByNodeId(
+    currentL1Node.children.map(l2Node => l2Node.id),
+    state.l2Edges,
+  );
 
-  const sorted = [...currentL1Node.children].sort((a, b) => {
-    if (state.level2SortMode === 'papers') return b.volume - a.volume;
-    if (state.level2SortMode === 'hotness') return b.hotness - a.hotness;
-    if (state.level2SortMode === 'links') return (connectedEdgeCountByL2NodeId[b.id] || 0) - (connectedEdgeCountByL2NodeId[a.id] || 0);
+  const sorted = sortByMetricSelector(currentL1Node.children, l2Node => {
+    if (state.level2SortMode === 'papers') return l2Node.volume;
+    if (state.level2SortMode === 'hotness') return l2Node.hotness;
+    if (state.level2SortMode === 'links') return connectedEdgeCountByL2NodeId[l2Node.id] || 0;
     return 0;
   });
 
@@ -169,7 +163,7 @@ export function renderL1NodePanel() {
     if (state.level2SortMode === 'links') return connectedEdgeCountByL2NodeId[l2Node.id] || 0;
     return l2Node.volume;
   });
-  const barWidths = metricBarWidths(state.level2SortMode, metricValues);
+  const barWidths = getMetricBarWidths(state.level2SortMode, metricValues);
   const sortDropdown = buildSortDropdown(2, ['papers', 'hotness', 'links'], state.level2SortMode);
   const sortWithHelp = `<div class="sort-with-help"><help-icon role="button" data-help="documentation" data-help-section="statistics"></help-icon>${sortDropdown}</div>`;
 
@@ -212,10 +206,9 @@ export function renderL1NodePanel() {
 }
 
 export function renderL2NodePanel() {
-  const keywords = (state.keywordsByNode[state.currentL2NodeId] || []).slice();
-  keywords.sort((a, b) => b.volume - a.volume);
+  const keywords = sortByMetric(state.keywordsByNode[state.currentL2NodeId] || [], 'volume');
   const keywordMetrics = keywords.map(keyword => keyword.volume);
-  const keywordBarWidths = metricBarWidths('papers', keywordMetrics);
+  const keywordBarWidths = getMetricBarWidths('papers', keywordMetrics);
 
   const topHTML = keywords.length
     ? `<div class="ranked-list">
@@ -230,9 +223,10 @@ export function renderL2NodePanel() {
        </div>`
     : '<p class="empty-state">Insufficient data.</p>';
 
-  const connectedEdges = state.l2Edges
-    .filter(edge => edge.s === state.currentL2NodeId || edge.t === state.currentL2NodeId)
-    .sort((a, b) => b.w - a.w);
+  const connectedEdges = sortByMetric(
+    collectEdgesForNode(state.currentL2NodeId, state.l2Edges),
+    'w',
+  );
 
   const maxEdgeWidth = Math.max(...connectedEdges.map(edge => edge.w), 1);
 
