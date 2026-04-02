@@ -3,7 +3,7 @@
    ============================================================ */
 
 import { state } from './state.js';
-import { applyNormalizedData, initializeDerivedData } from './data.js';
+import { buildViewModel, buildDerivedIndexes } from './data.js';
 import { initializeRichStyles } from './chart.js';
 import { goOverview, focusCategory, focusChildNode } from './views.js';
 import { renderChart, buildAdjMap } from './chart.js';
@@ -14,20 +14,20 @@ const PAPER_THRESHOLD_STEPS = [1, 10, 50, 100, 500, 1000];
 
 // Date-range selects ----------------------------------------------------------
 
-/** Populate the start/end month <select> elements and attach handlers. */
+/** Populate the start/end time-point <select> elements and attach handlers. */
 export function buildDateRangeControls() {
   const startSelect = document.getElementById('startMonthSelect');
   const endSelect   = document.getElementById('endMonthSelect');
   if (!startSelect || !endSelect) return;
 
-  const options = state.dataMonths
+  const options = state.timePoints
     .map(m => `<option value="${m}">${m}</option>`)
     .join('');
 
   startSelect.innerHTML = options;
   endSelect.innerHTML   = options;
-  startSelect.value     = state.selectedStartMonth;
-  endSelect.value       = state.selectedEndMonth;
+  startSelect.value     = state.selectedStartTimePoint;
+  endSelect.value       = state.selectedEndTimePoint;
 
   startSelect.onchange = onDateRangeChange;
   endSelect.onchange   = onDateRangeChange;
@@ -38,25 +38,25 @@ export function onDateRangeChange() {
   const endSelect   = document.getElementById('endMonthSelect');
   if (!startSelect || !endSelect) return;
 
-  const s = state.dataMonths.indexOf(startSelect.value);
-  const e = state.dataMonths.indexOf(endSelect.value);
+  const s = state.timePoints.indexOf(startSelect.value);
+  const e = state.timePoints.indexOf(endSelect.value);
 
   if (s <= e) {
-    state.selectedStartMonth = startSelect.value;
-    state.selectedEndMonth   = endSelect.value;
+    state.selectedStartTimePoint = startSelect.value;
+    state.selectedEndTimePoint   = endSelect.value;
   } else if (startSelect === document.activeElement) {
-    state.selectedStartMonth = startSelect.value;
-    state.selectedEndMonth   = startSelect.value;
-    endSelect.value          = state.selectedEndMonth;
+    state.selectedStartTimePoint = startSelect.value;
+    state.selectedEndTimePoint   = startSelect.value;
+    endSelect.value              = state.selectedEndTimePoint;
   } else {
-    state.selectedEndMonth   = endSelect.value;
-    state.selectedStartMonth = endSelect.value;
-    startSelect.value        = state.selectedStartMonth;
+    state.selectedEndTimePoint   = endSelect.value;
+    state.selectedStartTimePoint = endSelect.value;
+    startSelect.value            = state.selectedStartTimePoint;
   }
 
   updateDateText();
-  applyNormalizedData();
-  initializeDerivedData();
+  buildViewModel();
+  buildDerivedIndexes();
   initializeRichStyles();
   goOverview();
 }
@@ -66,10 +66,10 @@ export function onDateRangeChange() {
 
 export function updateDateText() {
   const el = document.getElementById('dateText');
-  if (!el || !state.selectedStartMonth || !state.selectedEndMonth) return;
-  el.textContent = state.selectedStartMonth === state.selectedEndMonth
-    ? state.selectedStartMonth
-    : `${state.selectedStartMonth} to ${state.selectedEndMonth}`;
+  if (!el || !state.selectedStartTimePoint || !state.selectedEndTimePoint) return;
+  el.textContent = state.selectedStartTimePoint === state.selectedEndTimePoint
+    ? state.selectedStartTimePoint
+    : `${state.selectedStartTimePoint} to ${state.selectedEndTimePoint}`;
 }
 
 
@@ -119,8 +119,8 @@ export function initPaperThresholdControl() {
     if (next === state.paperThreshold) return;
     state.paperThreshold = next;
     value.textContent = `${next} article(s)`;
-    applyNormalizedData();
-    initializeDerivedData();
+    buildViewModel();
+    buildDerivedIndexes();
     initializeRichStyles();
     refreshCurrentView();
   });
@@ -131,7 +131,7 @@ function refreshCurrentView() {
   if (state.currentView === 'overview') return goOverview();
 
   if (state.currentView === 'category') {
-    if (!state.catMap[state.currentCat]) {
+    if (!state.activeL1NodeById[state.currentCat]) {
       state.curNodes = [];
       state.curLinks = [];
       state.curAdjMap = buildAdjMap([]);
@@ -142,7 +142,7 @@ function refreshCurrentView() {
   }
   
   if (state.currentView === 'child') {
-    if (!state.childMap[state.currentChild]) {
+    if (!state.activeL2NodeById[state.currentChild]) {
       state.curNodes = [];
       state.curLinks = [];
       state.curAdjMap = buildAdjMap([]);

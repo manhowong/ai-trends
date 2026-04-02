@@ -44,14 +44,14 @@ export function updateTreeBreadcrumb() {
 
   if (state.currentView === 'category' || state.currentView === 'child') {
     makeSeparator();
-    const cat = state.catMap[state.currentCat];
+    const cat = state.activeL1NodeById[state.currentCat];
     makeSegment(cat.name, state.currentView === 'child', () => focusCategory(cat.id));
   }
 
   if (state.currentView === 'child') {
     makeSeparator();
-    const child = state.childMap[state.currentChild];
-    const count = formatCountShort(child.papers || 0);
+    const child = state.activeL2NodeById[state.currentChild];
+    const count = formatCountShort(child.volume || 0);
     makeSegment(`${child.name} (${count})`, false, null);
   }
 }
@@ -67,23 +67,23 @@ export function goOverview() {
   state.hoveredNode  = null;
   updateTreeBreadcrumb();
 
-  const maxW   = Math.max(...state.parentEdges.map(e => e.w), 1);
+  const maxW   = Math.max(...state.l1Edges.map(e => e.w), 1);
 
-  const maxPapers = Math.max(...state.cats.map(c => c.totalpapers), 1);
-  const totalPapers = state.cats.reduce((sum, c) => sum + (c.totalpapers || 0), 0);
+  const maxPapers = Math.max(...state.activeL1Nodes.map(c => c.volume), 1);
+  const totalPapers = state.activeL1Nodes.reduce((sum, c) => sum + (c.volume || 0), 0);
   state.nodeSizeMax = maxPapers;
   state.nodeSizeTotal = totalPapers;
 
-  const nodes = state.cats.map((cat, i) => {
+  const nodes = state.activeL1Nodes.map((cat, i) => {
     const tc        = trendColor(cat.trend);
     const itemStyle = { color: tc, borderColor: tc, borderWidth: 2, opacity: 0.85 };
     return {
       id:         cat.id,
-      symbolSize: nodeSize(cat.totalpapers, 'overview'),
+      symbolSize: nodeSize(cat.volume, 'overview'),
       itemStyle:  { ...itemStyle },
       label: {
         show:      true,
-        formatter: makeLabel(cat.name, cat.totalpapers),
+        formatter: makeLabel(cat.name, cat.volume),
         rich:      state.richStyles,
       },
       _catId: cat.id,
@@ -91,13 +91,13 @@ export function goOverview() {
       _orig: {
         _catId: cat.id, _type: 'parent', trend: cat.trend,
         fixed: false,
-        _name: cat.name, _papers: cat.totalpapers,
+        _name: cat.name, _papers: cat.volume,
         _catName: null, _catColor: null, _dim: false,
         _itemStyle: itemStyle,
       },
     };
   });
-  const visibleEdges = state.showCrossEdges ? state.parentEdges : [];
+  const visibleEdges = state.showCrossEdges ? state.l1Edges : [];
   const links = visibleEdges.map(edge => {
     const w   = Math.max(0.5, edge.w / maxW * 5 * EDGE_WIDTH_SCALE);
     const col = themeVar('linkCross');
@@ -127,11 +127,11 @@ export function focusCategory(catId) {
   state.hoveredNode  = null;
   updateTreeBreadcrumb();
 
-  const cat = state.catMap[catId];
+  const cat = state.activeL1NodeById[catId];
   const focusIds = new Set(cat.children.map(c => c.id));
 
   // Edges that cross the category boundary
-  const crossEdges = state.childEdges.filter(e =>
+  const crossEdges = state.l2Edges.filter(e =>
     (focusIds.has(e.s) && !focusIds.has(e.t)) ||
     (focusIds.has(e.t) && !focusIds.has(e.s))
   );
@@ -144,8 +144,8 @@ export function focusCategory(catId) {
   });
 
   // Inner ring: this category's own children
-  const maxPapers = Math.max(...cat.children.map(c => c.papers), 1);
-  const totalPapers = cat.children.reduce((sum, c) => sum + (c.papers || 0), 0);
+  const maxPapers = Math.max(...cat.children.map(c => c.volume), 1);
+  const totalPapers = cat.children.reduce((sum, c) => sum + (c.volume || 0), 0);
   state.nodeSizeMax = maxPapers;
   state.nodeSizeTotal = totalPapers;
 
@@ -154,11 +154,11 @@ export function focusCategory(catId) {
     const itemStyle = { color: tc, borderColor: tc, borderWidth: 2, opacity: 0.9 };
     return {
       id:         child.id,
-      symbolSize: nodeSize(child.papers, 'category'),
+      symbolSize: nodeSize(child.volume, 'category'),
       itemStyle:  { ...itemStyle },
       label: {
         show:      true,
-        formatter: makeLabel(child.name, child.papers, null, null, false),
+        formatter: makeLabel(child.name, child.volume, null, null, false),
         rich:      state.richStyles,
       },
       _catId: catId,
@@ -169,7 +169,7 @@ export function focusCategory(catId) {
         trend:      child.trend,
         fixed:      false,
         _name:      child.name,
-        _papers:    child.papers,
+        _papers:    child.volume,
         _catName:   cat.name,
         _catColor:  cat.color,
         _dim:       false,
@@ -181,7 +181,7 @@ export function focusCategory(catId) {
   // Outer ring: external nodes grouped by their parent category
   const extByCat     = {};
   extIds.forEach(id => {
-    const cid = state.childToCat[id];
+    const cid = state.l2ToL1NodeId[id];
     if (!cid) return;
     if (!extByCat[cid]) extByCat[cid] = [];
     extByCat[cid].push(id);
@@ -194,8 +194,8 @@ export function focusCategory(catId) {
     extCatIds.forEach((ecid, ci) => {
       const group     = extByCat[ecid];
       group.forEach((id, gi) => {
-        const child     = state.childMap[id];
-        const extCat    = state.catMap[ecid];
+        const child     = state.activeL2NodeById[id];
+        const extCat    = state.activeL1NodeById[ecid];
         const itemStyle = {
           color: themeVar('extNodeFill'),
           borderColor: themeVar('extNodeBorder'),
@@ -204,11 +204,11 @@ export function focusCategory(catId) {
         };
         nodes.push({
           id:         child.id,
-          symbolSize: nodeSize(child.papers, 'category') * 0.7,
+          symbolSize: nodeSize(child.volume, 'category') * 0.7,
           itemStyle:  { ...itemStyle },
           label: {
             show:      true,
-            formatter: makeLabel(child.name, child.papers, null, null, true),
+            formatter: makeLabel(child.name, child.volume, null, null, true),
             rich:      state.richStyles,
           },
           _catId: ecid,
@@ -219,7 +219,7 @@ export function focusCategory(catId) {
             trend:      child.trend,
             fixed:      false,
             _name:      child.name,
-            _papers:    child.papers,
+            _papers:    child.volume,
             _catName:   extCat.name,
             _catColor:  extCat.color,
             _dim:       true,
@@ -229,7 +229,7 @@ export function focusCategory(catId) {
       });
     });
   }
-  const intraEdges        = state.childEdges.filter(e => focusIds.has(e.s) && focusIds.has(e.t));
+  const intraEdges        = state.l2Edges.filter(e => focusIds.has(e.s) && focusIds.has(e.t));
   const visibleCrossEdges = state.showCrossEdges ? crossEdges : [];
   const visibleIntraEdges = state.showIntraEdges ? intraEdges : [];
   const allEdges          = [...visibleCrossEdges, ...visibleIntraEdges];
@@ -273,27 +273,27 @@ export function focusChildNode(childId) {
   state.currentChild = childId;
   state.hoveredNode  = null;
 
-  const child      = state.childMap[childId];
-  const cat        = state.catMap[child.catId];
+  const child      = state.activeL2NodeById[childId];
+  const cat        = state.activeL1NodeById[child.catId];
   state.currentCat = cat.id;
   updateTreeBreadcrumb();
 
-  const connEdges = state.childEdges.filter(e => e.s === childId || e.t === childId);
+  const connEdges = state.l2Edges.filter(e => e.s === childId || e.t === childId);
   const connIds   = new Set();
   connEdges.forEach(e => { connIds.add(e.s); connIds.add(e.t); });
   connIds.delete(childId);
 
   const allNodes = [childId, ...[...connIds]];
 
-  const maxPapers = Math.max(...allNodes.map(id => state.childMap[id]?.papers || 0), 1);
-  const totalPapers = allNodes.reduce((sum, id) => sum + (state.childMap[id]?.papers || 0), 0);
+  const maxPapers = Math.max(...allNodes.map(id => state.activeL2NodeById[id]?.volume || 0), 1);
+  const totalPapers = allNodes.reduce((sum, id) => sum + (state.activeL2NodeById[id]?.volume || 0), 0);
   state.nodeSizeMax = maxPapers;
   state.nodeSizeTotal = totalPapers;
 
   const nodes = allNodes.map(id => {
     const isFocus = id === childId;
-    const c       = state.childMap[id];
-    const extCat  = state.catMap[state.childToCat[id]];
+    const c       = state.activeL2NodeById[id];
+    const extCat  = state.activeL1NodeById[state.l2ToL1NodeId[id]];
     const tc      = trendColor(c.trend);
     const itemStyle = isFocus
       ? { color: tc, borderColor: tc, borderWidth: 3, opacity: 1 }
@@ -301,22 +301,22 @@ export function focusChildNode(childId) {
 
     return {
       id:         c.id,
-      symbolSize: nodeSize(c.papers, 'child'),
+      symbolSize: nodeSize(c.volume, 'child'),
       itemStyle:  { ...itemStyle },
       label: {
         show:      true,
-        formatter: makeLabel(c.name, c.papers, extCat.name, extCat.color, false),
+        formatter: makeLabel(c.name, c.volume, extCat.name, extCat.color, false),
         rich:      state.richStyles,
       },
-      _catId: state.childToCat[id],
+      _catId: state.l2ToL1NodeId[id],
       _type:  isFocus ? 'focus' : 'conn',
       _orig: {
-        _catId:     state.childToCat[id],
+        _catId:     state.l2ToL1NodeId[id],
         _type:      isFocus ? 'focus' : 'conn',
         trend:      c.trend,
         fixed:      false,
         _name:      c.name,
-        _papers:    c.papers,
+        _papers:    c.volume,
         _catName:   extCat.name,
         _catColor:  extCat.color,
         _dim:       false,
@@ -325,7 +325,7 @@ export function focusChildNode(childId) {
     };
   });
   const visibleEdges = connEdges.filter(e => {
-    const sameCategory = state.childToCat[e.s] === state.childToCat[e.t];
+    const sameCategory = state.l2ToL1NodeId[e.s] === state.l2ToL1NodeId[e.t];
     if (sameCategory  && !state.showIntraEdges) return false;
     if (!sameCategory && !state.showCrossEdges) return false;
     return true;

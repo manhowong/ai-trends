@@ -13,12 +13,12 @@ function getAllNodes() {
   const results = [];
 
   // L1 — categories
-  state.catsAll.forEach(cat => {
+  state.anyL1Nodes.forEach(cat => {
     results.push({
       id:      cat.id,
       name:    cat.name,
       level:   1,
-      papers:  cat.totalpapers,
+      volume:  cat.volume,
       trend:   cat.trend,
       catName: null,
       catColor: null,
@@ -27,15 +27,15 @@ function getAllNodes() {
   });
 
   // L2 — topics
-  Object.values(state.childMapAll).forEach(child => {
-    const cat = state.catMapAll[child.catId];
+  Object.values(state.anyL2NodeById).forEach(child => {
+    const cat = state.anyL1NodeById[child.catId];
     results.push({
       id:            child.id,
       name:          child.name,
       level:         2,
       kind:          'topic',
-      papers:        child.papers,
-      thresholdPapers: child.papers,
+      volume:        child.volume,
+      thresholdVolume: child.volume,
       trend:         child.trend,
       catName:       cat ? cat.name  : '',
       catColor:      cat ? cat.color : themeVar('trendFlat'),
@@ -44,8 +44,8 @@ function getAllNodes() {
   });
 
   // Keywords - one row per (keyword, topic) pair
-  Object.entries(state.keywordData).forEach(([topicId, keywords]) => {
-    const child = state.childMapAll[topicId];
+  Object.entries(state.keywordsByNode).forEach(([topicId, keywords]) => {
+    const child = state.anyL2NodeById[topicId];
     if (!child) return;
 
     keywords.forEach(keyword => {
@@ -54,8 +54,8 @@ function getAllNodes() {
         name:            keyword.name,
         level:           2,
         kind:            'keyword',
-        papers:          keyword.papers,
-        thresholdPapers: child.papers,
+        volume:          keyword.volume,
+        thresholdVolume: child.volume,
         trend:           keyword.trend,
         catName:         child.name,
         catColor:        child.color || themeVar('trendFlat'),
@@ -80,7 +80,7 @@ function filterNodes(query) {
       if (bName === lower && aName !== lower) return  1;
       if (aName.startsWith(lower) && !bName.startsWith(lower)) return -1;
       if (bName.startsWith(lower) && !aName.startsWith(lower)) return  1;
-      return b.papers - a.papers;  // sort by paper count as tiebreaker
+      return b.volume - a.volume;  // sort by volume as tiebreaker
     })
     .slice(0, 30);  // cap at 30 results
 }
@@ -103,13 +103,13 @@ function renderResults(nodes, query) {
   }
 
   container.innerHTML = nodes.map(node => {
-    const belowThreshold = node.thresholdPapers < threshold;
+    const belowThreshold = node.thresholdVolume < threshold;
     const isDisabled = node.disabled || belowThreshold;
     const countLabel = node.kind === 'keyword'
       ? 'frequent term in'  // Show "frequent Term in" instead of count if the match is a frequent term
-      : (node.papers === 0
+      : (node.volume === 0
           ? '0'
-          : (belowThreshold ? `&lt; ${threshold}` : formatCount(node.papers)));
+          : (belowThreshold ? `&lt; ${threshold}` : formatCount(node.volume)));
     const badgeHTML = node.kind === 'keyword'
       ? `<span class="search-result-badge search-result-badge--topic">${node.catName}</span>`
       : (node.catName

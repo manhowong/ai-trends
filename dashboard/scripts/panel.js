@@ -65,11 +65,11 @@ export function metricBarWidths(mode, values) {
 
 export function renderOverviewPanel() {
   const threshold = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
-  const catsWithMetrics = state.catsAll.map(cat => {
-    const filtered = state.catMap[cat.id];
+  const catsWithMetrics = state.anyL1Nodes.map(cat => {
+    const filtered = state.activeL1NodeById[cat.id];
     return {
       cat,
-      papers: filtered ? filtered.totalpapers : 0,
+      volume: filtered ? filtered.volume : 0,
       hotness: filtered ? filtered.hotness : 0,
     };
   });
@@ -77,11 +77,11 @@ export function renderOverviewPanel() {
   const sorted = [...catsWithMetrics].sort((a, b) =>
     state.level1SortMode === 'hotness'
       ? b.hotness - a.hotness
-      : b.papers - a.papers
+      : b.volume - a.volume
   );
 
   const metricValues = sorted.map(item =>
-    state.level1SortMode === 'hotness' ? item.hotness : item.papers
+    state.level1SortMode === 'hotness' ? item.hotness : item.volume
   );
   const barWidths    = metricBarWidths(state.level1SortMode, metricValues);
   const sortDropdown = buildSortDropdown(1, ['papers', 'hotness'], state.level1SortMode);
@@ -91,8 +91,8 @@ export function renderOverviewPanel() {
     <div class="ranked-list">
       ${sorted.map((item, i) => {
         const cat = item.cat;
-        const belowThreshold = item.papers < threshold;
-        const disabled = !!cat.isUnassigned || belowThreshold || !state.catMap[cat.id];
+        const belowThreshold = item.volume < threshold;
+        const disabled = !!cat.isUnassigned || belowThreshold || !state.activeL1NodeById[cat.id];
         const rowClass = `ranked-row${disabled ? ' ranked-row--disabled' : ''}`;
         const attrs = disabled
           ? ''
@@ -155,25 +155,25 @@ export function renderOverviewPanel() {
 
 export function renderCategoryPanel() {
   const threshold = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
-  const cat = state.catMapAll[state.currentCat] || state.catMap[state.currentCat];
+  const cat = state.anyL1NodeById[state.currentCat] || state.activeL1NodeById[state.currentCat];
 
   const connCount = {};
   cat.children.forEach(ch => {
-    connCount[ch.id] = state.childEdges.filter(e => e.s === ch.id || e.t === ch.id).length;
+    connCount[ch.id] = state.l2Edges.filter(e => e.s === ch.id || e.t === ch.id).length;
   });
 
   const sorted = [...cat.children].sort((a, b) => {
-    if (state.level2SortMode === 'papers')  return b.papers  - a.papers;
+    if (state.level2SortMode === 'papers')  return b.volume  - a.volume;
     if (state.level2SortMode === 'hotness') return b.hotness - a.hotness;
     if (state.level2SortMode === 'links')   return (connCount[b.id] || 0) - (connCount[a.id] || 0);
     return 0;
   });
 
   const metricValues = sorted.map(child => {
-    if (state.level2SortMode === 'papers')  return child.papers;
+    if (state.level2SortMode === 'papers')  return child.volume;
     if (state.level2SortMode === 'hotness') return child.hotness;
     if (state.level2SortMode === 'links')   return connCount[child.id] || 0;
-    return child.papers;
+    return child.volume;
   });
   const barWidths    = metricBarWidths(state.level2SortMode, metricValues);
   const sortDropdown = buildSortDropdown(2, ['papers', 'hotness', 'links'], state.level2SortMode);
@@ -182,7 +182,7 @@ export function renderCategoryPanel() {
   const topHTML = `
     <div class="ranked-list">
       ${sorted.map((child, i) => {
-        const belowThreshold = child.papers < threshold;
+        const belowThreshold = child.volume < threshold;
         const disabled = !!child.isUnassigned || belowThreshold;
         const rowClass = `ranked-row${disabled ? ' ranked-row--disabled' : ''}`;
         const attrs = disabled
@@ -190,7 +190,7 @@ export function renderCategoryPanel() {
           : `onmouseenter="applyHover('${child.id}')" onmouseleave="clearHover()"
              onclick="focusChildNode('${child.id}')" style="cursor:pointer"`;
         const countLabel = (state.level2SortMode === 'papers')
-          ? formatCountWithThreshold(child.papers)
+          ? formatCountWithThreshold(child.volume)
           : formatMetricValue(state.level2SortMode, metricValues[i]);
         return `
         <div class="${rowClass}" data-id="${child.id}" ${attrs}>
@@ -215,9 +215,9 @@ export function renderCategoryPanel() {
 // Child (single-topic) panel --------------------------------------------------
 
 export function renderChildPanel() {
-  const keywords = (state.keywordData[state.currentChild] || []).slice();
-  keywords.sort((a, b) => b.papers - a.papers);
-  const kwMetrics  = keywords.map(kw => kw.papers);
+  const keywords = (state.keywordsByNode[state.currentChild] || []).slice();
+  keywords.sort((a, b) => b.volume - a.volume);
+  const kwMetrics  = keywords.map(kw => kw.volume);
   const kwBars     = metricBarWidths('papers', kwMetrics);
 
   const topHTML = keywords.length
@@ -233,7 +233,7 @@ export function renderChildPanel() {
        </div>`
     : '<p class="empty-state">Insufficient data.</p>';
 
-  const connEdges = state.childEdges
+  const connEdges = state.l2Edges
     .filter(e => e.s === state.currentChild || e.t === state.currentChild)
     .sort((a, b) => b.w - a.w);
 
@@ -243,7 +243,7 @@ export function renderChildPanel() {
     ? `<div class="ranked-list">
         ${connEdges.map((e, i) => {
           const connId   = e.s === state.currentChild ? e.t : e.s;
-          const connNode = state.childMap[connId];
+          const connNode = state.activeL2NodeById[connId];
           if (!connNode) return '';
           return `
             <div class="ranked-row" data-id="${connId}"

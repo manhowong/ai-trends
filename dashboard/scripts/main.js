@@ -3,7 +3,7 @@
    ============================================================ */
 
 import { state }                                       from './state.js';
-import { loadData, applyNormalizedData, initializeDerivedData } from './data.js';
+import { loadDataset, buildViewModel, buildDerivedIndexes } from './data.js';
 import { echart, initializeRichStyles,
          refreshThemeVars,
          applyHover, clearHover,
@@ -45,7 +45,7 @@ function applyTheme(theme, persist = true) {
   }
 
   refreshThemeVars();
-  if (state.cats.length) {
+  if (state.activeL1Nodes.length) {
     initializeRichStyles();
     rerenderCurrentView();
   }
@@ -260,11 +260,11 @@ document.addEventListener('click', e => {
 
 async function initializeApp() {
   initThemeToggle();
-  await loadData();
+  await loadDataset();
   buildDateRangeControls();
-  applyNormalizedData();
+  buildViewModel();
   updateDateText();
-  initializeDerivedData();
+  buildDerivedIndexes();
   initializeRichStyles();
   goOverview();
   initEdgeToggles();

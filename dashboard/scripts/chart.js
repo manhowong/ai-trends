@@ -192,10 +192,10 @@ export function buildRichStyles() {
   return rich;
 }
 
-/** Derive allColors from cats and (re)build richStyles. */
+/** Derive allColors from active L1 nodes and (re)build richStyles. */
 export function initializeRichStyles() {
   readThemeVars();
-  state.allColors  = [...new Set(state.cats.map(c => c.color))];
+  state.allColors  = [...new Set(state.activeL1Nodes.map(c => c.color))];
   state.richStyles = buildRichStyles();
 }
 

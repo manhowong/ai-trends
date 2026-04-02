@@ -30,10 +30,10 @@ export function runIntroTour() {
   if (prefersReducedMotion()) return;
   
   // Get the most popular category ID
-  const topCat = [...state.cats].sort((a, b) => (b.totalpapers || 0) - (a.totalpapers || 0))[0];
+  const topCat = [...state.activeL1Nodes].sort((a, b) => (b.volume || 0) - (a.volume || 0))[0];
   if (!topCat || !topCat.children || !topCat.children.length) return;
   // Get the most popular topic ID
-  const topChild = [...topCat.children].sort((a, b) => (b.papers || 0) - (a.papers || 0))[0];
+  const topChild = [...topCat.children].sort((a, b) => (b.volume || 0) - (a.volume || 0))[0];
   if (!topChild) return;
   
   if ('requestIdleCallback' in window) {

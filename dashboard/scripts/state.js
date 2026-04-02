@@ -4,24 +4,23 @@
 
 export const state = {
   // Raw data from JSON files
-  cats:               [],   // runtime category array (built by applyNormalizedData)
-  catsAll:            [],   // all categories (including zero-article) for lists/search
-  childEdges:         [],   // L2-level co-occurrence edges
-  keywordData:        {},   // topicId : [{ id, name, papers, trend }]
+  activeL1Nodes:      [],   // runtime L1 node array (built by buildViewModel)
+  anyL1Nodes:         [],   // all L1 nodes (including zero-volume) for lists/search
+  l2Edges:            [],   // L2-level co-occurrence edges
+  keywordsByNode:     {},   // nodeId : [{ id, name, volume, trend }]
   rawMetadata:        null,
   rawTimeseries:      null,
-  dataMonths:         [],   // sorted month strings, e.g. ["2024-01", ...]
-  selectedStartMonth: null,
-  selectedEndMonth:   null,
+  timePoints:         [],   // sorted time-point strings, e.g. ["2024-01", ...]
+  selectedStartTimePoint: null,
+  selectedEndTimePoint:   null,
 
-  // Derived lookup tables (built by initializeDerivedData)
-  childMap:    {},   // nodeId : L2 node object
-  childToCat:  {},   // L2 id : parent category id
-  catMap:      {},   // cat id : category object
-  parentEdges: [],   // category-level rolled-up edges
-  childMapAll:   {}, // nodeId to L2 node object (all, incl. unassigned)
-  childToCatAll: {}, // L2 id to parent category id (all)
-  catMapAll:     {}, // cat id to category object (all)
+  // Derived lookup tables (built by buildDerivedIndexes)
+  activeL2NodeById: {},   // nodeId : active L2 node object
+  l2ToL1NodeId:     {},   // L2 id : parent L1 id
+  activeL1NodeById: {},   // L1 id : active L1 node object
+  l1Edges:          [],   // L1-level rolled-up edges
+  anyL2NodeById:    {},   // nodeId : L2 node object (all, incl. unassigned)
+  anyL1NodeById:    {},   // L1 id : L1 node object (all)
 
   // View state
   currentView:  'overview',  // 'overview' | 'category' | 'child'

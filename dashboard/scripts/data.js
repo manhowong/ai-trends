@@ -8,10 +8,10 @@ import { state, categoryColorById } from './state.js';
 
 /**
  * Fetch metadata.json + timeseries.json and store raw payloads
- * in state. Does NOT process data — call applyNormalizedData()
- * and initializeDerivedData() afterwards.
+ * in state. Does NOT process data — call buildViewModel()
+ * and buildDerivedIndexes() afterwards.
  */
-export async function loadData() {
+export async function loadDataset() {
   const [metaRes, tsRes, settingsRes] = await Promise.all([
     fetch('./data/metadata.json'),
     fetch('./data/timeseries.json'),
@@ -25,16 +25,16 @@ export async function loadData() {
   state.rawTimeseries = await tsRes.json();
 
   const settingsText = await settingsRes.text();
-  applyDashboardSettings(settingsText);
+  applySettings(settingsText);
 
-  state.dataMonths = Object.keys(state.rawTimeseries).sort();
-  if (!state.dataMonths.length) throw new Error('timeseries.json has no months');
+  state.timePoints = Object.keys(state.rawTimeseries).sort();
+  if (!state.timePoints.length) throw new Error('timeseries.json has no time points');
 
-  state.selectedStartMonth = state.dataMonths[0];
-  state.selectedEndMonth   = state.dataMonths[state.dataMonths.length - 1];
+  state.selectedStartTimePoint = state.timePoints[0];
+  state.selectedEndTimePoint   = state.timePoints[state.timePoints.length - 1];
 }
 
-function applyDashboardSettings(yamlText) {
+function applySettings(yamlText) {
   const hotnessMatch = yamlText.match(/trend_hotness_threshold:\s*([0-9.]+)/);
   const minAbsMatch  = yamlText.match(/trend_min_abs_volume:\s*([0-9.]+)/);
 
@@ -45,64 +45,64 @@ function applyDashboardSettings(yamlText) {
 
 // Timeseries helpers ----------------------------------------- 
 
-/** Return the cumulative volume (VC) for a node at a given month. */
-export function nodeVC(monthId, nodeId, level) {
-  const monthObj = state.rawTimeseries[monthId] || {};
+/** Return the cumulative volume (VC) for a node at a given time point. */
+export function getNodeCumulativeVolume(timePoint, nodeId, level) {
+  const timePointData = state.rawTimeseries[timePoint] || {};
   const nodesKey = level === 1 ? 'nodes_L1' : 'nodes_L2';
-  const nodeObj  = (monthObj[nodesKey] || {})[nodeId] || {};
+  const nodeObj  = (timePointData[nodesKey] || {})[nodeId] || {};
   return nodeObj.VC || 0;
 }
 
-/** Return the monthly volume (V) for a node at a single month. */
-export function nodeMonthlyVolume(monthId, nodeId, level) {
-  const monthObj = state.rawTimeseries[monthId] || {};
+/** Return the interval volume (V) for a node at a single time point. */
+export function getNodeVolume(timePoint, nodeId, level) {
+  const timePointData = state.rawTimeseries[timePoint] || {};
   const nodesKey = level === 1 ? 'nodes_L1' : 'nodes_L2';
-  const nodeObj  = (monthObj[nodesKey] || {})[nodeId] || {};
+  const nodeObj  = (timePointData[nodesKey] || {})[nodeId] || {};
   return nodeObj.V || 0;
 }
 
-/** Return the total monthly volume (V) across all nodes at a level. */
-export function levelMonthlyVolumeTotal(monthId, level) {
-  const monthObj = state.rawTimeseries[monthId] || {};
+/** Return the total interval volume (V) across all nodes at a level. */
+export function getTotalVolumeByLevel(timePoint, level) {
+  const timePointData = state.rawTimeseries[timePoint] || {};
   const nodesKey = level === 1 ? 'nodes_L1' : 'nodes_L2';
-  return Object.values(monthObj[nodesKey] || {})
+  return Object.values(timePointData[nodesKey] || {})
     .reduce((sum, node) => sum + (node.V || 0), 0);
 }
 
 /**
- * Sum node volume over a month range using VC (cumulative):
- *   volume = VC[endMonth] − VC[monthBefore startMonth]
+ * Sum node volume over a time-point range using VC (cumulative):
+ *   volume = VC[endTimePoint] − VC[timePointBefore startTimePoint]
  */
-export function nodeRangeVolume(nodeId, level, startIdx, endIdx) {
-  const endMonth  = state.dataMonths[endIdx];
-  const prevMonth = startIdx > 0 ? state.dataMonths[startIdx - 1] : null;
-  const endVal    = nodeVC(endMonth, nodeId, level);
-  const prevVal   = prevMonth ? nodeVC(prevMonth, nodeId, level) : 0;
+export function getNodeVolumeInRange(nodeId, level, startIdx, endIdx) {
+  const endTimePoint  = state.timePoints[endIdx];
+  const previousTimePoint = startIdx > 0 ? state.timePoints[startIdx - 1] : null;
+  const endVal        = getNodeCumulativeVolume(endTimePoint, nodeId, level);
+  const prevVal       = previousTimePoint ? getNodeCumulativeVolume(previousTimePoint, nodeId, level) : 0;
   return endVal - prevVal;
 }
 
-/** Return the cumulative co-mentions (CC) for a link at a given month. */
-export function linkCC(monthId, s, t) {
-  const monthLinks = (state.rawTimeseries[monthId] || {}).links || [];
-  const link = monthLinks.find(l =>
+/** Return the cumulative co-mentions (CC) for an edge at a given time point. */
+export function getEdgeCumulativeVolume(timePoint, s, t) {
+  const timePointEdges = (state.rawTimeseries[timePoint] || {}).links || [];
+  const link = timePointEdges.find(l =>
     (l.S === s && l.T === t) || (l.S === t && l.T === s)
   );
   return link ? (link.CC || 0) : 0;
 }
 
 /**
- * Compute CC over a month range for a link pair:
- *   CC_range = CC[endMonth] − CC[monthBefore startMonth]
+ * Compute CC over a time-point range for an edge pair:
+ *   CC_range = CC[endTimePoint] − CC[timePointBefore startTimePoint]
  */
-export function linkRangeCC(s, t, startIdx, endIdx) {
-  const endMonth  = state.dataMonths[endIdx];
-  const prevMonth = startIdx > 0 ? state.dataMonths[startIdx - 1] : null;
-  const endVal    = linkCC(endMonth, s, t);
-  const prevVal   = prevMonth ? linkCC(prevMonth, s, t) : 0;
+export function getEdgeVolumeInRange(s, t, startIdx, endIdx) {
+  const endTimePoint  = state.timePoints[endIdx];
+  const previousTimePoint = startIdx > 0 ? state.timePoints[startIdx - 1] : null;
+  const endVal        = getEdgeCumulativeVolume(endTimePoint, s, t);
+  const prevVal       = previousTimePoint ? getEdgeCumulativeVolume(previousTimePoint, s, t) : 0;
   return endVal - prevVal;
 }
 
-export function toTrend(hotness, rangeVolume) {
+export function getTrendDirection(hotness, rangeVolume) {
   const minAbs = Math.max(0, state.trendMinAbsVolume || 0);
   if (rangeVolume < minAbs) return 0;
   const threshold = Math.abs(state.trendHotnessThreshold || 0);
@@ -116,13 +116,13 @@ export function percentChange(startValue, endValue) {
   return Math.round(((endValue - startValue) / startValue) * 100);
 }
 
-export function nodeMonthlySharePercentChange(monthStart, monthEnd, nodeId, level) {
-  const startTotal = levelMonthlyVolumeTotal(monthStart, level);
-  const endTotal   = levelMonthlyVolumeTotal(monthEnd, level);
+export function computeSharePercentChange(startTimePoint, endTimePoint, nodeId, level) {
+  const startTotal = getTotalVolumeByLevel(startTimePoint, level);
+  const endTotal   = getTotalVolumeByLevel(endTimePoint, level);
   if (startTotal <= 0 || endTotal <= 0) return 0;
 
-  const startShare = nodeMonthlyVolume(monthStart, nodeId, level) / startTotal;
-  const endShare   = nodeMonthlyVolume(monthEnd, nodeId, level) / endTotal;
+  const startShare = getNodeVolume(startTimePoint, nodeId, level) / startTotal;
+  const endShare   = getNodeVolume(endTimePoint, nodeId, level) / endTotal;
   return percentChange(startShare, endShare);
 }
 
@@ -130,46 +130,46 @@ export function nodeMonthlySharePercentChange(monthStart, monthEnd, nodeId, leve
 // Normalisation ---------------------------------------------- 
 
 /**
- * Derive state.cats / state.childEdges / state.keywordData from
+ * Derive state.activeL1Nodes / state.l2Edges / state.keywordsByNode from
  * the raw JSON payloads and the selected date range.
  */
-export function applyNormalizedData() {
+export function buildViewModel() {
   const nodes      = (state.rawMetadata || {}).nodes || {};
   const timeseries = state.rawTimeseries || {};
   const threshold  = Math.max(1, parseInt(state.paperThreshold, 10) || 1);
 
-  const startIdx = state.dataMonths.indexOf(state.selectedStartMonth);
-  const endIdx   = state.dataMonths.indexOf(state.selectedEndMonth);
+  const startIdx = state.timePoints.indexOf(state.selectedStartTimePoint);
+  const endIdx   = state.timePoints.indexOf(state.selectedEndTimePoint);
   if (startIdx < 0 || endIdx < 0 || startIdx > endIdx) return;
 
-  state.keywordData = {};
+  state.keywordsByNode = {};
 
   // Separate L1 (category) and L2 (topic) nodes 
-  const categoryMeta = [];   // { id, name }
-  const topicMeta    = [];   // { id, name, parentId }
+  const l1NodeMetadata = [];   // { id, name }
+  const l2NodeMetadata = [];   // { id, name, parentId }
 
   Object.entries(nodes).forEach(([id, node]) => {
-    if (node.L === 1) categoryMeta.push({ id, name: node.N });
-    if (node.L === 2) topicMeta.push({ id, name: node.N, parentId: node.P });
+    if (node.L === 1) l1NodeMetadata.push({ id, name: node.N });
+    if (node.L === 2) l2NodeMetadata.push({ id, name: node.N, parentId: node.P });
   });
 
-  // Build L2 children grouped by parent category
-  const childrenByCategory = {};
-  const childrenByCategoryAll = {};  // All data, including topics with 0 count or below paper threshold
-  categoryMeta.forEach(cat => {
-    childrenByCategory[cat.id] = [];
-    childrenByCategoryAll[cat.id] = [];
+  // Build L2 children grouped by parent L1 node
+  const activeL2NodesByL1Id = {};
+  const anyL2NodesByL1Id = {};  // All data, including nodes with 0 count or below paper threshold
+  l1NodeMetadata.forEach(cat => {
+    activeL2NodesByL1Id[cat.id] = [];
+    anyL2NodesByL1Id[cat.id] = [];
   });
 
-  topicMeta.forEach(topic => {
-    const papers = nodeRangeVolume(topic.id, 2, startIdx, endIdx);
+  l2NodeMetadata.forEach(topic => {
+    const volume = getNodeVolumeInRange(topic.id, 2, startIdx, endIdx);
 
-    const startMonthVolume = nodeMonthlyVolume(state.dataMonths[startIdx], topic.id, 2);
-    const endMonthVolume   = nodeMonthlyVolume(state.dataMonths[endIdx],   topic.id, 2);
-    const delta            = endMonthVolume - startMonthVolume;
-    const hotness          = nodeMonthlySharePercentChange(
-      state.dataMonths[startIdx],
-      state.dataMonths[endIdx],
+    const startTimePointVolume = getNodeVolume(state.timePoints[startIdx], topic.id, 2);
+    const endTimePointVolume   = getNodeVolume(state.timePoints[endIdx],   topic.id, 2);
+    const volumeChange         = endTimePointVolume - startTimePointVolume;
+    const hotness              = computeSharePercentChange(
+      state.timePoints[startIdx],
+      state.timePoints[endIdx],
       topic.id,
       2,
     );
@@ -177,74 +177,74 @@ export function applyNormalizedData() {
     const child = {
       id:      topic.id,
       name:    topic.name,
-      papers,
-      trend:   toTrend(hotness, papers),
+      volume,
+      trend:   getTrendDirection(hotness, volume),
       hotness,
-      delta,
-      isUnassigned: papers <= 0,
+      volumeChange,
+      isUnassigned: volume <= 0,
     };
 
-    if (!childrenByCategoryAll[topic.parentId]) childrenByCategoryAll[topic.parentId] = [];
-    childrenByCategoryAll[topic.parentId].push(child); // Does not check for paper count; include all topics even with 0 count
+    if (!anyL2NodesByL1Id[topic.parentId]) anyL2NodesByL1Id[topic.parentId] = [];
+    anyL2NodesByL1Id[topic.parentId].push(child); // Does not check for volume; include all topics even with 0 count
 
-    if (papers >= threshold) {
-      if (!childrenByCategory[topic.parentId]) childrenByCategory[topic.parentId] = [];
-      childrenByCategory[topic.parentId].push(child); // Only topics with paper count >= threshold
+    if (volume >= threshold) {
+      if (!activeL2NodesByL1Id[topic.parentId]) activeL2NodesByL1Id[topic.parentId] = [];
+      activeL2NodesByL1Id[topic.parentId].push(child); // Only topics with volume >= threshold
     }
   });
 
-  state.catsAll = categoryMeta
+  state.anyL1Nodes = l1NodeMetadata
     .map((cat, i) => ({
       id:       cat.id,
       name:     cat.name,
       color:    categoryColorById[cat.id] ||
                 ['#be185d', '#7c3aed', '#0d9488', '#0369a1', '#b45309'][i % 5],
-      children: childrenByCategoryAll[cat.id] || [],
+      children: anyL2NodesByL1Id[cat.id] || [],
     }));
 
-  state.cats = categoryMeta
+  state.activeL1Nodes = l1NodeMetadata
     .map((cat, i) => ({
       id:       cat.id,
       name:     cat.name,
       color:    categoryColorById[cat.id] ||
                 ['#be185d', '#7c3aed', '#0d9488', '#0369a1', '#b45309'][i % 5],
-      children: childrenByCategory[cat.id] || [],
+      children: activeL2NodesByL1Id[cat.id] || [],
     }))
     .filter(cat => cat.children.length > 0);
 
-  const visibleTopicIds = new Set();
-  state.cats.forEach(cat => cat.children.forEach(ch => visibleTopicIds.add(ch.id)));
+  const activeL2NodeIds = new Set();
+  state.activeL1Nodes.forEach(cat => cat.children.forEach(ch => activeL2NodeIds.add(ch.id)));
 
   // Build keyword data by summing K[].V across the range
-  const kwAccumulator = {};  // topicId → kwName → { papers, startV, endV }
+  const keywordStatsAccumulator = {};  // nodeId → kwName → { volume, startV, endV }
 
   for (let i = startIdx; i <= endIdx; i++) {
-    const monthStr = state.dataMonths[i];
-    const monthL2  = (timeseries[monthStr] || {}).nodes_L2 || {};
+    const timePoint = state.timePoints[i];
+    const timePointData  = (timeseries[timePoint] || {}).nodes_L2 || {};
 
-    Object.entries(monthL2).forEach(([nodeId, nodeData]) => {
-      if (!visibleTopicIds.has(nodeId)) return;
+    Object.entries(timePointData).forEach(([nodeId, nodeData]) => {
+      if (!activeL2NodeIds.has(nodeId)) return;
       (nodeData.K || []).forEach(kw => {
-        if (!kwAccumulator[nodeId])       kwAccumulator[nodeId]       = {};
-        if (!kwAccumulator[nodeId][kw.N]) kwAccumulator[nodeId][kw.N] = { papers: 0, startV: 0, endV: 0 };
+        if (!keywordStatsAccumulator[nodeId]) keywordStatsAccumulator[nodeId] = {};
+        if (!keywordStatsAccumulator[nodeId][kw.N]) keywordStatsAccumulator[nodeId][kw.N] = { volume: 0, startV: 0, endV: 0 };
 
-        kwAccumulator[nodeId][kw.N].papers += (kw.V || 0);
-        if (i === startIdx) kwAccumulator[nodeId][kw.N].startV = kw.V || 0;
-        if (i === endIdx)   kwAccumulator[nodeId][kw.N].endV   = kw.V || 0;
+        keywordStatsAccumulator[nodeId][kw.N].volume += (kw.V || 0);
+        if (i === startIdx) keywordStatsAccumulator[nodeId][kw.N].startV = kw.V || 0;
+        if (i === endIdx)   keywordStatsAccumulator[nodeId][kw.N].endV   = kw.V || 0;
       });
     });
   }
 
-  Object.entries(kwAccumulator).forEach(([topicId, kwMap]) => {
+  Object.entries(keywordStatsAccumulator).forEach(([nodeId, kwMap]) => {
     Object.entries(kwMap).forEach(([kwName, stats]) => {
-      if (stats.papers <= 0) return;
-      if (!state.keywordData[topicId]) state.keywordData[topicId] = [];
+      if (stats.volume <= 0) return;
+      if (!state.keywordsByNode[nodeId]) state.keywordsByNode[nodeId] = [];
       const kwHotness = percentChange(stats.startV, stats.endV);
-      state.keywordData[topicId].push({
-        id:     `${topicId}--${kwName}`,
+      state.keywordsByNode[nodeId].push({
+        id:     `${nodeId}--${kwName}`,
         name:   kwName,
-        papers: stats.papers,
-        trend:  toTrend(kwHotness, stats.papers),
+        volume: stats.volume,
+        trend:  getTrendDirection(kwHotness, stats.volume),
       });
     });
   });
@@ -256,21 +256,21 @@ export function applyNormalizedData() {
   const linkPairKeys = new Set();
 
   for (let i = startIdx; i <= endIdx; i++) {
-    const monthLinks = (timeseries[state.dataMonths[i]] || {}).links || [];
-    monthLinks.forEach(link => {
+    const timePointEdges = (timeseries[state.timePoints[i]] || {}).links || [];
+    timePointEdges.forEach(link => {
       const s = link.S, t = link.T;
       if (!s || !t) return;
-      if (!visibleTopicIds.has(s) || !visibleTopicIds.has(t)) return;
+      if (!activeL2NodeIds.has(s) || !activeL2NodeIds.has(t)) return;
       linkPairKeys.add([s, t].sort().join('|'));
     });
   }
 
-  state.childEdges = [...linkPairKeys].map(key => {
+  state.l2Edges = [...linkPairKeys].map(key => {
     const [s, t] = key.split('|');
-    const cc     = linkRangeCC(s, t, startIdx, endIdx);
+    const cc     = getEdgeVolumeInRange(s, t, startIdx, endIdx);
     if (cc <= 0) return null;
-    const vcA  = nodeRangeVolume(s, 2, startIdx, endIdx);
-    const vcB  = nodeRangeVolume(t, 2, startIdx, endIdx);
+    const vcA  = getNodeVolumeInRange(s, 2, startIdx, endIdx);
+    const vcB  = getNodeVolumeInRange(t, 2, startIdx, endIdx);
     const denom = vcA + vcB;
     const dice  = denom > 0 ? (2 * cc) / denom : 0;
     return { s, t, w: dice };
@@ -281,63 +281,62 @@ export function applyNormalizedData() {
 // Derived lookup tables -------------------------------------- 
 
 /**
- * Populate state.childMap / childToCat / catMap / parentEdges
- * from state.cats and state.childEdges.
- * Must be called after applyNormalizedData().
+ * Populate state.activeL2NodeById / state.l2ToL1NodeId / state.activeL1NodeById / state.l1Edges
+ * from state.activeL1Nodes and state.l2Edges.
+ * Must be called after buildViewModel().
  */
-export function initializeDerivedData() {
+export function buildDerivedIndexes() {
   // Clear existing entries in-place
-  Object.keys(state.childMap).forEach(k => delete state.childMap[k]);
-  Object.keys(state.childToCat).forEach(k => delete state.childToCat[k]);
-  Object.keys(state.catMap).forEach(k => delete state.catMap[k]);
-  Object.keys(state.childMapAll).forEach(k => delete state.childMapAll[k]);
-  Object.keys(state.childToCatAll).forEach(k => delete state.childToCatAll[k]);
-  Object.keys(state.catMapAll).forEach(k => delete state.catMapAll[k]);
+  Object.keys(state.activeL2NodeById).forEach(k => delete state.activeL2NodeById[k]);
+  Object.keys(state.l2ToL1NodeId).forEach(k => delete state.l2ToL1NodeId[k]);
+  Object.keys(state.activeL1NodeById).forEach(k => delete state.activeL1NodeById[k]);
+  Object.keys(state.anyL2NodeById).forEach(k => delete state.anyL2NodeById[k]);
+  Object.keys(state.anyL1NodeById).forEach(k => delete state.anyL1NodeById[k]);
 
-  function buildMaps(cats, childMap, childToCat, catMap) {
-    cats.forEach(cat => {
-      cat.totalpapers = 0;
+  function buildMaps(l1Nodes, l2NodeById, l1NodeById, l2ToL1NodeId = null) {
+    l1Nodes.forEach(cat => {
+      cat.volume = 0;
 
       cat.children.forEach(child => {
         child.catId   = cat.id;
         child.catName = cat.name;
         child.color   = cat.color;
 
-        childMap[child.id]   = child;
-        childToCat[child.id] = cat.id;
-        cat.totalpapers     += child.papers;
+        l2NodeById[child.id] = child;
+        if (l2ToL1NodeId) l2ToL1NodeId[child.id] = cat.id;
+        cat.volume += child.volume;
       });
 
-      cat.delta  = nodeMonthlyVolume(state.selectedEndMonth, cat.id, 1)
-                 - nodeMonthlyVolume(state.selectedStartMonth, cat.id, 1);
-      cat.hotness = nodeMonthlySharePercentChange(
-        state.selectedStartMonth,
-        state.selectedEndMonth,
+      cat.volumeChange = getNodeVolume(state.selectedEndTimePoint, cat.id, 1)
+                       - getNodeVolume(state.selectedStartTimePoint, cat.id, 1);
+      cat.hotness = computeSharePercentChange(
+        state.selectedStartTimePoint,
+        state.selectedEndTimePoint,
         cat.id,
         1,
       );
-      cat.trend   = toTrend(cat.hotness, cat.totalpapers);
-      cat.isUnassigned = cat.totalpapers <= 0;
+      cat.trend   = getTrendDirection(cat.hotness, cat.volume);
+      cat.isUnassigned = cat.volume <= 0;
 
-      catMap[cat.id] = cat;
+      l1NodeById[cat.id] = cat;
     });
   }
 
-  buildMaps(state.cats, state.childMap, state.childToCat, state.catMap);
-  buildMaps(state.catsAll, state.childMapAll, state.childToCatAll, state.catMapAll);
+  buildMaps(state.activeL1Nodes, state.activeL2NodeById, state.activeL1NodeById, state.l2ToL1NodeId);
+  buildMaps(state.anyL1Nodes, state.anyL2NodeById, state.anyL1NodeById);
 
   // Roll L2 edges up to category-level
-  const parentEdgeMap = {};
-  state.childEdges.forEach(edge => {
-    const srcCat = state.childToCat[edge.s];
-    const tgtCat = state.childToCat[edge.t];
+  const l1EdgeMap = {};
+  state.l2Edges.forEach(edge => {
+    const srcCat = state.l2ToL1NodeId[edge.s];
+    const tgtCat = state.l2ToL1NodeId[edge.t];
     if (srcCat && tgtCat && srcCat !== tgtCat) {
       const key = [srcCat, tgtCat].sort().join('|');
-      parentEdgeMap[key] = (parentEdgeMap[key] || 0) + edge.w;
+      l1EdgeMap[key] = (l1EdgeMap[key] || 0) + edge.w;
     }
   });
 
-  state.parentEdges = Object.entries(parentEdgeMap).map(([key, w]) => {
+  state.l1Edges = Object.entries(l1EdgeMap).map(([key, w]) => {
     const [s, t] = key.split('|');
     return { s, t, w };
   });
