@@ -4,7 +4,7 @@
 
 import { state } from '../state.js';
 import { buildAdjMap, renderChart } from '../chart/chart.js';
-import { updateRightPanel } from '../info-panel.js';
+import { updateInfoPanel } from '../info-panel.js';
 import { renderBreadcrumb } from '../ui/breadcrumb.js';
 import { buildL1ChartView, buildL2ChartView, buildOverviewChartView } from '../chart/chart-views.js';
 
@@ -15,7 +15,7 @@ function applyChartView({ nodes, edges, nodeSizeMax, nodeSizeTotal }) {
   state.curEdges = edges;
   state.curAdjMap = buildAdjMap(edges);
   renderChart(nodes, edges);
-  updateRightPanel();
+  updateInfoPanel();
 }
 
 function updateBreadcrumb() {

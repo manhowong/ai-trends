@@ -204,7 +204,7 @@ export function initializeRichStyles() {
 
 export function getChartCenter() {
 // Center by chart
-// The right panel overlays the right ~33% of the canvas.
+// The Info Panel overlays the right ~33% of the canvas.
 // Visual centre of the free area = ~33% from the left.
 // When collapsed the true canvas centre (50%) is used.
 

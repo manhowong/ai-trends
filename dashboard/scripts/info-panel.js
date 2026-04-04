@@ -22,7 +22,7 @@ export function setPanelContent(boxId, title, sortHTML, contentHTML) {
 export function setSortMode(level, mode) {
   if (level === 1) state.level1SortMode = mode;
   if (level === 2) state.level2SortMode = mode;
-  updateRightPanel();
+  updateInfoPanel();
 }
 
 export function buildSortDropdown(level, modes, activeMode) {
@@ -264,7 +264,7 @@ export function renderL2NodePanel() {
   );
 }
 
-export function updateRightPanel() {
+export function updateInfoPanel() {
   if (state.currentView === 'overview') renderOverviewPanel();
   if (state.currentView === 'l1') renderL1NodePanel();
   if (state.currentView === 'l2') renderL2NodePanel();

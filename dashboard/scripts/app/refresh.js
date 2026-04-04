@@ -4,7 +4,7 @@
 
 import { state } from '../state.js';
 import { buildAdjMap, renderChart } from '../chart/chart.js';
-import { updateRightPanel } from '../info-panel.js';
+import { updateInfoPanel } from '../info-panel.js';
 import { showCurrentL1Node, showCurrentL2Node, showOverview } from './view-coordination.js';
 
 export function refreshCurrentView() {
@@ -16,7 +16,7 @@ export function refreshCurrentView() {
       state.curEdges = [];
       state.curAdjMap = buildAdjMap([]);
       renderChart([], []);
-      return updateRightPanel();
+      return updateInfoPanel();
     }
 
     return showCurrentL1Node(state.currentL1NodeId);
@@ -28,7 +28,7 @@ export function refreshCurrentView() {
       state.curEdges = [];
       state.curAdjMap = buildAdjMap([]);
       renderChart([], []);
-      return updateRightPanel();
+      return updateInfoPanel();
     }
 
     return showCurrentL2Node(state.currentL2NodeId);
