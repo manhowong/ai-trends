@@ -3,7 +3,7 @@
                rich-label styles, fit-screen, font-size control
    ============================================================ */
 
-import { state, DEFAULT_FONT_SIZE } from './state.js';
+import { state, DEFAULT_FONT_SIZE } from '../state.js';
 
 let themeVars = null;
 

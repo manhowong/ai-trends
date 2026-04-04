@@ -10,7 +10,7 @@ import {
   sortByMetric,
   sortByMetricSelector,
 } from './data/data-helpers.js';
-import { trendColor, formatCount } from './chart.js';
+import { trendColor, formatCount } from './chart/chart.js';
 import { L1_NODES_LABEL, L2_NODES_LABEL } from './ui/ui-text.js';
 
 export function setPanelContent(boxId, title, sortHTML, contentHTML) {

@@ -6,8 +6,7 @@
 // main.js and add `runIntroTour();` at the end of the function `initializeApp()`
 
 import { state } from './state.js';
-import { echart } from './chart.js';
-import { goOverview, focusL1Node, focusL2Node } from './views.js';
+import { goOverview, focusL1Node, focusL2Node } from './app/view-coordination.js';
 
 let introPlayed = false;
 

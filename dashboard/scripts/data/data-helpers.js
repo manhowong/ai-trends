@@ -76,3 +76,58 @@ export function sortByMetric(items, metricName, fallbackMetricName = null) {
 export function sortByMetricSelector(items, getMetricValue) {
   return [...items].sort((a, b) => getMetricValue(b) - getMetricValue(a));
 }
+
+export function buildSearchRecords(state, fallbackBadgeColor) {
+  const results = [];
+
+  state.anyL1Nodes.forEach(l1Node => {
+    results.push({
+      id: l1Node.id,
+      name: l1Node.name,
+      level: 1,
+      volume: l1Node.volume,
+      trend: l1Node.trend,
+      badgeText: null,
+      badgeColor: null,
+      disabled: !!l1Node.isUnassigned,
+    });
+  });
+
+  Object.values(state.anyL2NodeById).forEach(l2Node => {
+    const l1Node = state.anyL1NodeById[l2Node.l1NodeId];
+    results.push({
+      id: l2Node.id,
+      name: l2Node.name,
+      level: 2,
+      kind: 'l2Node',
+      volume: l2Node.volume,
+      thresholdVolume: l2Node.volume,
+      trend: l2Node.trend,
+      badgeText: l1Node ? l1Node.name : '',
+      badgeColor: l1Node ? l1Node.badgeColor : fallbackBadgeColor,
+      disabled: !!l2Node.isUnassigned,
+    });
+  });
+
+  Object.entries(state.keywordsByNode).forEach(([l2NodeId, keywords]) => {
+    const l2Node = state.anyL2NodeById[l2NodeId];
+    if (!l2Node) return;
+
+    keywords.forEach(keyword => {
+      results.push({
+        id: l2NodeId,
+        name: keyword.name,
+        level: 2,
+        kind: 'keyword',
+        volume: keyword.volume,
+        thresholdVolume: l2Node.volume,
+        trend: keyword.trend,
+        badgeText: l2Node.name,
+        badgeColor: l2Node.badgeColor || fallbackBadgeColor,
+        disabled: !!l2Node.isUnassigned,
+      });
+    });
+  });
+
+  return results;
+}

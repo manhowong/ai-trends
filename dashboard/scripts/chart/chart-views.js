@@ -1,81 +1,22 @@
 /* ============================================================
-   views.js — View transitions and breadcrumb navigation
+   chart-views.js - Build chart view payloads
    ============================================================ */
 
-import { state, EDGE_WIDTH_SCALE } from './state.js';
-import { groupNodeIdsByL1NodeId } from './data/data-helpers.js';
-import {
-  trendColor,
-  themeVar, makeLabel, nodeSize, buildAdjMap,
-  renderChart,
-} from './chart.js';
-import { updateRightPanel } from './panel.js';
+import { EDGE_WIDTH_SCALE, state } from '../state.js';
+import { groupNodeIdsByL1NodeId } from '../data/data-helpers.js';
+import { makeLabel, nodeSize, themeVar, trendColor } from '../chart/chart.js';
 
-function formatCountShort(n) {
-  if (n >= 1000) {
-    const kVal = Math.round(n / 100) / 10;
-    return Number.isInteger(kVal) ? `${kVal.toFixed(0)}k` : `${kVal.toFixed(1)}k`;
-  }
-  return String(n);
-}
-
-function makeBreadcrumbSegment(container, label, clickable, onclickFn) {
-  const segment = document.createElement('span');
-  segment.textContent = label;
-  segment.className = `breadcrumb-segment ${clickable ? 'clickable' : 'active'}`;
-  if (clickable && onclickFn) segment.onclick = onclickFn;
-  container.appendChild(segment);
-}
-
-function makeBreadcrumbSeparator(container) {
-  const separator = document.createElement('span');
-  separator.textContent = '>';
-  separator.className = 'breadcrumb-sep';
-  container.appendChild(separator);
-}
-
-export function updateTreeBreadcrumb() {
-  const container = document.getElementById('treeItems');
-  container.innerHTML = '';
-
-  makeBreadcrumbSegment(container, 'Overview', state.currentView !== 'overview', goOverview);
-
-  if (state.currentView === 'l1' || state.currentView === 'l2') {
-    makeBreadcrumbSeparator(container);
-    const currentL1Node = state.activeL1NodeById[state.currentL1NodeId];
-    makeBreadcrumbSegment(
-      container,
-      currentL1Node.name,
-      state.currentView === 'l2',
-      () => focusL1Node(currentL1Node.id),
-    );
-  }
-
-  if (state.currentView === 'l2') {
-    makeBreadcrumbSeparator(container);
-    const currentL2Node = state.activeL2NodeById[state.currentL2NodeId];
-    makeBreadcrumbSegment(
-      container,
-      `${currentL2Node.name} (${formatCountShort(currentL2Node.volume || 0)})`,
-      false,
-      null,
-    );
-  }
-}
-
-export function goOverview() {
-  document.getElementById('toggleIntraEdges').disabled = true;
-  state.currentView = 'overview';
-  state.currentL1NodeId = null;
-  state.currentL2NodeId = null;
-  state.hoveredNode = null;
-  updateTreeBreadcrumb();
-
+export function buildOverviewChartView() {
   const maxEdgeWidth = Math.max(...state.l1Edges.map(edge => edge.w), 1);
-  state.nodeSizeMax = Math.max(...state.activeL1Nodes.map(node => node.volume), 1);
-  state.nodeSizeTotal = state.activeL1Nodes.reduce((sum, node) => sum + (node.volume || 0), 0);
+  const nodeSizeMax = Math.max(...state.activeL1Nodes.map(node => node.volume), 1);
+  const nodeSizeTotal = state.activeL1Nodes.reduce((sum, node) => sum + (node.volume || 0), 0);
 
-  const l1NodeItems = state.activeL1Nodes.map(l1Node => {
+  // nodeSize() reads from state, so prime the current sizing inputs
+  // before building the chart nodes for the initial render.
+  state.nodeSizeMax = nodeSizeMax;
+  state.nodeSizeTotal = nodeSizeTotal;
+
+  const nodes = state.activeL1Nodes.map(l1Node => {
     const nodeColor = trendColor(l1Node.trend);
     const itemStyle = {
       color: nodeColor,
@@ -110,8 +51,7 @@ export function goOverview() {
     };
   });
 
-  const visibleEdges = state.showCrossEdges ? state.l1Edges : [];
-  const edges = visibleEdges.map(edge => ({
+  const edges = (state.showCrossEdges ? state.l1Edges : []).map(edge => ({
     source: edge.s,
     target: edge.t,
     lineStyle: {
@@ -123,22 +63,10 @@ export function goOverview() {
     _origColor: themeVar('edgeCross'),
   }));
 
-  state.curNodes = l1NodeItems;
-  state.curEdges = edges;
-  state.curAdjMap = buildAdjMap(edges);
-  renderChart(l1NodeItems, edges);
-  updateRightPanel();
+  return { nodes, edges, nodeSizeMax, nodeSizeTotal };
 }
 
-export function focusL1Node(l1NodeId) {
-  document.getElementById('toggleIntraEdges').disabled = false;
-
-  state.currentView = 'l1';
-  state.currentL1NodeId = l1NodeId;
-  state.currentL2NodeId = null;
-  state.hoveredNode = null;
-  updateTreeBreadcrumb();
-
+export function buildL1ChartView(l1NodeId) {
   const currentL1Node = state.activeL1NodeById[l1NodeId];
   const currentL2NodeIds = new Set(currentL1Node.children.map(node => node.id));
 
@@ -153,10 +81,13 @@ export function focusL1Node(l1NodeId) {
     if (!currentL2NodeIds.has(edge.t)) externalL2NodeIds.add(edge.t);
   });
 
-  state.nodeSizeMax = Math.max(...currentL1Node.children.map(node => node.volume), 1);
-  state.nodeSizeTotal = currentL1Node.children.reduce((sum, node) => sum + (node.volume || 0), 0);
+  const nodeSizeMax = Math.max(...currentL1Node.children.map(node => node.volume), 1);
+  const nodeSizeTotal = currentL1Node.children.reduce((sum, node) => sum + (node.volume || 0), 0);
 
-  const l2NodeItems = currentL1Node.children.map(l2Node => {
+  state.nodeSizeMax = nodeSizeMax;
+  state.nodeSizeTotal = nodeSizeTotal;
+
+  const nodes = currentL1Node.children.map(l2Node => {
     const nodeColor = trendColor(l2Node.trend);
     const itemStyle = {
       color: nodeColor,
@@ -208,7 +139,7 @@ export function focusL1Node(l1NodeId) {
           opacity: 0.35,
         };
 
-        l2NodeItems.push({
+        nodes.push({
           id: externalL2Node.id,
           symbolSize: nodeSize(externalL2Node.volume, 'l1') * 0.7,
           itemStyle: { ...itemStyle },
@@ -267,38 +198,29 @@ export function focusL1Node(l1NodeId) {
     })),
   ];
 
-  state.curNodes = l2NodeItems;
-  state.curEdges = edges;
-  state.curAdjMap = buildAdjMap(edges);
-  renderChart(l2NodeItems, edges);
-  updateRightPanel();
+  return { nodes, edges, nodeSizeMax, nodeSizeTotal };
 }
 
-export function focusL2Node(l2NodeId) {
-  document.getElementById('toggleIntraEdges').disabled = false;
-
-  state.currentView = 'l2';
-  state.currentL2NodeId = l2NodeId;
-  state.hoveredNode = null;
-
+export function buildL2ChartView(l2NodeId) {
   const focusedL2Node = state.activeL2NodeById[l2NodeId];
-  const currentL1Node = state.activeL1NodeById[focusedL2Node.l1NodeId];
-  state.currentL1NodeId = currentL1Node.id;
-  updateTreeBreadcrumb();
-
   const connectedL2Edges = state.l2Edges.filter(edge => edge.s === l2NodeId || edge.t === l2NodeId);
   const connectedL2NodeIds = new Set();
+
   connectedL2Edges.forEach(edge => {
     connectedL2NodeIds.add(edge.s);
     connectedL2NodeIds.add(edge.t);
   });
+
   connectedL2NodeIds.delete(l2NodeId);
 
   const visibleL2NodeIds = [l2NodeId, ...connectedL2NodeIds];
-  state.nodeSizeMax = Math.max(...visibleL2NodeIds.map(id => state.activeL2NodeById[id]?.volume || 0), 1);
-  state.nodeSizeTotal = visibleL2NodeIds.reduce((sum, id) => sum + (state.activeL2NodeById[id]?.volume || 0), 0);
+  const nodeSizeMax = Math.max(...visibleL2NodeIds.map(id => state.activeL2NodeById[id]?.volume || 0), 1);
+  const nodeSizeTotal = visibleL2NodeIds.reduce((sum, id) => sum + (state.activeL2NodeById[id]?.volume || 0), 0);
 
-  const l2NodeItems = visibleL2NodeIds.map(id => {
+  state.nodeSizeMax = nodeSizeMax;
+  state.nodeSizeTotal = nodeSizeTotal;
+
+  const nodes = visibleL2NodeIds.map(id => {
     const l2Node = state.activeL2NodeById[id];
     const l1Node = state.activeL1NodeById[state.l2ToL1NodeId[id]];
     const isFocusedL2Node = id === l2NodeId;
@@ -339,6 +261,7 @@ export function focusL2Node(l2NodeId) {
     if (!sameL1Node && !state.showCrossEdges) return false;
     return true;
   });
+
   const maxEdgeWidth = Math.max(...visibleEdges.map(edge => edge.w), 1);
   const edges = visibleEdges.map(edge => ({
     source: edge.s,
@@ -352,9 +275,11 @@ export function focusL2Node(l2NodeId) {
     _origColor: themeVar('edgeIntra'),
   }));
 
-  state.curNodes = l2NodeItems;
-  state.curEdges = edges;
-  state.curAdjMap = buildAdjMap(edges);
-  renderChart(l2NodeItems, edges);
-  updateRightPanel();
+  return {
+    nodes,
+    edges,
+    nodeSizeMax,
+    nodeSizeTotal,
+    currentL1NodeId: focusedL2Node.l1NodeId,
+  };
 }

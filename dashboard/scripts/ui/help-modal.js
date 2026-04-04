@@ -1,8 +1,8 @@
 /* ============================================================
-   help.js — Help modal: load content pages into overlay
+   help-modal.js — Help modal: load content pages into overlay
    ============================================================ */
 
-import { closeModal, openModal, registerModal } from './ui/modal-controller.js';
+import { closeModal, openModal, registerModal } from './modal-controller.js';
 
 export function initHelp() {
   const overlay = document.getElementById('help-overlay');
@@ -23,8 +23,8 @@ export function initHelp() {
   titleEl.textContent = 'Help';
 
   const clearHighlights = () => {
-    contentEl.querySelectorAll(`.${HIGHLIGHT_CLASS}`).forEach(el => {
-      el.classList.remove(HIGHLIGHT_CLASS);
+    contentEl.querySelectorAll(`.${HIGHLIGHT_CLASS}`).forEach(element => {
+      element.classList.remove(HIGHLIGHT_CLASS);
     });
   };
 
@@ -42,13 +42,16 @@ export function initHelp() {
       contentEl.scrollTop = 0;
       return;
     }
+
     const escapedId = window.CSS?.escape ? CSS.escape(sectionId) : sectionId;
     const selector = `#${escapedId}`;
     const target = contentEl.querySelector(selector);
+
     if (!target) {
       contentEl.scrollTop = 0;
       return;
     }
+
     const headerHeight = document.getElementById('help-header')?.offsetHeight || 0;
     const top = Math.max(0, target.offsetTop - headerHeight - SCROLL_OFFSET_PX);
     contentEl.scrollTo({ top, behavior: 'smooth' });
@@ -57,6 +60,7 @@ export function initHelp() {
 
   const openHelp = async (helpId, sectionId) => {
     if (!helpId) return;
+
     helpRequestToken += 1;
     const requestToken = helpRequestToken;
     openModal('help');
@@ -64,18 +68,21 @@ export function initHelp() {
     topBtn.classList.remove('is-visible');
 
     try {
-      const res = await fetch(`./docs/html/${helpId}.html`);
-      if (!res.ok) throw new Error(`Failed to load ${helpId}`);
-      const html = await res.text();
+      const response = await fetch(`./docs/html/${helpId}.html`);
+      if (!response.ok) throw new Error(`Failed to load ${helpId}`);
+      const html = await response.text();
       if (requestToken !== helpRequestToken) return;
+
       const doc = new DOMParser().parseFromString(html, 'text/html');
       contentEl.innerHTML = doc.body ? doc.body.innerHTML : html;
+
       if (window.MathJax?.typesetPromise) {
         await window.MathJax.typesetPromise([contentEl]);
         if (requestToken !== helpRequestToken) return;
       }
+
       scrollToSection(sectionId);
-    } catch (err) {
+    } catch (error) {
       if (requestToken !== helpRequestToken) return;
       contentEl.innerHTML = '<p class="empty-state">Unable to load help content.</p>';
     }
@@ -87,9 +94,11 @@ export function initHelp() {
 
   const extractHashId = link => {
     if (!link) return null;
+
     const href = link.getAttribute('href');
     if (!href) return null;
     if (href.startsWith('#')) return href.slice(1);
+
     try {
       const url = new URL(href, window.location.href);
       if (url.pathname === window.location.pathname && url.hash) {
@@ -98,6 +107,7 @@ export function initHelp() {
     } catch {
       return null;
     }
+
     return null;
   };
 
@@ -106,11 +116,11 @@ export function initHelp() {
     openHelp(icon.dataset.help, icon.dataset.helpSection);
   };
 
-  contentEl.addEventListener('click', e => {
-    const link = e.target.closest('a');
+  contentEl.addEventListener('click', event => {
+    const link = event.target.closest('a');
     const sectionId = extractHashId(link);
     if (!sectionId) return;
-    e.preventDefault();
+    event.preventDefault();
     scrollToSection(sectionId);
   });
 
@@ -126,15 +136,15 @@ export function initHelp() {
     contentEl.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  document.addEventListener('click', e => {
-    const icon = e.target.closest('help-icon');
+  document.addEventListener('click', event => {
+    const icon = event.target.closest('help-icon');
     handleHelpIcon(icon);
   });
 
-  document.addEventListener('keydown', e => {
-    if ((e.key === 'Enter' || e.key === ' ') && e.target?.tagName?.toLowerCase() === 'help-icon') {
-      e.preventDefault();
-      handleHelpIcon(e.target);
+  document.addEventListener('keydown', event => {
+    if ((event.key === 'Enter' || event.key === ' ') && event.target?.tagName?.toLowerCase() === 'help-icon') {
+      event.preventDefault();
+      handleHelpIcon(event.target);
     }
   });
 

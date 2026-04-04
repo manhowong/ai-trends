@@ -1,71 +1,19 @@
 /* ============================================================
-   search.js — Search modal: find and navigate to any node
+   search-modal.js — Search modal: find and navigate to any node
    ============================================================ */
 
-import { state } from './state.js';
-import { filterByNameMatch, sortByNameMatch } from './data/data-helpers.js';
-import { closeModal, openModal, registerModal, toggleModal } from './ui/modal-controller.js';
-import { themeVar, formatCount, applyHover } from './chart.js';
-import { focusL1Node, focusL2Node } from './views.js';
-import { L1_NODE_LABEL } from './ui/ui-text.js';
-
-function getAllNodes() {
-  const results = [];
-
-  state.anyL1Nodes.forEach(l1Node => {
-    results.push({
-      id: l1Node.id,
-      name: l1Node.name,
-      level: 1,
-      volume: l1Node.volume,
-      trend: l1Node.trend,
-      badgeText: null,
-      badgeColor: null,
-      disabled: !!l1Node.isUnassigned,
-    });
-  });
-
-  Object.values(state.anyL2NodeById).forEach(l2Node => {
-    const l1Node = state.anyL1NodeById[l2Node.l1NodeId];
-    results.push({
-      id: l2Node.id,
-      name: l2Node.name,
-      level: 2,
-      kind: 'l2Node',
-      volume: l2Node.volume,
-      thresholdVolume: l2Node.volume,
-      trend: l2Node.trend,
-      badgeText: l1Node ? l1Node.name : '',
-      badgeColor: l1Node ? l1Node.badgeColor : themeVar('trendFlat'),
-      disabled: !!l2Node.isUnassigned,
-    });
-  });
-
-  Object.entries(state.keywordsByNode).forEach(([l2NodeId, keywords]) => {
-    const l2Node = state.anyL2NodeById[l2NodeId];
-    if (!l2Node) return;
-
-    keywords.forEach(keyword => {
-      results.push({
-        id: l2NodeId,
-        name: keyword.name,
-        level: 2,
-        kind: 'keyword',
-        volume: keyword.volume,
-        thresholdVolume: l2Node.volume,
-        trend: keyword.trend,
-        badgeText: l2Node.name,
-        badgeColor: l2Node.badgeColor || themeVar('trendFlat'),
-        disabled: !!l2Node.isUnassigned,
-      });
-    });
-  });
-
-  return results;
-}
+import { state } from '../state.js';
+import { buildSearchRecords, filterByNameMatch, sortByNameMatch } from '../data/data-helpers.js';
+import { closeModal, openModal, registerModal, toggleModal } from './modal-controller.js';
+import { themeVar, formatCount, applyHover } from '../chart/chart.js';
+import { focusL1Node, focusL2Node } from '../app/view-coordination.js';
+import { L1_NODE_LABEL } from './ui-text.js';
 
 function filterNodes(query) {
-  const matchedNodes = filterByNameMatch(getAllNodes(), query);
+  const matchedNodes = filterByNameMatch(
+    buildSearchRecords(state, themeVar('trendFlat')),
+    query,
+  );
   return sortByNameMatch(matchedNodes, query).slice(0, 30);
 }
 
@@ -99,6 +47,7 @@ function navigateToNode(id, level) {
 function renderResults(nodes, query) {
   const container = document.getElementById('search-results');
   const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
+  if (!container) return;
 
   if (!query.trim()) {
     container.innerHTML = '';
@@ -143,6 +92,7 @@ function renderResults(nodes, query) {
 }
 
 let selectedIndex = -1;
+
 function updateSelection(rows) {
   rows.forEach((row, index) => {
     row.classList.toggle('search-result-selected', index === selectedIndex);
@@ -184,35 +134,34 @@ export function initSearch() {
   });
 
   document.getElementById('searchBtn')
-    .addEventListener('click', openSearch);
+    ?.addEventListener('click', openSearch);
 
-  input
-    .addEventListener('input', e => {
-      const query = e.target.value;
-      renderResults(filterNodes(query), query);
-    });
+  input.addEventListener('input', event => {
+    const query = event.target.value;
+    renderResults(filterNodes(query), query);
+  });
 
-  input.addEventListener('keydown', e => {
+  input.addEventListener('keydown', event => {
     const rows = [...document.querySelectorAll('.search-result-row')];
     if (!rows.length) return;
 
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
       selectedIndex = Math.min(selectedIndex + 1, rows.length - 1);
       updateSelection(rows);
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
       selectedIndex = Math.max(selectedIndex - 1, 0);
       updateSelection(rows);
-    } else if (e.key === 'Enter' && selectedIndex >= 0) {
-      e.preventDefault();
+    } else if (event.key === 'Enter' && selectedIndex >= 0) {
+      event.preventDefault();
       rows[selectedIndex].click();
     }
   });
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-      e.preventDefault();
+  document.addEventListener('keydown', event => {
+    if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+      event.preventDefault();
       toggleModal('search');
     }
   });
