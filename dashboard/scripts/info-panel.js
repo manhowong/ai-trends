@@ -1,5 +1,5 @@
 /* ============================================================
-   panel.js - Right-panel renderers and sort-control helpers
+   info-panel.js - info-panel renderers and sort-control helpers
    ============================================================ */
 
 import { state } from './state.js';
@@ -86,7 +86,7 @@ export function renderOverviewPanel() {
         const attrs = disabled
           ? ''
           : `onmouseenter="applyHover('${l1Node.id}')" onmouseleave="clearHover()"
-             onclick="focusL1Node('${l1Node.id}')" style="cursor:pointer"`;
+             onclick="showCurrentL1Node('${l1Node.id}')" style="cursor:pointer"`;
         const countLabel = state.level1SortMode === 'papers'
           ? formatCountWithThreshold(metricValues[i])
           : formatMetricValue(state.level1SortMode, metricValues[i]);
@@ -176,7 +176,7 @@ export function renderL1NodePanel() {
         const attrs = disabled
           ? ''
           : `onmouseenter="applyHover('${l2Node.id}')" onmouseleave="clearHover()"
-             onclick="focusL2Node('${l2Node.id}')" style="cursor:pointer"`;
+             onclick="showCurrentL2Node('${l2Node.id}')" style="cursor:pointer"`;
         const countLabel = state.level2SortMode === 'papers'
           ? formatCountWithThreshold(l2Node.volume)
           : formatMetricValue(state.level2SortMode, metricValues[i]);
@@ -239,7 +239,7 @@ export function renderL2NodePanel() {
           return `
             <div class="ranked-row" data-id="${connectedL2NodeId}"
                 onmouseenter="applyHover('${connectedL2NodeId}')" onmouseleave="clearHover()"
-                onclick="focusL2Node('${connectedL2NodeId}')" style="cursor:pointer">
+                onclick="showCurrentL2Node('${connectedL2NodeId}')" style="cursor:pointer">
               <span class="rank-num">${i + 1}</span>
               <span class="rank-dot" style="background:${trendColor(connectedL2Node.trend)}"></span>
               <span class="rank-name">${connectedL2Node.name}</span>

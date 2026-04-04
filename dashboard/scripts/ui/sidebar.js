@@ -6,7 +6,7 @@ import { state } from '../state.js';
 import { refreshGraphData } from '../data/refresh-graph-data.js';
 import { fitScreen, initializeRichStyles, resetFontSize, updateFontSize } from '../chart/chart.js';
 import { refreshCurrentView } from '../app/refresh.js';
-import { goOverview } from '../app/view-coordination.js';
+import { showOverview } from '../app/view-coordination.js';
 
 const VOLUME_THRESHOLD_STEPS = [1, 10, 50, 100, 500, 1000];
 
@@ -70,7 +70,7 @@ function onDateRangeChange() {
   updateDateText();
   refreshGraphData(state);
   initializeRichStyles();
-  goOverview();
+  showOverview();
 }
 
 function initEdgeToggles() {
@@ -125,7 +125,7 @@ function initSidebarToggle() {
 
 function initResponsiveSidebarBehavior() {
   if (window.innerWidth <= 768) {
-    document.getElementById('right-panel')?.classList.add('collapsed');
+    document.getElementById('info-panel')?.classList.add('collapsed');
     document.getElementById('sidebar')?.classList.add('collapsed');
   }
 

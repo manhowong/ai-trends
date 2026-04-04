@@ -6,7 +6,7 @@
 // main.js and add `runIntroTour();` at the end of the function `initializeApp()`
 
 import { state } from './state.js';
-import { goOverview, focusL1Node, focusL2Node } from './app/view-coordination.js';
+import { showOverview, showCurrentL1Node, showCurrentL2Node } from './app/view-coordination.js';
 
 let introPlayed = false;
 
@@ -16,9 +16,9 @@ function prefersReducedMotion() {
 
 function runSteps(topL1NodeId, topL2NodeId) {
   const stepMs = 700;
-  setTimeout(() => focusL1Node(topL1NodeId), stepMs * 1);
-  setTimeout(() => focusL2Node(topL2NodeId), stepMs * 2);
-  setTimeout(() => goOverview(), stepMs * 3);
+  setTimeout(() => showCurrentL1Node(topL1NodeId), stepMs * 1);
+  setTimeout(() => showCurrentL2Node(topL2NodeId), stepMs * 2);
+  setTimeout(() => showOverview(), stepMs * 3);
 }
 
 export function runIntroTour() {

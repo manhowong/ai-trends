@@ -5,9 +5,9 @@
 export function initializeChartInteraction({
   echart,
   state,
-  goOverview,
-  focusL1Node,
-  focusL2Node,
+  showOverview,
+  showCurrentL1Node,
+  showCurrentL2Node,
   applyHover,
   clearHover,
 }) {
@@ -20,17 +20,17 @@ export function initializeChartInteraction({
     state.hoveredNode = null;
 
     if (state.currentView === 'overview' && nodeData._type === 'l1') {
-      focusL1Node(nodeData._l1NodeId || nodeData.id);
+      showCurrentL1Node(nodeData._l1NodeId || nodeData.id);
       return;
     }
 
     if (state.currentView === 'l1' && (nodeData._type === 'l2' || nodeData._type === 'externalL2')) {
-      focusL2Node(nodeData.id);
+      showCurrentL2Node(nodeData.id);
       return;
     }
 
     if (state.currentView === 'l2' && nodeData._type === 'connectedL2') {
-      focusL2Node(nodeData.id);
+      showCurrentL2Node(nodeData.id);
     }
   }
 
@@ -40,12 +40,12 @@ export function initializeChartInteraction({
     state.hoveredNode = null;
 
     if (state.currentView === 'l2') {
-      focusL1Node(state.currentL1NodeId);
+      showCurrentL1Node(state.currentL1NodeId);
       return;
     }
 
     if (state.currentView === 'l1') {
-      goOverview();
+      showOverview();
     }
   }
 

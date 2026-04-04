@@ -12,20 +12,20 @@ import { initializeChartInteraction } from './chart/chart-interaction.js';
 import { echart, initializeRichStyles,
          refreshThemeVars,
          applyHover, clearHover }                      from './chart/chart.js';
-import { goOverview, focusL1Node, focusL2Node, renderCurrentView } from './app/view-coordination.js';
-import { setSortMode }                                 from './panel.js';
+import { showOverview, showCurrentL1Node, showCurrentL2Node, renderCurrentView } from './app/view-coordination.js';
+import { setSortMode }                                 from './info-panel.js';
 import { initSearch } from './ui/search-modal.js';
 import { initHelp } from './ui/help-modal.js';
 
 
 // Expose functions used by inline HTML event handlers -------------------------
-// (panel.js generates HTML strings with onclick="..." attributes
+// (info-panel.js generates HTML strings with onclick="..." attributes
 //  that call these as globals at runtime)
 
 window.applyHover = applyHover;
 window.clearHover = clearHover;
-window.focusL1Node = focusL1Node;
-window.focusL2Node = focusL2Node;
+window.showCurrentL1Node = showCurrentL1Node;
+window.showCurrentL2Node = showCurrentL2Node;
 window.setSortMode = setSortMode;
 
 // Responsive ------------------------------------------------------------------
@@ -47,15 +47,15 @@ async function initializeApp() {
   initializeChartInteraction({
     echart,
     state,
-    goOverview,
-    focusL1Node,
-    focusL2Node,
+    showOverview,
+    showCurrentL1Node,
+    showCurrentL2Node,
     applyHover,
     clearHover,
   });
   refreshGraphData(state);
   initializeRichStyles();
-  goOverview();
+  showOverview();
   initSearch();
   initHelp();
 }

@@ -1,5 +1,5 @@
 /* ============================================================
-   panel-ui.js - Panel UI behavior
+   panel-ui.js - Info Panel UI behavior
    ============================================================ */
 
 export function initializePanelUI() {
@@ -7,6 +7,6 @@ export function initializePanelUI() {
   if (!button) return;
 
   button.addEventListener('click', () => {
-    document.getElementById('right-panel')?.classList.toggle('collapsed');
+    document.getElementById('info-panel')?.classList.toggle('collapsed');
   });
 }

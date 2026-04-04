@@ -4,7 +4,7 @@
 
 import { state } from '../state.js';
 import { buildAdjMap, renderChart } from '../chart/chart.js';
-import { updateRightPanel } from '../panel.js';
+import { updateRightPanel } from '../info-panel.js';
 import { renderBreadcrumb } from '../ui/breadcrumb.js';
 import { buildL1ChartView, buildL2ChartView, buildOverviewChartView } from '../chart/chart-views.js';
 
@@ -23,12 +23,12 @@ function updateBreadcrumb() {
     currentView: state.currentView,
     currentL1Node: state.activeL1NodeById[state.currentL1NodeId] || null,
     currentL2Node: state.activeL2NodeById[state.currentL2NodeId] || null,
-    onOverview: goOverview,
-    onL1Node: focusL1Node,
+    onOverview: showOverview,
+    onL1Node: showCurrentL1Node,
   });
 }
 
-export function goOverview() {
+export function showOverview() {
   document.getElementById('toggleIntraEdges').disabled = true;
   state.currentView = 'overview';
   state.currentL1NodeId = null;
@@ -38,7 +38,7 @@ export function goOverview() {
   applyChartView(buildOverviewChartView());
 }
 
-export function focusL1Node(l1NodeId) {
+export function showCurrentL1Node(l1NodeId) {
   document.getElementById('toggleIntraEdges').disabled = false;
   state.currentView = 'l1';
   state.currentL1NodeId = l1NodeId;
@@ -48,7 +48,7 @@ export function focusL1Node(l1NodeId) {
   applyChartView(buildL1ChartView(l1NodeId));
 }
 
-export function focusL2Node(l2NodeId) {
+export function showCurrentL2Node(l2NodeId) {
   document.getElementById('toggleIntraEdges').disabled = false;
   state.currentView = 'l2';
   state.currentL2NodeId = l2NodeId;
@@ -61,7 +61,7 @@ export function focusL2Node(l2NodeId) {
 }
 
 export function renderCurrentView() {
-  if (state.currentView === 'overview') return goOverview();
-  if (state.currentView === 'l1') return focusL1Node(state.currentL1NodeId);
-  if (state.currentView === 'l2') return focusL2Node(state.currentL2NodeId);
+  if (state.currentView === 'overview') return showOverview();
+  if (state.currentView === 'l1') return showCurrentL1Node(state.currentL1NodeId);
+  if (state.currentView === 'l2') return showCurrentL2Node(state.currentL2NodeId);
 }

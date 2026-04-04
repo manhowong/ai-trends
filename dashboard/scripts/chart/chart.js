@@ -208,7 +208,7 @@ export function getChartCenter() {
 // Visual centre of the free area = ~33% from the left.
 // When collapsed the true canvas centre (50%) is used.
 
-  const panel = document.getElementById('right-panel');
+  const panel = document.getElementById('info-panel');
   if (panel && panel.classList.contains('collapsed')) return ['50%', '50%'];
   return ['59%', '50%'];
 }

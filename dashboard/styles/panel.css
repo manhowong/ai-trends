@@ -1,6 +1,6 @@
 ﻿/* Right Panel ============================================================== */
 
-#right-panel {
+#info-panel {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -17,16 +17,16 @@
     overflow: hidden;
 }
 
-#right-panel.collapsed {
+#info-panel.collapsed {
     min-height: 0px;
     transition: min-height 0.4s ease;
 }
 
-#right-panel.collapsed .info-box {
+#info-panel.collapsed .info-box {
     display: none;
 }
 
-#right-panel.collapsed #panel-footer {
+#info-panel.collapsed #panel-footer {
     border-top: 0px;
 }
 
@@ -56,35 +56,35 @@
 
 /* Intial toggle label */
 
-#right-panel .initial-label {
+#info-panel .initial-label {
   display: inline-block;
 }
 
-#right-panel .transformed-label {
+#info-panel .transformed-label {
   display: none;
 }
 
 /* Transformed toggle label after sidebar collapsed*/
 
-#right-panel.collapsed .initial-label {
+#info-panel.collapsed .initial-label {
   display: none;
 }
 
-#right-panel.collapsed .transformed-label {
+#info-panel.collapsed .transformed-label {
   display: inline-block;
 }
 
-#right-panel.collapsed #panelToggle {
+#info-panel.collapsed #panelToggle {
     margin-bottom: 0;
     background: var(--color-surface);
 }
 
-#right-panel.collapsed #panelToggle:hover {
+#info-panel.collapsed #panelToggle:hover {
     background: var(--color-surface-2);
 }
 
 
-#right-panel.collapsed {
+#info-panel.collapsed {
     z-index: 8;  /* Move it just below sidebar, otherwise they may overlap on small screen */
 }
 

@@ -4,11 +4,11 @@
 
 import { state } from '../state.js';
 import { buildAdjMap, renderChart } from '../chart/chart.js';
-import { updateRightPanel } from '../panel.js';
-import { focusL1Node, focusL2Node, goOverview } from './view-coordination.js';
+import { updateRightPanel } from '../info-panel.js';
+import { showCurrentL1Node, showCurrentL2Node, showOverview } from './view-coordination.js';
 
 export function refreshCurrentView() {
-  if (state.currentView === 'overview') return goOverview();
+  if (state.currentView === 'overview') return showOverview();
 
   if (state.currentView === 'l1') {
     if (!state.activeL1NodeById[state.currentL1NodeId]) {
@@ -19,7 +19,7 @@ export function refreshCurrentView() {
       return updateRightPanel();
     }
 
-    return focusL1Node(state.currentL1NodeId);
+    return showCurrentL1Node(state.currentL1NodeId);
   }
 
   if (state.currentView === 'l2') {
@@ -31,6 +31,6 @@ export function refreshCurrentView() {
       return updateRightPanel();
     }
 
-    return focusL2Node(state.currentL2NodeId);
+    return showCurrentL2Node(state.currentL2NodeId);
   }
 }

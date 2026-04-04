@@ -6,7 +6,7 @@ import { state } from '../state.js';
 import { buildSearchRecords, filterByNameMatch, sortByNameMatch } from '../data/data-helpers.js';
 import { closeModal, openModal, registerModal, toggleModal } from './modal-controller.js';
 import { themeVar, formatCount, applyHover } from '../chart/chart.js';
-import { focusL1Node, focusL2Node } from '../app/view-coordination.js';
+import { showCurrentL1Node, showCurrentL2Node } from '../app/view-coordination.js';
 import { L1_NODE_LABEL } from './ui-text.js';
 
 function filterNodes(query) {
@@ -29,9 +29,9 @@ function highlightMatch(name, query) {
 
 function navigateToNode(id, level) {
   if (level === 1) {
-    focusL1Node(id);
+    showCurrentL1Node(id);
   } else {
-    focusL2Node(id);
+    showCurrentL2Node(id);
   }
 
   if (level === 2) {
