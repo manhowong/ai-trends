@@ -44,6 +44,15 @@ export function initializeAppUI({
     button.addEventListener('click', toggleSidebar);
   }
 
+  function initPanelToggle() {
+    const button = document.getElementById('panelToggle');
+    if (!button) return;
+
+    button.addEventListener('click', () => {
+      document.getElementById('right-panel')?.classList.toggle('collapsed');
+    });
+  }
+
   function initResponsiveSidebarBehavior() {
     if (window.innerWidth <= 768) {
       document.getElementById('right-panel')?.classList.add('collapsed');
@@ -63,5 +72,6 @@ export function initializeAppUI({
 
   initThemeToggle();
   initSidebarToggle();
+  initPanelToggle();
   initResponsiveSidebarBehavior();
 }

@@ -11,7 +11,7 @@ import {
   sortByMetricSelector,
 } from './data/data-helpers.js';
 import { trendColor, formatCount } from './chart.js';
-import { L1_NODES_LABEL, L2_NODES_LABEL } from './ui-text.js';
+import { L1_NODES_LABEL, L2_NODES_LABEL } from './ui/ui-text.js';
 
 export function setPanelContent(boxId, title, sortHTML, contentHTML) {
   document.getElementById(`${boxId}-title`).innerHTML = title;

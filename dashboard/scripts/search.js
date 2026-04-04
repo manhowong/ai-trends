@@ -7,7 +7,7 @@ import { filterByNameMatch, sortByNameMatch } from './data/data-helpers.js';
 import { closeModal, openModal, registerModal, toggleModal } from './ui/modal-controller.js';
 import { themeVar, formatCount, applyHover } from './chart.js';
 import { focusL1Node, focusL2Node } from './views.js';
-import { L1_NODE_LABEL } from './ui-text.js';
+import { L1_NODE_LABEL } from './ui/ui-text.js';
 
 function getAllNodes() {
   const results = [];
