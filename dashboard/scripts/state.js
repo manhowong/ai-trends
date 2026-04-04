@@ -37,9 +37,8 @@ export const state = {
   nodeSizeMax: 0,
   nodeSizeTotal: 0,
 
-  // Sort modes
-  level1SortMode: 'papers',  // 'papers' | 'hotness'
-  level2SortMode: 'papers',  // 'papers' | 'hotness' | 'links'
+  // Sort mode
+  sortMode: 'papers',  // 'papers' | 'hotness' | 'links'
 
   // ECharts rich-label styles
   allColors:  [],

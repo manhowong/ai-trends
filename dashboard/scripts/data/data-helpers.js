@@ -26,8 +26,12 @@ export function countEdgesByNodeId(nodeIds, edges) {
   return edgeCountByNodeId;
 }
 
-export function collectEdgesForNode(nodeId, edges) {
+export function getEdgesByNodeId(nodeId, edges) {
   return edges.filter(edge => edge.s === nodeId || edge.t === nodeId);
+}
+
+export function getConnectedNodeId(edge, currentNodeId) {
+  return edge.s === currentNodeId ? edge.t : edge.s;
 }
 
 export function groupNodeIdsByL1NodeId(l2NodeIds, l2ToL1NodeId) {
@@ -65,16 +69,8 @@ export function sortByNameMatch(records, query, getName = record => record.name,
   });
 }
 
-export function sortByMetric(items, metricName, fallbackMetricName = null) {
-  return [...items].sort((a, b) => {
-    const aValue = a[metricName] ?? (fallbackMetricName ? a[fallbackMetricName] : 0) ?? 0;
-    const bValue = b[metricName] ?? (fallbackMetricName ? b[fallbackMetricName] : 0) ?? 0;
-    return bValue - aValue;
-  });
-}
-
-export function sortByMetricSelector(items, getMetricValue) {
-  return [...items].sort((a, b) => getMetricValue(b) - getMetricValue(a));
+export function sortByValue(items) {
+  return [...items].sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
 }
 
 export function buildSearchRecords(state, fallbackBadgeColor) {
