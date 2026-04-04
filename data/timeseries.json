@@ -9627,5 +9627,4470 @@
         "CC": 1
       }
     ]
+  },
+  "2026-03": {
+    "nodes_L1": {
+      "G": {
+        "V": 175,
+        "VC": 610
+      },
+      "B": {
+        "V": 432,
+        "VC": 1324
+      },
+      "F": {
+        "V": 290,
+        "VC": 837
+      },
+      "H": {
+        "V": 310,
+        "VC": 915
+      },
+      "C": {
+        "V": 126,
+        "VC": 426
+      },
+      "I": {
+        "V": 357,
+        "VC": 1072
+      },
+      "E": {
+        "V": 372,
+        "VC": 1171
+      },
+      "A": {
+        "V": 464,
+        "VC": 1338
+      },
+      "D": {
+        "V": 556,
+        "VC": 1908
+      }
+    },
+    "nodes_L2": {
+      "A01": {
+        "V": 1,
+        "VC": 1,
+        "P": "A",
+        "K": []
+      },
+      "A02": {
+        "V": 10,
+        "VC": 35,
+        "P": "A",
+        "K": [
+          {
+            "N": "unlearning",
+            "V": 6
+          },
+          {
+            "N": "ues",
+            "V": 3
+          },
+          {
+            "N": "asu",
+            "V": 2
+          }
+        ]
+      },
+      "A03": {
+        "V": 263,
+        "VC": 761,
+        "P": "A",
+        "K": [
+          {
+            "N": "rlvr",
+            "V": 30
+          },
+          {
+            "N": "verifiable rewards",
+            "V": 37
+          },
+          {
+            "N": "offline reinforcement learning",
+            "V": 12
+          },
+          {
+            "N": "policy optimization",
+            "V": 44
+          },
+          {
+            "N": "rollout",
+            "V": 37
+          },
+          {
+            "N": "marl",
+            "V": 11
+          },
+          {
+            "N": "exploration",
+            "V": 58
+          }
+        ]
+      },
+      "A04": {
+        "V": 1,
+        "VC": 9,
+        "P": "A",
+        "K": []
+      },
+      "A05": {
+        "V": 4,
+        "VC": 12,
+        "P": "A",
+        "K": [
+          {
+            "N": "contrastive learning",
+            "V": 2
+          }
+        ]
+      },
+      "A06": {
+        "V": 24,
+        "VC": 85,
+        "P": "A",
+        "K": [
+          {
+            "N": "federated learning",
+            "V": 22
+          },
+          {
+            "N": "the global model",
+            "V": 4
+          },
+          {
+            "N": "communication cost",
+            "V": 5
+          },
+          {
+            "N": "ful",
+            "V": 2
+          },
+          {
+            "N": "client",
+            "V": 13
+          }
+        ]
+      },
+      "A07": {
+        "V": 3,
+        "VC": 6,
+        "P": "A",
+        "K": [
+          {
+            "N": "spa",
+            "V": 2
+          }
+        ]
+      },
+      "A08": {
+        "V": 6,
+        "VC": 22,
+        "P": "A",
+        "K": [
+          {
+            "N": "active learning",
+            "V": 4
+          }
+        ]
+      },
+      "A09": {
+        "V": 10,
+        "VC": 19,
+        "P": "A",
+        "K": []
+      },
+      "A10": {
+        "V": 43,
+        "VC": 118,
+        "P": "A",
+        "K": [
+          {
+            "N": "continual learning",
+            "V": 26
+          },
+          {
+            "N": "sml",
+            "V": 2
+          },
+          {
+            "N": "mir",
+            "V": 2
+          },
+          {
+            "N": "forgetting",
+            "V": 32
+          },
+          {
+            "N": "pam",
+            "V": 2
+          },
+          {
+            "N": "lwf",
+            "V": 3
+          },
+          {
+            "N": "scl",
+            "V": 3
+          },
+          {
+            "N": "replay",
+            "V": 17
+          }
+        ]
+      },
+      "A11": {
+        "V": 5,
+        "VC": 15,
+        "P": "A",
+        "K": [
+          {
+            "N": "task learning",
+            "V": 3
+          },
+          {
+            "N": "multi-task learning",
+            "V": 2
+          }
+        ]
+      },
+      "A12": {
+        "V": 43,
+        "VC": 103,
+        "P": "A",
+        "K": [
+          {
+            "N": "imitation learning",
+            "V": 16
+          },
+          {
+            "N": "demonstration",
+            "V": 18
+          }
+        ]
+      },
+      "A13": {
+        "V": 13,
+        "VC": 44,
+        "P": "A",
+        "K": [
+          {
+            "N": "outer",
+            "V": 2
+          }
+        ]
+      },
+      "A14": {
+        "V": 17,
+        "VC": 46,
+        "P": "A",
+        "K": [
+          {
+            "N": "sts",
+            "V": 2
+          },
+          {
+            "N": "transfer learning",
+            "V": 3
+          }
+        ]
+      },
+      "A15": {
+        "V": 21,
+        "VC": 62,
+        "P": "A",
+        "K": [
+          {
+            "N": "the target domain",
+            "V": 4
+          },
+          {
+            "N": "the source model",
+            "V": 2
+          },
+          {
+            "N": "the pseudo",
+            "V": 2
+          }
+        ]
+      },
+      "B01": {
+        "V": 46,
+        "VC": 142,
+        "P": "B",
+        "K": [
+          {
+            "N": "attention map",
+            "V": 5
+          },
+          {
+            "N": "visual attention",
+            "V": 3
+          },
+          {
+            "N": "aga",
+            "V": 5
+          },
+          {
+            "N": "linear attention",
+            "V": 3
+          },
+          {
+            "N": "tie",
+            "V": 9
+          }
+        ]
+      },
+      "B02": {
+        "V": 23,
+        "VC": 61,
+        "P": "B",
+        "K": [
+          {
+            "N": "visual co",
+            "V": 2
+          },
+          {
+            "N": "vit",
+            "V": 3
+          }
+        ]
+      },
+      "B03": {
+        "V": 25,
+        "VC": 64,
+        "P": "B",
+        "K": [
+          {
+            "N": "rnn",
+            "V": 3
+          },
+          {
+            "N": "recurrent",
+            "V": 7
+          }
+        ]
+      },
+      "B04": {
+        "V": 39,
+        "VC": 162,
+        "P": "B",
+        "K": [
+          {
+            "N": "gnn",
+            "V": 23
+          },
+          {
+            "N": "node classification",
+            "V": 8
+          },
+          {
+            "N": "gnns",
+            "V": 19
+          },
+          {
+            "N": "graph neural networks",
+            "V": 19
+          },
+          {
+            "N": "over-smoothing",
+            "V": 2
+          },
+          {
+            "N": "node embedding",
+            "V": 4
+          },
+          {
+            "N": "gcn",
+            "V": 5
+          }
+        ]
+      },
+      "B05": {
+        "V": 42,
+        "VC": 137,
+        "P": "B",
+        "K": [
+          {
+            "N": "moe",
+            "V": 31
+          },
+          {
+            "N": "the router",
+            "V": 2
+          },
+          {
+            "N": "moes",
+            "V": 3
+          },
+          {
+            "N": "moe architecture",
+            "V": 9
+          },
+          {
+            "N": "moe model",
+            "V": 10
+          },
+          {
+            "N": "expert",
+            "V": 36
+          }
+        ]
+      },
+      "B06": {
+        "V": 80,
+        "VC": 253,
+        "P": "B",
+        "K": [
+          {
+            "N": "diffusion model",
+            "V": 58
+          },
+          {
+            "N": "the score function",
+            "V": 3
+          },
+          {
+            "N": "mdm",
+            "V": 4
+          },
+          {
+            "N": "generative modeling",
+            "V": 10
+          },
+          {
+            "N": "flux",
+            "V": 5
+          },
+          {
+            "N": "fid",
+            "V": 21
+          },
+          {
+            "N": "mdms",
+            "V": 3
+          },
+          {
+            "N": "the estimate",
+            "V": 2
+          }
+        ]
+      },
+      "B07": {
+        "V": 21,
+        "VC": 52,
+        "P": "B",
+        "K": [
+          {
+            "N": "vae",
+            "V": 11
+          },
+          {
+            "N": "vaes",
+            "V": 6
+          },
+          {
+            "N": "variational autoencoder",
+            "V": 10
+          }
+        ]
+      },
+      "B08": {
+        "V": 13,
+        "VC": 41,
+        "P": "B",
+        "K": [
+          {
+            "N": "discriminator",
+            "V": 3
+          },
+          {
+            "N": "-divergence",
+            "V": 2
+          }
+        ]
+      },
+      "B09": {
+        "V": 10,
+        "VC": 37,
+        "P": "B",
+        "K": [
+          {
+            "N": "tree ensemble",
+            "V": 3
+          },
+          {
+            "N": "ward",
+            "V": 3
+          },
+          {
+            "N": "decision tree",
+            "V": 6
+          }
+        ]
+      },
+      "B10": {
+        "V": 5,
+        "VC": 12,
+        "P": "B",
+        "K": [
+          {
+            "N": "conditional independence",
+            "V": 4
+          }
+        ]
+      },
+      "B11": {
+        "V": 10,
+        "VC": 41,
+        "P": "B",
+        "K": [
+          {
+            "N": "differential equation",
+            "V": 8
+          },
+          {
+            "N": "pinn",
+            "V": 2
+          },
+          {
+            "N": "neural ode",
+            "V": 3
+          },
+          {
+            "N": "neural ordinary differential equations",
+            "V": 2
+          }
+        ]
+      },
+      "B12": {
+        "V": 23,
+        "VC": 71,
+        "P": "B",
+        "K": [
+          {
+            "N": "pinn",
+            "V": 11
+          },
+          {
+            "N": "pde",
+            "V": 9
+          },
+          {
+            "N": "partial differential equation",
+            "V": 11
+          },
+          {
+            "N": "physical consistency",
+            "V": 4
+          },
+          {
+            "N": "automatic differentiation",
+            "V": 2
+          }
+        ]
+      },
+      "B13": {
+        "V": 19,
+        "VC": 53,
+        "P": "B",
+        "K": [
+          {
+            "N": "equivariant",
+            "V": 9
+          },
+          {
+            "N": "equivariance",
+            "V": 5
+          },
+          {
+            "N": "geometric",
+            "V": 11
+          },
+          {
+            "N": "symmetry",
+            "V": 8
+          }
+        ]
+      },
+      "B14": {
+        "V": 30,
+        "VC": 81,
+        "P": "B",
+        "K": [
+          {
+            "N": "snn",
+            "V": 20
+          },
+          {
+            "N": "snns",
+            "V": 18
+          },
+          {
+            "N": "lif",
+            "V": 7
+          },
+          {
+            "N": "neural networks",
+            "V": 23
+          },
+          {
+            "N": "bptt",
+            "V": 2
+          },
+          {
+            "N": "neuron",
+            "V": 20
+          },
+          {
+            "N": "spiking neural networks",
+            "V": 22
+          }
+        ]
+      },
+      "B15": {
+        "V": 34,
+        "VC": 86,
+        "P": "B",
+        "K": [
+          {
+            "N": "t p",
+            "V": 10
+          },
+          {
+            "N": "flawed reasoning",
+            "V": 2
+          }
+        ]
+      },
+      "B16": {
+        "V": 12,
+        "VC": 31,
+        "P": "B",
+        "K": [
+          {
+            "N": "ssms",
+            "V": 6
+          },
+          {
+            "N": "mamba",
+            "V": 5
+          },
+          {
+            "N": "state-tracking",
+            "V": 2
+          },
+          {
+            "N": "transformers",
+            "V": 3
+          },
+          {
+            "N": "state space model",
+            "V": 4
+          }
+        ]
+      },
+      "C01": {
+        "V": 42,
+        "VC": 113,
+        "P": "C",
+        "K": [
+          {
+            "N": "adam",
+            "V": 11
+          }
+        ]
+      },
+      "C02": {
+        "V": 28,
+        "VC": 106,
+        "P": "C",
+        "K": [
+          {
+            "N": "sure",
+            "V": 4
+          },
+          {
+            "N": "subtle",
+            "V": 2
+          }
+        ]
+      },
+      "C03": {
+        "V": 13,
+        "VC": 41,
+        "P": "C",
+        "K": []
+      },
+      "C04": {
+        "V": 4,
+        "VC": 10,
+        "P": "C",
+        "K": [
+          {
+            "N": "nas",
+            "V": 4
+          },
+          {
+            "N": "neural architecture search",
+            "V": 4
+          }
+        ]
+      },
+      "C05": {
+        "V": 9,
+        "VC": 25,
+        "P": "C",
+        "K": [
+          {
+            "N": "suite",
+            "V": 3
+          }
+        ]
+      },
+      "C06": {
+        "V": 2,
+        "VC": 11,
+        "P": "C",
+        "K": []
+      },
+      "C07": {
+        "V": 1,
+        "VC": 13,
+        "P": "C",
+        "K": []
+      },
+      "C08": {
+        "V": 5,
+        "VC": 12,
+        "P": "C",
+        "K": [
+          {
+            "N": "chm",
+            "V": 2
+          },
+          {
+            "N": "convergence",
+            "V": 2
+          }
+        ]
+      },
+      "C09": {
+        "V": 0,
+        "VC": 1,
+        "P": "C",
+        "K": []
+      },
+      "C10": {
+        "V": 13,
+        "VC": 38,
+        "P": "C",
+        "K": []
+      },
+      "C11": {
+        "V": 3,
+        "VC": 18,
+        "P": "C",
+        "K": []
+      },
+      "C12": {
+        "V": 6,
+        "VC": 38,
+        "P": "C",
+        "K": [
+          {
+            "N": "bpe",
+            "V": 4
+          },
+          {
+            "N": "byte pair encoding",
+            "V": 3
+          },
+          {
+            "N": "hat",
+            "V": 6
+          }
+        ]
+      },
+      "D01": {
+        "V": 11,
+        "VC": 41,
+        "P": "D",
+        "K": [
+          {
+            "N": "a fine-tuned model",
+            "V": 2
+          }
+        ]
+      },
+      "D02": {
+        "V": 14,
+        "VC": 61,
+        "P": "D",
+        "K": [
+          {
+            "N": "svd",
+            "V": 3
+          },
+          {
+            "N": "peft",
+            "V": 6
+          }
+        ]
+      },
+      "D03": {
+        "V": 73,
+        "VC": 255,
+        "P": "D",
+        "K": [
+          {
+            "N": "rlhf",
+            "V": 14
+          },
+          {
+            "N": "rlaif",
+            "V": 2
+          },
+          {
+            "N": "human preference",
+            "V": 11
+          },
+          {
+            "N": "human feedback",
+            "V": 14
+          },
+          {
+            "N": "moral reasoning",
+            "V": 2
+          }
+        ]
+      },
+      "D04": {
+        "V": 28,
+        "VC": 119,
+        "P": "D",
+        "K": [
+          {
+            "N": "dpo",
+            "V": 13
+          },
+          {
+            "N": "preference alignment",
+            "V": 7
+          },
+          {
+            "N": "direct preference optimization",
+            "V": 9
+          }
+        ]
+      },
+      "D05": {
+        "V": 133,
+        "VC": 434,
+        "P": "D",
+        "K": [
+          {
+            "N": "quantization",
+            "V": 48
+          },
+          {
+            "N": "quantization error",
+            "V": 10
+          },
+          {
+            "N": "vector quantization",
+            "V": 4
+          },
+          {
+            "N": "post-training quantization",
+            "V": 12
+          }
+        ]
+      },
+      "D06": {
+        "V": 29,
+        "VC": 100,
+        "P": "D",
+        "K": [
+          {
+            "N": "vision transformers",
+            "V": 5
+          },
+          {
+            "N": "asu",
+            "V": 4
+          }
+        ]
+      },
+      "D07": {
+        "V": 26,
+        "VC": 95,
+        "P": "D",
+        "K": [
+          {
+            "N": "ted",
+            "V": 19
+          },
+          {
+            "N": "the teacher",
+            "V": 12
+          },
+          {
+            "N": "knowledge distillation",
+            "V": 10
+          },
+          {
+            "N": "the teacher model",
+            "V": 2
+          },
+          {
+            "N": "student",
+            "V": 23
+          }
+        ]
+      },
+      "D08": {
+        "V": 22,
+        "VC": 60,
+        "P": "D",
+        "K": [
+          {
+            "N": "automatic prompt optimization",
+            "V": 4
+          },
+          {
+            "N": "gepa",
+            "V": 3
+          }
+        ]
+      },
+      "D09": {
+        "V": 45,
+        "VC": 143,
+        "P": "D",
+        "K": [
+          {
+            "N": "icl",
+            "V": 11
+          },
+          {
+            "N": "demonstration",
+            "V": 8
+          }
+        ]
+      },
+      "D10": {
+        "V": 10,
+        "VC": 28,
+        "P": "D",
+        "K": [
+          {
+            "N": "model merging",
+            "V": 8
+          },
+          {
+            "N": "the merged model",
+            "V": 2
+          },
+          {
+            "N": "merging performance",
+            "V": 2
+          }
+        ]
+      },
+      "D11": {
+        "V": 38,
+        "VC": 145,
+        "P": "D",
+        "K": [
+          {
+            "N": "thoughts",
+            "V": 4
+          },
+          {
+            "N": "coda",
+            "V": 2
+          },
+          {
+            "N": "tot",
+            "V": 3
+          },
+          {
+            "N": "-rag",
+            "V": 2
+          }
+        ]
+      },
+      "D12": {
+        "V": 56,
+        "VC": 170,
+        "P": "D",
+        "K": [
+          {
+            "N": "document",
+            "V": 27
+          },
+          {
+            "N": "retrieval-augmented generation ",
+            "V": 35
+          }
+        ]
+      },
+      "D13": {
+        "V": 71,
+        "VC": 256,
+        "P": "D",
+        "K": [
+          {
+            "N": "long-context reasoning",
+            "V": 3
+          }
+        ]
+      },
+      "D14": {
+        "V": 0,
+        "VC": 1,
+        "P": "D",
+        "K": []
+      },
+      "E01": {
+        "V": 52,
+        "VC": 198,
+        "P": "E",
+        "K": [
+          {
+            "N": "arise",
+            "V": 3
+          }
+        ]
+      },
+      "E02": {
+        "V": 2,
+        "VC": 10,
+        "P": "E",
+        "K": []
+      },
+      "E03": {
+        "V": 1,
+        "VC": 1,
+        "P": "E",
+        "K": []
+      },
+      "E04": {
+        "V": 0,
+        "VC": 0,
+        "P": "E",
+        "K": []
+      },
+      "E05": {
+        "V": 13,
+        "VC": 46,
+        "P": "E",
+        "K": [
+          {
+            "N": "ndcg",
+            "V": 4
+          },
+          {
+            "N": "multiple source",
+            "V": 2
+          },
+          {
+            "N": "retrieval coverage",
+            "V": 2
+          }
+        ]
+      },
+      "E06": {
+        "V": 14,
+        "VC": 48,
+        "P": "E",
+        "K": [
+          {
+            "N": "anomaly",
+            "V": 14
+          },
+          {
+            "N": "anomaly detection",
+            "V": 14
+          },
+          {
+            "N": "tabular anomaly detection",
+            "V": 2
+          }
+        ]
+      },
+      "E07": {
+        "V": 14,
+        "VC": 48,
+        "P": "E",
+        "K": [
+          {
+            "N": "tsfm",
+            "V": 2
+          },
+          {
+            "N": "time series forecasting",
+            "V": 9
+          },
+          {
+            "N": "stationarity",
+            "V": 3
+          }
+        ]
+      },
+      "E08": {
+        "V": 13,
+        "VC": 30,
+        "P": "E",
+        "K": [
+          {
+            "N": "user interest",
+            "V": 2
+          },
+          {
+            "N": "recommendation",
+            "V": 13
+          }
+        ]
+      },
+      "E09": {
+        "V": 16,
+        "VC": 33,
+        "P": "E",
+        "K": []
+      },
+      "E10": {
+        "V": 15,
+        "VC": 40,
+        "P": "E",
+        "K": [
+          {
+            "N": "lap",
+            "V": 2
+          },
+          {
+            "N": "pddl",
+            "V": 3
+          }
+        ]
+      },
+      "E11": {
+        "V": 3,
+        "VC": 5,
+        "P": "E",
+        "K": []
+      },
+      "E12": {
+        "V": 56,
+        "VC": 155,
+        "P": "E",
+        "K": [
+          {
+            "N": "ai agent",
+            "V": 13
+          }
+        ]
+      },
+      "E13": {
+        "V": 10,
+        "VC": 22,
+        "P": "E",
+        "K": [
+          {
+            "N": "umm",
+            "V": 3
+          },
+          {
+            "N": "interleaved generation",
+            "V": 4
+          },
+          {
+            "N": "multimodal understanding",
+            "V": 4
+          },
+          {
+            "N": "umms",
+            "V": 3
+          }
+        ]
+      },
+      "E14": {
+        "V": 25,
+        "VC": 62,
+        "P": "E",
+        "K": [
+          {
+            "N": "translationese",
+            "V": 2
+          },
+          {
+            "N": "translation quality",
+            "V": 4
+          },
+          {
+            "N": "cross-lingual transfer",
+            "V": 7
+          },
+          {
+            "N": "cla",
+            "V": 5
+          },
+          {
+            "N": "cross-lingual alignment",
+            "V": 3
+          }
+        ]
+      },
+      "E15": {
+        "V": 22,
+        "VC": 76,
+        "P": "E",
+        "K": [
+          {
+            "N": "extractive summarization",
+            "V": 2
+          }
+        ]
+      },
+      "E16": {
+        "V": 60,
+        "VC": 235,
+        "P": "E",
+        "K": [
+          {
+            "N": "-rag",
+            "V": 5
+          }
+        ]
+      },
+      "E17": {
+        "V": 56,
+        "VC": 162,
+        "P": "E",
+        "K": [
+          {
+            "N": "human conversation",
+            "V": 6
+          },
+          {
+            "N": "dialogue",
+            "V": 36
+          },
+          {
+            "N": "dialogue history",
+            "V": 7
+          },
+          {
+            "N": "tod",
+            "V": 4
+          },
+          {
+            "N": "speech",
+            "V": 10
+          }
+        ]
+      },
+      "F01": {
+        "V": 19,
+        "VC": 70,
+        "P": "F",
+        "K": [
+          {
+            "N": "italian",
+            "V": 3
+          }
+        ]
+      },
+      "F02": {
+        "V": 28,
+        "VC": 62,
+        "P": "F",
+        "K": [
+          {
+            "N": "sam2",
+            "V": 2
+          },
+          {
+            "N": "sam3",
+            "V": 2
+          },
+          {
+            "N": "scannet",
+            "V": 5
+          }
+        ]
+      },
+      "F03": {
+        "V": 38,
+        "VC": 124,
+        "P": "F",
+        "K": [
+          {
+            "N": "lalm",
+            "V": 12
+          },
+          {
+            "N": "large audio language models",
+            "V": 8
+          },
+          {
+            "N": "music",
+            "V": 10
+          },
+          {
+            "N": "large audio-language model",
+            "V": 6
+          },
+          {
+            "N": "speech",
+            "V": 23
+          }
+        ]
+      },
+      "F04": {
+        "V": 40,
+        "VC": 127,
+        "P": "F",
+        "K": [
+          {
+            "N": "multimodal large language models",
+            "V": 16
+          }
+        ]
+      },
+      "F05": {
+        "V": 57,
+        "VC": 147,
+        "P": "F",
+        "K": [
+          {
+            "N": "the robot",
+            "V": 10
+          },
+          {
+            "N": "vla",
+            "V": 12
+          },
+          {
+            "N": "radar",
+            "V": 2
+          },
+          {
+            "N": "high-level reasoning",
+            "V": 4
+          }
+        ]
+      },
+      "F06": {
+        "V": 0,
+        "VC": 0,
+        "P": "F",
+        "K": []
+      },
+      "F07": {
+        "V": 2,
+        "VC": 4,
+        "P": "F",
+        "K": []
+      },
+      "F08": {
+        "V": 2,
+        "VC": 4,
+        "P": "F",
+        "K": [
+          {
+            "N": "topic",
+            "V": 2
+          },
+          {
+            "N": "clinical practice",
+            "V": 2
+          }
+        ]
+      },
+      "F09": {
+        "V": 12,
+        "VC": 32,
+        "P": "F",
+        "K": [
+          {
+            "N": "course",
+            "V": 2
+          },
+          {
+            "N": "instructor",
+            "V": 2
+          },
+          {
+            "N": "skill",
+            "V": 3
+          },
+          {
+            "N": "educational dialogue",
+            "V": 2
+          },
+          {
+            "N": "confusion",
+            "V": 2
+          }
+        ]
+      },
+      "F10": {
+        "V": 6,
+        "VC": 27,
+        "P": "F",
+        "K": [
+          {
+            "N": "legal reasoning",
+            "V": 2
+          },
+          {
+            "N": "legal rag system",
+            "V": 2
+          },
+          {
+            "N": "prompting",
+            "V": 2
+          },
+          {
+            "N": "empirical insight",
+            "V": 2
+          }
+        ]
+      },
+      "F11": {
+        "V": 6,
+        "VC": 18,
+        "P": "F",
+        "K": [
+          {
+            "N": "player",
+            "V": 4
+          },
+          {
+            "N": "imperfect-information game",
+            "V": 2
+          },
+          {
+            "N": "gbl",
+            "V": 2
+          }
+        ]
+      },
+      "F12": {
+        "V": 1,
+        "VC": 5,
+        "P": "F",
+        "K": []
+      },
+      "F13": {
+        "V": 8,
+        "VC": 25,
+        "P": "F",
+        "K": [
+          {
+            "N": "ids",
+            "V": 3
+          },
+          {
+            "N": "ck technique",
+            "V": 2
+          },
+          {
+            "N": "review",
+            "V": 2
+          },
+          {
+            "N": "mitre att",
+            "V": 2
+          }
+        ]
+      },
+      "F14": {
+        "V": 71,
+        "VC": 192,
+        "P": "F",
+        "K": [
+          {
+            "N": "low-resource language",
+            "V": 19
+          },
+          {
+            "N": "pashto",
+            "V": 2
+          },
+          {
+            "N": "machine translation",
+            "V": 14
+          },
+          {
+            "N": "cross-lingual transfer",
+            "V": 5
+          },
+          {
+            "N": "english",
+            "V": 22
+          }
+        ]
+      },
+      "G01": {
+        "V": 13,
+        "VC": 38,
+        "P": "G",
+        "K": [
+          {
+            "N": "dep",
+            "V": 6
+          },
+          {
+            "N": "ude",
+            "V": 4
+          },
+          {
+            "N": "contamination",
+            "V": 4
+          }
+        ]
+      },
+      "G02": {
+        "V": 1,
+        "VC": 3,
+        "P": "G",
+        "K": []
+      },
+      "G03": {
+        "V": 3,
+        "VC": 19,
+        "P": "G",
+        "K": [
+          {
+            "N": "the algorithm",
+            "V": 2
+          }
+        ]
+      },
+      "G04": {
+        "V": 19,
+        "VC": 54,
+        "P": "G",
+        "K": [
+          {
+            "N": "grokking",
+            "V": 6
+          },
+          {
+            "N": "memorization",
+            "V": 7
+          },
+          {
+            "N": "the delay",
+            "V": 2
+          },
+          {
+            "N": "weight decay",
+            "V": 2
+          },
+          {
+            "N": "model generalization",
+            "V": 2
+          }
+        ]
+      },
+      "G05": {
+        "V": 8,
+        "VC": 43,
+        "P": "G",
+        "K": [
+          {
+            "N": "pareto",
+            "V": 3
+          },
+          {
+            "N": "bayesian optimization",
+            "V": 2
+          },
+          {
+            "N": "unknown",
+            "V": 2
+          }
+        ]
+      },
+      "G06": {
+        "V": 43,
+        "VC": 127,
+        "P": "G",
+        "K": [
+          {
+            "N": "explanation",
+            "V": 26
+          },
+          {
+            "N": "xai",
+            "V": 11
+          },
+          {
+            "N": "tat",
+            "V": 23
+          },
+          {
+            "N": "faithfulness",
+            "V": 7
+          },
+          {
+            "N": "explainable artificial intelligence",
+            "V": 6
+          }
+        ]
+      },
+      "G07": {
+        "V": 5,
+        "VC": 29,
+        "P": "G",
+        "K": [
+          {
+            "N": "mechanistic interpretability",
+            "V": 3
+          },
+          {
+            "N": "the construction",
+            "V": 2
+          }
+        ]
+      },
+      "G08": {
+        "V": 11,
+        "VC": 58,
+        "P": "G",
+        "K": [
+          {
+            "N": "riemannian geometry",
+            "V": 3
+          },
+          {
+            "N": "sing",
+            "V": 5
+          }
+        ]
+      },
+      "G09": {
+        "V": 2,
+        "VC": 7,
+        "P": "G",
+        "K": []
+      },
+      "G10": {
+        "V": 63,
+        "VC": 213,
+        "P": "G",
+        "K": [
+          {
+            "N": "law",
+            "V": 21
+          },
+          {
+            "N": "grokking",
+            "V": 2
+          },
+          {
+            "N": "signsgd",
+            "V": 2
+          },
+          {
+            "N": "hap",
+            "V": 8
+          }
+        ]
+      },
+      "G11": {
+        "V": 2,
+        "VC": 4,
+        "P": "G",
+        "K": []
+      },
+      "G12": {
+        "V": 4,
+        "VC": 11,
+        "P": "G",
+        "K": [
+          {
+            "N": "machine",
+            "V": 2
+          }
+        ]
+      },
+      "G13": {
+        "V": 1,
+        "VC": 4,
+        "P": "G",
+        "K": []
+      },
+      "H01": {
+        "V": 27,
+        "VC": 59,
+        "P": "H",
+        "K": [
+          {
+            "N": "sol",
+            "V": 7
+          },
+          {
+            "N": "kernelbench",
+            "V": 6
+          },
+          {
+            "N": "gpu",
+            "V": 21
+          },
+          {
+            "N": "triton",
+            "V": 4
+          }
+        ]
+      },
+      "H02": {
+        "V": 119,
+        "VC": 374,
+        "P": "H",
+        "K": [
+          {
+            "N": "speculative decoding",
+            "V": 12
+          },
+          {
+            "N": "sun",
+            "V": 2
+          },
+          {
+            "N": "draft model",
+            "V": 10
+          },
+          {
+            "N": "autoregressive",
+            "V": 13
+          },
+          {
+            "N": "llm inference",
+            "V": 14
+          },
+          {
+            "N": "ttft",
+            "V": 6
+          },
+          {
+            "N": "a lightweight draft model",
+            "V": 5
+          },
+          {
+            "N": "the draft model",
+            "V": 3
+          }
+        ]
+      },
+      "H03": {
+        "V": 80,
+        "VC": 244,
+        "P": "H",
+        "K": [
+          {
+            "N": "vector quantization",
+            "V": 3
+          },
+          {
+            "N": "prompt compression",
+            "V": 4
+          }
+        ]
+      },
+      "H04": {
+        "V": 0,
+        "VC": 4,
+        "P": "H",
+        "K": []
+      },
+      "H05": {
+        "V": 5,
+        "VC": 12,
+        "P": "H",
+        "K": [
+          {
+            "N": "device",
+            "V": 3
+          },
+          {
+            "N": "cloud",
+            "V": 2
+          },
+          {
+            "N": "hardware",
+            "V": 3
+          },
+          {
+            "N": "power",
+            "V": 2
+          }
+        ]
+      },
+      "H06": {
+        "V": 3,
+        "VC": 6,
+        "P": "H",
+        "K": [
+          {
+            "N": "planner",
+            "V": 2
+          },
+          {
+            "N": "scheduling",
+            "V": 2
+          }
+        ]
+      },
+      "H07": {
+        "V": 3,
+        "VC": 15,
+        "P": "H",
+        "K": []
+      },
+      "H08": {
+        "V": 15,
+        "VC": 26,
+        "P": "H",
+        "K": []
+      },
+      "H09": {
+        "V": 1,
+        "VC": 4,
+        "P": "H",
+        "K": []
+      },
+      "H10": {
+        "V": 3,
+        "VC": 16,
+        "P": "H",
+        "K": [
+          {
+            "N": "bit",
+            "V": 2
+          }
+        ]
+      },
+      "H11": {
+        "V": 54,
+        "VC": 155,
+        "P": "H",
+        "K": []
+      },
+      "I01": {
+        "V": 18,
+        "VC": 49,
+        "P": "I",
+        "K": [
+          {
+            "N": "the ai",
+            "V": 2
+          },
+          {
+            "N": "human value",
+            "V": 4
+          },
+          {
+            "N": "pps",
+            "V": 2
+          },
+          {
+            "N": "structured intent representation",
+            "V": 2
+          },
+          {
+            "N": "ai agent",
+            "V": 5
+          }
+        ]
+      },
+      "I02": {
+        "V": 35,
+        "VC": 142,
+        "P": "I",
+        "K": [
+          {
+            "N": "adversarial example",
+            "V": 8
+          },
+          {
+            "N": "adversarial robustness",
+            "V": 7
+          },
+          {
+            "N": "adversarial training",
+            "V": 8
+          },
+          {
+            "N": "egat",
+            "V": 3
+          },
+          {
+            "N": "attack",
+            "V": 29
+          },
+          {
+            "N": "the attacker",
+            "V": 4
+          },
+          {
+            "N": "adversarial attack",
+            "V": 15
+          },
+          {
+            "N": "adversarial perturbation",
+            "V": 5
+          }
+        ]
+      },
+      "I03": {
+        "V": 62,
+        "VC": 207,
+        "P": "I",
+        "K": [
+          {
+            "N": "differential privacy",
+            "V": 34
+          },
+          {
+            "N": "ldp",
+            "V": 3
+          },
+          {
+            "N": "privacy protection",
+            "V": 9
+          },
+          {
+            "N": "privacy leakage",
+            "V": 6
+          },
+          {
+            "N": "mia",
+            "V": 6
+          },
+          {
+            "N": "privacy risk",
+            "V": 7
+          },
+          {
+            "N": "sensitive information",
+            "V": 9
+          },
+          {
+            "N": "homomorphic encryption",
+            "V": 6
+          }
+        ]
+      },
+      "I04": {
+        "V": 18,
+        "VC": 58,
+        "P": "I",
+        "K": [
+          {
+            "N": "fairness",
+            "V": 18
+          },
+          {
+            "N": "sensitive attribute",
+            "V": 6
+          },
+          {
+            "N": "bias mitigation",
+            "V": 4
+          },
+          {
+            "N": "gender",
+            "V": 6
+          },
+          {
+            "N": "both group",
+            "V": 2
+          }
+        ]
+      },
+      "I05": {
+        "V": 27,
+        "VC": 50,
+        "P": "I",
+        "K": [
+          {
+            "N": "uncertainty quantification",
+            "V": 12
+          },
+          {
+            "N": "triviaqa",
+            "V": 4
+          },
+          {
+            "N": "epistemic uncertainty",
+            "V": 4
+          }
+        ]
+      },
+      "I06": {
+        "V": 17,
+        "VC": 49,
+        "P": "I",
+        "K": [
+          {
+            "N": "ood sample",
+            "V": 5
+          },
+          {
+            "N": "acr",
+            "V": 8
+          },
+          {
+            "N": "ood detection",
+            "V": 8
+          }
+        ]
+      },
+      "I07": {
+        "V": 49,
+        "VC": 142,
+        "P": "I",
+        "K": [
+          {
+            "N": "backdoor attack",
+            "V": 21
+          },
+          {
+            "N": "trigger",
+            "V": 29
+          },
+          {
+            "N": "stealthiness",
+            "V": 5
+          },
+          {
+            "N": "defense",
+            "V": 28
+          },
+          {
+            "N": "asr",
+            "V": 7
+          },
+          {
+            "N": "the global model",
+            "V": 2
+          }
+        ]
+      },
+      "I08": {
+        "V": 6,
+        "VC": 15,
+        "P": "I",
+        "K": [
+          {
+            "N": "carbon emission",
+            "V": 2
+          },
+          {
+            "N": "a critical sustainability challenge",
+            "V": 2
+          }
+        ]
+      },
+      "I09": {
+        "V": 58,
+        "VC": 158,
+        "P": "I",
+        "K": [
+          {
+            "N": "human-ai interaction",
+            "V": 8
+          },
+          {
+            "N": "critical thinking",
+            "V": 3
+          },
+          {
+            "N": "ai system",
+            "V": 12
+          },
+          {
+            "N": "genai",
+            "V": 3
+          },
+          {
+            "N": "guide",
+            "V": 5
+          },
+          {
+            "N": "agency",
+            "V": 8
+          },
+          {
+            "N": "collaboration",
+            "V": 12
+          },
+          {
+            "N": "ai agent",
+            "V": 8
+          }
+        ]
+      },
+      "I10": {
+        "V": 27,
+        "VC": 62,
+        "P": "I",
+        "K": [
+          {
+            "N": "the eu ai act",
+            "V": 5
+          },
+          {
+            "N": "ais",
+            "V": 4
+          },
+          {
+            "N": "ai governance",
+            "V": 9
+          },
+          {
+            "N": "government",
+            "V": 4
+          },
+          {
+            "N": "the ai act",
+            "V": 2
+          },
+          {
+            "N": "ethic",
+            "V": 7
+          }
+        ]
+      },
+      "I11": {
+        "V": 2,
+        "VC": 4,
+        "P": "I",
+        "K": [
+          {
+            "N": " data",
+            "V": 2
+          }
+        ]
+      },
+      "I12": {
+        "V": 37,
+        "VC": 130,
+        "P": "I",
+        "K": [
+          {
+            "N": "hallucination detection",
+            "V": 15
+          },
+          {
+            "N": "object hallucination",
+            "V": 3
+          },
+          {
+            "N": "lvlm",
+            "V": 10
+          }
+        ]
+      },
+      "I13": {
+        "V": 1,
+        "VC": 6,
+        "P": "I",
+        "K": []
+      }
+    },
+    "links": [
+      {
+        "S": "A15",
+        "T": "F14",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "B06",
+        "T": "C02",
+        "C": 4,
+        "CC": 11
+      },
+      {
+        "S": "A03",
+        "T": "D03",
+        "C": 30,
+        "CC": 94
+      },
+      {
+        "S": "D03",
+        "T": "D04",
+        "C": 11,
+        "CC": 61
+      },
+      {
+        "S": "D05",
+        "T": "D06",
+        "C": 7,
+        "CC": 26
+      },
+      {
+        "S": "C01",
+        "T": "D05",
+        "C": 2,
+        "CC": 11
+      },
+      {
+        "S": "C01",
+        "T": "D06",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "A03",
+        "T": "B15",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "B15",
+        "T": "D03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D09",
+        "T": "D13",
+        "C": 9,
+        "CC": 34
+      },
+      {
+        "S": "D08",
+        "T": "D09",
+        "C": 13,
+        "CC": 37
+      },
+      {
+        "S": "D08",
+        "T": "D13",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "B02",
+        "T": "C01",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "D05",
+        "T": "H02",
+        "C": 50,
+        "CC": 127
+      },
+      {
+        "S": "C01",
+        "T": "C10",
+        "C": 5,
+        "CC": 17
+      },
+      {
+        "S": "B05",
+        "T": "D06",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D06",
+        "T": "H03",
+        "C": 2,
+        "CC": 19
+      },
+      {
+        "S": "G04",
+        "T": "G10",
+        "C": 5,
+        "CC": 11
+      },
+      {
+        "S": "C02",
+        "T": "G10",
+        "C": 2,
+        "CC": 13
+      },
+      {
+        "S": "D05",
+        "T": "G10",
+        "C": 5,
+        "CC": 28
+      },
+      {
+        "S": "C02",
+        "T": "G04",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "D05",
+        "T": "G04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C02",
+        "T": "D05",
+        "C": 9,
+        "CC": 38
+      },
+      {
+        "S": "D12",
+        "T": "E16",
+        "C": 9,
+        "CC": 32
+      },
+      {
+        "S": "D12",
+        "T": "E15",
+        "C": 3,
+        "CC": 14
+      },
+      {
+        "S": "E15",
+        "T": "E16",
+        "C": 6,
+        "CC": 23
+      },
+      {
+        "S": "B06",
+        "T": "D09",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "B15",
+        "T": "E01",
+        "C": 4,
+        "CC": 10
+      },
+      {
+        "S": "D11",
+        "T": "E01",
+        "C": 9,
+        "CC": 31
+      },
+      {
+        "S": "B15",
+        "T": "D11",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A03",
+        "T": "A12",
+        "C": 14,
+        "CC": 39
+      },
+      {
+        "S": "A14",
+        "T": "D01",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D11",
+        "T": "H02",
+        "C": 11,
+        "CC": 46
+      },
+      {
+        "S": "D05",
+        "T": "D11",
+        "C": 6,
+        "CC": 23
+      },
+      {
+        "S": "G01",
+        "T": "G06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "H02",
+        "T": "H11",
+        "C": 31,
+        "CC": 85
+      },
+      {
+        "S": "E05",
+        "T": "E16",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "B04",
+        "T": "B05",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "B07",
+        "T": "C03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B11",
+        "T": "B15",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D02",
+        "T": "G10",
+        "C": 1,
+        "CC": 9
+      },
+      {
+        "S": "A13",
+        "T": "D02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A13",
+        "T": "G10",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "D06",
+        "T": "H02",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D05",
+        "T": "H03",
+        "C": 40,
+        "CC": 127
+      },
+      {
+        "S": "H07",
+        "T": "H08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C12",
+        "T": "H03",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "E17",
+        "T": "I09",
+        "C": 3,
+        "CC": 8
+      },
+      {
+        "S": "A12",
+        "T": "F05",
+        "C": 3,
+        "CC": 4
+      },
+      {
+        "S": "B05",
+        "T": "D10",
+        "C": 3,
+        "CC": 5
+      },
+      {
+        "S": "A13",
+        "T": "D09",
+        "C": 5,
+        "CC": 12
+      },
+      {
+        "S": "A13",
+        "T": "A15",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A15",
+        "T": "D09",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "B07",
+        "T": "C02",
+        "C": 3,
+        "CC": 3
+      },
+      {
+        "S": "D12",
+        "T": "H02",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "D05",
+        "T": "D12",
+        "C": 3,
+        "CC": 5
+      },
+      {
+        "S": "D11",
+        "T": "D12",
+        "C": 5,
+        "CC": 14
+      },
+      {
+        "S": "C03",
+        "T": "G04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A10",
+        "T": "B03",
+        "C": 5,
+        "CC": 9
+      },
+      {
+        "S": "A09",
+        "T": "A10",
+        "C": 8,
+        "CC": 13
+      },
+      {
+        "S": "A09",
+        "T": "B03",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "E01",
+        "T": "F09",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D07",
+        "T": "F09",
+        "C": 5,
+        "CC": 10
+      },
+      {
+        "S": "D07",
+        "T": "E01",
+        "C": 3,
+        "CC": 9
+      },
+      {
+        "S": "B05",
+        "T": "D05",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "A11",
+        "T": "C01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C03",
+        "T": "D05",
+        "C": 3,
+        "CC": 10
+      },
+      {
+        "S": "C11",
+        "T": "D05",
+        "C": 1,
+        "CC": 11
+      },
+      {
+        "S": "C03",
+        "T": "C11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A03",
+        "T": "E01",
+        "C": 4,
+        "CC": 6
+      },
+      {
+        "S": "D07",
+        "T": "H03",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "A10",
+        "T": "D09",
+        "C": 7,
+        "CC": 12
+      },
+      {
+        "S": "A10",
+        "T": "A13",
+        "C": 7,
+        "CC": 19
+      },
+      {
+        "S": "A10",
+        "T": "G10",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "D09",
+        "T": "G10",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "C02",
+        "T": "H03",
+        "C": 7,
+        "CC": 27
+      },
+      {
+        "S": "A09",
+        "T": "A13",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "D09",
+        "T": "E17",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A02",
+        "T": "D06",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "A10",
+        "T": "D06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A02",
+        "T": "A10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B06",
+        "T": "E13",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B05",
+        "T": "B06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A10",
+        "T": "A14",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A13",
+        "T": "A14",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "E05",
+        "T": "E15",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "B01",
+        "T": "F02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E10",
+        "T": "E12",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "E10",
+        "T": "F05",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E12",
+        "T": "F05",
+        "C": 6,
+        "CC": 13
+      },
+      {
+        "S": "A15",
+        "T": "D10",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "D05",
+        "T": "D13",
+        "C": 5,
+        "CC": 21
+      },
+      {
+        "S": "D05",
+        "T": "H11",
+        "C": 17,
+        "CC": 49
+      },
+      {
+        "S": "D13",
+        "T": "H02",
+        "C": 9,
+        "CC": 27
+      },
+      {
+        "S": "D13",
+        "T": "H11",
+        "C": 5,
+        "CC": 13
+      },
+      {
+        "S": "D04",
+        "T": "F14",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D03",
+        "T": "F14",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D03",
+        "T": "I01",
+        "C": 7,
+        "CC": 21
+      },
+      {
+        "S": "E15",
+        "T": "F14",
+        "C": 4,
+        "CC": 6
+      },
+      {
+        "S": "D13",
+        "T": "H03",
+        "C": 5,
+        "CC": 20
+      },
+      {
+        "S": "H02",
+        "T": "H03",
+        "C": 19,
+        "CC": 53
+      },
+      {
+        "S": "G06",
+        "T": "I09",
+        "C": 3,
+        "CC": 8
+      },
+      {
+        "S": "I09",
+        "T": "I10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E01",
+        "T": "E16",
+        "C": 5,
+        "CC": 15
+      },
+      {
+        "S": "A03",
+        "T": "F05",
+        "C": 6,
+        "CC": 16
+      },
+      {
+        "S": "A14",
+        "T": "D07",
+        "C": 4,
+        "CC": 12
+      },
+      {
+        "S": "A14",
+        "T": "F09",
+        "C": 3,
+        "CC": 3
+      },
+      {
+        "S": "B03",
+        "T": "H11",
+        "C": 3,
+        "CC": 4
+      },
+      {
+        "S": "B03",
+        "T": "D05",
+        "C": 5,
+        "CC": 11
+      },
+      {
+        "S": "B03",
+        "T": "H02",
+        "C": 6,
+        "CC": 9
+      },
+      {
+        "S": "E10",
+        "T": "G06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E10",
+        "T": "I09",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E12",
+        "T": "I09",
+        "C": 13,
+        "CC": 30
+      },
+      {
+        "S": "A10",
+        "T": "D12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B03",
+        "T": "D12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A10",
+        "T": "D05",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A14",
+        "T": "D05",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "H03",
+        "T": "H11",
+        "C": 8,
+        "CC": 25
+      },
+      {
+        "S": "B05",
+        "T": "H01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F03",
+        "T": "F14",
+        "C": 3,
+        "CC": 6
+      },
+      {
+        "S": "G11",
+        "T": "G13",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E16",
+        "T": "F01",
+        "C": 9,
+        "CC": 27
+      },
+      {
+        "S": "H01",
+        "T": "H11",
+        "C": 8,
+        "CC": 17
+      },
+      {
+        "S": "D13",
+        "T": "E17",
+        "C": 10,
+        "CC": 30
+      },
+      {
+        "S": "D12",
+        "T": "F14",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "E14",
+        "T": "F14",
+        "C": 8,
+        "CC": 23
+      },
+      {
+        "S": "A03",
+        "T": "D13",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "E01",
+        "T": "G06",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "E16",
+        "T": "F14",
+        "C": 5,
+        "CC": 13
+      },
+      {
+        "S": "F01",
+        "T": "F14",
+        "C": 7,
+        "CC": 11
+      },
+      {
+        "S": "C02",
+        "T": "H02",
+        "C": 3,
+        "CC": 11
+      },
+      {
+        "S": "A05",
+        "T": "B06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B06",
+        "T": "G10",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "B06",
+        "T": "H03",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "G10",
+        "T": "H03",
+        "C": 5,
+        "CC": 12
+      },
+      {
+        "S": "E13",
+        "T": "F04",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "B01",
+        "T": "I12",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "B01",
+        "T": "B02",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "B02",
+        "T": "F02",
+        "C": 3,
+        "CC": 6
+      },
+      {
+        "S": "A07",
+        "T": "D09",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A11",
+        "T": "D09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D01",
+        "T": "D09",
+        "C": 3,
+        "CC": 8
+      },
+      {
+        "S": "A07",
+        "T": "A11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A07",
+        "T": "D01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A11",
+        "T": "D01",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "B01",
+        "T": "F05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A12",
+        "T": "A14",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "A12",
+        "T": "B01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F05",
+        "T": "I09",
+        "C": 3,
+        "CC": 8
+      },
+      {
+        "S": "B16",
+        "T": "F05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B06",
+        "T": "D05",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "D01",
+        "T": "D02",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "E09",
+        "T": "G07",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A03",
+        "T": "D05",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A03",
+        "T": "H11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B01",
+        "T": "B14",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "B05",
+        "T": "H03",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "B12",
+        "T": "G10",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A03",
+        "T": "B06",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "E01",
+        "T": "H02",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "C01",
+        "T": "C11",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "H01",
+        "T": "H02",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "B06",
+        "T": "G04",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "C03",
+        "T": "D06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C10",
+        "T": "G10",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "B05",
+        "T": "G10",
+        "C": 7,
+        "CC": 8
+      },
+      {
+        "S": "B05",
+        "T": "C10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C10",
+        "T": "G04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B05",
+        "T": "G04",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A10",
+        "T": "B06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A03",
+        "T": "G10",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "C04",
+        "T": "H11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A03",
+        "T": "A14",
+        "C": 3,
+        "CC": 6
+      },
+      {
+        "S": "B13",
+        "T": "G08",
+        "C": 3,
+        "CC": 8
+      },
+      {
+        "S": "A03",
+        "T": "A10",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "B01",
+        "T": "D06",
+        "C": 2,
+        "CC": 14
+      },
+      {
+        "S": "A02",
+        "T": "D05",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "A02",
+        "T": "I06",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "A02",
+        "T": "H03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D05",
+        "T": "I06",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "H03",
+        "T": "I06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A03",
+        "T": "D09",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "D09",
+        "T": "G07",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "B04",
+        "T": "C12",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B08",
+        "T": "F11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "G06",
+        "T": "G07",
+        "C": 2,
+        "CC": 11
+      },
+      {
+        "S": "A15",
+        "T": "G10",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "C03",
+        "T": "G10",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "D01",
+        "T": "G10",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "A15",
+        "T": "C03",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "A15",
+        "T": "D01",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "C03",
+        "T": "D01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C01",
+        "T": "D02",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "G08",
+        "T": "G10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B02",
+        "T": "B06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A03",
+        "T": "G05",
+        "C": 3,
+        "CC": 5
+      },
+      {
+        "S": "D03",
+        "T": "G05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B05",
+        "T": "H02",
+        "C": 3,
+        "CC": 12
+      },
+      {
+        "S": "B01",
+        "T": "B03",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "B01",
+        "T": "B16",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "B03",
+        "T": "B16",
+        "C": 3,
+        "CC": 8
+      },
+      {
+        "S": "B04",
+        "T": "B06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A03",
+        "T": "E10",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "F03",
+        "T": "H03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A10",
+        "T": "D01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A03",
+        "T": "A13",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "C02",
+        "T": "I06",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "D10",
+        "T": "G10",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "D10",
+        "T": "H03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A15",
+        "T": "D02",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "C05",
+        "T": "D02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C10",
+        "T": "D05",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "G04",
+        "T": "I06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A03",
+        "T": "D12",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A03",
+        "T": "D07",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "D13",
+        "T": "F01",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D13",
+        "T": "E16",
+        "C": 3,
+        "CC": 26
+      },
+      {
+        "S": "D13",
+        "T": "F14",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "A12",
+        "T": "D09",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "A12",
+        "T": "E10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G06",
+        "T": "G12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G10",
+        "T": "G12",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E12",
+        "T": "I10",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "D09",
+        "T": "H02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "I02",
+        "T": "I07",
+        "C": 3,
+        "CC": 9
+      },
+      {
+        "S": "I01",
+        "T": "I09",
+        "C": 5,
+        "CC": 14
+      },
+      {
+        "S": "E12",
+        "T": "I01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D03",
+        "T": "F05",
+        "C": 3,
+        "CC": 5
+      },
+      {
+        "S": "D04",
+        "T": "F05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D12",
+        "T": "E17",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D12",
+        "T": "D13",
+        "C": 3,
+        "CC": 16
+      },
+      {
+        "S": "G10",
+        "T": "H02",
+        "C": 2,
+        "CC": 11
+      },
+      {
+        "S": "G01",
+        "T": "G10",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "A03",
+        "T": "E12",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "D03",
+        "T": "D08",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "D03",
+        "T": "D09",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "B03",
+        "T": "D13",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "B16",
+        "T": "D13",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E16",
+        "T": "E17",
+        "C": 2,
+        "CC": 14
+      },
+      {
+        "S": "E17",
+        "T": "F01",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "D12",
+        "T": "E05",
+        "C": 4,
+        "CC": 16
+      },
+      {
+        "S": "D11",
+        "T": "E16",
+        "C": 6,
+        "CC": 12
+      },
+      {
+        "S": "E16",
+        "T": "H03",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "E15",
+        "T": "H03",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "B03",
+        "T": "B15",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A10",
+        "T": "A12",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "D11",
+        "T": "H11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C01",
+        "T": "C04",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F05",
+        "T": "G04",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A12",
+        "T": "B05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B09",
+        "T": "G06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "I02",
+        "T": "I12",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E01",
+        "T": "I05",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D11",
+        "T": "I05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G06",
+        "T": "I05",
+        "C": 4,
+        "CC": 4
+      },
+      {
+        "S": "B08",
+        "T": "G04",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B06",
+        "T": "B08",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D09",
+        "T": "I06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C06",
+        "T": "H08",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "D04",
+        "T": "G10",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B01",
+        "T": "C01",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "A03",
+        "T": "D11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A09",
+        "T": "G03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D05",
+        "T": "F14",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "C02",
+        "T": "F14",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "F14",
+        "T": "H03",
+        "C": 3,
+        "CC": 8
+      },
+      {
+        "S": "D04",
+        "T": "I01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B06",
+        "T": "D12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B06",
+        "T": "D13",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A10",
+        "T": "C03",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A09",
+        "T": "C03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C02",
+        "T": "G03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C01",
+        "T": "C02",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "C01",
+        "T": "G03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B08",
+        "T": "I02",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "C02",
+        "T": "C03",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A15",
+        "T": "G04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A14",
+        "T": "A15",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A14",
+        "T": "G10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A14",
+        "T": "G04",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B08",
+        "T": "C01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C01",
+        "T": "G10",
+        "C": 1,
+        "CC": 9
+      },
+      {
+        "S": "C01",
+        "T": "C03",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "H05",
+        "T": "H11",
+        "C": 4,
+        "CC": 5
+      },
+      {
+        "S": "A03",
+        "T": "B08",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A08",
+        "T": "E03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E15",
+        "T": "F01",
+        "C": 4,
+        "CC": 14
+      },
+      {
+        "S": "E15",
+        "T": "E17",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "B01",
+        "T": "D07",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G10",
+        "T": "H11",
+        "C": 2,
+        "CC": 12
+      },
+      {
+        "S": "F14",
+        "T": "H02",
+        "C": 3,
+        "CC": 10
+      },
+      {
+        "S": "A09",
+        "T": "D09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G12",
+        "T": "I01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G12",
+        "T": "I09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C02",
+        "T": "C10",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D13",
+        "T": "E15",
+        "C": 3,
+        "CC": 15
+      },
+      {
+        "S": "E17",
+        "T": "F03",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D08",
+        "T": "I01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D08",
+        "T": "I09",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B02",
+        "T": "B11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D01",
+        "T": "D13",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A12",
+        "T": "D13",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A12",
+        "T": "D01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A12",
+        "T": "I09",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A12",
+        "T": "E12",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "D09",
+        "T": "F14",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "F14",
+        "T": "G01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A12",
+        "T": "D03",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D08",
+        "T": "F14",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D08",
+        "T": "H11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F14",
+        "T": "H11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F02",
+        "T": "F04",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D11",
+        "T": "H03",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "F04",
+        "T": "H02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B01",
+        "T": "H02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B14",
+        "T": "C01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B11",
+        "T": "B12",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "B15",
+        "T": "E06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B04",
+        "T": "B13",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "G10",
+        "T": "H01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "G10",
+        "T": "H07",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "I07",
+        "T": "I11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D12",
+        "T": "I10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D13",
+        "T": "G10",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A12",
+        "T": "A13",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B02",
+        "T": "B04",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B05",
+        "T": "D02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D06",
+        "T": "D13",
+        "C": 1,
+        "CC": 9
+      },
+      {
+        "S": "B01",
+        "T": "D05",
+        "C": 1,
+        "CC": 9
+      },
+      {
+        "S": "B03",
+        "T": "C01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B02",
+        "T": "B03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D07",
+        "T": "D09",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A14",
+        "T": "D09",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "H01",
+        "T": "H05",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "B05",
+        "T": "D09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A10",
+        "T": "B05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A13",
+        "T": "B05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A03",
+        "T": "B11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D12",
+        "T": "H08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C06",
+        "T": "D12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A08",
+        "T": "B09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B06",
+        "T": "B07",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "A11",
+        "T": "C02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C02",
+        "T": "D01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A11",
+        "T": "D05",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D01",
+        "T": "D05",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "A03",
+        "T": "G06",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "D05",
+        "T": "F01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F01",
+        "T": "H02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D12",
+        "T": "F01",
+        "C": 2,
+        "CC": 10
+      },
+      {
+        "S": "E05",
+        "T": "F01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D11",
+        "T": "I08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A15",
+        "T": "E14",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E14",
+        "T": "E15",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E14",
+        "T": "F01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E01",
+        "T": "H08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B15",
+        "T": "H08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D03",
+        "T": "F09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A14",
+        "T": "D03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A10",
+        "T": "D08",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D06",
+        "T": "I06",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "B02",
+        "T": "D06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A02",
+        "T": "B02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B02",
+        "T": "I06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B03",
+        "T": "H03",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "E08",
+        "T": "G06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A12",
+        "T": "F09",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "A12",
+        "T": "D07",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E12",
+        "T": "E17",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A01",
+        "T": "A14",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B12",
+        "T": "C03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B12",
+        "T": "C01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D04",
+        "T": "G05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D05",
+        "T": "F04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B03",
+        "T": "D01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F02",
+        "T": "H03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D05",
+        "T": "F02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B02",
+        "T": "H03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B02",
+        "T": "D05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E12",
+        "T": "G06",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "D03",
+        "T": "I09",
+        "C": 1,
+        "CC": 11
+      }
+    ]
   }
 }
