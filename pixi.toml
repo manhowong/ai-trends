@@ -20,3 +20,6 @@ spacy = "*"
 scikit-learn = "*"
 sentence-transformers = "*"
 matplotlib = "*"
+
+[pypi-dependencies]
+uv = ">=0.11.3, <0.12"
