@@ -2,6 +2,8 @@
    help.js — Help modal: load content pages into overlay
    ============================================================ */
 
+import { closeModal, openModal, registerModal } from './ui/modal-controller.js';
+
 export function initHelp() {
   const overlay = document.getElementById('help-overlay');
   const backdrop = document.getElementById('help-backdrop');
@@ -16,6 +18,7 @@ export function initHelp() {
   const HIGHLIGHT_MS = 1600;
   const SCROLL_HIGHLIGHT_DELAY_MS = 200;
   const SCROLL_OFFSET_PX = 8;
+  let helpRequestToken = 0;
 
   titleEl.textContent = 'Help';
 
@@ -54,7 +57,9 @@ export function initHelp() {
 
   const openHelp = async (helpId, sectionId) => {
     if (!helpId) return;
-    overlay.classList.add('active');
+    helpRequestToken += 1;
+    const requestToken = helpRequestToken;
+    openModal('help');
     contentEl.innerHTML = '<p class="empty-state">Loading...</p>';
     topBtn.classList.remove('is-visible');
 
@@ -62,21 +67,22 @@ export function initHelp() {
       const res = await fetch(`./docs/html/${helpId}.html`);
       if (!res.ok) throw new Error(`Failed to load ${helpId}`);
       const html = await res.text();
+      if (requestToken !== helpRequestToken) return;
       const doc = new DOMParser().parseFromString(html, 'text/html');
       contentEl.innerHTML = doc.body ? doc.body.innerHTML : html;
       if (window.MathJax?.typesetPromise) {
         await window.MathJax.typesetPromise([contentEl]);
+        if (requestToken !== helpRequestToken) return;
       }
       scrollToSection(sectionId);
     } catch (err) {
+      if (requestToken !== helpRequestToken) return;
       contentEl.innerHTML = '<p class="empty-state">Unable to load help content.</p>';
     }
   };
 
   const closeHelp = () => {
-    overlay.classList.remove('active');
-    contentEl.innerHTML = '';
-    topBtn.classList.remove('is-visible');
+    closeModal('help');
   };
 
   const extractHashId = link => {
@@ -126,15 +132,22 @@ export function initHelp() {
   });
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) {
-      closeHelp();
-    }
     if ((e.key === 'Enter' || e.key === ' ') && e.target?.tagName?.toLowerCase() === 'help-icon') {
       e.preventDefault();
       handleHelpIcon(e.target);
     }
   });
 
-  backdrop.addEventListener('click', closeHelp);
+  registerModal({
+    id: 'help',
+    overlay,
+    backdrop,
+    onClose: () => {
+      helpRequestToken += 1;
+      contentEl.innerHTML = '';
+      topBtn.classList.remove('is-visible');
+    },
+  });
+
   closeBtn.addEventListener('click', closeHelp);
 }

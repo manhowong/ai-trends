@@ -5,6 +5,7 @@
 import { state }                    from './state.js';
 import { loadDataset } from './data/load-data.js';
 import { refreshGraphData } from './data/refresh-graph-data.js';
+import { initializeAppUI } from './ui/app-ui.js';
 import { echart, initializeRichStyles,
          refreshThemeVars,
          applyHover, clearHover,
@@ -28,48 +29,11 @@ window.focusL1Node    = focusL1Node;
 window.focusL2Node    = focusL2Node;
 window.setSortMode    = setSortMode;
 
-// Theme toggle ---------------------------------------------------------------
-
 function rerenderCurrentView() {
   if (state.currentView === 'overview') return goOverview();
   if (state.currentView === 'l1') return focusL1Node(state.currentL1NodeId);
   if (state.currentView === 'l2') return focusL2Node(state.currentL2NodeId);
 }
-
-function applyTheme(theme, persist = true) {
-  document.documentElement.setAttribute('data-theme', theme);
-  if (persist) localStorage.setItem('theme', theme);
-
-  const btn = document.getElementById('themeToggle');
-  if (btn) {
-    btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-  }
-
-  refreshThemeVars();
-  if (state.activeL1Nodes.length) {
-    initializeRichStyles();
-    rerenderCurrentView();
-  }
-}
-
-function initThemeToggle() {
-  const saved = localStorage.getItem('theme');
-  applyTheme(saved || 'light', false);
-  const btn = document.getElementById('themeToggle');
-  if (!btn) return;
-  btn.addEventListener('click', () => {
-    const next = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark'
-      ? 'light'
-      : 'dark';
-    applyTheme(next, true);
-  });
-}
-
-
-// Sidebar controls ------------------------------------------------------------
-
-document.getElementById('sidebarToggle')
-  .addEventListener('click', toggleSidebar);
 
 document.getElementById('panelToggle')
   .addEventListener('click', () => {
@@ -242,26 +206,17 @@ echart.getZr().on('globalout', cancelInteraction); // finger slides off chart ar
 
 window.addEventListener('resize', () => echart.resize());
 
-// Right panel and sidebar starts collapsed with small screen
-if (window.innerWidth <= 768) {
-  document.getElementById('right-panel').classList.add('collapsed');
-  document.getElementById('sidebar').classList.add('collapsed');
-}
-
-//Mobile: tap outside of sidebar, close it automatically
-document.addEventListener('click', e => {
-  if (window.innerWidth > 768) return;
-  const sidebar = document.getElementById('sidebar');
-  if (sidebar.classList.contains('collapsed')) return;
-  if (sidebar.contains(e.target)) return;
-  toggleSidebar();
-});
-
 // Boot ------------------------------------------------------------------------
 
 async function initializeApp() {
-  initThemeToggle();
   await loadDataset();
+  initializeAppUI({
+    state,
+    refreshThemeVars,
+    initializeRichStyles,
+    rerenderCurrentView,
+    toggleSidebar,
+  });
   buildDateRangeControls();
   refreshGraphData(state);
   updateDateText();

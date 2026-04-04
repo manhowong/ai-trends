@@ -1,34 +1,8 @@
 ﻿/* Search Overlay =========================================================== */
 
-#search-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-}
-
-#search-overlay.active {
-    display: block;
-}
-
-#search-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-}
-
 #search-modal {
-    position: fixed;
     top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
     width: min(480px, calc(100vw - 32px));
-    background: var(--color-bg);
-    border: 1px solid var(--color-surface-2);
-    border-radius: 6px;
-    overflow: hidden;
-    z-index: 10000;
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
 }
 
 #search-input {
