@@ -92,6 +92,15 @@ function renderEmptyState(message) {
   return `<p class="empty-state">${message}</p>`;
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
 function buildRankedRow({
   rank,
   name,
@@ -103,16 +112,17 @@ function buildRankedRow({
   onclick = '',
   extraClass = '',
 }) {
+  const safeName = escapeHtml(name);
   const rowClass = `ranked-row${extraClass ? ` ${extraClass}` : ''}${disabled ? ' ranked-row--disabled' : ''}`;
   const attrs = disabled || !id
-    ? ''
-    : `data-id="${id}" onmouseenter="applyHover('${id}')" onmouseleave="clearHover()" onclick="${onclick}" style="cursor:pointer"`;
+    ? `data-full-name="${safeName}"`
+    : `data-id="${id}" data-full-name="${safeName}" onmouseenter="applyHover('${id}')" onmouseleave="clearHover()" onclick="${onclick}" style="cursor:pointer"`;
 
   return `
     <div class="${rowClass}" ${attrs}>
       <span class="rank-num">${rank}</span>
       <span class="rank-dot" style="background:${trendColor(trend)}"></span>
-      <span class="rank-name">${name}</span>
+      <span class="rank-name">${safeName}</span>
       <span class="rank-count">${valueLabel}</span>
       <div class="rank-bar-wrap"><div class="rank-bar" style="width:${widthPercent}%"></div></div>
     </div>`;
