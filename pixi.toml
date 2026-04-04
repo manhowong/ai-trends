@@ -1,0 +1,22 @@
+[workspace]
+authors = ["manhowong <92902645+manhowong@users.noreply.github.com>"]
+channels = ["conda-forge", "main", "r", "msys2"]
+name = "ai-trends-py312"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+tqdm = "*"
+pyyaml = "*"
+numpy = "*"
+polars = "*"
+fastembed = "*"
+arxiv = "*"
+python = "3.12.*"
+ipykernel = ">=7.2.0,<8"
+spacy = "*"
+scikit-learn = "*"
+sentence-transformers = "*"
+matplotlib = "*"

@@ -212,3 +212,6 @@ marimo/_lsp/
 __marimo__/
 
 .codex
+# pixi environments
+.pixi/*
+!.pixi/config.toml
