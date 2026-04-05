@@ -4,7 +4,7 @@ export const L2_NODE_LABEL = 'Topic';
 export const L2_LABEL = 'Topics';
 
 export const SORT_LABELS = {
-  papers: '# articles',
+  volume: '# articles',
   hotness: 'hotness',
   links: '# links',
 };

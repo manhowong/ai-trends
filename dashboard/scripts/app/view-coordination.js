@@ -30,7 +30,7 @@ function updateBreadcrumb() {
 
 export function showOverview() {
   document.getElementById('toggleIntraEdges').disabled = true;
-  if (state.sortMode === 'links') state.sortMode = 'papers'; // There are no true links at L1 (only aggregated L2 links)
+  if (state.sortMode === 'links') state.sortMode = 'volume'; // There are no true links at L1 (only aggregated L2 links)
   state.currentView = 'overview';
   state.currentL1NodeId = null;
   state.currentL2NodeId = null;

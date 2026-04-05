@@ -129,7 +129,7 @@ function buildRankedRow({
 }
 
 export function renderOverviewPanel() {
-  const allowedSortModes = ['papers', 'hotness'];
+  const allowedSortModes = ['volume', 'hotness'];
   const activeSortMode = state.sortMode;
   const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
   const sortTargets = state.anyL1Nodes.map(l1Node => {
@@ -162,7 +162,7 @@ export function renderOverviewPanel() {
         const { l1Node } = item;
         const belowThreshold = item.volume < threshold;
         const disabled = !!l1Node.isUnassigned || belowThreshold || !state.activeL1NodeById[l1Node.id];
-        const valueLabel = activeSortMode === 'papers'
+        const valueLabel = activeSortMode === 'volume'
           ? formatCountWithThreshold(sortedValues[i])
           : formatMetricValue(activeSortMode, sortedValues[i]);
         return buildRankedRow({
@@ -183,7 +183,7 @@ export function renderOverviewPanel() {
 }
 
 export function renderL1NodePanel() {
-  const allowedSortModes = ['papers', 'hotness', 'links'];
+  const allowedSortModes = ['volume', 'hotness', 'links'];
   const activeSortMode = state.sortMode;
   const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
   const currentL1Node = state.anyL1NodeById[state.currentL1NodeId] || state.activeL1NodeById[state.currentL1NodeId];
@@ -195,7 +195,7 @@ export function renderL1NodePanel() {
 
   const sortTargets = currentL1Node.children.map(l2Node => ({
     ...l2Node,
-    value: activeSortMode === 'papers'
+    value: activeSortMode === 'volume'
       ? l2Node.volume
       : activeSortMode === 'hotness'
         ? l2Node.hotness
@@ -219,7 +219,7 @@ export function renderL1NodePanel() {
       ${sortedTargets.map((l2Node, i) => {
         const belowThreshold = l2Node.volume < threshold;
         const disabled = !!l2Node.isUnassigned || belowThreshold;
-        const valueLabel = activeSortMode === 'papers'
+        const valueLabel = activeSortMode === 'volume'
           ? formatCountWithThreshold(l2Node.volume)
           : formatMetricValue(activeSortMode, sortedValues[i]);
         return buildRankedRow({
@@ -251,7 +251,7 @@ export function renderL2NodePanel() {
   }));
   const sortedTargets = sortByValue(sortTargets);
   const sortedValues = sortedTargets.map(keyword => keyword.value);
-  const keywordBarWidths = getMetricBarWidths('papers', sortedValues);
+  const keywordBarWidths = getMetricBarWidths('volume', sortedValues);
   const topContentTitle = buildContentTitle(FREQUENT_TERMS_TITLE, {showHelp: true, helpSection: 'keyword-extraction'});
   const topSortControl = buildSortControl({ sortLabel: '# articles' });
 
@@ -261,7 +261,7 @@ export function renderL2NodePanel() {
           ${buildRankedRow({
             rank: i + 1,
             name: keyword.name,
-            valueLabel: formatMetricValue('papers', sortedValues[i]),
+            valueLabel: formatMetricValue('volume', sortedValues[i]),
             widthPercent: keywordBarWidths[i],
             trend: keyword.trend,
           })}`).join('')}
