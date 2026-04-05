@@ -303,7 +303,10 @@ export function applyHover(hoveredId) {
   });
 
   const edges = state.curEdges.map(edge => {
-    const isActive = highlighted.has(edge.source) && highlighted.has(edge.target);
+    // Select direct neighbours of the node
+    const isActive = edge.source === hoveredId || edge.target === hoveredId;    
+    // Select direct neighbours of the node and their neighbours 
+    // const isActive = highlighted.has(edge.source) && highlighted.has(edge.target);
     return {
       source: edge.source,
       target: edge.target,
