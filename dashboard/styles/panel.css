@@ -277,12 +277,6 @@
     flex-shrink: 0;
 }
 
-@media (hover: none) {
-    .ranked-row::after {
-        display: none;
-    }
-}
-
 .rank-bar-title {
     display: inline-block;
     font-size: var(--font-sm);

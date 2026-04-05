@@ -203,13 +203,10 @@ export function initializeRichStyles() {
 // Chart centre ----------------------------------------------------------------
 
 export function getChartCenter() {
-// Center by chart
-// The Info Panel overlays the right ~33% of the canvas.
-// Visual centre of the free area = ~33% from the left.
-// When collapsed the true canvas centre (50%) is used.
-
-  const panel = document.getElementById('info-panel');
-  if (panel && panel.classList.contains('collapsed')) return ['50%', '50%'];
+// Desktop: The Info Panel overlays the right ~33% of the canvas. Centre chart
+//          slightly to the left (59% from right of screen).
+// Mobile: The Info Panel is collapsed by default. Use true canvas centre (50%).
+  if (window.innerWidth < 768) return ['50%', '50%'];
   return ['59%', '50%'];
 }
 
