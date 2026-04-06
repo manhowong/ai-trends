@@ -11,26 +11,30 @@ v-bar::after {
 
 /* Help icon */
 
-help-icon::after {
-  content:"?";
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5em;
-  height: 1.5em;
-  font-size: 0.85em;
-  padding: 0.3em;
+help-icon {
+  width: var(--font-norm);
+  height: var(--font-norm);
+  padding-left: 1.5em;
+  display: inline-block;
+  vertical-align: middle;
+
+  /* fine-tune in-line vertical alignment */
+  position: relative;
+  top: -0.08em;
+
+  /* Style */
   background-color: var(--color-accent);
-  color: var(--color-panel-bg);
-  border-radius: 50%; /* circle */
-  font-family: system-ui, sans-serif;
-  font-weight: bold;
-  margin-left: 6px;
   cursor: pointer;
   pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
+  
+  /* Help Icon Mask */
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M8%200a8%208%200%201%200%200%2016A8%208%200%200%200%208%200zM9%2013H7v-2h2v2zm1.9-6.3c-.2.4-.5.8-.9%201.1l-.8.7c-.2.2-.3.4-.3.7V9H7v-.8c0-.5.2-.9.5-1.2l.9-.8c.2-.2.4-.4.5-.7.1-.2.1-.5.1-.7%200-.3-.1-.6-.3-.8-.2-.2-.5-.3-.9-.3-.4%200-.7.1-.9.3-.2.2-.4.5-.4.8H5c0-.8.3-1.5.8-2%20.6-.5%201.3-.8%202.2-.8.9%200%201.6.3%202.1.8.5.5.8%201.1.8%201.9%200%20.4-.1.7-.1.9z%27/%3E%3C/svg%3E") no-repeat center;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M8%200a8%208%200%201%200%200%2016A8%208%200%200%200%208%200zM9%2013H7v-2h2v2zm1.9-6.3c-.2.4-.5.8-.9%201.1l-.8.7c-.2.2-.3.4-.3.7V9H7v-.8c0-.5.2-.9.5-1.2l.9-.8c.2-.2.4-.4.5-.7.1-.2.1-.5.1-.7%200-.3-.1-.6-.3-.8-.2-.2-.5-.3-.9-.3-.4%200-.7.1-.9.3-.2.2-.4.5-.4.8H5c0-.8.3-1.5.8-2%20.6-.5%201.3-.8%202.2-.8.9%200%201.6.3%202.1.8.5.5.8%201.1.8%201.9%200%20.4-.1.7-.1.9z%27/%3E%3C/svg%3E") no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
-help-icon:hover::after {
+help-icon:hover {
   background-color: var(--color-muted-3);
 }
 
@@ -43,16 +47,20 @@ help-icon:hover::after {
 }
 
 .screen-icon::before {
-  content: "\25A3"; /* ▣ */
+  content: "\2921"; /* ⤡ */
 }
 
 .search-icon::before {
   content: "\2315"; /* ⌕ */
-  font-size: 20px;
+  font-weight: normal;
+  font-size: 2em;
+  padding-right: 0px;
+  transform: translateY(0.15em);
 }
 
 .anticlock-icon::before {
   content: "\21BA"; /* ↺ */
+  padding-right: 4px;
 }
 
 .anticlock-nospace-icon::before {
@@ -108,6 +116,7 @@ help-icon:hover::after {
 .github-icon {
   width: 1rem;
   height: 1rem;
+  transform: translateY(4px); /* Shift vertically to center it */
   display:inline-block;
   background-color: currentColor; /* Initial Icon Color */
   /* GitHub Icon Mask */
@@ -116,7 +125,6 @@ help-icon:hover::after {
   -webkit-mask-size: contain;
   mask-size: contain;  
   transition: background-color 0.3s ease; /* transition for the color change */
-  transform: translateY(4px);
 }
 
 /* Text styles */

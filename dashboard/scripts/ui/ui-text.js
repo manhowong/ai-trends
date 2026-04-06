@@ -29,12 +29,13 @@ export const INSTRUCTIONS_HTML = `
     </ul>
 
     <span>
-        You can also go to a node in <b>this panel</b> or by <b>search</b>: <br /> 
-        Press <span class="mockKbd">Ctrl</span> + <span class="mockKbd">K</span> or 
-        "Go to ${L2_LABEL}" in
-        <span class="mockToggle">
-          <span class="mock-hamburger-icon">OPTIONS</span>
-        </span>
+        You can also click/tap on a node in <b>this panel</b>.<br />
+    </span>
+
+    <span>
+        To <b>search</b>, click "Find Topics" 
+        <br />or press 
+        <span class="mockKbd">Ctrl</span> + <span class="mockKbd">K</span>
     </span>
 
     <span>
