@@ -9,35 +9,6 @@ v-bar::after {
 
 /* Icons */
 
-/* Help icon */
-
-help-icon {
-  width: var(--font-norm);
-  height: var(--font-norm);
-  padding-left: 1.5em;
-  display: inline-block;
-  vertical-align: middle;
-
-  /* fine-tune in-line vertical alignment */
-  position: relative;
-  top: -0.08em;
-
-  /* Style */
-  background-color: var(--color-accent);
-  cursor: pointer;
-  pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
-  
-  /* Help Icon Mask */
-  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M8%200a8%208%200%201%200%200%2016A8%208%200%200%200%208%200zM9%2013H7v-2h2v2zm1.9-6.3c-.2.4-.5.8-.9%201.1l-.8.7c-.2.2-.3.4-.3.7V9H7v-.8c0-.5.2-.9.5-1.2l.9-.8c.2-.2.4-.4.5-.7.1-.2.1-.5.1-.7%200-.3-.1-.6-.3-.8-.2-.2-.5-.3-.9-.3-.4%200-.7.1-.9.3-.2.2-.4.5-.4.8H5c0-.8.3-1.5.8-2%20.6-.5%201.3-.8%202.2-.8.9%200%201.6.3%202.1.8.5.5.8%201.1.8%201.9%200%20.4-.1.7-.1.9z%27/%3E%3C/svg%3E") no-repeat center;
-  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M8%200a8%208%200%201%200%200%2016A8%208%200%200%200%208%200zM9%2013H7v-2h2v2zm1.9-6.3c-.2.4-.5.8-.9%201.1l-.8.7c-.2.2-.3.4-.3.7V9H7v-.8c0-.5.2-.9.5-1.2l.9-.8c.2-.2.4-.4.5-.7.1-.2.1-.5.1-.7%200-.3-.1-.6-.3-.8-.2-.2-.5-.3-.9-.3-.4%200-.7.1-.9.3-.2.2-.4.5-.4.8H5c0-.8.3-1.5.8-2%20.6-.5%201.3-.8%202.2-.8.9%200%201.6.3%202.1.8.5.5.8%201.1.8%201.9%200%20.4-.1.7-.1.9z%27/%3E%3C/svg%3E") no-repeat center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-help-icon:hover {
-  background-color: var(--color-muted-3);
-}
-
 /* icon wrapper for base settings */
 .icon::before {
   display: inline-block;
@@ -47,7 +18,7 @@ help-icon:hover {
 }
 
 .screen-icon::before {
-  content: "\2921"; /* ⤡ */
+  content: "\22A1"; /* ⊡ */
 }
 
 .search-icon::before {
@@ -116,8 +87,10 @@ help-icon:hover {
 .github-icon {
   width: 1rem;
   height: 1rem;
-  transform: translateY(4px); /* Shift vertically to center it */
   display:inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -0.1em;  
   background-color: currentColor; /* Initial Icon Color */
   /* GitHub Icon Mask */
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z'/%3E%3C/svg%3E") no-repeat center;
@@ -125,6 +98,54 @@ help-icon:hover {
   -webkit-mask-size: contain;
   mask-size: contain;  
   transition: background-color 0.3s ease; /* transition for the color change */
+}
+
+.info-icon {
+  width: 1rem;
+  height: 1rem;
+  display:inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -0.1em;  
+  background-color: currentColor;
+  /* Info Icon Mask */
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M8%200a8%208%200%201%200%200%2016A8%208%200%200%200%208%200zm1%2012H7V7h2v5zM8%204a1%201%200%201%201%200%202%201%201%200%200%201%200-2z%27/%3E%3C/svg%3E") no-repeat center;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M8%200a8%208%200%201%200%200%2016A8%208%200%200%200%208%200zm1%2012H7V7h2v5zM8%204a1%201%200%201%201%200%202%201%201%200%200%201%200-2z%27/%3E%3C/svg%3E") no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.info-icon:hover {
+  background-color: var(--color-muted-3);
+}
+
+/* Help icon */
+
+help-icon {
+  width: var(--font-norm);
+  height: var(--font-norm);
+  padding-left: 1.5em;
+  display: inline-block;
+  vertical-align: middle;
+
+  /* fine-tune in-line vertical alignment */
+  position: relative;
+  top: -0.08em;
+
+  /* Style */
+  background-color: var(--color-accent);
+  cursor: pointer;
+  pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
+  
+  /* Help Icon Mask */
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M8%200a8%208%200%201%200%200%2016A8%208%200%200%200%208%200zM9%2013H7v-2h2v2zm1.9-6.3c-.2.4-.5.8-.9%201.1l-.8.7c-.2.2-.3.4-.3.7V9H7v-.8c0-.5.2-.9.5-1.2l.9-.8c.2-.2.4-.4.5-.7.1-.2.1-.5.1-.7%200-.3-.1-.6-.3-.8-.2-.2-.5-.3-.9-.3-.4%200-.7.1-.9.3-.2.2-.4.5-.4.8H5c0-.8.3-1.5.8-2%20.6-.5%201.3-.8%202.2-.8.9%200%201.6.3%202.1.8.5.5.8%201.1.8%201.9%200%20.4-.1.7-.1.9z%27/%3E%3C/svg%3E") no-repeat center;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M8%200a8%208%200%201%200%200%2016A8%208%200%200%200%208%200zM9%2013H7v-2h2v2zm1.9-6.3c-.2.4-.5.8-.9%201.1l-.8.7c-.2.2-.3.4-.3.7V9H7v-.8c0-.5.2-.9.5-1.2l.9-.8c.2-.2.4-.4.5-.7.1-.2.1-.5.1-.7%200-.3-.1-.6-.3-.8-.2-.2-.5-.3-.9-.3-.4%200-.7.1-.9.3-.2.2-.4.5-.4.8H5c0-.8.3-1.5.8-2%20.6-.5%201.3-.8%202.2-.8.9%200%201.6.3%202.1.8.5.5.8%201.1.8%201.9%200%20.4-.1.7-.1.9z%27/%3E%3C/svg%3E") no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+help-icon:hover {
+  background-color: var(--color-muted-3);
 }
 
 /* Text styles */
@@ -175,6 +196,7 @@ help-icon:hover {
     box-shadow: 0px 2px 2px var(--kbd-shade-1), 0 2px 0 2px var(--kbd-shade-2);
     border-radius: 2px;
     font-size: var(--font-x-sm);
+    transform: translateY(-0.3em);
 }
 
 /* Mobile hint bubble */

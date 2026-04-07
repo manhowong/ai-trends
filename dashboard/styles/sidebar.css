@@ -186,8 +186,8 @@ label:has(#toggleIntraEdges:disabled) {
     cursor: pointer;
 }
 
-/* Reload button spacing ---------------------------------------------------- */
-#reloadBtn {
+/* FitScreen button spacing ---------------------------------------------------- */
+#fitBtn {
     margin-bottom: 10px;
 }
 

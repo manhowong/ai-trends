@@ -33,15 +33,14 @@ export const INSTRUCTIONS_HTML = `
     </span>
 
     <span>
-        To <b>search</b>, click "Find Topics" 
-        <br />or press 
+        To <b>search</b>, press "Find Topics" or 
         <span class="mockKbd">Ctrl</span> + <span class="mockKbd">K</span>
     </span>
 
     <span>
       To see <b>trends</b>, set a range ≥ 2 months in 
       <span class="mockToggle">
-        <span class="mock-hamburger-icon">OPTIONS</span>
+        <span class="mock-hamburger-icon">CONTROL</span>
       </span>
     </span>
   </div>`;

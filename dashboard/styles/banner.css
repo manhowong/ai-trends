@@ -28,11 +28,83 @@
 /* Banner menu -------------------------------------------------------------- */
 
 #banner-menu {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     display: flex;
     align-items: center;
     gap: 10px;
     line-height: 2; /* Ensure buttons of different heights are aligned */
+}
+
+/* Legend button */
+
+#legend-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: var(--color-muted);
+    font-size: var(--font-x-sm);
+    font-family: monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+#legend-btn:hover {
+    color: var(--color-accent);
+}
+
+/* Theme toggle */
+
+#themeToggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: var(--color-muted);
+    font-size: var(--font-x-sm);
+    font-family: monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.15s, text-decoration-color 0.15s;
+    pointer-events: auto;
+}
+
+#themeToggle[aria-pressed="true"] .ui-switch {
+    background: var(--color-accent);
+}
+
+#themeToggle[aria-pressed="true"] .ui-switch .ui-switch-thumb {
+    transform: translateX(16px);
+}
+
+/* Search button */
+
+#searchBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--font-norm);
+    background: var(--color-bg);
+    border: 1px solid var(--color-accent);
+    border-radius: 6px;
+    padding: 5px;
+    margin-top: 5px;
+    color: var(--color-accent);
+    cursor: text;
+    transition: color 0.15s, text-decoration-color 0.15s;
+    pointer-events: auto;
+}
+
+#searchBtn:hover {
+    color: var(--color-muted-3);
+    border: 1px solid var(--color-muted);
 }
 
 /* Report button */
@@ -61,68 +133,16 @@
     color: var(--color-accent);
 }
 
-/* Theme toggle */
-
-#themeToggle {
-    display: inline-flex;
-    align-items: center;
-    padding: 0;
-    gap: 8px;
-    background: transparent;
-    border: none;
-    color: var(--color-muted);
-    font-size: var(--font-x-sm);
-    font-family: monospace;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: color 0.15s, text-decoration-color 0.15s;
-    pointer-events: auto;
-}
-
-
-#themeToggle[aria-pressed="true"] .ui-switch {
-    background: var(--color-accent);
-}
-
-#themeToggle[aria-pressed="true"] .ui-switch .ui-switch-thumb {
-    transform: translateX(16px);
-}
 
 /* Info in banner ----------------------------------------------------------- */
 
 #site-info {
-    font-size: var(--font-norm);
-    color: var(--color-muted-2);
+    font-size: var(--font-lg);
+    color: var(--color-text-strong);
     padding-top: 10px;
     line-height: 1.5;
 }
 
 #dateText {
-    font-size: var(--font-x-lg);
-    color: var(--color-text-strong);
     z-index: 1;
-}
-
-/* Search button */
-
-#searchBtn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: var(--font-norm);
-    background: transparent;
-    border: 1px solid var(--color-accent);
-    border-radius: 6px;
-    padding: 5px;
-    margin-top: 10px;
-    color: var(--color-accent);
-    cursor: text;
-    transition: color 0.15s, text-decoration-color 0.15s;
-    pointer-events: auto;
-}
-
-#searchBtn:hover {
-    color: var(--color-muted-3);
-    border: 1px solid var(--color-muted);
 }

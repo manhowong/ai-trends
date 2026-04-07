@@ -21,10 +21,23 @@
                 Explorer
             </h1>
 
+            <div id="site-info">
+                <span id="dateText"></span>
+                arXiv articles
+                <help-icon role="button" data-help="documentation"></help-icon>
+            </div>
+
             <div id="banner-menu">
+
+                <div id="legend-btn">
+                    <span class="info-icon"></span>Legend
+                </div>
+
+                <v-bar></v-bar>
+
                 <div id="report-btn">
                     <a href="https://github.com/manhowong/ai-trends/issues/new" target="_blank">
-                        <span class="github-icon"></span> Report an issue
+                        <span class="github-icon"></span> Issues?
                     </a>
                 </div>
 
@@ -38,14 +51,8 @@
                 </button>
             </div>
 
-            <div id="site-info">
-                <div id="dateText"></div>
-                arXiv article statistics (<i>preliminary</i>)
-                <help-icon role="button" data-help="documentation"></help-icon>
-            </div>
-
             <button id="searchBtn">
-                Find Topics<span class="icon search-icon"></span>
+                Find Topics...<span class="icon search-icon"></span>
             </button>
 
         </div>
@@ -64,7 +71,7 @@
                     <span class="down-icon">Hide</span> 
                 </div>
                 <div class="transformed-label">
-                    <span class="hamburger-icon">Options</span> 
+                    <span class="hamburger-icon">Control</span> 
                 </div>
             </button>
 
@@ -118,9 +125,9 @@
                     <span class="icon screen-icon">Fit Screen</span>
                 </button>
                 
-                <button id="reloadBtn" class="form-btn" onclick="window.location.reload();">
+                <!-- <button id="reloadBtn" class="form-btn" onclick="window.location.reload();">
                     <span class="icon anticlock-icon">Reload</span>
-                </button>
+                </button> -->
                 
                 <div id="legend">
                     <div class="legend-item">
