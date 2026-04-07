@@ -131,6 +131,7 @@
 
 #volumeThresholdVal::before {
     content: "\2265";  /* greater or equal to symbol */
+    padding-left: 1em;
 }
 
 /* Edge toggle -------------------------------------------------------------- */

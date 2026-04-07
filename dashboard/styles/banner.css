@@ -44,7 +44,7 @@
     gap: 8px;
     background: transparent;
     border: none;
-    color: var(--color-muted);
+    color: var(--color-accent);
     font-size: var(--font-x-sm);
     font-family: monospace;
     font-weight: bold;
@@ -54,7 +54,7 @@
 }
 
 #legend-btn:hover {
-    color: var(--color-accent);
+    color: var(--color-muted);
 }
 
 /* Theme toggle */
@@ -66,7 +66,7 @@
     gap: 8px;
     background: transparent;
     border: none;
-    color: var(--color-muted);
+    color: var(--color-accent);
     font-size: var(--font-x-sm);
     font-family: monospace;
     font-weight: bold;
@@ -74,6 +74,10 @@
     cursor: pointer;
     transition: color 0.15s, text-decoration-color 0.15s;
     pointer-events: auto;
+}
+
+#legend-btn:hover {
+    color: var(--color-muted);
 }
 
 #themeToggle[aria-pressed="true"] .ui-switch {
@@ -96,7 +100,7 @@
     border-radius: 6px;
     padding: 5px;
     margin-top: 5px;
-    color: var(--color-accent);
+    color: var(--color-muted);
     cursor: text;
     transition: color 0.15s, text-decoration-color 0.15s;
     pointer-events: auto;
@@ -116,7 +120,7 @@
     gap: 8px;
     background: transparent;
     border: none;
-    color: var(--color-muted);
+    color: var(--color-accent);
     font-size: var(--font-x-sm);
     font-family: monospace;
     font-weight: bold;
@@ -126,11 +130,11 @@
 }
 
 #report-btn a {
-    color: var(--color-muted);
+    color: var(--color-accent);
 }
 
 #report-btn a:hover {
-    color: var(--color-accent);
+    color: var(--color-muted);
 }
 
 

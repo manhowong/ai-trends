@@ -26,6 +26,8 @@ v-bar::after {
   font-weight: normal;
   font-size: 2em;
   padding-right: 0px;
+  padding-left: 6px;
+  color: var(--color-accent);
   transform: translateY(0.15em);
 }
 
