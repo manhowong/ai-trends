@@ -37,7 +37,8 @@
 
 .search-result-row {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
     gap: 8px;
     padding: 9px 16px;
     cursor: pointer;
@@ -75,12 +76,13 @@
 }
 
 .search-result-name {
-    flex: 1;
+    flex: 1 1 80px;
+    min-width: 0;
+    max-width: 200;
     font-size: var(--font-norm);
     color: var(--color-text-strong);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .search-result-row--keyword .search-result-name {
@@ -90,10 +92,19 @@
 .search-result-row--keyword .search-result-name::before { content: "\""; }
 .search-result-row--keyword .search-result-name::after { content: "\""; }
 
-.search-result-papers {
+.search-result-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    margin-left: auto;
+    min-width: max-content;
+}
+
+.search-result-count {
     font-size: var(--font-x-sm);
     color: var(--color-muted-2);
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
 }
 
 .search-result-badge {

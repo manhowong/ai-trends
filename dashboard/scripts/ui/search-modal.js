@@ -75,8 +75,10 @@ function renderResults(nodes, query) {
     <div class="search-result-row${node.kind === 'keyword' ? ' search-result-row--keyword' : ''}${isDisabled ? ' search-result-row--disabled' : ''}"
          data-id="${node.id}" data-level="${node.level}" data-disabled="${isDisabled ? '1' : '0'}">
       <span class="search-result-name">${highlightMatch(node.name, query)}</span>
-      <span class="search-result-papers">${countLabel}</span>
-      ${badgeHTML}
+      <div class="search-result-meta">
+        <span class="search-result-count">${countLabel}</span>
+        ${badgeHTML}
+      </div>
     </div>`;
   }).join('');
 
