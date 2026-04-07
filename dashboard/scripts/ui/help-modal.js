@@ -3,6 +3,7 @@
    ============================================================ */
 
 import { closeModal, openModal, registerModal } from './modal-controller.js';
+import { LEGEND_HTML } from './ui-text.js';
 
 export function initHelp() {
   const overlay = document.getElementById('help-overlay');
@@ -21,6 +22,17 @@ export function initHelp() {
   let helpRequestToken = 0;
 
   titleEl.textContent = 'Help';
+
+  const openInlineContent = ({ title, html, scrollToTop = true } = {}) => {
+    helpRequestToken += 1;
+    titleEl.textContent = title || 'Help';
+    contentEl.innerHTML = html || '';
+    topBtn.classList.remove('is-visible');
+    if (scrollToTop) {
+      contentEl.scrollTop = 0;
+    }
+    openModal('help');
+  };
 
   const clearHighlights = () => {
     contentEl.querySelectorAll(`.${HIGHLIGHT_CLASS}`).forEach(element => {
@@ -63,6 +75,7 @@ export function initHelp() {
 
     helpRequestToken += 1;
     const requestToken = helpRequestToken;
+    titleEl.textContent = 'Help';
     openModal('help');
     contentEl.innerHTML = '<p class="empty-state">Loading...</p>';
     topBtn.classList.remove('is-visible');
@@ -136,6 +149,13 @@ export function initHelp() {
     contentEl.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  document.getElementById('legend-btn')?.addEventListener('click', () => {
+    openInlineContent({
+      title: 'Legend',
+      html: LEGEND_HTML,
+    });
+  });
+
   document.addEventListener('click', event => {
     const icon = event.target.closest('help-icon');
     handleHelpIcon(icon);
@@ -154,6 +174,7 @@ export function initHelp() {
     backdrop,
     onClose: () => {
       helpRequestToken += 1;
+      titleEl.textContent = 'Help';
       contentEl.innerHTML = '';
       topBtn.classList.remove('is-visible');
     },

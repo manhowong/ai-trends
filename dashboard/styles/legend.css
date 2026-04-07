@@ -1,0 +1,44 @@
+/* Legend =================================================================== */
+
+#legend,
+.legend-block {
+    padding: 1px 14px 10px 14px;
+    border-top: 1px solid var(--color-panel-border);
+}
+
+.legend-block {
+    padding: 0;
+    border-top: 0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 3px 0;
+}
+
+.legend-dot {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-note {
+    color: var(--color-note);
+}
+
+#legend help-icon,
+.legend-block help-icon {
+  margin-left: auto;
+  margin-top: 4px;
+}
+
+#legend help-icon::after,
+.legend-block help-icon::after {
+  width: 1.8em;
+  height: 1.8em;
+  font-size: var(--font-lg);
+}

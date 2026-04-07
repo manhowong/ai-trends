@@ -29,9 +29,9 @@
 
             <div id="banner-menu">
 
-                <div id="legend-btn">
+                <button id="legend-btn" type="button" aria-label="Open legend">
                     <span class="info-icon"></span>Legend
-                </div>
+                </button>
 
                 <v-bar></v-bar>
 
@@ -125,27 +125,6 @@
                     <span class="icon screen-icon">Fit Screen</span>
                 </button>
                 
-                <!-- <button id="reloadBtn" class="form-btn" onclick="window.location.reload();">
-                    <span class="icon anticlock-icon">Reload</span>
-                </button> -->
-                
-                <div id="legend">
-                    <div class="legend-item">
-                        <span class="legend-dot" style="background:var(--trend-up)"></span>
-                        Heating Up
-                        <help-icon role="button" data-help="documentation" data-help-section="topic-hotness"></help-icon>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-dot" style="background:var(--trend-down)"></span>
-                        Cooling Off
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-dot" style="background:var(--trend-flat)"></span>
-                        No Trends Detected
-                    </div>
-                    <p class="legend-note">Node size = normalized article count</p>
-                    <p class="legend-note">Link width = relevance (DSC)</p>
-                </div>
             </div>
         </div>
 

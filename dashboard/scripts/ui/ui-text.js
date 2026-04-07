@@ -44,3 +44,22 @@ export const INSTRUCTIONS_HTML = `
       </span>
     </span>
   </div>`;
+
+export const LEGEND_HTML = `
+  <div class="legend-block">
+    <div class="legend-item">
+        <span class="legend-dot" style="background:var(--trend-up)"></span>
+        Heating Up
+        <help-icon role="button" data-help="documentation" data-help-section="topic-hotness"></help-icon>
+    </div>
+    <div class="legend-item">
+        <span class="legend-dot" style="background:var(--trend-down)"></span>
+        Cooling Off
+    </div>
+    <div class="legend-item">
+        <span class="legend-dot" style="background:var(--trend-flat)"></span>
+        No Trends Detected
+    </div>
+    <div class="legend-note">Node size = normalized article count</div>
+    <div class="legend-note">Link width = relevance (DSC)</div>
+  </div>`;

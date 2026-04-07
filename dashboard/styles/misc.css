@@ -115,10 +115,6 @@ v-bar::after {
   mask-size: contain;
 }
 
-.info-icon:hover {
-  background-color: var(--color-muted-3);
-}
-
 /* Help icon */
 
 help-icon {
