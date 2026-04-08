@@ -89,29 +89,45 @@
                         </div>
                     </div>
 
-                    <div id="volumeThresholdControl">
-                        <div class="paper-threshold-header">
-                            <span class="paper-threshold-label">Min. Topic Size</span>
-                            <div class="paper-threshold-right">
-                                <span id="volumeThresholdVal">1</span>
-                            </div>
+                    <div id="low-level-control">
+
+                        <div id="control-disabled-message">
+                            You are in the Category view. Filter further by Topic.
                         </div>
-                        <input type="range" id="volumeThresholdSlider">
-                    </div>
 
-                    <div id="edgeToggleControl">
-                        <label class="edge-toggle-row">
-                            <span>Cross-Category Links</span>
-                            <input type="checkbox" id="toggleCrossEdges" checked>
-                            <span class="ui-switch"><span class="ui-switch-thumb"></span></span>
-                        </label>
-                        <label class="edge-toggle-row">
-                            <span>Within-Category Links</span>
-                            <input type="checkbox" id="toggleIntraEdges" checked>
-                            <span class="ui-switch"><span class="ui-switch-thumb"></span></span>
-                        </label>
-                    </div>
+                        <div id="volumeThresholdControl">
+                            <div class="paper-threshold-header">
+                                <span class="paper-threshold-label">Node Size</span>
+                                <div class="paper-threshold-right">
+                                    <span id="volumeThresholdVal"></span>
+                                </div>
+                            </div>
+                            <input type="range" id="volumeThresholdSlider">
+                        </div>
 
+                        <div id="edgeThresholdControl">
+                            <div class="paper-threshold-header">
+                                <span class="paper-threshold-label">Link Strength (DSC)</span>
+                                <div class="paper-threshold-right">
+                                    <span id="edgeThresholdVal"></span>
+                                </div>
+                            </div>
+                            <input type="range" id="edgeThresholdSlider">
+                        </div>
+
+                        <div id="edgeToggleControl">
+                            <label class="edge-toggle-row">
+                                <span>Cross-Category Links</span>
+                                <input type="checkbox" id="toggleCrossEdges" checked>
+                                <span class="ui-switch"><span class="ui-switch-thumb"></span></span>
+                            </label>
+                            <label class="edge-toggle-row">
+                                <span>Within-Category Links</span>
+                                <input type="checkbox" id="toggleIntraEdges" checked>
+                                <span class="ui-switch"><span class="ui-switch-thumb"></span></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="display-control-box">

@@ -14,6 +14,7 @@ export function refreshGraphData(state) {
     selectedStartTimePoint: state.selectedStartTimePoint,
     selectedEndTimePoint: state.selectedEndTimePoint,
     volumeThreshold: state.volumeThreshold,
+    edgeThreshold: state.edgeThreshold,
     trendVolumeThreshold: state.trendVolumeThreshold,
     trendBoundary: state.trendBoundary,
     badgeColorById,

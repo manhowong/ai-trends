@@ -53,10 +53,10 @@
   --edge-cross-dim: rgba(15,23,42,0.10);
   --edge-hover-active: rgba(15,23,42,0.45);
   --edge-hover-dim: rgba(15,23,42,0.08);
-  --node-dim-fill: #e5e7eb;
-  --node-dim-border: #cbd5e1;
   --node-hover-border: #ffffff;
   --node-hover-shadow: #64748b;
+  --node-dim-fill: #b3bac4;
+  --node-dim-border: #8e95a1;
   --ext-node-fill: #b3bac4;
   --ext-node-border: #8e95a1;
 }
@@ -104,10 +104,10 @@
   --edge-cross-dim: rgba(255,255,255,0.04);
   --edge-hover-active: rgba(255,255,255,0.25);
   --edge-hover-dim: rgba(255,255,255,0.02);
-  --node-dim-fill: #333;
-  --node-dim-border: #444;
   --node-hover-border: #fff;
   --node-hover-shadow: #aaa;
+  --node-dim-fill: #333;
+  --node-dim-border: #444;
   --ext-node-fill: #333;
   --ext-node-border: #444;
 }

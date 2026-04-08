@@ -56,6 +56,10 @@
         background: var(--color-bg-alt);
     }
 
+    #control-disabled-message {
+        background: var(--color-bg-alt);
+    }
+
     /*Switch down icon direction to up*/
     #sidebarToggle .down-icon::before {
         transform: rotate(225deg) translateY(-1px);

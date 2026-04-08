@@ -51,6 +51,7 @@ export const state = {
   volumeThreshold: 1,
 
   // Edge
+  edgeThreshold: 0.05,     // minimum dice value to include in the graph data
   showIntraEdges: true,   // within-category edges
   showCrossEdges: true,   // cross-category edges
 

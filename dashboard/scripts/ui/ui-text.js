@@ -13,7 +13,7 @@ export const INSTRUCTIONS_TITLE = 'How to Use';
 export const FREQUENT_TERMS_TITLE = 'Frequent Terms';
 export const DEVELOPMENT_TEXT = 'In development';
 export const INSUFFICIENT_DATA_TEXT = 'Insufficient data.';
-export const NO_RELEVANT_NODES_TEXT = 'No relevant topics found in selected period.';
+export const NO_RELEVANT_NODES_TEXT = 'No topics found with current settings.';
 export const INSTRUCTIONS_HTML = `
   <div id="instructions">
     <span><i>Desktop</i></span>

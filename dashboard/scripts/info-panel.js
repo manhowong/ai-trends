@@ -252,24 +252,8 @@ export function renderL2NodePanel() {
   const sortedTargets = sortByValue(sortTargets);
   const sortedValues = sortedTargets.map(keyword => keyword.value);
   const keywordBarWidths = getMetricBarWidths('volume', sortedValues);
-  const topContentTitle = buildContentTitle(FREQUENT_TERMS_TITLE, {showHelp: true, helpSection: 'keyword-extraction'});
-  const topSortControl = buildSortControl({ sortLabel: '# articles' });
-
-  const topHTML = sortedTargets.length
-    ? `<div class="ranked-list">
-        ${sortedTargets.map((keyword, i) => `
-          ${buildRankedRow({
-            rank: i + 1,
-            name: keyword.name,
-            valueLabel: formatMetricValue('volume', sortedValues[i]),
-            widthPercent: keywordBarWidths[i],
-            trend: keyword.trend,
-          })}`).join('')}
-       </div>`
-    : renderEmptyState(INSUFFICIENT_DATA_TEXT);
-
-  const bottomContentTitle = buildContentTitle(`Relevant ${L2_LABEL}`, {showHelp: true, helpSection: 'links-and-relevance-dsc'});
-  const bottomSortControl = buildSortControl({ sortLabel: 'Relevance score (DSC)' });
+  const topContentTitle = buildContentTitle(`Relevant ${L2_LABEL}`, {showHelp: true, helpSection: 'links-and-relevance-dsc'});
+  const topSortControl = buildSortControl({ sortLabel: 'Relevance score (DSC)' });
 
   const edgeSortTargets = getEdgesByNodeId(state.currentL2NodeId, state.l2Edges).map(edge => ({
     ...edge,
@@ -277,7 +261,7 @@ export function renderL2NodePanel() {
   }));
   const edgeSortedTargets = sortByValue(edgeSortTargets);
   const maxEdgeWidth = Math.max(...edgeSortedTargets.map(edge => edge.value), 1);
-  const bottomHTML = edgeSortedTargets.length
+  const topHTML = edgeSortedTargets.length
     ? `<div class="ranked-list">
         ${edgeSortedTargets.map((edge, i) => {
           const connectedNodeId = getConnectedNodeId(edge, state.currentL2NodeId);
@@ -295,6 +279,22 @@ export function renderL2NodePanel() {
         }).join('')}
        </div>`
     : renderEmptyState(NO_RELEVANT_NODES_TEXT);
+
+  const bottomContentTitle = buildContentTitle(FREQUENT_TERMS_TITLE, {showHelp: true, helpSection: 'keyword-extraction'});
+  const bottomSortControl = buildSortControl({ sortLabel: '# articles' });
+
+  const bottomHTML = sortedTargets.length
+    ? `<div class="ranked-list">
+        ${sortedTargets.map((keyword, i) => `
+          ${buildRankedRow({
+            rank: i + 1,
+            name: keyword.name,
+            valueLabel: formatMetricValue('volume', sortedValues[i]),
+            widthPercent: keywordBarWidths[i],
+            trend: keyword.trend,
+          })}`).join('')}
+       </div>`
+    : renderEmptyState(INSUFFICIENT_DATA_TEXT);
 
   setPanelContent('info-top', topContentTitle, topSortControl, topHTML);
   setPanelContent('info-bottom', bottomContentTitle, bottomSortControl, bottomHTML);

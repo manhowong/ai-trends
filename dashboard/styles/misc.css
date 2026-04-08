@@ -3,8 +3,8 @@
 /* Vertical bar (Separator) */
 
 v-bar::after {
-  content: "|";
-  color: var(--color-muted-3);
+  content: "";
+  border-right: 1.5px solid var(--color-muted-3);
 }
 
 /* Icons */

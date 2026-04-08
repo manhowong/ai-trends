@@ -22,6 +22,7 @@ export function buildGraphData({
   selectedStartTimePoint,
   selectedEndTimePoint,
   volumeThreshold,
+  edgeThreshold,
   trendVolumeThreshold,
   trendBoundary,
   badgeColorById,
@@ -165,7 +166,7 @@ export function buildGraphData({
       const dice = denom > 0 ? (2 * cc) / denom : 0;
       return { s, t, w: dice };
     })
-    .filter(edge => edge && edge.w > 0);
+    .filter(edge => edge && edge.w > edgeThreshold);
 
   return {
     activeL1Nodes,

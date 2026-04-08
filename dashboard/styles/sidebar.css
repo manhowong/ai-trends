@@ -122,7 +122,7 @@
     gap: 12px;
 }
 
-/* Volume threshold */
+/* thresholds */
 
 #volumeThresholdControl {
     padding: 5px 0;
@@ -139,6 +139,11 @@
     padding-left: 1em;
 }
 
+#edgeThresholdVal::before {
+    content: "\2265";  /* greater or equal to symbol */
+    padding-left: 1em;
+}
+
 /* Edge toggle */
 
 #edgeToggleControl {
@@ -151,6 +156,7 @@
     justify-content: space-between;
     cursor: pointer;
     padding-bottom: 5px;
+    gap: 1em;
 }
 
 .edge-toggle-row input[type="checkbox"] {
@@ -162,15 +168,22 @@
     pointer-events: none;
 }
 
-#toggleIntraEdges:disabled + .ui-switch {
-    opacity: 0.3;
-    cursor: not-allowed;
+/* Controls disabled at top level */
+
+#low-level-control {
+    position: relative; /* Need this to position #control-disabled-message correctly */
 }
 
-label:has(#toggleIntraEdges:disabled) {
-    opacity: 0.3;
-    cursor: not-allowed;
+#control-disabled-message {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    align-items: center;
+    background: var(--color-panel-bg);
+    z-index: 10; /* on top of all controls */
 }
+
 
 /* Display control ---------------------------------------------------------- */
 

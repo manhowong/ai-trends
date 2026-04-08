@@ -160,7 +160,7 @@ export function makeLabel(name, volume, l1NodeName, badgeColor, dim = false) {
 
   let label = `{${nameKey}|${name}} {${countKey}|(${formatCount(volume)})}`;
 
-  if (l1NodeName && badgeColor) {
+  if (l1NodeName && badgeColor && !dim) {
     const badgeKey = 'badge' + badgeColor.replace('#', '') + (dim ? 'Dim' : '');
     label += `\n{${badgeKey}|${l1NodeName}}`;
   }
@@ -276,12 +276,15 @@ export function applyHover(hoveredId) {
     const tc    = trendColor(orig.trend);
 
     const itemStyle = isDim
-      ? { color: themeVar('nodeDimFill'), borderColor: themeVar('nodeDimBorder'), borderWidth: 1, opacity: 0.12 }
+      ? { color: themeVar('nodeDimFill'),
+          borderColor: themeVar('nodeDimBorder'), 
+          borderWidth: 1, 
+          opacity: 0.35 }
       : {
           color:       tc,
           borderColor: node.id === hoveredId ? themeVar('nodeHoverBorder') : tc,
-          borderWidth: node.id === hoveredId ? 3 : (orig._type === 'focusL2' ? 3 : 2),
-          opacity:     orig._type === 'externalL2'   ? 0.6 : 0.9,
+          borderWidth: node.id === hoveredId ? 2 : (orig._type === 'focusL2' ? 2 : 1.5),
+          opacity:     orig._type === 'externalL2' ? 0.9 : 0.9,
           shadowBlur:  node.id === hoveredId ? 20 : 0,
           shadowColor: node.id === hoveredId ? themeVar('nodeHoverShadow') : 'transparent',
         };

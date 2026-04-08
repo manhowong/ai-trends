@@ -8,7 +8,8 @@ import { fitScreen, initializeRichStyles, resetFontSize, updateFontSize } from '
 import { refreshCurrentView } from '../app/refresh.js';
 import { showOverview } from '../app/view-coordination.js';
 
-const VOLUME_THRESHOLD_STEPS = [1, 10, 50, 100, 500, 1000];
+const VOLUME_THRESHOLD_STEPS = [1, 10, 50, 100, 200, 300, 400, 500, 1000];
+const EDGE_THRESHOLD_STEPS = [0, 0.01, 0.05, 0.1, 0.15, 0.2, 0.5];
 
 export function updateDateText() {
   const element = document.getElementById('dateText');
@@ -118,6 +119,32 @@ function initVolumeThresholdControl() {
   });
 }
 
+function initEdgeThresholdControl() {
+  const slider = document.getElementById('edgeThresholdSlider');
+  const value = document.getElementById('edgeThresholdVal');
+  if (!slider || !value) return;
+
+  slider.min = 0;
+  slider.max = EDGE_THRESHOLD_STEPS.length - 1;
+  slider.step = 1;
+
+  const initialIndex = Math.max(0, EDGE_THRESHOLD_STEPS.indexOf(state.edgeThreshold));
+  slider.value = String(initialIndex);
+  value.textContent = `${EDGE_THRESHOLD_STEPS[initialIndex] * 100}%`;
+
+  slider.addEventListener('input', event => {
+    const index = parseInt(event.target.value, 10);
+    const nextThreshold = EDGE_THRESHOLD_STEPS[index] || EDGE_THRESHOLD_STEPS[0];
+    if (nextThreshold === state.edgeThreshold) return;
+
+    state.edgeThreshold = nextThreshold;
+    value.textContent = `${nextThreshold * 100}%`;
+    refreshGraphData(state);
+    initializeRichStyles();
+    refreshCurrentView();
+  });
+}
+
 function initSidebarToggle() {
   document.getElementById('sidebarToggle')
     ?.addEventListener('click', toggleSidebar);
@@ -157,6 +184,7 @@ export function initializeSidebarUI() {
   initSidebarToggle();
   initEdgeToggles();
   initVolumeThresholdControl();
+  initEdgeThresholdControl();
   initResponsiveSidebarBehavior();
   initFontControls();
 }

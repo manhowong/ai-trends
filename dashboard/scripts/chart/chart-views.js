@@ -22,7 +22,7 @@ export function buildOverviewChartView() {
       color: nodeColor,
       borderColor: nodeColor,
       borderWidth: 2,
-      opacity: 0.85,
+      opacity: 0.9,
     };
 
     return {
@@ -226,8 +226,14 @@ export function buildL2ChartView(l2NodeId) {
     const isFocusedL2Node = id === l2NodeId;
     const nodeColor = trendColor(l2Node.trend);
     const itemStyle = isFocusedL2Node
-      ? { color: nodeColor, borderColor: nodeColor, borderWidth: 3, opacity: 1 }
-      : { color: nodeColor, borderColor: nodeColor, borderWidth: 1.5, opacity: 0.75 };
+      ? { color: nodeColor, 
+        borderColor: 'white', 
+        borderWidth: 2, 
+        opacity: 1,
+        shadowColor: themeVar('nodeHoverShadow'),
+        shadowBlur: 20      
+      }        
+      : { color: nodeColor, borderColor: nodeColor, borderWidth: 1.5, opacity: 0.9 };
 
     return {
       id: l2Node.id,
