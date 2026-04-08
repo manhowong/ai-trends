@@ -25,6 +25,18 @@
     line-height: 0px;  /* Set to 0 so it's size does not affect line spacing */
 }
 
+/* Info in banner ----------------------------------------------------------- */
+
+#site-info {
+    font-size: var(--font-lg);
+    color: var(--color-text-strong);
+    padding-top: 1em;
+}
+
+#dateText {
+    z-index: 1;
+}
+
 /* Banner menu -------------------------------------------------------------- */
 
 #banner-menu {
@@ -32,7 +44,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    line-height: 2; /* Ensure buttons of different heights are aligned */
+    font-size: var(--font-x-sm);
+    font-family: monospace;
+    font-weight: bold;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    padding: 1em 0;
 }
 
 /* Legend button */
@@ -40,20 +57,30 @@
 #legend-btn {
     display: inline-flex;
     align-items: center;
-    padding: 0;
     gap: 8px;
-    background: transparent;
-    border: none;
-    color: var(--color-accent);
-    font-size: var(--font-x-sm);
-    font-family: monospace;
-    font-weight: bold;
-    text-transform: uppercase;
     cursor: pointer;
-    pointer-events: auto;
+    pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
 }
 
 #legend-btn:hover {
+    color: var(--color-muted);
+}
+
+/* Report button */
+
+#report-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
+}
+
+#report-btn a {
+    color: var(--color-accent);
+}
+
+#report-btn a:hover {
     color: var(--color-muted);
 }
 
@@ -64,15 +91,9 @@
     align-items: center;
     padding: 0;
     gap: 8px;
-    background: transparent;
-    border: none;
-    color: var(--color-accent);
-    font-size: var(--font-x-sm);
-    font-family: monospace;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
+    color: var(--color-muted);
     transition: color 0.15s, text-decoration-color 0.15s;
+    cursor: pointer;
     pointer-events: auto;
 }
 
@@ -88,7 +109,7 @@
     transform: translateX(16px);
 }
 
-/* Search button */
+/* Search button ------------------------------------------------------------ */
 
 #searchBtn {
     display: inline-flex;
@@ -98,7 +119,7 @@
     background: var(--color-bg);
     border: 1px solid var(--color-accent);
     border-radius: 6px;
-    padding: 5px;
+    padding: 10px 16px;
     margin-top: 5px;
     color: var(--color-muted);
     cursor: text;
@@ -108,45 +129,5 @@
 
 #searchBtn:hover {
     color: var(--color-muted-3);
-    border: 1px solid var(--color-muted);
-}
-
-/* Report button */
-
-#report-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0;
-    gap: 8px;
-    background: transparent;
-    border: none;
-    color: var(--color-accent);
-    font-size: var(--font-x-sm);
-    font-family: monospace;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
-}
-
-#report-btn a {
-    color: var(--color-accent);
-}
-
-#report-btn a:hover {
-    color: var(--color-muted);
-}
-
-
-/* Info in banner ----------------------------------------------------------- */
-
-#site-info {
-    font-size: var(--font-lg);
-    color: var(--color-text-strong);
-    padding-top: 10px;
-    line-height: 1.5;
-}
-
-#dateText {
-    z-index: 1;
+    border: 1px solid var(--color-surface-2);
 }

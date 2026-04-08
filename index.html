@@ -29,9 +29,9 @@
 
             <div id="banner-menu">
 
-                <button id="legend-btn" type="button" aria-label="Open legend">
+                <div id="legend-btn" type="button" aria-label="Open legend">
                     <span class="info-icon"></span>Legend
-                </button>
+                </div>
 
                 <v-bar></v-bar>
 
@@ -42,18 +42,19 @@
                 </div>
 
                 <v-bar></v-bar>
-
-                <button id="themeToggle" type="button" aria-pressed="true" title="Toggle light/dark theme">
-                    <span class="toggle-label">Dark</span>
+                
+                <div id="themeToggle" aria-pressed="true" title="Toggle light/dark theme">
+                    <span>Dark</span>
                     <span class="ui-switch" aria-hidden="true">
                         <span class="ui-switch-thumb"></span>
                     </span>
-                </button>
+                </div>
+
             </div>
 
-            <button id="searchBtn">
+            <div id="searchBtn">
                 Find Topics...<span class="icon search-icon"></span>
-            </button>
+            </div>
 
         </div>
 
@@ -76,55 +77,63 @@
             </button>
 
             <div id="sidebarContent">
-                <div id="dateRangeControl">
-                    <div class="date-range-header">Date Range</div>
-                    <div class="date-range-row">
-                        <select id="startMonthSelect" class="date-range-select form-select"></select>
-                        <span class="date-range-sep">to</span>
-                        <select id="endMonthSelect" class="date-range-select form-select"></select>
-                    </div>
-                </div>
 
-                <div id="volumeThresholdControl">
-                    <div class="paper-threshold-header">
-                        <span class="paper-threshold-label">Min. Topic Size</span>
-                        <div class="paper-threshold-right">
-                            <span id="volumeThresholdVal">1</span>
+                <div id="data-control-box">
+
+                    <div id="dateRangeControl">
+                        <div class="date-range-header">Date Range</div>
+                        <div class="date-range-row">
+                            <select id="startMonthSelect" class="date-range-select form-select"></select>
+                            <span class="date-range-sep">to</span>
+                            <select id="endMonthSelect" class="date-range-select form-select"></select>
                         </div>
                     </div>
-                    <input type="range" id="volumeThresholdSlider">
-                </div>
 
-                <div id="edgeToggleControl">
-                    <label class="edge-toggle-row">
-                        <span>Cross-Category Links</span>
-                        <input type="checkbox" id="toggleCrossEdges" checked>
-                        <span class="ui-switch"><span class="ui-switch-thumb"></span></span>
-                    </label>
-                    <label class="edge-toggle-row">
-                        <span>Within-Category Links</span>
-                        <input type="checkbox" id="toggleIntraEdges" checked>
-                        <span class="ui-switch"><span class="ui-switch-thumb"></span></span>
-                    </label>
-                </div>
-
-                <div id="fontSizeControl">
-                    <div class="font-size-header">
-                        <span class="font-size-label">Font Size</span>
-                        <div class="font-size-right">
-                            <span id="fontSizeVal">12px</span>
-                            <span id="fontSizeReset" title="Reset to default">
-                                <span class="icon anticlock-nospace-icon"></span>
-                            </span>
+                    <div id="volumeThresholdControl">
+                        <div class="paper-threshold-header">
+                            <span class="paper-threshold-label">Min. Topic Size</span>
+                            <div class="paper-threshold-right">
+                                <span id="volumeThresholdVal">1</span>
+                            </div>
                         </div>
+                        <input type="range" id="volumeThresholdSlider">
                     </div>
-                    <input type="range" id="fontSlider" min="6" max="20" value="12">
+
+                    <div id="edgeToggleControl">
+                        <label class="edge-toggle-row">
+                            <span>Cross-Category Links</span>
+                            <input type="checkbox" id="toggleCrossEdges" checked>
+                            <span class="ui-switch"><span class="ui-switch-thumb"></span></span>
+                        </label>
+                        <label class="edge-toggle-row">
+                            <span>Within-Category Links</span>
+                            <input type="checkbox" id="toggleIntraEdges" checked>
+                            <span class="ui-switch"><span class="ui-switch-thumb"></span></span>
+                        </label>
+                    </div>
+
                 </div>
 
-                <button id="fitBtn" class="form-btn">
-                    <span class="icon screen-icon">Fit Screen</span>
-                </button>
-                
+                <div id="display-control-box">
+
+                    <div id="fontSizeControl">
+                        <div class="font-size-header">
+                            <span class="font-size-label">Font Size</span>
+                            <div class="font-size-right">
+                                <span id="fontSizeVal">12px</span>
+                                <span id="fontSizeReset" title="Reset to default">
+                                    <span class="icon anticlock-nospace-icon"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <input type="range" id="fontSlider" min="6" max="20" value="12">
+                    </div>
+
+                    <button id="fitBtn" class="form-btn">
+                        <span class="icon screen-icon">Fit Screen</span>
+                    </button>
+
+                </div>                
             </div>
         </div>
 

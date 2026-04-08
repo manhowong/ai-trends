@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 6px 0;
+    padding: 10px 0;
     background: var(--color-surface);
     color: var(--color-accent2);
     border: none;
@@ -77,7 +77,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    font-size: var(--font-sm);
+    font-size: var(--font-norm);
     color: var(--color-muted);
     /* scroll if overflow */
     overflow-y: auto;
@@ -98,35 +98,40 @@
     border-radius: 2px;
 }
 
-/* Date range --------------------------------------------------------------- */
+/* Data control ------------------------------------------------------------- */
+
+#data-control-box {
+    padding: 5px 16px;
+    border-bottom: 1px solid var(--color-panel-border);
+}
+
+/* Date range */
 
 #dateRangeControl {
-    padding: 4px 14px;
+    padding: 5px 0;
 }
 
 .date-range-header {
-    margin-bottom: 4px;
+    padding-bottom: 5px;
 }
 
 .date-range-row {
     display: flex;
     align-items: center;
-    gap: 6px;
+    padding-bottom: 5px;
+    gap: 12px;
 }
 
-.date-range-select {
-    width: calc(100% - 28px);
-}
-
-/* Paper threshold ---------------------------------------------------------- */
+/* Volume threshold */
 
 #volumeThresholdControl {
-    padding: 4px 14px;
+    padding: 5px 0;
 }
 
 .paper-threshold-header {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 2px;
 }
 
 #volumeThresholdVal::before {
@@ -134,17 +139,18 @@
     padding-left: 1em;
 }
 
-/* Edge toggle -------------------------------------------------------------- */
+/* Edge toggle */
 
 #edgeToggleControl {
-    padding: 4px 14px;
+    padding: 5px 0;
 }
 
 .edge-toggle-row {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    margin: 4px 0;
+    padding-bottom: 5px;
 }
 
 .edge-toggle-row input[type="checkbox"] {
@@ -166,16 +172,22 @@ label:has(#toggleIntraEdges:disabled) {
     cursor: not-allowed;
 }
 
-/* Font size ---------------------------------------------------------------- */
+/* Display control ---------------------------------------------------------- */
+
+#display-control-box {
+    padding: 10px 16px;
+}
+
+/* Font size */
 
 #fontSizeControl {
-    padding: 4px 14px;
-    border-top: 1px solid var(--color-panel-border);
+    padding-bottom: 10px;
 }
 
 .font-size-header {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 2px;
 }
 
 .font-size-right {
@@ -187,7 +199,7 @@ label:has(#toggleIntraEdges:disabled) {
     cursor: pointer;
 }
 
-/* FitScreen button spacing ---------------------------------------------------- */
 #fitBtn {
-    margin-bottom: 10px;
+    width: 100%;
+    margin-bottom: 5px;
 }
