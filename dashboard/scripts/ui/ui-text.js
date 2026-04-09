@@ -48,20 +48,38 @@ export const INSTRUCTIONS_HTML = `
   </div>`;
 
 export const LEGEND_HTML = `
-  <div class="legend-block">
-    <div class="legend-item">
-        <span class="legend-dot" style="background:var(--trend-up)"></span>
-        Heating Up
-        <help-icon role="button" data-help="documentation" data-help-section="topic-hotness"></help-icon>
-    </div>
-    <div class="legend-item">
-        <span class="legend-dot" style="background:var(--trend-down)"></span>
-        Cooling Off
-    </div>
-    <div class="legend-item">
-        <span class="legend-dot" style="background:var(--trend-flat)"></span>
-        No Trends Detected
-    </div>
-    <div class="legend-note">Node size = normalized article count</div>
-    <div class="legend-note">Link width = relevance (DSC)</div>
+  <div id="legend-block">
+
+    <p><b>Article count</b>: <br/> Shown after node name</p>
+    <p><b>Node size</b>: <br/> Scales with article count (normalized)</p>
+    <p><b>Link width</b>: <br/> Scales with relevance (Dice-Sørensen Coefficient)</p>
+    
+    <p>
+        <b>Node color</b>: <br/>
+        Direction of <i>Hotness Score</i> (Period-to-Period change in share of total articles):
+        <div id="legend-item">
+            <span id="legend-dot" style="background:var(--trend-up)"></span>
+            Heating up ( > +20% )
+        </div>
+
+        <div id="legend-item">
+            <span id="legend-dot" style="background:var(--trend-down)"></span>
+            Cooling off  ( < &minus;20% )
+        </div>
+        
+        <div id="legend-item">
+            <span id="legend-dot" style="background:var(--trend-flat)"></span>
+            No trends detected
+        </div>
+
+        <span id="legend-note">
+            *Hotness score requires <b>TWO</b> time points.
+        </span>
+    </p>
+
+    <p>
+        <b>Area vs. Topic nodes</b>: <br/>
+        An area node is an aggregate of its child topic nodes. Links between area nodes are aggregates of links between topic nodes.
+    </p>
+
   </div>`;
