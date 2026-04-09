@@ -16,17 +16,17 @@ export function getMetricBarWidths(mode, values) {
   return values.map(value => Math.round(value / maxValue * 100));
 }
 
-export function isCrossCategoryEdge(edge, l2ToL1NodeId) {
+export function isCrossAreaEdge(edge, l2ToL1NodeId) {
   return l2ToL1NodeId[edge.s] !== l2ToL1NodeId[edge.t];
 }
 
 export function filterEdgesByLinkMode(edges, linkMode, l2ToL1NodeId) {
   if (linkMode === 'edges_cross') {
-    return edges.filter(edge => isCrossCategoryEdge(edge, l2ToL1NodeId));
+    return edges.filter(edge => isCrossAreaEdge(edge, l2ToL1NodeId));
   }
 
   if (linkMode === 'edges_intra') {
-    return edges.filter(edge => !isCrossCategoryEdge(edge, l2ToL1NodeId));
+    return edges.filter(edge => !isCrossAreaEdge(edge, l2ToL1NodeId));
   }
 
   return edges;

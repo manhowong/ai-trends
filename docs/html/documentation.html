@@ -57,7 +57,7 @@
 </li>
 <li><a href="#appendix">Appendix</a>
 <ul>
-<li><a href="#categories">Categories</a></li>
+<li><a href="#areas">Areas</a></li>
 <li><a href="#topics">Topics</a></li>
 </ul>
 </li>
@@ -188,11 +188,11 @@
 <td><code>human feedback</code>, <code>human preference</code>, <code>reward model</code></td>
 </tr>
 <tr>
-<td>Intra-category connections (Post-Training &amp; Adaptation)</td>
+<td>Intra-area connections (Post-Training &amp; Adaptation)</td>
 <td><code>Direct Preference Optimization</code>, <code>Prompt Engineering &amp; Prompt Tuning</code>, <code>In-Context Learning</code></td>
 </tr>
 <tr>
-<td>Cross-category connections</td>
+<td>Cross-area connections</td>
 <td><code>Reinforcement Learning</code> (Learning Paradigms), <code>AI Alignment</code>, <code>Human-AI Interaction</code> (Safety &amp; Society)</td>
 </tr>
 </tbody>
@@ -202,14 +202,14 @@
 <h2 id="structure">Structure </h2>
 <p>The taxonomy is organized into a two-level hierarchy:</p>
 <ul>
-<li><strong>Categories (A-I):</strong> Nine broad research areas. Statistics at the category level are aggregated from their constituent child topics.</li>
-<li><strong>Topics:</strong> 113 specific research concepts, each mapped to a single parent category.</li>
+<li><strong>Areas (A-I):</strong> Nine broad research areas. Statistics at the area level are aggregated from their constituent child topics.</li>
+<li><strong>Topics:</strong> 113 specific research concepts, each mapped to a single parent area.</li>
 </ul>
-<p>See all topics and categories <a href="#appendix">here</a>.</p>
+<p>See all topics and areas <a href="#appendix">here</a>.</p>
 <h2 id="methodology-and-design">Methodology and Design </h2>
 <p>The initial taxonomy was designed manually, informed by two primary references: the <a href="https://dl.acm.org/ccs">ACM Computing Classification System (CCS)</a>, the standard subject classification scheme for computing research, and the <a href="https://arxiv.org/category_taxonomy">arXiv category taxonomy</a>, which defines the subject categories used for preprint submissions.</p>
-<p>Topics within each category were selected to be specific enough to provide meaningful insights, yet broad enough to maintain sufficient article volumes for trend analysis.</p>
-<p>Before finalization, the draft underwent multiple rounds of <strong>LLM-assisted iterative revisions</strong>. The output of each round was manually inspected and validated by a subject matter expert in computer science and neuroscience (the author). Descriptions for each category and topic were developed through a similar iterative process and were only finalized once human-AI alignment was achieved.</p>
+<p>Topics within each area were selected to be specific enough to provide meaningful insights, yet broad enough to maintain sufficient article volumes for trend analysis.</p>
+<p>Before finalization, the draft underwent multiple rounds of <strong>LLM-assisted iterative revisions</strong>. The output of each round was manually inspected and validated by a subject matter expert in computer science and neuroscience (the author). Descriptions for each area and topic were developed through a similar iterative process and were only finalized once human-AI alignment was achieved.</p>
 <blockquote>
 <h3 id="current-limitations-and-next-steps">Current Limitations and Next Steps </h3>
 <p><strong>Only 20% of articles are currently classified.</strong> Coverage will improve with LLM review and embedding model tuning.</p>
@@ -219,10 +219,10 @@
 </blockquote>
 <h1 id="statistics">Statistics </h1>
 <h2 id="article-count-v">Article Count (V) </h2>
-<p><strong>Article Count (V)</strong> represents the volume of arXiv articles mentioning a specific <strong>topic</strong> (and thus the <strong>category</strong> a topic belongs to) within a given period.</p>
+<p><strong>Article Count (V)</strong> represents the volume of arXiv articles mentioning a specific <strong>topic</strong> (and thus the <strong>area</strong> a topic belongs to) within a given period.</p>
 <ul>
 <li><strong>Topic Nodes</strong>: An article can be assigned to more than one topic (see <a href="#classification">Classification</a>); therefore, a single article may contribute to the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> of multiple topics simultaneously. This is intentional, as most ML/AI papers are interdisciplinary. Counting an article only once would underrepresent the cross-disciplinary nature of the field.</li>
-<li><strong>Category Nodes</strong>: For categories, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> is the sum of the volumes of all their child topics. Because an article can belong to topics in different categories, the same article may contribute to the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> of multiple categories.</li>
+<li><strong>Area Nodes</strong>: For areas, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> is the sum of the volumes of all their child topics. Because an article can belong to topics in different areas, the same article may contribute to the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> of multiple areas.</li>
 </ul>
 <h2 id="topic-hotness">Topic Hotness </h2>
 <p>Topic hotness indicates whether activity on a topic is accelerating or decelerating. It measures the percent change in <strong>monthly volume</strong> between the start and end of a selected range (Period-over-Period change).</p>
@@ -261,12 +261,12 @@ c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
 M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span></span></span></span>, where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mtext>total</mtext></msub></mrow><annotation encoding="application/x-tex">V_{\text{total}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">total</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the sum of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> across all nodes currently visible. Using the square root compresses the scale so that high-volume topics do not visually overwhelm the graph, while still preserving distinct relative differences.</p>
 <p><strong>Important:</strong> The scale is recalculated independently for each view. Sizes are meaningful <em>within</em> the current view but should not be compared across different views.</p>
 <h1 id="appendix">Appendix </h1>
-<h2 id="categories">Categories </h2>
+<h2 id="areas">Areas </h2>
 <table>
 <thead>
 <tr>
 <th>ID</th>
-<th>Category</th>
+<th>Area</th>
 <th>Description</th>
 </tr>
 </thead>

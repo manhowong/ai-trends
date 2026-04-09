@@ -23,7 +23,7 @@ export_on_save:
   - [Links and Relevance (DSC)](#links-and-relevance-dsc)
   - [Node Size](#node-size)
 - [Appendix](#appendix)
-  - [Categories](#categories)
+  - [Areas](#areas)
   - [Topics](#topics)
 
 
@@ -115,8 +115,8 @@ Formal evaluation is also constrained by the lack of suitable benchmark data. Ac
 | | Top 3 |
 |---|---|
 | Frequent terms | `human feedback`, `human preference`, `reward model` |
-| Intra-category connections (Post-Training & Adaptation) | `Direct Preference Optimization`, `Prompt Engineering & Prompt Tuning`, `In-Context Learning` |
-| Cross-category connections | `Reinforcement Learning` (Learning Paradigms), `AI Alignment`, `Human-AI Interaction` (Safety & Society) |
+| Intra-area connections (Post-Training & Adaptation) | `Direct Preference Optimization`, `Prompt Engineering & Prompt Tuning`, `In-Context Learning` |
+| Cross-area connections | `Reinforcement Learning` (Learning Paradigms), `AI Alignment`, `Human-AI Interaction` (Safety & Society) |
 
 As the dataset grows, we expect trend signals and representative terms to strengthen as noise is naturally filtered out by sample size. Suggestions on evaluation methods are welcome!
 
@@ -126,19 +126,19 @@ As the dataset grows, we expect trend signals and representative terms to streng
 
 The taxonomy is organized into a two-level hierarchy:
 
-* **Categories (A-I):** Nine broad research areas. Statistics at the category level are aggregated from their constituent child topics.
-* **Topics:** 113 specific research concepts, each mapped to a single parent category.
+* **Categories (A-I):** Nine broad research areas. Statistics at the area level are aggregated from their constituent child topics.
+* **Topics:** 113 specific research concepts, each mapped to a single parent area.
 
-See all topics and categories [here](#appendix).
+See all topics and areas [here](#appendix).
 
 
 ## Methodology and Design
 
 The initial taxonomy was designed manually, informed by two primary references: the [ACM Computing Classification System (CCS)](https://dl.acm.org/ccs), the standard subject classification scheme for computing research, and the [arXiv category taxonomy](https://arxiv.org/category_taxonomy), which defines the subject categories used for preprint submissions.
 
-Topics within each category were selected to be specific enough to provide meaningful insights, yet broad enough to maintain sufficient article volumes for trend analysis.
+Topics within each area were selected to be specific enough to provide meaningful insights, yet broad enough to maintain sufficient article volumes for trend analysis.
 
-Before finalization, the draft underwent multiple rounds of **LLM-assisted iterative revisions**. The output of each round was manually inspected and validated by a subject matter expert in computer science and neuroscience (the author). Descriptions for each category and topic were developed through a similar iterative process and were only finalized once human-AI alignment was achieved.
+Before finalization, the draft underwent multiple rounds of **LLM-assisted iterative revisions**. The output of each round was manually inspected and validated by a subject matter expert in computer science and neuroscience (the author). Descriptions for each area and topic were developed through a similar iterative process and were only finalized once human-AI alignment was achieved.
 
 > ### Current Limitations and Next Steps
 > 
@@ -154,10 +154,10 @@ Before finalization, the draft underwent multiple rounds of **LLM-assisted itera
 
 ## Article Count (V)
 
-**Article Count (V)** represents the volume of arXiv articles mentioning a specific **topic** (and thus the **category** a topic belongs to) within a given period.
+**Article Count (V)** represents the volume of arXiv articles mentioning a specific **topic** (and thus the **area** a topic belongs to) within a given period.
 
 * **Topic Nodes**: An article can be assigned to more than one topic (see [Classification](#classification)); therefore, a single article may contribute to the $V$ of multiple topics simultaneously. This is intentional, as most ML/AI papers are interdisciplinary. Counting an article only once would underrepresent the cross-disciplinary nature of the field.
-* **Category Nodes**: For categories, $V$ is the sum of the volumes of all their child topics. Because an article can belong to topics in different categories, the same article may contribute to the $V$ of multiple categories.
+* **Area Nodes**: For categories, $V$ is the sum of the volumes of all their child topics. Because an article can belong to topics in different categories, the same article may contribute to the $V$ of multiple categories.
 
 ## Topic Hotness
 
@@ -199,9 +199,9 @@ Node size is proportional to $\sqrt{V / V_{\text{total}}}$, where $V_{\text{tota
 
 # Appendix
 
-## Categories
+## Areas
 
-| ID | Category | Description |
+| ID | Area | Description |
 |---|---|---|
 | A | Learning Paradigms | The core learning approach or training signal used to train a model |
 | B | Model Architectures | The structural design of neural networks and machine learning models |

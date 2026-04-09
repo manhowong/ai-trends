@@ -83,7 +83,7 @@ function renderResults(nodes, query) {
       ? `<span class="search-result-badge search-result-badge--topic">${node.badgeText}</span>`
       : (node.badgeText
           ? `<span class="search-result-badge" style="background:${node.badgeColor}">${node.badgeText}</span>`
-          : `<span class="search-result-badge search-result-badge--category">${L1_NODE_LABEL}</span>`);
+          : `<span class="search-result-badge search-result-badge--area">${L1_NODE_LABEL}</span>`);
 
     return `
     <div class="search-result-row${node.kind === 'keyword' ? ' search-result-row--keyword' : ''}${isDisabled ? ' search-result-row--disabled' : ''}"

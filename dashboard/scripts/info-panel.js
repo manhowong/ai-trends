@@ -8,7 +8,7 @@ import {
   countEdgesByNodeId,
   getConnectedNodeId,
   getMetricBarWidths,
-  isCrossCategoryEdge,
+  isCrossAreaEdge,
   sortByValue,
 } from './data/data-helpers.js';
 import { trendColor, formatCount } from './chart/chart.js';
@@ -80,9 +80,9 @@ function buildSortControl({
 
 const EDGE_SORT_MODES = ['edges_all', 'edges_cross', 'edges_intra'];
 const L2_SCORE_SORT_LABELS = {
-  edges_all: 'Relevance (DSC)',
-  edges_cross: 'Cross-category DSC',
-  edges_intra: 'Intra-category DSC',
+  edges_all: 'Relevance, DSC',
+  edges_cross: 'Cross-Area DSC',
+  edges_intra: 'Intra-Area DSC',
 };
 
 function isEdgeSortMode(mode) {
@@ -284,8 +284,8 @@ export function renderL2NodePanel() {
 
   const edgeSortTargets = getEdgesByNodeId(state.currentL2NodeId, state.l2Edges).map(edge => {
     const isIncludedForMode = activeEdgeSortMode === 'edges_all'
-      || (activeEdgeSortMode === 'edges_cross' && isCrossCategoryEdge(edge, state.l2ToL1NodeId))
-      || (activeEdgeSortMode === 'edges_intra' && !isCrossCategoryEdge(edge, state.l2ToL1NodeId));
+      || (activeEdgeSortMode === 'edges_cross' && isCrossAreaEdge(edge, state.l2ToL1NodeId))
+      || (activeEdgeSortMode === 'edges_intra' && !isCrossAreaEdge(edge, state.l2ToL1NodeId));
 
     return {
       ...edge,

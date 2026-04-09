@@ -28,7 +28,7 @@ export function runIntroTour() {
   // Conditions to abort intro animation
   if (prefersReducedMotion()) return;
   
-  // Get the most popular category ID
+  // Get the most popular area ID
   const topL1Node = [...state.activeL1Nodes].sort((a, b) => (b.volume || 0) - (a.volume || 0))[0];
   if (!topL1Node || !topL1Node.children || !topL1Node.children.length) return;
   const topL2Node = [...topL1Node.children].sort((a, b) => (b.volume || 0) - (a.volume || 0))[0];

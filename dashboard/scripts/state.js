@@ -52,8 +52,8 @@ export const state = {
 
   // Edge
   edgeThreshold: 0.05,     // minimum dice value to include in the graph data
-  showIntraEdges: true,   // within-category edges
-  showCrossEdges: true,   // cross-category edges
+  showIntraEdges: true,   // within-area edges
+  showCrossEdges: true,   // cross-area edges
 
   // Trend thresholds (custom values will be loaded from config/settings.yml)
   trendBoundary: 10,  // percent

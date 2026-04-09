@@ -1,5 +1,5 @@
-export const L1_NODE_LABEL = 'Category';
-export const L1_LABEL = 'Categories';
+export const L1_NODE_LABEL = 'Area';
+export const L1_LABEL = 'Areas';
 export const L2_NODE_LABEL = 'Topic';
 export const L2_LABEL = 'Topics';
 
@@ -7,8 +7,8 @@ export const SORT_LABELS = {
   volume: '# articles',
   hotness: 'hotness',
   edges_all: '# all links',
-  edges_cross: '# cross-category links',
-  edges_intra: '# intra-category links',
+  edges_cross: '# cross-area links',
+  edges_intra: '# intra-area links',
 };
 
 export const INSTRUCTIONS_TITLE = 'How to Use';
