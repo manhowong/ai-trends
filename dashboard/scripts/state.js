@@ -38,7 +38,7 @@ export const state = {
   nodeSizeTotal: 0,
 
   // Sort mode
-  sortMode: 'volume',  // 'volume' | 'hotness' | 'edges'
+  sortMode: 'volume',  // 'volume' | 'hotness' | 'edges_all' | 'edges_cross' | 'edges_intra'
 
   // ECharts rich-label styles
   allColors:  [],

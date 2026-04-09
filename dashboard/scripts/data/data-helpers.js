@@ -16,11 +16,28 @@ export function getMetricBarWidths(mode, values) {
   return values.map(value => Math.round(value / maxValue * 100));
 }
 
-export function countEdgesByNodeId(nodeIds, edges) {
+export function isCrossCategoryEdge(edge, l2ToL1NodeId) {
+  return l2ToL1NodeId[edge.s] !== l2ToL1NodeId[edge.t];
+}
+
+export function filterEdgesByLinkMode(edges, linkMode, l2ToL1NodeId) {
+  if (linkMode === 'edges_cross') {
+    return edges.filter(edge => isCrossCategoryEdge(edge, l2ToL1NodeId));
+  }
+
+  if (linkMode === 'edges_intra') {
+    return edges.filter(edge => !isCrossCategoryEdge(edge, l2ToL1NodeId));
+  }
+
+  return edges;
+}
+
+export function countEdgesByNodeId(nodeIds, edges, linkMode = 'edges_all', l2ToL1NodeId = {}) {
   const edgeCountByNodeId = {};
+  const filteredEdges = filterEdgesByLinkMode(edges, linkMode, l2ToL1NodeId);
 
   nodeIds.forEach(nodeId => {
-    edgeCountByNodeId[nodeId] = edges.filter(edge => edge.s === nodeId || edge.t === nodeId).length;
+    edgeCountByNodeId[nodeId] = filteredEdges.filter(edge => edge.s === nodeId || edge.t === nodeId).length;
   });
 
   return edgeCountByNodeId;

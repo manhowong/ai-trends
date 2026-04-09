@@ -8,6 +8,7 @@ import {
   countEdgesByNodeId,
   getConnectedNodeId,
   getMetricBarWidths,
+  isCrossCategoryEdge,
   sortByValue,
 } from './data/data-helpers.js';
 import { trendColor, formatCount } from './chart/chart.js';
@@ -47,13 +48,14 @@ function buildSortControl({
   modes = [],
   activeSortMode = '',
   sortLabel = '',
+  modeLabels = SORT_LABELS,
   showHelp = false,
   helpSection = '',
 } = {}) {
   if (modes.length) {
     const options = modes.map(mode => `
         <option value="${mode}" ${activeSortMode === mode ? 'selected' : ''}>
-          ${SORT_LABELS[mode] || mode}
+          ${modeLabels[mode] || mode}
         </option>`).join('');
 
     const helpHtml = showHelp ? buildHelpButton(helpSection) : '';
@@ -74,6 +76,21 @@ function buildSortControl({
   }
 
   return '';
+}
+
+const EDGE_SORT_MODES = ['edges_all', 'edges_cross', 'edges_intra'];
+const L2_SCORE_SORT_LABELS = {
+  edges_all: 'Relevance (DSC)',
+  edges_cross: 'Cross-category DSC',
+  edges_intra: 'Intra-category DSC',
+};
+
+function isEdgeSortMode(mode) {
+  return EDGE_SORT_MODES.includes(mode);
+}
+
+function getActiveEdgeSortMode() {
+  return isEdgeSortMode(state.sortMode) ? state.sortMode : 'edges_all';
 }
 
 export function formatMetricValue(mode, value) {
@@ -183,14 +200,17 @@ export function renderOverviewPanel() {
 }
 
 export function renderL1NodePanel() {
-  const allowedSortModes = ['volume', 'hotness', 'edges'];
+  const allowedSortModes = ['volume', 'hotness', ...EDGE_SORT_MODES];
   const activeSortMode = state.sortMode;
   const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
   const currentL1Node = state.anyL1NodeById[state.currentL1NodeId] || state.activeL1NodeById[state.currentL1NodeId];
+  const activeEdgeSortMode = getActiveEdgeSortMode();
 
   const edgeCountByNodeId = countEdgesByNodeId(
     currentL1Node.children.map(l2Node => l2Node.id),
     state.l2Edges,
+    activeEdgeSortMode,
+    state.l2ToL1NodeId,
   );
 
   const sortTargets = currentL1Node.children.map(l2Node => ({
@@ -253,12 +273,25 @@ export function renderL2NodePanel() {
   const sortedValues = sortedTargets.map(keyword => keyword.value);
   const keywordBarWidths = getMetricBarWidths('volume', sortedValues);
   const topContentTitle = buildContentTitle(`Relevant ${L2_LABEL}`, {showHelp: true, helpSection: 'links-and-relevance-dsc'});
-  const topSortControl = buildSortControl({ sortLabel: 'Relevance score (DSC)' });
+  const activeEdgeSortMode = getActiveEdgeSortMode();
+  const topSortControl = buildSortControl({
+    modes: EDGE_SORT_MODES,
+    activeSortMode: activeEdgeSortMode,
+    modeLabels: L2_SCORE_SORT_LABELS,
+    showHelp: false,
+    helpSection: 'statistics',
+  });
 
-  const edgeSortTargets = getEdgesByNodeId(state.currentL2NodeId, state.l2Edges).map(edge => ({
-    ...edge,
-    value: edge.w,
-  }));
+  const edgeSortTargets = getEdgesByNodeId(state.currentL2NodeId, state.l2Edges).map(edge => {
+    const isIncludedForMode = activeEdgeSortMode === 'edges_all'
+      || (activeEdgeSortMode === 'edges_cross' && isCrossCategoryEdge(edge, state.l2ToL1NodeId))
+      || (activeEdgeSortMode === 'edges_intra' && !isCrossCategoryEdge(edge, state.l2ToL1NodeId));
+
+    return {
+      ...edge,
+      value: isIncludedForMode ? edge.w : 0,
+    };
+  });
   const edgeSortedTargets = sortByValue(edgeSortTargets);
   const maxEdgeWidth = Math.max(...edgeSortedTargets.map(edge => edge.value), 1);
   const topHTML = edgeSortedTargets.length

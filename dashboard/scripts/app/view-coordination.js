@@ -8,6 +8,10 @@ import { updateInfoPanel } from '../info-panel.js';
 import { renderBreadcrumb } from '../ui/breadcrumb.js';
 import { buildL1ChartView, buildL2ChartView, buildOverviewChartView } from '../chart/chart-views.js';
 
+function isEdgeSortMode(mode) {
+  return mode === 'edges_all' || mode === 'edges_cross' || mode === 'edges_intra';
+}
+
 function applyChartView({ nodes, edges, nodeSizeMax, nodeSizeTotal }) {
   state.nodeSizeMax = nodeSizeMax;
   state.nodeSizeTotal = nodeSizeTotal;
@@ -33,7 +37,10 @@ export function showOverview() {
   document.getElementById('volumeThresholdSlider').style.display = "none";
   document.getElementById('edgeThresholdSlider').style.display = "none";
   document.getElementById('edgeToggleControl').style.display = "none";
-  if (state.sortMode === 'edges') state.sortMode = 'volume'; // There are no true edges at L1 (only aggregated L2 edges)
+
+  // There are no true edges at L1 (only aggregated L2 edges)
+  if (isEdgeSortMode(state.sortMode)) state.sortMode = 'volume';
+  
   state.currentView = 'overview';
   state.currentL1NodeId = null;
   state.currentL2NodeId = null;
