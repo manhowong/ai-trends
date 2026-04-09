@@ -163,8 +163,8 @@
 #help-content code {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 0.95em;
-    background: var(--color-surface);
-    padding: 0 4px;
+    background: var(--trend-flat);
+    padding: 1px 4px;
     border-radius: 4px;
     color: var(--color-text-strong);
 }
