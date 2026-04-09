@@ -10,6 +10,7 @@
 
 #help-content:has(#legend-block) {
     width: 380px;
+    max-width: calc(100vw - 32px);
 }
 
 #legend-item {

@@ -87,7 +87,7 @@
 /* Some controls disabled at top level */
 
 #control-disabled-message {
-    max-width: 220px;
+    max-width: 200px;
     padding: 5px 0;
 }
 
