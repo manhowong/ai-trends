@@ -51,7 +51,7 @@ export function buildOverviewChartView() {
     };
   });
 
-  const edges = (state.showCrossEdges ? state.l1Edges : []).map(edge => ({
+  const edges = state.l1Edges.map(edge => ({
     source: edge.s,
     target: edge.t,
     lineStyle: {
