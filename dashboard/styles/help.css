@@ -52,17 +52,19 @@
 /* Back to top button */
 #help-top {
     position: absolute;
-    right: 28px;
-    bottom: 28px;
-    height: 4em;
-    width: 4em;
-    background: var(--color-surface);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2em;
+    height: 3em;
+    width: 3em;
+    background: var(--color-surface-2);
     border: none;
     color: var(--color-muted);
     border-radius: 999px;
-    padding: 6px 12px;
+    /* padding: 6px 6px; */
     cursor: pointer;
-    font-size: var(--font-sm);
+    font-size: var(--font-x-lg);
+    font-weight: 800;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.15s, background 0.15s;
@@ -74,7 +76,13 @@
 }
 
 #help-top:hover {
-    background: var(--color-surface-2);
+    background: var(--color-muted-3);
+}
+
+/* Add padding to page bottom. This makes space for top button, 
+   so it won't cover the content */
+#help-content:has(~ #help-top.is-visible) {
+    padding-bottom: 7em;
 }
 
 #help-content h1,

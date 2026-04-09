@@ -40,7 +40,6 @@
 /* Banner menu -------------------------------------------------------------- */
 
 #banner-menu {
-    /* margin-top: 10px; */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -56,9 +55,6 @@
 /* Legend button */
 
 #legend-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
     cursor: pointer;
     pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
 }
@@ -70,9 +66,6 @@
 /* Report button */
 
 #report-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
     cursor: pointer;
     pointer-events: auto; /* Ensure it's clickable even when placed inside anti-click element*/
 }
@@ -96,10 +89,6 @@
     transition: color 0.15s, text-decoration-color 0.15s;
     cursor: pointer;
     pointer-events: auto;
-}
-
-#legend-btn:hover {
-    color: var(--color-muted);
 }
 
 #themeToggle[aria-pressed="true"] .ui-switch {

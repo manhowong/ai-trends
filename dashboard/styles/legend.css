@@ -9,6 +9,7 @@
 .legend-block {
     padding: 0;
     border-top: 0;
+    width: max-content;
 }
 
 .legend-item {
