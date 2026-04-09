@@ -104,7 +104,7 @@ function initVolumeThresholdControl() {
 
   const initialIndex = Math.max(0, VOLUME_THRESHOLD_STEPS.indexOf(state.volumeThreshold));
   slider.value = String(initialIndex);
-  value.textContent = `${VOLUME_THRESHOLD_STEPS[initialIndex]} article(s)`;
+  value.textContent = `${VOLUME_THRESHOLD_STEPS[initialIndex]}`;
 
   slider.addEventListener('input', event => {
     const index = parseInt(event.target.value, 10);
@@ -112,7 +112,7 @@ function initVolumeThresholdControl() {
     if (nextThreshold === state.volumeThreshold) return;
 
     state.volumeThreshold = nextThreshold;
-    value.textContent = `${nextThreshold} article(s)`;
+    value.textContent = `${nextThreshold}`;
     refreshGraphData(state);
     initializeRichStyles();
     refreshCurrentView();

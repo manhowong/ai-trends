@@ -50,6 +50,7 @@
     color: var(--color-accent);
     text-transform: uppercase;
     padding: 1em 0;
+    line-height: 1rem;
 }
 
 /* Legend button */

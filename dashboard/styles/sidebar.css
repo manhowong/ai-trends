@@ -73,29 +73,8 @@
 /* Sidebar content ========================================================== */
 
 #sidebarContent {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
     font-size: var(--font-norm);
     color: var(--color-muted);
-    /* scroll if overflow */
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-surface-2) transparent;
-}
-
-#sidebarContent::-webkit-scrollbar {
-    width: 4px;
-}
-
-#sidebarContent::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-#sidebarContent::-webkit-scrollbar-thumb {
-    background: var(--color-surface-2);
-    border-radius: 2px;
 }
 
 /* Data control ------------------------------------------------------------- */
@@ -103,6 +82,13 @@
 #data-control-box {
     padding: 5px 16px;
     border-bottom: 1px solid var(--color-panel-border);
+}
+
+/* Some controls disabled at top level */
+
+#control-disabled-message {
+    max-width: 200px;
+    padding: 5px 0;
 }
 
 /* Date range */
@@ -167,23 +153,6 @@
     opacity: 0.3;
     pointer-events: none;
 }
-
-/* Controls disabled at top level */
-
-#low-level-control {
-    position: relative; /* Need this to position #control-disabled-message correctly */
-}
-
-#control-disabled-message {
-    display: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    align-items: center;
-    background: var(--color-panel-bg);
-    z-index: 10; /* on top of all controls */
-}
-
 
 /* Display control ---------------------------------------------------------- */
 

@@ -29,7 +29,10 @@ function updateBreadcrumb() {
 }
 
 export function showOverview() {
-  document.getElementById('control-disabled-message').style.display = "flex";
+  document.getElementById('control-disabled-message').style.display = "block";
+  document.getElementById('volumeThresholdSlider').style.display = "none";
+  document.getElementById('edgeThresholdSlider').style.display = "none";
+  document.getElementById('edgeToggleControl').style.display = "none";
   if (state.sortMode === 'links') state.sortMode = 'volume'; // There are no true links at L1 (only aggregated L2 links)
   state.currentView = 'overview';
   state.currentL1NodeId = null;
@@ -41,6 +44,9 @@ export function showOverview() {
 
 export function showCurrentL1Node(l1NodeId) {
   document.getElementById('control-disabled-message').style.display = "none";
+  document.getElementById('volumeThresholdSlider').style.display = "inline-block";
+  document.getElementById('edgeThresholdSlider').style.display = "inline-block";
+  document.getElementById('edgeToggleControl').style.display = "block";
   state.currentView = 'l1';
   state.currentL1NodeId = l1NodeId;
   state.currentL2NodeId = null;
@@ -51,6 +57,9 @@ export function showCurrentL1Node(l1NodeId) {
 
 export function showCurrentL2Node(l2NodeId) {
   document.getElementById('control-disabled-message').style.display = "none";
+  document.getElementById('volumeThresholdSlider').style.display = "inline-block";
+  document.getElementById('edgeThresholdSlider').style.display = "inline-block";
+  document.getElementById('edgeToggleControl').style.display = "block";
   state.currentView = 'l2';
   state.currentL2NodeId = l2NodeId;
   state.hoveredNode = null;
