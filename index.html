@@ -198,13 +198,19 @@
     <div id="search-overlay" class="overlay-modal">
         <div id="search-backdrop" class="overlay-backdrop"></div>
         <div id="search-modal" class="overlay-dialog">
-            <input
-            id="search-input"
-            type="text"
-            placeholder="Find topics and categories..."
-            autocomplete="off"
-            spellcheck="false"
-            />
+            <div id="search-bar">
+                <input
+                id="search-input"
+                type="text"
+                placeholder="Find topics and categories..."
+                autocomplete="off"
+                spellcheck="false"
+                />
+                <button id="randomTopicBtn" type="button" aria-label="Open a random topic" title="Random topic">
+                    <span>Random</span>
+                    <span class="dice-icon" aria-hidden="true"></span>
+                </button>
+            </div>
             <div id="search-results"></div>
         </div>
     </div>

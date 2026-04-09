@@ -44,6 +44,20 @@ function navigateToNode(id, level) {
   }
 }
 
+function getRandomActiveL2NodeId() {
+  const l2NodeIds = Object.keys(state.activeL2NodeById || {});
+  if (!l2NodeIds.length) return null;
+  const randomIndex = Math.floor(Math.random() * l2NodeIds.length);
+  return l2NodeIds[randomIndex];
+}
+
+function openRandomTopic() {
+  const l2NodeId = getRandomActiveL2NodeId();
+  if (!l2NodeId) return;
+  closeSearch();
+  navigateToNode(l2NodeId, 2);
+}
+
 function renderResults(nodes, query) {
   const container = document.getElementById('search-results');
   const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
@@ -137,6 +151,9 @@ export function initSearch() {
 
   document.getElementById('searchBtn')
     ?.addEventListener('click', openSearch);
+
+  document.getElementById('randomTopicBtn')
+    ?.addEventListener('click', openRandomTopic);
 
   input.addEventListener('input', event => {
     const query = event.target.value;
