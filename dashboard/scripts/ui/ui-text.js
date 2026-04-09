@@ -6,7 +6,7 @@ export const L2_LABEL = 'Topics';
 export const SORT_LABELS = {
   volume: '# articles',
   hotness: 'hotness',
-  links: '# links',
+  edges: '# links',
 };
 
 export const INSTRUCTIONS_TITLE = 'How to Use';

@@ -33,7 +33,7 @@ export function showOverview() {
   document.getElementById('volumeThresholdSlider').style.display = "none";
   document.getElementById('edgeThresholdSlider').style.display = "none";
   document.getElementById('edgeToggleControl').style.display = "none";
-  if (state.sortMode === 'links') state.sortMode = 'volume'; // There are no true links at L1 (only aggregated L2 links)
+  if (state.sortMode === 'edges') state.sortMode = 'volume'; // There are no true edges at L1 (only aggregated L2 edges)
   state.currentView = 'overview';
   state.currentL1NodeId = null;
   state.currentL2NodeId = null;

@@ -183,7 +183,7 @@ export function renderOverviewPanel() {
 }
 
 export function renderL1NodePanel() {
-  const allowedSortModes = ['volume', 'hotness', 'links'];
+  const allowedSortModes = ['volume', 'hotness', 'edges'];
   const activeSortMode = state.sortMode;
   const threshold = Math.max(1, parseInt(state.volumeThreshold, 10) || 1);
   const currentL1Node = state.anyL1NodeById[state.currentL1NodeId] || state.activeL1NodeById[state.currentL1NodeId];
