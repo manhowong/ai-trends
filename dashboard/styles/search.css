@@ -49,6 +49,26 @@
     background: var(--color-surface);
 }
 
+#random-topic-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+#random-topic-preview {
+    min-height: 2.6em;
+    padding: 10px 16px 8px;
+    color: var(--color-accent);
+    font-family: monospace;
+    font-size: var(--font-sm);
+    letter-spacing: 0.04em;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+#random-topic-preview:empty {
+    display: none;
+}
+
 
 /* Search Results =========================================================== */
 

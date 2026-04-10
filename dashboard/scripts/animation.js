@@ -8,6 +8,8 @@
 import { state } from './state.js';
 import { showOverview, showCurrentL1Node, showCurrentL2Node } from './app/view-coordination.js';
 
+const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
 let introPlayed = false;
 
 function prefersReducedMotion() {
@@ -19,6 +21,54 @@ function runSteps(topL1NodeId, topL2NodeId) {
   setTimeout(() => showCurrentL1Node(topL1NodeId), stepMs * 1);
   setTimeout(() => showCurrentL2Node(topL2NodeId), stepMs * 2);
   setTimeout(() => showOverview(), stepMs * 3);
+}
+
+function scrambleText(text, progress) {
+  const revealCount = Math.floor(text.length * progress);
+  return [...text].map((char, index) => {
+    if (char === ' ') return ' ';
+    if (index < revealCount) return char;
+    if (!/[A-Za-z0-9]/.test(char)) return char;
+    return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+  }).join('');
+}
+
+export function animateScrambledText({
+  text,
+  duration = 800,
+  frameMs = 50,
+  onUpdate,
+  onComplete,
+}) {
+  if (!text || typeof onUpdate !== 'function') {
+    return () => {};
+  }
+
+  const startedAt = Date.now();
+  let frameId = null;
+  let timeoutId = null;
+
+  onUpdate(scrambleText(text, 0));
+
+  frameId = setInterval(() => {
+    const elapsed = Date.now() - startedAt;
+    const progress = Math.min(elapsed / duration, 1);
+    onUpdate(progress >= 1 ? text : scrambleText(text, progress));
+  }, frameMs);
+
+  timeoutId = setTimeout(() => {
+    if (frameId) {
+      clearInterval(frameId);
+      frameId = null;
+    }
+    onUpdate(text);
+    if (typeof onComplete === 'function') onComplete();
+  }, duration);
+
+  return () => {
+    if (frameId) clearInterval(frameId);
+    if (timeoutId) clearTimeout(timeoutId);
+  };
 }
 
 export function runIntroTour() {

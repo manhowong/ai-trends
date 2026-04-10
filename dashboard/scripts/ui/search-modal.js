@@ -8,6 +8,10 @@ import { closeModal, openModal, registerModal, toggleModal } from './modal-contr
 import { themeVar, formatCount, applyHover } from '../chart/chart.js';
 import { showCurrentL1Node, showCurrentL2Node } from '../app/view-coordination.js';
 import { L1_NODE_LABEL } from './ui-text.js';
+import { animateScrambledText } from '../animation.js';
+
+const RANDOM_TOPIC_ANIMATION_MS = 800;
+const RANDOM_TOPIC_READ_MS = 1000;
 
 function filterNodes(query) {
   const matchedNodes = filterByNameMatch(
@@ -51,11 +55,57 @@ function getRandomActiveL2NodeId() {
   return l2NodeIds[randomIndex];
 }
 
+let randomTopicAnimationTimer = null;
+let cancelRandomTopicAnimation = null;
+
+function getRandomTopicPreviewEl() {
+  return document.getElementById('random-topic-preview');
+}
+
+function stopRandomTopicAnimation() {
+  if (cancelRandomTopicAnimation) {
+    cancelRandomTopicAnimation();
+    cancelRandomTopicAnimation = null;
+  }
+  if (randomTopicAnimationTimer) {
+    clearTimeout(randomTopicAnimationTimer);
+    randomTopicAnimationTimer = null;
+  }
+}
+
+function resetRandomTopicPreview() {
+  stopRandomTopicAnimation();
+  const preview = getRandomTopicPreviewEl();
+  if (preview) preview.textContent = '';
+  const button = document.getElementById('random-topic-btn');
+  if (button) button.disabled = false;
+}
+
 function openRandomTopic() {
   const l2NodeId = getRandomActiveL2NodeId();
-  if (!l2NodeId) return;
-  closeSearch();
-  navigateToNode(l2NodeId, 2);
+  const topicName = state.activeL2NodeById[l2NodeId]?.name;
+  const preview = getRandomTopicPreviewEl();
+  const button = document.getElementById('random-topic-btn');
+  if (!l2NodeId || !topicName || !preview || !button) return;
+
+  stopRandomTopicAnimation();
+  button.disabled = true;
+
+  cancelRandomTopicAnimation = animateScrambledText({
+    text: topicName,
+    duration: RANDOM_TOPIC_ANIMATION_MS,
+    onUpdate: value => {
+      preview.textContent = value;
+    },
+    onComplete: () => {
+      cancelRandomTopicAnimation = null;
+      randomTopicAnimationTimer = setTimeout(() => {
+        randomTopicAnimationTimer = null;
+        closeSearch();
+        navigateToNode(l2NodeId, 2);
+      }, RANDOM_TOPIC_READ_MS);
+    },
+  });
 }
 
 function renderResults(nodes, query) {
@@ -121,6 +171,7 @@ function openSearch() {
   const results = document.getElementById('search-results');
   if (input) input.value = '';
   if (results) results.innerHTML = '';
+  resetRandomTopicPreview();
   selectedIndex = -1;
   openModal('search');
 }
@@ -146,6 +197,7 @@ export function initSearch() {
       selectedIndex = -1;
       input.value = '';
       results.innerHTML = '';
+      resetRandomTopicPreview();
     },
   });
 
