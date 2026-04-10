@@ -7,7 +7,7 @@ export const SORT_LABELS = {
   volume: '# articles',
   hotness: 'hotness',
   edges_all: '# all links',
-  edges_cross: '# cross-area links',
+  edges_inter: '# inter-area links',
   edges_intra: '# intra-area links',
 };
 
@@ -31,30 +31,33 @@ export const INSTRUCTIONS_HTML = `
       <li>Mobile: <b>Long-press anywhere</b>.</li>
     </ul>
 
-    <span>
-        You can also navigate in <b>this panel</b>.<br />
-    </span>
-
   </div>`;
 
 export const LEGEND_HTML = `
   <div id="legend-block">
 
     <p><b>Article count</b> <br/> Shown after node name</p>
-    <p><b>Node size</b> <br/> Scales with article count (normalized)</p>
-    <p><b>Link width</b> <br/> Scales with relevance (Dice-Sørensen Coefficient)</p>
+    <p>
+        <b>Node size</b> <br/> Scales with article count (normalized) 
+        <help-icon role="button" data-help="documentation" data-help-section="node-size"></help-icon>
+    </p>
+    <p>
+        <b>Link width</b> <br/> Scales with relevance (DSC) 
+        <help-icon role="button" data-help="documentation" data-help-section="links-and-relevance-dsc"></help-icon>
+    </p>
     
     <p>
         <b>Node color</b> <br/>
-        Direction of <i>Hotness Score</i> (Period-to-Period change* in share of total articles):
+        Direction of <i>Topic Hotness</i> (Period-to-Period* change in share of total articles):
+        <help-icon role="button" data-help="documentation" data-help-section="topic-hotness"></help-icon>
         <div id="legend-item">
             <span id="legend-dot" style="background:var(--trend-up)"></span>
-            Heating up ( >= +20% )
+            Heating up ( &ge; +20% )
         </div>
 
         <div id="legend-item">
             <span id="legend-dot" style="background:var(--trend-down)"></span>
-            Cooling off  ( <= &minus;20% )
+            Cooling off  ( &le; &minus;20% )
         </div>
         
         <div id="legend-item">
@@ -63,16 +66,18 @@ export const LEGEND_HTML = `
         </div>
 
         <div id="legend-note">
-            *Hotness score requires <b>TWO</b> time points.
+            *Select <b>TWO</b> time points to view Topic Hotness.
         </div>
     </p>
 
     <p>
         <b>Area vs. Topic nodes</b> <br/>
-        An area node is an aggregate* of its child topic nodes. Links between area nodes are aggregates* of links between topic nodes.
+        Topics are grouped into research areas: 
+        Each <b>area node</b> is an aggregate* of its child <b>topic nodes</b>. <br/>
+        <b>Links</b> between area nodes are aggregates* of links between topic nodes.
 
         <div id="legend-note">
-            *Filtering data at Topic level <b>affects</b> Area nodes.
+            *Filtering data at topic level <b>affects</b> area nodes.
         </div>
     
     </p>

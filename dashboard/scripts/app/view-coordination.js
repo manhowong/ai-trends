@@ -9,7 +9,7 @@ import { renderBreadcrumb } from '../ui/breadcrumb.js';
 import { buildL1ChartView, buildL2ChartView, buildOverviewChartView } from '../chart/chart-views.js';
 
 function isEdgeSortMode(mode) {
-  return mode === 'edges_all' || mode === 'edges_cross' || mode === 'edges_intra';
+  return mode === 'edges_all' || mode === 'edges_inter' || mode === 'edges_intra';
 }
 
 function applyChartView({ nodes, edges, nodeSizeMax, nodeSizeTotal }) {

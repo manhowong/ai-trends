@@ -38,7 +38,7 @@ export const state = {
   nodeSizeTotal: 0,
 
   // Sort mode
-  sortMode: 'volume',  // 'volume' | 'hotness' | 'edges_all' | 'edges_cross' | 'edges_intra'
+  sortMode: 'volume',  // 'volume' | 'hotness' | 'edges_all' | 'edges_inter' | 'edges_intra'
 
   // ECharts rich-label styles
   allColors:  [],
@@ -53,7 +53,7 @@ export const state = {
   // Edge
   edgeThreshold: 0.05,     // minimum dice value to include in the graph data
   showIntraEdges: true,   // within-area edges
-  showCrossEdges: true,   // cross-area edges
+  showInterEdges: true,   // Inter-area edges
 
   // Trend thresholds (custom values will be loaded from config/settings.yml)
   trendBoundary: 10,  // percent

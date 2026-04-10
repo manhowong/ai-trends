@@ -70,13 +70,13 @@ export function buildL1ChartView(l1NodeId) {
   const currentL1Node = state.activeL1NodeById[l1NodeId];
   const currentL2NodeIds = new Set(currentL1Node.children.map(node => node.id));
 
-  const crossEdges = state.l2Edges.filter(edge =>
+  const interEdges = state.l2Edges.filter(edge =>
     (currentL2NodeIds.has(edge.s) && !currentL2NodeIds.has(edge.t)) ||
     (currentL2NodeIds.has(edge.t) && !currentL2NodeIds.has(edge.s))
   );
 
   const externalL2NodeIds = new Set();
-  crossEdges.forEach(edge => {
+  interEdges.forEach(edge => {
     if (!currentL2NodeIds.has(edge.s)) externalL2NodeIds.add(edge.s);
     if (!currentL2NodeIds.has(edge.t)) externalL2NodeIds.add(edge.t);
   });
@@ -127,7 +127,7 @@ export function buildL1ChartView(l1NodeId) {
     state.l2ToL1NodeId,
   );
 
-  if (state.showCrossEdges) {
+  if (state.showInterEdges) {
     Object.entries(externalL2NodeIdsByL1Id).forEach(([externalL1NodeId, groupedL2NodeIds]) => {
       groupedL2NodeIds.forEach(externalL2NodeId => {
         const externalL2Node = state.activeL2NodeById[externalL2NodeId];
@@ -168,13 +168,13 @@ export function buildL1ChartView(l1NodeId) {
   }
 
   const intraEdges = state.l2Edges.filter(edge => currentL2NodeIds.has(edge.s) && currentL2NodeIds.has(edge.t));
-  const visibleCrossEdges = state.showCrossEdges ? crossEdges : [];
+  const visibleInterEdges = state.showInterEdges ? interEdges : [];
   const visibleIntraEdges = state.showIntraEdges ? intraEdges : [];
-  const allVisibleEdges = [...visibleCrossEdges, ...visibleIntraEdges];
+  const allVisibleEdges = [...visibleInterEdges, ...visibleIntraEdges];
   const maxEdgeWidth = Math.max(...allVisibleEdges.map(edge => edge.w), 1);
 
   const edges = [
-    ...visibleCrossEdges.map(edge => ({
+    ...visibleInterEdges.map(edge => ({
       source: edge.s,
       target: edge.t,
       lineStyle: {
@@ -264,7 +264,7 @@ export function buildL2ChartView(l2NodeId) {
   const visibleEdges = connectedL2Edges.filter(edge => {
     const sameL1Node = state.l2ToL1NodeId[edge.s] === state.l2ToL1NodeId[edge.t];
     if (sameL1Node && !state.showIntraEdges) return false;
-    if (!sameL1Node && !state.showCrossEdges) return false;
+    if (!sameL1Node && !state.showInterEdges) return false;
     return true;
   });
 

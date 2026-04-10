@@ -116,7 +116,7 @@ Formal evaluation is also constrained by the lack of suitable benchmark data. Ac
 |---|---|
 | Frequent terms | `human feedback`, `human preference`, `reward model` |
 | Intra-area connections (Post-Training & Adaptation) | `Direct Preference Optimization`, `Prompt Engineering & Prompt Tuning`, `In-Context Learning` |
-| Cross-area connections | `Reinforcement Learning` (Learning Paradigms), `AI Alignment`, `Human-AI Interaction` (Safety & Society) |
+| Inter-area connections | `Reinforcement Learning` (Learning Paradigms), `AI Alignment`, `Human-AI Interaction` (Safety & Society) |
 
 As the dataset grows, we expect trend signals and representative terms to strengthen as noise is naturally filtered out by sample size. Suggestions on evaluation methods are welcome!
 
@@ -127,7 +127,7 @@ As the dataset grows, we expect trend signals and representative terms to streng
 The taxonomy is organized into a two-level hierarchy:
 
 * **Categories (A-I):** Nine broad research areas. Statistics at the area level are aggregated from their constituent child topics.
-* **Topics:** 113 specific research concepts, each mapped to a single parent area.
+* **Topics:** 125 specific research concepts, each mapped to a single parent area.
 
 See all topics and areas [here](#appendix).
 
@@ -191,11 +191,13 @@ Where $|A|$ and $|B|$ are the article counts ($V$) for topics $A$ and $B$, and $
 
 DSC ranges from 0 (no co-occurrence) to 1 (complete overlap). A wider link indicates that two topics appear together frequently relative to their individual frequencies.
 
+Note that DSC is converted to percentage in the dashboard for easier interpretation.
+
 ## Node Size
 
 Node size is proportional to $\sqrt{V / V_{\text{total}}}$, where $V_{\text{total}}$ is the sum of $V$ across all nodes currently visible. Using the square root compresses the scale so that high-volume topics do not visually overwhelm the graph, while still preserving distinct relative differences.
 
-**Important:** The scale is recalculated independently for each view. Sizes are meaningful *within* the current view but should not be compared across different views.
+**Note:** The scale is recalculated independently for each view. Sizes are meaningful *within* the current view but should not be compared across different views.
 
 # Appendix
 

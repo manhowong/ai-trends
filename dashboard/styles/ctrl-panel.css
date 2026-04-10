@@ -128,7 +128,7 @@
 /* Edge width control */
 
 #edge-width-control-val::before {
-    content: "\2265";  /* greater or equal to symbol */
+    content: attr(data-prefix);
     padding-left: 1em;
 }
 

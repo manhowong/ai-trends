@@ -78,10 +78,10 @@ function buildSortControl({
   return '';
 }
 
-const EDGE_SORT_MODES = ['edges_all', 'edges_cross', 'edges_intra'];
+const EDGE_SORT_MODES = ['edges_all', 'edges_inter', 'edges_intra'];
 const L2_SCORE_SORT_LABELS = {
   edges_all: 'Relevance, DSC',
-  edges_cross: 'Cross-Area DSC',
+  edges_inter: 'Inter-Area DSC',
   edges_intra: 'Intra-Area DSC',
 };
 
@@ -94,7 +94,7 @@ function getActiveEdgeSortMode() {
 }
 
 export function formatMetricValue(mode, value) {
-  if (mode === 'hotness') return value > 0 ? `+${value}` : String(value);
+  if (mode === 'hotness') return value > 0 ? `+${value}%` : `${value}%`;
   return formatCount(value);
 }
 
@@ -284,7 +284,7 @@ export function renderL2NodePanel() {
 
   const edgeSortTargets = getEdgesByNodeId(state.currentL2NodeId, state.l2Edges).map(edge => {
     const isIncludedForMode = activeEdgeSortMode === 'edges_all'
-      || (activeEdgeSortMode === 'edges_cross' && isCrossAreaEdge(edge, state.l2ToL1NodeId))
+      || (activeEdgeSortMode === 'edges_inter' && isCrossAreaEdge(edge, state.l2ToL1NodeId))
       || (activeEdgeSortMode === 'edges_intra' && !isCrossAreaEdge(edge, state.l2ToL1NodeId));
 
     return {
@@ -304,7 +304,7 @@ export function renderL2NodePanel() {
             rank: i + 1,
             id: connectedNodeId,
             name: connectedNode.name,
-            valueLabel: `${(edge.value * 100).toFixed(1)} %`,
+            valueLabel: edge.value===0 ? `n.a.` : `${(edge.value * 100).toFixed(1)}%` ,
             widthPercent: Math.round(edge.value / maxEdgeWidth * 100),
             trend: connectedNode.trend,
             onclick: `showCurrentL2Node('${connectedNodeId}')`,

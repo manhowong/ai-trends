@@ -21,7 +21,7 @@ export function isCrossAreaEdge(edge, l2ToL1NodeId) {
 }
 
 export function filterEdgesByLinkMode(edges, linkMode, l2ToL1NodeId) {
-  if (linkMode === 'edges_cross') {
+  if (linkMode === 'edges_inter') {
     return edges.filter(edge => isCrossAreaEdge(edge, l2ToL1NodeId));
   }
 
