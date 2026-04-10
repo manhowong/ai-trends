@@ -19,6 +19,9 @@ export function initHelp() {
   const HIGHLIGHT_MS = 1600;
   const SCROLL_HIGHLIGHT_DELAY_MS = 200;
   const SCROLL_OFFSET_PX = 8;
+  const HELP_SOURCES = {
+    documentation: 'https://raw.githubusercontent.com/manhowong/ai-trends/refs/heads/main/docs/documentation.md',
+  };
   let helpRequestToken = 0;
 
   titleEl.textContent = 'Help';
@@ -35,10 +38,14 @@ export function initHelp() {
   };
 
   const clearHighlights = () => {
-    contentEl.querySelectorAll(`.${HIGHLIGHT_CLASS}`).forEach(element => {
+    getHelpContentRoot().querySelectorAll(`.${HIGHLIGHT_CLASS}`).forEach(element => {
       element.classList.remove(HIGHLIGHT_CLASS);
     });
   };
+
+  const getMarkdownHost = () => contentEl.querySelector('zero-md');
+
+  const getHelpContentRoot = () => getMarkdownHost()?.shadowRoot || contentEl;
 
   const highlightTarget = target => {
     if (!target) return;
@@ -50,6 +57,8 @@ export function initHelp() {
   };
 
   const scrollToSection = sectionId => {
+    const contentRoot = getHelpContentRoot();
+
     if (!sectionId) {
       contentEl.scrollTop = 0;
       return;
@@ -57,7 +66,7 @@ export function initHelp() {
 
     const escapedId = window.CSS?.escape ? CSS.escape(sectionId) : sectionId;
     const selector = `#${escapedId}`;
-    const target = contentEl.querySelector(selector);
+    const target = contentRoot.querySelector(selector);
 
     if (!target) {
       contentEl.scrollTop = 0;
@@ -73,6 +82,15 @@ export function initHelp() {
   const openHelp = async (helpId, sectionId) => {
     if (!helpId) return;
 
+    const source = HELP_SOURCES[helpId];
+    if (!source) {
+      titleEl.textContent = 'Help';
+      contentEl.innerHTML = '<p class="empty-state">Unable to load help content.</p>';
+      topBtn.classList.remove('is-visible');
+      openModal('help');
+      return;
+    }
+
     helpRequestToken += 1;
     const requestToken = helpRequestToken;
     titleEl.textContent = 'Help';
@@ -81,19 +99,39 @@ export function initHelp() {
     topBtn.classList.remove('is-visible');
 
     try {
-      const response = await fetch(`./docs/html/${helpId}.html`);
-      if (!response.ok) throw new Error(`Failed to load ${helpId}`);
-      const html = await response.text();
+      contentEl.innerHTML = '';
+      const markdownEl = document.createElement('zero-md');
+      markdownEl.setAttribute('src', source);
+      markdownEl.setAttribute('no-shadow', ''); // Allow website's global CSS
+
+      // Remove default styles by including an empty <template> block 
+      markdownEl.innerHTML = `
+        <template>
+        </template>
+      `;
+
+      await new Promise((resolve, reject) => {
+        const cleanup = () => {
+          markdownEl.removeEventListener('zero-md-rendered', handleRendered);
+          markdownEl.removeEventListener('error', handleError);
+        };
+
+        const handleRendered = () => {
+          cleanup();
+          resolve();
+        };
+
+        const handleError = () => {
+          cleanup();
+          reject(new Error(`Failed to load ${helpId}`));
+        };
+
+        markdownEl.addEventListener('zero-md-rendered', handleRendered, { once: true });
+        markdownEl.addEventListener('error', handleError, { once: true });
+        contentEl.appendChild(markdownEl);
+      });
+
       if (requestToken !== helpRequestToken) return;
-
-      const doc = new DOMParser().parseFromString(html, 'text/html');
-      contentEl.innerHTML = doc.body ? doc.body.innerHTML : html;
-
-      if (window.MathJax?.typesetPromise) {
-        await window.MathJax.typesetPromise([contentEl]);
-        if (requestToken !== helpRequestToken) return;
-      }
-
       scrollToSection(sectionId);
     } catch (error) {
       if (requestToken !== helpRequestToken) return;
@@ -130,7 +168,7 @@ export function initHelp() {
   };
 
   contentEl.addEventListener('click', event => {
-    const link = event.target.closest('a');
+    const link = event.composedPath().find(node => node?.tagName?.toLowerCase?.() === 'a');
     const sectionId = extractHashId(link);
     if (!sectionId) return;
     event.preventDefault();

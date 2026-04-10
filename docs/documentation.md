@@ -1,8 +1,3 @@
----
-export_on_save:
-  html: true
----
-
 **Project Documentation**
 
 - [Project Overview](#project-overview)
@@ -165,11 +160,13 @@ Topic hotness indicates whether activity on a topic is accelerating or decelerat
 
 Hotness is defined as 0 if the start value is zero. The result is rounded to the nearest integer:
 
-$$\text{Hotness} =
+$$
+\text{Hotness} =
 \begin{cases}
 0, & V_{\text{start}} \le 0 \\
 \operatorname{round}\!\left(\left(\dfrac{V_{\text{end}} - V_{\text{start}}}{V_{\text{start}}}\right) \times 100\right), & V_{\text{start}} > 0
-\end{cases}$$
+\end{cases}
+$$
 
 Where $V_{\text{start}}$ and $V_{\text{end}}$ are the monthly volumes at the range endpoints.
 
