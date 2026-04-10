@@ -33,7 +33,7 @@ export function renderBreadcrumb({
   onOverview,
   onL1Node,
 }) {
-  const container = document.getElementById('treeItems');
+  const container = document.getElementById('breadcrumb');
   if (!container) return;
 
   container.innerHTML = '';

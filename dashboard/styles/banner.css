@@ -33,7 +33,7 @@
     padding-top: 1em;
 }
 
-#dateText {
+#date-display {
     z-index: 1;
 }
 
@@ -80,7 +80,7 @@
 
 /* Theme toggle */
 
-#themeToggle {
+#theme-toggle {
     display: inline-flex;
     align-items: center;
     padding: 0;
@@ -91,17 +91,17 @@
     pointer-events: auto;
 }
 
-#themeToggle[aria-pressed="true"] .ui-switch {
+#theme-toggle[aria-pressed="true"] .ui-switch {
     background: var(--color-accent);
 }
 
-#themeToggle[aria-pressed="true"] .ui-switch .ui-switch-thumb {
+#theme-toggle[aria-pressed="true"] .ui-switch .ui-switch-thumb {
     transform: translateX(16px);
 }
 
 /* Search button ------------------------------------------------------------ */
 
-#searchBtn {
+#search-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -117,7 +117,7 @@
     pointer-events: auto;
 }
 
-#searchBtn:hover {
+#search-btn:hover {
     color: var(--color-muted-3);
     border: 1px solid var(--color-surface-2);
 }

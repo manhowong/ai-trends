@@ -47,8 +47,8 @@
         height: 100%;
     }
 
-    /*Move sidebar to top right*/
-    #sidebar {
+    /*Move ctrl-panel to top right*/
+    #ctrl-panel {
         top: 10px;
         right: 10px;
         bottom: auto;
@@ -61,7 +61,7 @@
     }
 
     /*Switch down icon direction to up*/
-    #sidebarToggle .down-icon::before {
+    #ctrl-panel-toggle .down-icon::before {
         transform: rotate(225deg) translateY(-1px);
     }
 
@@ -85,15 +85,15 @@
 
 @media (max-width: 480px) {
 
-    .date-range-row {
+    #date-control-row {
         flex-wrap: wrap;
     }
 
-    .date-range-select {
+    #date-control-select {
         width: 100%;
     }
 
-    .date-range-sep {
+    #date-control-sep {
         display: none;
     }
 

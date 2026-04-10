@@ -1,5 +1,5 @@
 /* ============================================================
-   sidebar.js - Sidebar controls and related UI behavior
+   ctrl-panel.js - Control panel components and related UI behavior
    ============================================================ */
 
 import { state } from '../state.js';
@@ -11,8 +11,8 @@ import { showOverview } from '../app/view-coordination.js';
 const VOLUME_THRESHOLD_STEPS = [1, 10, 50, 100, 200, 300, 400, 500, 1000];
 const EDGE_THRESHOLD_STEPS = [0, 0.01, 0.05, 0.1, 0.15, 0.2, 0.5];
 
-export function updateDateText() {
-  const element = document.getElementById('dateText');
+export function updateDateDisplay() {
+  const element = document.getElementById('date-display');
   if (!element || !state.selectedStartTimePoint || !state.selectedEndTimePoint) return;
 
   element.textContent = state.selectedStartTimePoint === state.selectedEndTimePoint
@@ -20,13 +20,13 @@ export function updateDateText() {
     : `${state.selectedStartTimePoint} to ${state.selectedEndTimePoint}`;
 }
 
-export function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  const button = document.getElementById('sidebarToggle');
-  if (!sidebar || !button) return;
+export function toggleCtrlPanel() {
+  const ctrlPanel = document.getElementById('ctrl-panel');
+  const button = document.getElementById('ctrl-panel-toggle');
+  if (!ctrlPanel || !button) return;
 
-  const collapsed = sidebar.classList.toggle('collapsed');
-  button.title = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
+  const collapsed = ctrlPanel.classList.toggle('collapsed');
+  button.title = collapsed ? 'Expand control panel' : 'Collapse control panel';
 }
 
 function buildDateRangeControls() {
@@ -68,7 +68,7 @@ function onDateRangeChange() {
     startSelect.value = state.selectedStartTimePoint;
   }
 
-  updateDateText();
+  updateDateDisplay();
   refreshGraphData(state);
   initializeRichStyles();
   showOverview();
@@ -95,7 +95,7 @@ function initEdgeToggles() {
 
 function initVolumeThresholdControl() {
   const slider = document.getElementById('volumeThresholdSlider');
-  const value = document.getElementById('volumeThresholdVal');
+  const value = document.getElementById('volume-control-val');
   if (!slider || !value) return;
 
   slider.min = 0;
@@ -119,9 +119,9 @@ function initVolumeThresholdControl() {
   });
 }
 
-function initEdgeThresholdControl() {
+function initedgeWidthControl() {
   const slider = document.getElementById('edgeThresholdSlider');
-  const value = document.getElementById('edgeThresholdVal');
+  const value = document.getElementById('edge-width-control-val');
   if (!slider || !value) return;
 
   slider.min = 0;
@@ -145,46 +145,46 @@ function initEdgeThresholdControl() {
   });
 }
 
-function initSidebarToggle() {
-  document.getElementById('sidebarToggle')
-    ?.addEventListener('click', toggleSidebar);
+function initCtrlPanelToggle() {
+  document.getElementById('ctrl-panel-toggle')
+    ?.addEventListener('click', toggleCtrlPanel);
 }
 
-function initResponsiveSidebarBehavior() {
+function initResponsiveCtrlPanelBehavior() {
   if (window.innerWidth <= 768) {
     document.getElementById('info-panel')?.classList.add('collapsed');
-    document.getElementById('sidebar')?.classList.add('collapsed');
+    document.getElementById('ctrl-panel')?.classList.add('collapsed');
   }
 
   document.addEventListener('click', event => {
     if (window.innerWidth > 768) return;
 
-    const sidebar = document.getElementById('sidebar');
-    if (!sidebar || sidebar.classList.contains('collapsed')) return;
-    if (sidebar.contains(event.target)) return;
+    const ctrlPanel = document.getElementById('ctrl-panel');
+    if (!ctrlPanel || ctrlPanel.classList.contains('collapsed')) return;
+    if (ctrlPanel.contains(event.target)) return;
 
-    toggleSidebar();
+    toggleCtrlPanel();
   });
 }
 
 function initFontControls() {
-  document.getElementById('fitBtn')
+  document.getElementById('fit-btn')
     ?.addEventListener('click', fitScreen);
 
   document.getElementById('fontSlider')
     ?.addEventListener('input', event => updateFontSize(event.target.value));
 
-  document.getElementById('fontSizeReset')
+  document.getElementById('font-reset')
     ?.addEventListener('click', resetFontSize);
 }
 
-export function initializeSidebarUI() {
+export function initializeCtrlPanelUI() {
   buildDateRangeControls();
-  updateDateText();
-  initSidebarToggle();
+  updateDateDisplay();
+  initCtrlPanelToggle();
   initEdgeToggles();
   initVolumeThresholdControl();
-  initEdgeThresholdControl();
-  initResponsiveSidebarBehavior();
+  initedgeWidthControl();
+  initResponsiveCtrlPanelBehavior();
   initFontControls();
 }

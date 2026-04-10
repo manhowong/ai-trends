@@ -27,7 +27,7 @@
     color: var(--color-muted-3);
 }
 
-#randomTopicBtn {
+#random-topic-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -44,7 +44,7 @@
     transition: color 0.15s, background-color 0.15s;
 }
 
-#randomTopicBtn:hover {
+#random-topic-btn:hover {
     color: var(--color-text-strong);
     background: var(--color-surface);
 }

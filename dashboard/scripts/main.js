@@ -6,7 +6,7 @@ import { state }                    from './state.js';
 import { loadDataset } from './data/load-data.js';
 import { refreshGraphData } from './data/refresh-graph-data.js';
 import { initializeThemeUI } from './ui/theme.js';
-import { initializeSidebarUI } from './ui/sidebar.js';
+import { initializeCtrlPanelUI } from './ui/ctrl-panel.js';
 import { initializePanelUI } from './ui/panel-ui.js';
 import { initializeChartInteraction } from './chart/chart-interaction.js';
 import { echart, initializeRichStyles,
@@ -42,7 +42,7 @@ async function initializeApp() {
     initializeRichStyles,
     rerenderCurrentView: renderCurrentView,
   });
-  initializeSidebarUI();
+  initializeCtrlPanelUI();
   initializePanelUI();
   initializeChartInteraction({
     echart,

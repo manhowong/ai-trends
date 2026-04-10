@@ -12,7 +12,7 @@ export function initializeThemeUI({
     document.documentElement.setAttribute('data-theme', theme);
     if (persist) localStorage.setItem('theme', theme);
 
-    const button = document.getElementById('themeToggle');
+    const button = document.getElementById('theme-toggle');
     if (button) {
       button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
     }
@@ -27,7 +27,7 @@ export function initializeThemeUI({
   const savedTheme = localStorage.getItem('theme');
   applyTheme(savedTheme || 'light', false);
 
-  const button = document.getElementById('themeToggle');
+  const button = document.getElementById('theme-toggle');
   if (!button) return;
 
   button.addEventListener('click', () => {

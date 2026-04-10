@@ -149,10 +149,10 @@ export function initSearch() {
     },
   });
 
-  document.getElementById('searchBtn')
+  document.getElementById('search-btn')
     ?.addEventListener('click', openSearch);
 
-  document.getElementById('randomTopicBtn')
+  document.getElementById('random-topic-btn')
     ?.addEventListener('click', openRandomTopic);
 
   input.addEventListener('input', event => {

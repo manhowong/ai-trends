@@ -1,6 +1,6 @@
-﻿/* Sidebar ================================================================== */
+﻿/* Control panel ================================================================== */
 
-#sidebar {
+#ctrl-panel {
     position: fixed;
     bottom: 10px;
     left: 10px;
@@ -8,13 +8,13 @@
     background: var(--color-panel-bg);
     border: 1px solid var(--color-panel-border);
     border-radius: 6px;
-    max-height: calc(100% - 24px); /*So sidebar doesn't exceed screen height*/
+    max-height: calc(100% - 24px); /*So ctrl-panel doesn't exceed screen height*/
     line-height: 1.5;
 }
 
-/* Sidebar toggle =========================================================== */
+/* Control panel toggle =========================================================== */
 
-#sidebarToggle {
+#ctrl-panel-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,47 +32,47 @@
     flex-shrink: 0;
 }
 
-#sidebarToggle:hover {
+#ctrl-panel-toggle:hover {
     background: var(--color-surface-2);
 }
 
 /* Intial toggle label */
 
-#sidebar .initial-label {
+#ctrl-panel .initial-label {
   display: inline-block;
 }
 
-#sidebar .transformed-label {
+#ctrl-panel .transformed-label {
   display: none;
 }
 
-/* Transformed toggle label after sidebar collapsed*/
+/* Transformed toggle label after ctrl-panel collapsed*/
 
-#sidebar.collapsed .initial-label {
+#ctrl-panel.collapsed .initial-label {
   display: none;
 }
 
-#sidebar.collapsed .transformed-label {
+#ctrl-panel.collapsed .transformed-label {
   display: inline-block;
   padding: 8px 14px;
 }
 
-#sidebar.collapsed #sidebarContent {
+#ctrl-panel.collapsed #ctrl-panel-content {
     display: none;
 }
 
-#sidebar.collapsed #sidebarToggle{
+#ctrl-panel.collapsed #ctrl-panel-toggle{
     border-radius: 6px;
 }
 
-#sidebar.collapsed {
+#ctrl-panel.collapsed {
     z-index: 8;  /* Move it just below info-panel, otherwise they may overlap on small screen */
     border: none;
 }
 
-/* Sidebar content ========================================================== */
+/* Control panel content ========================================================== */
 
-#sidebarContent {
+#ctrl-panel-content {
     font-size: var(--font-norm);
     color: var(--color-muted);
 }
@@ -93,15 +93,15 @@
 
 /* Date range */
 
-#dateRangeControl {
+#date-control {
     padding: 5px 0;
 }
 
-.date-range-header {
+#date-control-header {
     padding-bottom: 5px;
 }
 
-.date-range-row {
+#date-control-row {
     display: flex;
     align-items: center;
     padding-bottom: 5px;
@@ -110,33 +110,35 @@
 
 /* thresholds */
 
-#volumeThresholdControl {
+#volume-control {
     padding: 5px 0;
 }
 
-.paper-threshold-header {
+#volume-control-header {
     display: flex;
     justify-content: space-between;
     padding-bottom: 2px;
 }
 
-#volumeThresholdVal::before {
+#volume-control-val::before {
     content: "\2265";  /* greater or equal to symbol */
     padding-left: 1em;
 }
 
-#edgeThresholdVal::before {
+/* Edge width control */
+
+#edge-width-control-val::before {
     content: "\2265";  /* greater or equal to symbol */
     padding-left: 1em;
 }
 
-/* Edge toggle */
+/* Edge type toggle */
 
-#edgeToggleControl {
+#edge-type-control {
     padding: 5px 0;
 }
 
-.edge-toggle-row {
+#edge-type-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -145,11 +147,11 @@
     gap: 1em;
 }
 
-.edge-toggle-row input[type="checkbox"] {
+#edge-type-row input[type="checkbox"] {
     display: none;
 }
 
-.edge-toggle-row.disabled {
+#edge-type-row.disabled {
     opacity: 0.3;
     pointer-events: none;
 }
@@ -162,26 +164,26 @@
 
 /* Font size */
 
-#fontSizeControl {
+#font-control {
     padding-bottom: 10px;
 }
 
-.font-size-header {
+#font-control-header {
     display: flex;
     justify-content: space-between;
     padding-bottom: 2px;
 }
 
-.font-size-right {
+#font-control-right {
     gap: 6px;
 }
 
-#fontSizeReset {
+#font-reset {
     color: var(--color-accent);
     cursor: pointer;
 }
 
-#fitBtn {
+#fit-btn {
     width: 100%;
     margin-bottom: 5px;
 }

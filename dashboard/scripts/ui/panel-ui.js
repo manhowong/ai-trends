@@ -3,7 +3,7 @@
    ============================================================ */
 
 export function initializePanelUI() {
-  const button = document.getElementById('panelToggle');
+  const button = document.getElementById('panel-toggle');
   if (!button) return;
 
   button.addEventListener('click', () => {

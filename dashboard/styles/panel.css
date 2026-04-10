@@ -26,13 +26,13 @@
     display: none;
 }
 
-#info-panel.collapsed #panel-footer {
+#info-panel.collapsed #footer-box {
     border-top: 0px;
 }
 
 /* Panel toggle ============================================================= */
 
-#panelToggle {
+#panel-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,7 +50,7 @@
     flex-shrink: 0;
 }
 
-#panelToggle:hover {
+#panel-toggle:hover {
     background: var(--color-surface-2);
 }
 
@@ -64,7 +64,7 @@
   display: none;
 }
 
-/* Transformed toggle label after sidebar collapsed*/
+/* Transformed toggle label after ctrl-panel collapsed*/
 
 #info-panel.collapsed .initial-label {
   display: none;
@@ -74,23 +74,23 @@
   display: inline-block;
 }
 
-#info-panel.collapsed #panelToggle {
+#info-panel.collapsed #panel-toggle {
     margin-bottom: 0;
     background: var(--color-surface);
 }
 
-#info-panel.collapsed #panelToggle:hover {
+#info-panel.collapsed #panel-toggle:hover {
     background: var(--color-surface-2);
 }
 
 
 #info-panel.collapsed {
-    z-index: 8;  /* Move it just below sidebar, otherwise they may overlap on small screen */
+    z-index: 8;  /* Move it just below ctrl-panel, otherwise they may overlap on small screen */
 }
 
 /* Panel content ============================================================ */
 
-#panelContent {
+#info-panel-content {
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -102,7 +102,7 @@
 
 /* Breadcrumb --------------------------------------------------------------- */
 
-#panel-breadcrumb {
+#breadcrumb-box {
     display: flex;
     align-items: left;
     gap: 8px;
@@ -112,7 +112,7 @@
     font-size: var(--font-lg);
 }
 
-#treeItems {
+#breadcrumb {
     display: flex;
     align-items: baseline;
     gap: 8px;
@@ -335,7 +335,7 @@
 
 /* Panel footer ------------------------------------------------------------- */
 
-#panel-footer {
+#footer-box {
     display:flex;
     justify-content: left;
     align-items: center;
@@ -347,13 +347,13 @@
     font-size: var(--font-sm);
 }
 
-#panel-footer a {
+#footer-box a {
     color: var(--color-accent);
     text-decoration: none;
     transition: color 0.15s;
     font-weight: normal;
 }
 
-#panel-footer a:hover {
+#footer-box a:hover {
     text-decoration: underline;
 }

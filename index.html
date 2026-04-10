@@ -22,7 +22,7 @@
             </h1>
 
             <div id="site-info">
-                <span id="dateText"></span>
+                <span id="date-display"></span>
                 arXiv articles
                 <help-icon role="button" data-help="documentation"></help-icon>
             </div>
@@ -43,7 +43,7 @@
 
                 <v-bar></v-bar>
                 
-                <div id="themeToggle" aria-pressed="true" title="Toggle light/dark theme">
+                <div id="theme-toggle" aria-pressed="true" title="Toggle light/dark theme">
                     <span>Dark</span>
                     <span class="ui-switch" aria-hidden="true">
                         <span class="ui-switch-thumb"></span>
@@ -52,7 +52,7 @@
 
             </div>
 
-            <div id="searchBtn">
+            <div id="search-btn">
                 Find Topics...<span class="icon search-icon"></span>
             </div>
 
@@ -65,9 +65,9 @@
                 <div><b>Long-press</b> anywhere to go back.</div>
             </div>
         </div>
-        <div id="sidebar">
+        <div id="ctrl-panel">
 
-            <button id="sidebarToggle" title="Collapse sidebar">
+            <button id="ctrl-panel-toggle" title="Collapse control panel">
                 <div class="initial-label">
                     <span class="down-icon">Hide</span> 
                 </div>
@@ -76,16 +76,16 @@
                 </div>
             </button>
 
-            <div id="sidebarContent">
+            <div id="ctrl-panel-content">
 
                 <div id="data-control-box">
 
-                    <div id="dateRangeControl">
-                        <div class="date-range-header">Date Range</div>
-                        <div class="date-range-row">
-                            <select id="startMonthSelect" class="date-range-select form-select"></select>
-                            <span class="date-range-sep">to</span>
-                            <select id="endMonthSelect" class="date-range-select form-select"></select>
+                    <div id="date-control">
+                        <div id="date-control-header">Date Range</div>
+                        <div id="date-control-row">
+                            <select id="startMonthSelect" id="date-control-select" class="form-select"></select>
+                            <span id="date-control-sep">to</span>
+                            <select id="endMonthSelect" id="date-control-select" class="form-select"></select>
                         </div>
                     </div>
 
@@ -93,33 +93,33 @@
                         Viewing <b>Research Areas</b>. More filters at <b>Topic</b> level.
                     </div>
 
-                    <div id="volumeThresholdControl">
-                        <div class="paper-threshold-header">
-                            <span class="paper-threshold-label">Articles Per Topic</span>
+                    <div id="volume-control">
+                        <div id="volume-control-header">
+                            <span>Articles Per Topic</span>
                             <div class="paper-threshold-right">
-                                <span id="volumeThresholdVal"></span>
+                                <span id="volume-control-val"></span>
                             </div>
                         </div>
                         <input type="range" id="volumeThresholdSlider">
                     </div>
 
-                    <div id="edgeThresholdControl">
-                        <div class="paper-threshold-header">
-                            <span class="paper-threshold-label">Link Strength (DSC)</span>
+                    <div id="edge-width-control">
+                        <div id="volume-control-header">
+                            <span>Link Strength (DSC)</span>
                             <div class="paper-threshold-right">
-                                <span id="edgeThresholdVal"></span>
+                                <span id="edge-width-control-val"></span>
                             </div>
                         </div>
                         <input type="range" id="edgeThresholdSlider">
                     </div>
 
-                    <div id="edgeToggleControl">
-                        <label class="edge-toggle-row">
+                    <div id="edge-type-control">
+                        <label id="edge-type-row">
                             <span>Cross-Area Links</span>
                             <input type="checkbox" id="toggleCrossEdges" checked>
                             <span class="ui-switch"><span class="ui-switch-thumb"></span></span>
                         </label>
-                        <label class="edge-toggle-row">
+                        <label id="edge-type-row">
                             <span>Intra-Area Links</span>
                             <input type="checkbox" id="toggleIntraEdges" checked>
                             <span class="ui-switch"><span class="ui-switch-thumb"></span></span>
@@ -130,12 +130,12 @@
 
                 <div id="display-control-box">
 
-                    <div id="fontSizeControl">
-                        <div class="font-size-header">
-                            <span class="font-size-label">Font Size</span>
-                            <div class="font-size-right">
+                    <div id="font-control">
+                        <div id="font-control-header">
+                            <span id="font-size-label">Font Size</span>
+                            <div id="font-control-right">
                                 <span id="fontSizeVal">12px</span>
-                                <span id="fontSizeReset" title="Reset to default">
+                                <span id="font-reset" title="Reset to default">
                                     <span class="icon anticlock-nospace-icon"></span>
                                 </span>
                             </div>
@@ -143,7 +143,7 @@
                         <input type="range" id="fontSlider" min="6" max="20" value="12">
                     </div>
 
-                    <button id="fitBtn" class="form-btn">
+                    <button id="fit-btn" class="form-btn">
                         <span class="icon screen-icon">Fit to canvas</span>
                     </button>
 
@@ -153,7 +153,7 @@
 
         <div id="info-panel">
 
-            <button id="panelToggle" title="Collapse panel">
+            <button id="panel-toggle" title="Collapse panel">
                 <div class="initial-label">
                     <span class="down-icon">Hide</span> 
                 </div>
@@ -162,9 +162,9 @@
                 </div>
             </button>
 
-            <div id="panelContent">
-                <div id="panel-breadcrumb">
-                    <div id="treeItems"></div>
+            <div id="info-panel-content">
+                <div id="breadcrumb-box">
+                    <div id="breadcrumb"></div>
                 </div>
 
                 <div class="info-box" id="info-top">
@@ -183,14 +183,14 @@
                     <div class="info-box-content" id="info-bottom-content"></div>
                 </div>
 
-                <div id="panel-footer">
+                <div id="footer-box">
                     <span class="info-box-title">Source</span>
                     <a href="https://github.com/manhowong/" target="_blank">Man Ho Wong</a> <v-bar></v-bar>
                     <a href="https://github.com/manhowong/ai-trends/blob/main/license-summary.md"
                         target="_blank">GNU GPL</a> <v-bar></v-bar>
                     <a href="https://github.com/manhowong/ai-trends" target="_blank">data + code</a>
                 </div>
-            </div><!-- /panelContent -->
+            </div><!-- /info-panel-content -->
         </div><!-- /info-panel -->
 
     </div><!-- /main-container -->
@@ -206,7 +206,7 @@
                 autocomplete="off"
                 spellcheck="false"
                 />
-                <button id="randomTopicBtn" type="button" aria-label="Open a random topic" title="Random topic">
+                <button id="random-topic-btn" type="button" aria-label="Open a random topic" title="Random topic">
                     <span>Random</span>
                     <span class="dice-icon" aria-hidden="true"></span>
                 </button>
