@@ -69,21 +69,21 @@ export function nodeSize(volume, level) {
 
   // Set node size range at different view levels
   // So nodes can't be too big that graph is dominated by super big nodes
-  const minSize = level === 'overview' ? 10 : (level === 'l1' ? 5 : 5);
-  const maxSize = level === 'overview' ? 250 : (level === 'l1' ? 70 : 70);
+  const minSize = 5;
+  const maxSize = level === 'overview' ? 250 : (level === 'l1' ? 80 : 160);
 
   // Normalization: Nodes grow in size as data grows.
   // Use relative size to keep the graph's node density consistent.
 
   // method 1: normalize to max in current render
-//   const rangeMax = Math.max(state.nodeSizeMax || 0, 1);
-//   const t = Math.sqrt(Math.max(volume, 0) / rangeMax);
-//   return minSize + (maxSize - minSize) * t;
+  // const rangeMax = Math.max(state.nodeSizeMax || 0, 1);
+  // const t = Math.sqrt(Math.max(volume, 0) / rangeMax); // Normalize size
+  // return minSize + (maxSize - minSize) * t; // Scale to allowed size range
 
   // method 2: normalize to total in current render (stable density)
   const total = Math.max(state.nodeSizeTotal || 0, 1);
-  const t = Math.sqrt(Math.max(volume, 0) / total);
-  return minSize + (maxSize - minSize) * t;
+  const t = Math.sqrt(Math.max(volume, 0) / total); // Normalize size
+  return minSize + (maxSize - minSize) * t; // Scale to allowed size range
 }
 
 export function circleAngles(n) {
@@ -222,7 +222,7 @@ export function renderChart(nodes, edges) {
   const centerPct = isSingle ? [ `${cx}%`, '50%' ] : getChartCenter();
 
   const labeledNodes = setLabelPostions(nodes, labelDistance());
-  const emptyMessage = 'Lower the threshold to\nsee more nodes.';
+  const emptyMessage = 'No nodes found with\ncurrent settings.';
 
   echart.setOption({
     backgroundColor:   'transparent',
