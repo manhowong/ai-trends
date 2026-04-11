@@ -79,6 +79,25 @@
     .rank-bar-wrap {
         width: 56px;
     }
+
+    .no-rank-bar {
+        width: 56px;
+        overflow: hidden;
+    }
+
+    /* Scroll no-rank-bar text to show hidden part on small screen */
+    .scroll-animation {
+        display: inline-block;
+        animation: marquee 3.6s linear infinite;
+    }
+
+    /* move no-rank-bar text from right to left */
+    @keyframes marquee {
+        0% { transform: translateX(0); }       /* Pause for a bit */
+        40% { transform: translateX(0); }
+        60% { transform: translateX(-20%); }   /* Pause for a bit */
+        100% { transform: translateX(-20%); }
+    }
 }
 
 /* Small mobile (max-width: 480px) */

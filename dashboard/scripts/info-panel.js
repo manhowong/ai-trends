@@ -136,7 +136,7 @@ function buildRankedRow({
     ? `data-full-name="${safeName}"`
     : `data-id="${id}" data-full-name="${safeName}" onmouseenter="applyHover('${id}')" onmouseleave="clearHover()" onclick="${onclick}" style="cursor:pointer"`;
   const rankBar = unassigned 
-    ? `<div class="no-rank-bar">unassigned</div>`
+    ? `<div class="no-rank-bar"><div class="scroll-animation">unassigned</div></div>`
     : `<div class="rank-bar-wrap"><div class="rank-bar" style="width:${widthPercent}%"></div></div>`;
   
   return `
