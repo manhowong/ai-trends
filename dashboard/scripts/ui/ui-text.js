@@ -75,7 +75,8 @@ export const LEGEND_HTML = `
         <help-icon role="button" data-help="documentation" data-help-section="topic-hotness"></help-icon>
         <br/>
         Period-to-Period percent change in share of total articles (Unit: %). 
-        <i>"n.a."</i>: Only one time point is selected OR article count < 10 at both time points.
+        <br/>
+        <i>"n.a."</i>: Only one time period is selected OR article count < 10 in both selected time periods.
     </p>
     
     <p>
