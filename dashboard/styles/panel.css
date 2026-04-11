@@ -296,6 +296,12 @@
     background: var(--color-muted-2);
 }
 
+.no-rank-bar {
+    width: 80px;
+    font-size: var(--font-sm);
+    color: var(--color-muted-2);
+}
+
 /* Info box content */
 
 .info-box-content {

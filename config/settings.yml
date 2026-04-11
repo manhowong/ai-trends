@@ -47,4 +47,4 @@ Keyword_stat:
 
 dashboard:
   trend_boundary: 20   # Percent change for determining trend up/down
-  trend_volume_threshold: 10      # Minimum total volume within the selected range before applying trend
+  trend_volume_threshold: 10      # Minimum volume at both selected time points

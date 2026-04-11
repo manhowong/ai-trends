@@ -94,7 +94,7 @@ function getActiveEdgeSortMode() {
 }
 
 export function formatMetricValue(mode, value) {
-  if (mode === 'hotness') return value > 0 ? `+${value}%` : `${value}%`;
+  if (mode === 'hotness') return value === 'n.a.' ? 'n.a.' : value > 0 ? `+${value}%` : `${value}%`;
   return formatCount(value);
 }
 
@@ -126,6 +126,7 @@ function buildRankedRow({
   trend,
   id = null,
   disabled = false,
+  unassigned = false,
   onclick = '',
   extraClass = '',
 }) {
@@ -134,14 +135,17 @@ function buildRankedRow({
   const attrs = disabled || !id
     ? `data-full-name="${safeName}"`
     : `data-id="${id}" data-full-name="${safeName}" onmouseenter="applyHover('${id}')" onmouseleave="clearHover()" onclick="${onclick}" style="cursor:pointer"`;
-
+  const rankBar = unassigned 
+    ? `<div class="no-rank-bar">unassigned</div>`
+    : `<div class="rank-bar-wrap"><div class="rank-bar" style="width:${widthPercent}%"></div></div>`;
+  
   return `
     <div class="${rowClass}" ${attrs}>
       <span class="rank-num">${rank}</span>
       <span class="rank-dot" style="background:${trendColor(trend)}"></span>
       <span class="rank-name">${safeName}</span>
       <span class="rank-count">${valueLabel}</span>
-      <div class="rank-bar-wrap"><div class="rank-bar" style="width:${widthPercent}%"></div></div>
+      ${rankBar}
     </div>`;
 }
 
@@ -155,8 +159,6 @@ export function renderOverviewPanel() {
     const hotness = filteredL1Node ? filteredL1Node.hotness : 0;
     return {
       l1Node,
-      volume,
-      hotness,
       value: activeSortMode === 'hotness' ? hotness : volume,
     };
   });
@@ -237,8 +239,9 @@ export function renderL1NodePanel() {
   const topHTML = `
     <div class="ranked-list">
       ${sortedTargets.map((l2Node, i) => {
-        const belowThreshold = l2Node.volume < threshold;
-        const disabled = !!l2Node.isUnassigned || belowThreshold;
+        const unassigned = !!l2Node.isUnassigned;  // When article count is zero
+        const belowThreshold = l2Node.volume < threshold;  // Controlled by volume slider
+        const disabled = unassigned || belowThreshold;
         const valueLabel = activeSortMode === 'volume'
           ? formatCountWithThreshold(l2Node.volume)
           : formatMetricValue(activeSortMode, sortedValues[i]);
@@ -250,6 +253,7 @@ export function renderL1NodePanel() {
           widthPercent: barWidths[i],
           trend: l2Node.trend,
           disabled,
+          unassigned,
           onclick: `showCurrentL2Node('${l2Node.id}')`,
         });
       }).join('')}

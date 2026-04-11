@@ -6,10 +6,19 @@ export function getMetricBarWidths(mode, values) {
   if (!values.length) return [];
 
   if (mode === 'hotness') {
-    const minValue = Math.min(...values);
-    const maxValue = Math.max(...values);
+    // Remove 'n.a.' items from values list before finding min and max values
+    const numbers = values.filter(v => v != 'n.a.');
+    const minValue = Math.min(...numbers);
+    const maxValue = Math.max(...numbers);
+    
+    // Prevent division by zero in next step
     if (maxValue === minValue) return values.map(() => 100);
-    return values.map(value => Math.round((value - minValue) / (maxValue - minValue) * 100));
+
+    // Compute bar width scaled to min and max values
+    return values.map(value => value === 'n.a.' 
+      ? 0 
+      : Math.round((value - minValue) / (maxValue - minValue) * 100) + 1
+    );
   }
 
   const maxValue = Math.max(...values, 1);
@@ -87,7 +96,15 @@ export function sortByNameMatch(records, query, getName = record => record.name,
 }
 
 export function sortByValue(items) {
-  return [...items].sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
+  return [...items].sort((a, b) => {
+    // Check if either value is 'n.a.'
+    if (a.value === 'n.a.' && b.value !== 'n.a.') return 1;  // Move 'a' to the end
+    if (a.value !== 'n.a.' && b.value === 'n.a.') return -1; // Keep 'a' before 'b'
+    if (a.value === 'n.a.' && b.value === 'n.a.') return 0;  // Treat as equal
+
+    // Otherwise, perform standard sort
+    return (b.value ?? 0) - (a.value ?? 0);
+  });
 }
 
 export function buildSearchRecords(state, fallbackBadgeColor) {

@@ -67,13 +67,14 @@ export function buildGraphData({
       timePoints[endIdx],
       node.id,
       2,
+      trendVolumeThreshold
     );
 
     const l2Node = {
       id: node.id,
       name: node.name,
       volume,
-      trend: getTrendDirection(hotness, volume, trendVolumeThreshold, trendBoundary),
+      trend: getTrendDirection(hotness, trendBoundary),
       hotness,
       volumeChange: endVolume - startVolume,
       isUnassigned: volume <= 0,
@@ -138,7 +139,7 @@ export function buildGraphData({
         id: `${nodeId}--${keywordName}`,
         name: keywordName,
         volume: stats.volume,
-        trend: getTrendDirection(kwHotness, stats.volume, trendVolumeThreshold, trendBoundary),
+        trend: getTrendDirection(kwHotness, trendBoundary),
       });
     });
   });

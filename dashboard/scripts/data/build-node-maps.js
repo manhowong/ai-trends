@@ -43,13 +43,9 @@ export function buildNodeMaps({
         selectedEndTimePoint,
         node.id,
         1,
+        trendVolumeThreshold
       );
-      node.trend = getTrendDirection(
-        node.hotness,
-        node.volume,
-        trendVolumeThreshold,
-        trendBoundary,
-      );
+      node.trend = getTrendDirection(node.hotness, trendBoundary);
       node.isUnassigned = node.volume <= 0;
 
       l1NodeById[node.id] = node;
