@@ -2,8 +2,6 @@
 
 #help-modal {
     top: 16%;
-    /* width: min(680px, calc(100vw - 32px)); */
-    max-width: calc(100vw - 32px);
     max-height: 70vh;
     display: flex;
     flex-direction: column;
@@ -47,6 +45,7 @@
     scroll-behavior: smooth;
     flex: 1;
     min-height: 0;
+    width: min(680px, calc(100vw - 32px));
 }
 
 /* Back to top button */

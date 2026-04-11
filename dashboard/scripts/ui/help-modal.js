@@ -99,7 +99,6 @@ export function initHelp() {
     topBtn.classList.remove('is-visible');
 
     try {
-      contentEl.innerHTML = '';
       const markdownEl = document.createElement('zero-md');
       markdownEl.setAttribute('src', source);
       markdownEl.setAttribute('no-shadow', ''); // Allow website's global CSS
@@ -128,6 +127,7 @@ export function initHelp() {
 
         markdownEl.addEventListener('zero-md-rendered', handleRendered, { once: true });
         markdownEl.addEventListener('error', handleError, { once: true });
+        contentEl.innerHTML = ''; // Clear "Loading..." text
         contentEl.appendChild(markdownEl);
       });
 

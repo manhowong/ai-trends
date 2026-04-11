@@ -36,20 +36,24 @@ export const INSTRUCTIONS_HTML = `
 export const LEGEND_HTML = `
   <div id="legend-block">
 
-    <p><b>Article count</b> <br/> Shown after node name</p>
+    <p>
+        <b>Node label</b><br/>
+        Node name (article count). Colored badge: Area name.  
+    </p>
+
     <p>
         <b>Node size</b> <br/> Scales with article count (normalized) 
         <help-icon role="button" data-help="documentation" data-help-section="node-size"></help-icon>
     </p>
+
     <p>
         <b>Link width</b> <br/> Scales with relevance (DSC) 
         <help-icon role="button" data-help="documentation" data-help-section="links-and-relevance-dsc"></help-icon>
     </p>
-    
+
     <p>
         <b>Node color</b> <br/>
-        Direction of <i>Topic Hotness</i> (Period-to-Period* change in share of total articles):
-        <help-icon role="button" data-help="documentation" data-help-section="topic-hotness"></help-icon>
+        Direction of Topic Hotness (see below):
         <div id="legend-item">
             <span id="legend-dot" style="background:var(--trend-up)"></span>
             Heating up ( &ge; +20% )
@@ -64,12 +68,16 @@ export const LEGEND_HTML = `
             <span id="legend-dot" style="background:var(--trend-flat)"></span>
             No trends detected
         </div>
-
-        <div id="legend-note">
-            *Select <b>TWO</b> time points to view Topic Hotness.
-        </div>
     </p>
 
+    <p>
+        <b>Topic Hotness</b> 
+        <help-icon role="button" data-help="documentation" data-help-section="topic-hotness"></help-icon>
+        <br/>
+        Period-to-Period percent change in share of total articles (Unit: %). 
+        <i>"n.a."</i>: Only one time point is selected OR article count < 10 at both time points.
+    </p>
+    
     <p>
         <b>Area vs. Topic nodes</b> <br/>
         Topics are grouped into research areas: 
