@@ -28,3 +28,23 @@
     z-index: 10000;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
 }
+
+#close-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    padding: 0 16px;
+    font-weight: 600;
+    color: var(--color-muted);
+    background: var(--color-bg);
+    border: none;
+    border-left: 1px solid var(--color-surface);
+    cursor: pointer;
+    transition: color 0.15s, background-color 0.15s;
+}
+
+#close-btn:hover {
+    color: var(--color-text-strong);
+    background: var(--color-surface);
+}

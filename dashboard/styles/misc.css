@@ -130,6 +130,15 @@ v-bar::after {
   transform: rotate(10deg);
 }
 
+.cross-icon {
+  width: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+  aspect-ratio: 1;
+  background: currentColor;
+  clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
+}
+
 /* Help icon */
 
 help-icon {

@@ -10,7 +10,7 @@ export function initHelp() {
   const backdrop = document.getElementById('help-backdrop');
   const titleEl = document.getElementById('help-title');
   const contentEl = document.getElementById('help-content');
-  const closeBtn = document.getElementById('help-close');
+  const closeBtn = document.getElementById('close-btn');
   const topBtn = document.getElementById('help-top');
 
   if (!overlay || !backdrop || !titleEl || !contentEl || !closeBtn || !topBtn) return;
@@ -127,10 +127,10 @@ export function initHelp() {
 
         markdownEl.addEventListener('zero-md-rendered', handleRendered, { once: true });
         markdownEl.addEventListener('error', handleError, { once: true });
-        contentEl.innerHTML = ''; // Clear "Loading..." text
         contentEl.appendChild(markdownEl);
       });
-
+      
+      contentEl.querySelector('.empty-state').remove();
       if (requestToken !== helpRequestToken) return;
       scrollToSection(sectionId);
     } catch (error) {
