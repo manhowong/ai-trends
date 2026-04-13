@@ -76,7 +76,7 @@ Topics that score above a confidence threshold are assigned to relevance tiers (
 
 > ### Topic Assignment Logic
 > 
-> Topics are first ranked by their similarity to each article as measured by cosine similarity ($s$). Topics passing the **confidence threshold** ($s \ge 0.80$) are assigned to Tiers 1 through 3:
+> Topics are first ranked by their similarity to each article as measured by cosine similarity ($s$). Topics passing the **confidence threshold** ($s \ge 0.79$) are assigned to Tiers 1 through 3:
 > 
 > - **T1** (Primary, max 2): Includes the top-ranked topic and any topic within the **similarity gap** ($\le 0.02$).
 > - **T2** (Secondary, max 3): The next-ranked candidates  after assigning T1.
@@ -84,7 +84,7 @@ Topics that score above a confidence threshold are assigned to relevance tiers (
 >  
 > Any topics that do not qualify for the tiers above are filtered by the **relevance threshold** ($s \le 0.50$):
 > 
-> - **Ambiguous:** If an article has no topics reaching the confidence threshold ($0.80$) but does have topics passing the relevance threshold ($0.50$), it is labeled "Ambiguous" and requires further processing (e.g. LLM review).
+> - **Ambiguous:** If an article has no topics reaching the confidence threshold ($0.79$) but does have topics passing the relevance threshold ($0.50$), it is labeled "Ambiguous" and requires further processing (e.g. LLM review).
 > - **Discarded:** Articles failing to reach the relevance threshold for any topic are discarded.
 
 ## Stage 2 (Planned): LLM Review for Ambiguous Cases
@@ -95,9 +95,9 @@ This stage has not yet been implemented. The preliminary data therefore contains
 
 # Keyword Extraction
 
-For each topic, representative terms are extracted from the abstracts of its highest-confidence articles using **TF-IDF** (Term Frequency-Inverse Document Frequency), after lemmatization with [spaCy](https://spacy.io/) (words in phrases are joined together as ngrams). TF-IDF down-weights terms that appear across many topics (e.g. "training", "model") and highlights terms distinctive to a specific topic. Candidate terms are then filtered by minimum article count to remove noise from rare mentions (currently set to 2, which is sufficient to filter out most noise such as irrelevant or non-technical phrases).
+For each topic, representative terms are extracted using **TF-IDF** (Term Frequency-Inverse Document Frequency), after lemmatization with [spaCy](https://spacy.io/). TF-IDF down-weights terms that appear across many topics (e.g. "training", "model") and highlights terms distinctive to a specific topic. The dashboard aggregates these term counts across the selected date range for currently active topics and shows the highest-volume terms in the info panel.
 
-The result is a short list of representative terms shown in the info panel of the dashboard. As with classification, an LLM review step may be incorporated in the future to improve term quality.
+Terms with zero volume in the selected range are not shown. As with classification, an LLM review step may be incorporated in the future to improve term quality.
 
 # Evaluation and Accuracy
 
@@ -121,7 +121,7 @@ As the dataset grows, we expect trend signals and representative terms to streng
 
 The taxonomy is organized into a two-level hierarchy:
 
-* **Categories (A-I):** Nine broad research areas. Statistics at the area level are aggregated from their constituent child topics.
+* **Areas (A-I):** Nine broad research areas. Statistics at the area level are aggregated from their child topics.
 * **Topics:** 125 specific research concepts, each mapped to a single parent area.
 
 See all topics and areas [here](#appendix).
@@ -139,7 +139,7 @@ Before finalization, the draft underwent multiple rounds of **LLM-assisted itera
 > 
 > **Only 20% of articles are currently classified.** Coverage will improve with LLM review and embedding model tuning.
 > 
-> **An article can be assigned to multiple topics.** The current statistics includes assigned topics of all relevance tiers, i.e. an article can be assigned to multiple topics regardless of the primary focus of the article. This help us to identify cross-field connections through topic co-occurance.
+> **An article can be assigned to multiple topics.** The current statistics include assigned topics of all relevance tiers, i.e. an article can be assigned to multiple topics regardless of the primary focus of the article. This helps identify cross-field connections through topic co-occurrence.
 > 
 > **Classification is importance-agnostic.** Whether a topic is the primary contribution, a method used, or merely an application domain are currently weighted equally. This captures how broadly a topic is discussed across fields (see above), but does not distinguish active research fronts from mature topics or background knowledge. Future improvements may include a dashboard filter to show only primary-topic assignments, probabilistic labels, or scores weighted by topic importance.
 > 
@@ -149,34 +149,35 @@ Before finalization, the draft underwent multiple rounds of **LLM-assisted itera
 
 ## Article Count (V)
 
-**Article Count (V)** represents the volume of arXiv articles mentioning a specific **topic** (and thus the **area** a topic belongs to) within a given period.
+**Article Count ($V$)** represents the volume of arXiv articles assigned to a specific **topic** within the selected date range.
 
-* **Topic Nodes**: An article can be assigned to more than one topic (see [Classification](#classification)); therefore, a single article may contribute to the $V$ of multiple topics simultaneously. This is intentional, as most ML/AI papers are interdisciplinary. Counting an article only once would underrepresent the cross-disciplinary nature of the field.
-* **Area Nodes**: For categories, $V$ is the sum of the volumes of all their child topics. Because an article can belong to topics in different categories, the same article may contribute to the $V$ of multiple categories.
+* **Topic Nodes**: An article can be assigned to more than one topic (see [Classification](#classification)); therefore, a single article may contribute to the $V$ of multiple topics simultaneously. This is intentional, as most ML/AI papers are interdisciplinary.
+* **Area Nodes**: For areas, $V$ is the sum of the volumes of their child topics (visible topics after applying the filters in the dashboard). Because an article can belong to topics in different areas, the same article may contribute to the $V$ of multiple areas.
+* **Filtering matters**: The dashboard filters topics by minimum article count before rolling them up to area level, so changing topic-level filters also changes area totals.
 
 ## Topic Hotness
 
-Topic hotness indicates whether activity on a topic is accelerating or decelerating. It measures the percent change in **monthly volume** between the start and end of a selected range (Period-over-Period change).
-
-Hotness is defined as 0 if the start value is zero. The result is rounded to the nearest integer:
+Topic hotness indicates whether a topic's share of activity is increasing or decreasing. It measures the percent change in a topic's **share of total articles** between the selected start and end periods (i.e., Period-to-Period change):
 
 $$
 \text{Hotness} =
 \begin{cases}
-0, & V_{\text{start}} \le 0 \\
-\operatorname{round}\!\left(\left(\dfrac{V_{\text{end}} - V_{\text{start}}}{V_{\text{start}}}\right) \times 100\right), & V_{\text{start}} > 0
+\text{n.a.}, & \text{if } V_{\text{start}} < \epsilon \text{ and } V_{\text{end}} < \epsilon \\
+\left(\dfrac{S_{\text{end}} - S_{\text{start}}}{S_{\text{start}}}\right) \times 100\%, & S_{\text{start}} > 0 \\
+S_{\text{end}} \times 100\%, & S_{\text{start}} = 0
 \end{cases}
 $$
 
-Where $V_{\text{start}}$ and $V_{\text{end}}$ are the monthly volumes at the range endpoints.
+Where $\epsilon$ is the minimum article count, $S_{\text{start}} = V_{\text{start}} / V^{\text{total}}_{\text{start}}$ and $S_{\text{end}} = V_{\text{end}} / V^{\text{total}}_{\text{end}}$ are the topic's shares at the selected endpoints. 
+The result is rounded to the nearest integer.
 
 **Trend Classification:**
 
-* **Heating Up**: Hotness $\ge 10\%$
-* **Cooling Off**: Hotness $\le -10\%$
-* **No Trends Detected**: Hotness between $-10\%$ and $10\%$
+* **Heating Up**: Hotness $\ge 20\%$
+* **Cooling Off**: Hotness $\le -20\%$
+* **No Trends Detected**: Hotness between $-20\%$ and $20\%$
 
-> **Note:** Topics with $V_{\text{end}} < 10$ articles ($V_{\text{min}}$) are not assigned a trend direction. These thresholds are currently set to relatively low values for preliminary data and are subject to change. Trend directions should be interpreted with caution at this stage.
+> **Note:** These thresholds come from `config/settings.yml` and are currently set to `trend_volume_threshold: 10` ($\epsilon$) and `trend_boundary: 20`. In the dashboard, `n.a.` means only one time period is selected, or both endpoint volumes are below the minimum volume threshold.
 
 ## Links and Relevance (DSC)
 
@@ -186,13 +187,13 @@ $$\text{DSC}(A, B) = \frac{2 \, |A \cap B|}{|A| + |B|}$$
 
 Where $|A|$ and $|B|$ are the article counts ($V$) for topics $A$ and $B$, and $|A \cap B|$ is the number of articles assigned to both topics within the selected range.
 
-DSC ranges from 0 (no co-occurrence) to 1 (complete overlap). A wider link indicates that two topics appear together frequently relative to their individual frequencies.
+DSC ranges from 0 (no co-occurrence) to 1 (complete overlap), expressed as a percentage in the dashboard. A wider link indicates that two topics appear together frequently relative to their individual frequencies.
 
-Note that DSC is converted to percentage in the dashboard for easier interpretation.
+In the dashboard, topic links are shown only when their DSC is above the current edge threshold. Area-level links are aggregates of visible topic-level links, so topic filtering also affects area links.
 
 ## Node Size
 
-Node size is proportional to $\sqrt{V / V_{\text{total}}}$, where $V_{\text{total}}$ is the sum of $V$ across all nodes currently visible. Using the square root compresses the scale so that high-volume topics do not visually overwhelm the graph, while still preserving distinct relative differences.
+Node size is proportional to $\sqrt{V / V_{\text{total}}}$, where $V_{\text{total}}$ is the sum of $V$ across all nodes currently visible in the current view. Using the square root compresses the scale so that high-volume topics do not visually overwhelm the graph, while still preserving distinct relative differences.
 
 **Note:** The scale is recalculated independently for each view. Sizes are meaningful *within* the current view but should not be compared across different views.
 

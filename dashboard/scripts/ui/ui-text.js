@@ -38,17 +38,22 @@ export const LEGEND_HTML = `
 
     <p>
         <b>Node label</b><br/>
-        Node name (article count). Colored badge: Area name.  
+        Node name (article count). Badge: research area.  
     </p>
 
     <p>
         <b>Node size</b> <br/> Scales with article count (normalized) 
         <help-icon role="button" data-help="documentation" data-help-section="node-size"></help-icon>
+        <br/>
     </p>
 
     <p>
         <b>Link width</b> <br/> Scales with relevance (DSC) 
         <help-icon role="button" data-help="documentation" data-help-section="links-and-relevance-dsc"></help-icon>
+        
+        <div id="legend-note">
+            Only links above the current DSC filter are shown.
+        </div>
     </p>
 
     <p>
@@ -76,7 +81,7 @@ export const LEGEND_HTML = `
         <br/>
         Period-to-Period percent change in share of total articles (Unit: %). 
         <br/>
-        <i>"n.a."</i>: Only one time period is selected OR article count < 10 in both selected time periods.
+        <i>"n.a."</i>: Only one time period is selected OR article count < 10 at both endpoints.
     </p>
     
     <p>
@@ -86,7 +91,7 @@ export const LEGEND_HTML = `
         <b>Links</b> between area nodes are aggregates* of links between topic nodes.
 
         <div id="legend-note">
-            *Filtering data at topic level <b>affects</b> area nodes.
+            *This means filtering data at topic level <b>affects</b> area nodes.
         </div>
     
     </p>
