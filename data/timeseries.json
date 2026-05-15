@@ -34450,5 +34450,6916 @@
         "CC": 5
       }
     ]
+  },
+  "2026-04": {
+    "nodes_L1": {
+      "H": {
+        "V": 531,
+        "VC": 2749
+      },
+      "B": {
+        "V": 638,
+        "VC": 3946
+      },
+      "I": {
+        "V": 546,
+        "VC": 3011
+      },
+      "D": {
+        "V": 1090,
+        "VC": 5713
+      },
+      "E": {
+        "V": 765,
+        "VC": 3831
+      },
+      "C": {
+        "V": 272,
+        "VC": 1600
+      },
+      "A": {
+        "V": 659,
+        "VC": 3828
+      },
+      "G": {
+        "V": 380,
+        "VC": 2156
+      },
+      "F": {
+        "V": 534,
+        "VC": 3137
+      }
+    },
+    "nodes_L2": {
+      "A01": {
+        "V": 0,
+        "VC": 1,
+        "P": "A",
+        "K": []
+      },
+      "A02": {
+        "V": 24,
+        "VC": 121,
+        "P": "A",
+        "K": [
+          {
+            "N": "mage",
+            "V": 6
+          },
+          {
+            "N": "unlearning",
+            "V": 13
+          },
+          {
+            "N": "the forget",
+            "V": 4
+          }
+        ]
+      },
+      "A03": {
+        "V": 345,
+        "VC": 2037,
+        "P": "A",
+        "K": [
+          {
+            "N": "rlvr",
+            "V": 43
+          },
+          {
+            "N": "marl",
+            "V": 11
+          },
+          {
+            "N": "morl",
+            "V": 3
+          },
+          {
+            "N": "verifiable rewards",
+            "V": 43
+          },
+          {
+            "N": "the policy",
+            "V": 30
+          },
+          {
+            "N": "multi-agent reinforcement learning",
+            "V": 12
+          },
+          {
+            "N": "drl",
+            "V": 9
+          },
+          {
+            "N": "irl",
+            "V": 6
+          }
+        ]
+      },
+      "A04": {
+        "V": 10,
+        "VC": 40,
+        "P": "A",
+        "K": []
+      },
+      "A05": {
+        "V": 7,
+        "VC": 48,
+        "P": "A",
+        "K": []
+      },
+      "A06": {
+        "V": 31,
+        "VC": 236,
+        "P": "A",
+        "K": [
+          {
+            "N": "federated learning",
+            "V": 27
+          },
+          {
+            "N": "client",
+            "V": 22
+          },
+          {
+            "N": "the server",
+            "V": 7
+          },
+          {
+            "N": "collaborative model training",
+            "V": 8
+          },
+          {
+            "N": "each client",
+            "V": 4
+          }
+        ]
+      },
+      "A07": {
+        "V": 4,
+        "VC": 26,
+        "P": "A",
+        "K": []
+      },
+      "A08": {
+        "V": 9,
+        "VC": 54,
+        "P": "A",
+        "K": [
+          {
+            "N": "active learning",
+            "V": 6
+          },
+          {
+            "N": "the informativeness",
+            "V": 2
+          },
+          {
+            "N": "unlabeled sample",
+            "V": 2
+          }
+        ]
+      },
+      "A09": {
+        "V": 13,
+        "VC": 61,
+        "P": "A",
+        "K": [
+          {
+            "N": "the learner",
+            "V": 3
+          },
+          {
+            "N": "replay",
+            "V": 4
+          }
+        ]
+      },
+      "A10": {
+        "V": 54,
+        "VC": 281,
+        "P": "A",
+        "K": [
+          {
+            "N": "continual learning",
+            "V": 24
+          },
+          {
+            "N": "catastrophic forgetting",
+            "V": 14
+          }
+        ]
+      },
+      "A11": {
+        "V": 7,
+        "VC": 51,
+        "P": "A",
+        "K": [
+          {
+            "N": "multi-task learning",
+            "V": 3
+          },
+          {
+            "N": "apt",
+            "V": 3
+          }
+        ]
+      },
+      "A12": {
+        "V": 59,
+        "VC": 356,
+        "P": "A",
+        "K": [
+          {
+            "N": "imitation learning",
+            "V": 8
+          },
+          {
+            "N": "demonstration",
+            "V": 7
+          }
+        ]
+      },
+      "A13": {
+        "V": 23,
+        "VC": 142,
+        "P": "A",
+        "K": []
+      },
+      "A14": {
+        "V": 37,
+        "VC": 177,
+        "P": "A",
+        "K": []
+      },
+      "A15": {
+        "V": 36,
+        "VC": 197,
+        "P": "A",
+        "K": [
+          {
+            "N": "domain adaptation",
+            "V": 10
+          },
+          {
+            "N": "pas",
+            "V": 4
+          },
+          {
+            "N": "the target domain",
+            "V": 5
+          },
+          {
+            "N": "source domain",
+            "V": 5
+          }
+        ]
+      },
+      "B01": {
+        "V": 70,
+        "VC": 518,
+        "P": "B",
+        "K": [
+          {
+            "N": "rmt",
+            "V": 2
+          },
+          {
+            "N": "attention score",
+            "V": 3
+          },
+          {
+            "N": "self-attention",
+            "V": 10
+          },
+          {
+            "N": "attention sink",
+            "V": 6
+          }
+        ]
+      },
+      "B02": {
+        "V": 64,
+        "VC": 319,
+        "P": "B",
+        "K": [
+          {
+            "N": "rmt",
+            "V": 2
+          },
+          {
+            "N": "mann",
+            "V": 2
+          }
+        ]
+      },
+      "B03": {
+        "V": 44,
+        "VC": 213,
+        "P": "B",
+        "K": [
+          {
+            "N": "recurrence",
+            "V": 8
+          },
+          {
+            "N": "hybrid model",
+            "V": 2
+          },
+          {
+            "N": "exp",
+            "V": 15
+          },
+          {
+            "N": "recurrent model",
+            "V": 5
+          },
+          {
+            "N": "rnns",
+            "V": 2
+          },
+          {
+            "N": "feedforward model",
+            "V": 2
+          },
+          {
+            "N": "mamba-2",
+            "V": 3
+          }
+        ]
+      },
+      "B04": {
+        "V": 60,
+        "VC": 404,
+        "P": "B",
+        "K": [
+          {
+            "N": "gnn",
+            "V": 29
+          },
+          {
+            "N": "graph neural networks",
+            "V": 31
+          },
+          {
+            "N": "gnns",
+            "V": 24
+          },
+          {
+            "N": "heterogeneous graph",
+            "V": 5
+          },
+          {
+            "N": "node classification",
+            "V": 8
+          }
+        ]
+      },
+      "B05": {
+        "V": 61,
+        "VC": 332,
+        "P": "B",
+        "K": [
+          {
+            "N": "expert specialization",
+            "V": 11
+          },
+          {
+            "N": "moes",
+            "V": 11
+          },
+          {
+            "N": "moe architecture",
+            "V": 8
+          },
+          {
+            "N": "expert activation",
+            "V": 6
+          },
+          {
+            "N": "monosemantic",
+            "V": 3
+          },
+          {
+            "N": "all expert",
+            "V": 4
+          }
+        ]
+      },
+      "B06": {
+        "V": 99,
+        "VC": 704,
+        "P": "B",
+        "K": [
+          {
+            "N": "diffusion language model",
+            "V": 17
+          },
+          {
+            "N": "diffusion model",
+            "V": 63
+          },
+          {
+            "N": "generative modeling",
+            "V": 12
+          },
+          {
+            "N": "abc",
+            "V": 2
+          }
+        ]
+      },
+      "B07": {
+        "V": 22,
+        "VC": 159,
+        "P": "B",
+        "K": [
+          {
+            "N": "vaes",
+            "V": 7
+          }
+        ]
+      },
+      "B08": {
+        "V": 22,
+        "VC": 144,
+        "P": "B",
+        "K": [
+          {
+            "N": "adversarial training",
+            "V": 4
+          },
+          {
+            "N": "gan",
+            "V": 4
+          },
+          {
+            "N": "adversarial robustness",
+            "V": 2
+          },
+          {
+            "N": "generative adversarial network",
+            "V": 4
+          }
+        ]
+      },
+      "B09": {
+        "V": 10,
+        "VC": 92,
+        "P": "B",
+        "K": [
+          {
+            "N": "tree ensemble",
+            "V": 3
+          },
+          {
+            "N": "decision tree",
+            "V": 3
+          }
+        ]
+      },
+      "B10": {
+        "V": 3,
+        "VC": 40,
+        "P": "B",
+        "K": []
+      },
+      "B11": {
+        "V": 14,
+        "VC": 110,
+        "P": "B",
+        "K": [
+          {
+            "N": "ode",
+            "V": 12
+          },
+          {
+            "N": "neural ode",
+            "V": 4
+          },
+          {
+            "N": "neural operator",
+            "V": 2
+          },
+          {
+            "N": "graph ode",
+            "V": 2
+          },
+          {
+            "N": "continuous-time dynamic",
+            "V": 2
+          }
+        ]
+      },
+      "B12": {
+        "V": 32,
+        "VC": 200,
+        "P": "B",
+        "K": [
+          {
+            "N": "pinn",
+            "V": 19
+          },
+          {
+            "N": "partial differential equation",
+            "V": 11
+          },
+          {
+            "N": "pde",
+            "V": 14
+          }
+        ]
+      },
+      "B13": {
+        "V": 29,
+        "VC": 171,
+        "P": "B",
+        "K": [
+          {
+            "N": "mathbb",
+            "V": 3
+          },
+          {
+            "N": "-equivariance",
+            "V": 2
+          },
+          {
+            "N": "strict equivariance",
+            "V": 2
+          },
+          {
+            "N": "equivariant",
+            "V": 6
+          }
+        ]
+      },
+      "B14": {
+        "V": 42,
+        "VC": 215,
+        "P": "B",
+        "K": [
+          {
+            "N": "snns",
+            "V": 17
+          },
+          {
+            "N": "neural networks",
+            "V": 21
+          },
+          {
+            "N": "spike",
+            "V": 21
+          },
+          {
+            "N": "int8",
+            "V": 2
+          }
+        ]
+      },
+      "B15": {
+        "V": 50,
+        "VC": 240,
+        "P": "B",
+        "K": [
+          {
+            "N": "nli",
+            "V": 3
+          },
+          {
+            "N": "ltn",
+            "V": 3
+          }
+        ]
+      },
+      "B16": {
+        "V": 16,
+        "VC": 85,
+        "P": "B",
+        "K": [
+          {
+            "N": "mamba",
+            "V": 10
+          },
+          {
+            "N": "s4d",
+            "V": 2
+          },
+          {
+            "N": "ssms",
+            "V": 5
+          },
+          {
+            "N": "state space model",
+            "V": 5
+          },
+          {
+            "N": "the appendix",
+            "V": 2
+          }
+        ]
+      },
+      "C01": {
+        "V": 74,
+        "VC": 444,
+        "P": "C",
+        "K": [
+          {
+            "N": "adam",
+            "V": 13
+          },
+          {
+            "N": "adamw",
+            "V": 5
+          },
+          {
+            "N": "the projection",
+            "V": 2
+          }
+        ]
+      },
+      "C02": {
+        "V": 77,
+        "VC": 404,
+        "P": "C",
+        "K": [
+          {
+            "N": "lasso",
+            "V": 3
+          },
+          {
+            "N": "outlier",
+            "V": 8
+          },
+          {
+            "N": "divi",
+            "V": 3
+          }
+        ]
+      },
+      "C03": {
+        "V": 25,
+        "VC": 154,
+        "P": "C",
+        "K": [
+          {
+            "N": "dyt",
+            "V": 2
+          },
+          {
+            "N": "batch normalization",
+            "V": 3
+          },
+          {
+            "N": "muon",
+            "V": 2
+          }
+        ]
+      },
+      "C04": {
+        "V": 4,
+        "VC": 35,
+        "P": "C",
+        "K": [
+          {
+            "N": "neural architecture search",
+            "V": 4
+          },
+          {
+            "N": "evolution",
+            "V": 3
+          }
+        ]
+      },
+      "C05": {
+        "V": 15,
+        "VC": 103,
+        "P": "C",
+        "K": [
+          {
+            "N": "gepa",
+            "V": 2
+          }
+        ]
+      },
+      "C06": {
+        "V": 4,
+        "VC": 32,
+        "P": "C",
+        "K": [
+          {
+            "N": "adapt",
+            "V": 2
+          }
+        ]
+      },
+      "C07": {
+        "V": 1,
+        "VC": 32,
+        "P": "C",
+        "K": []
+      },
+      "C08": {
+        "V": 9,
+        "VC": 51,
+        "P": "C",
+        "K": [
+          {
+            "N": "crossover",
+            "V": 4
+          },
+          {
+            "N": "ahd",
+            "V": 2
+          },
+          {
+            "N": "extensive domain expertise",
+            "V": 2
+          }
+        ]
+      },
+      "C09": {
+        "V": 0,
+        "VC": 3,
+        "P": "C",
+        "K": []
+      },
+      "C10": {
+        "V": 27,
+        "VC": 162,
+        "P": "C",
+        "K": [
+          {
+            "N": "gradient magnitude",
+            "V": 2
+          },
+          {
+            "N": "gradient conflict",
+            "V": 2
+          }
+        ]
+      },
+      "C11": {
+        "V": 12,
+        "VC": 61,
+        "P": "C",
+        "K": [
+          {
+            "N": "fp4",
+            "V": 3
+          },
+          {
+            "N": "multipli",
+            "V": 2
+          },
+          {
+            "N": "mxfp4",
+            "V": 2
+          }
+        ]
+      },
+      "C12": {
+        "V": 24,
+        "VC": 119,
+        "P": "C",
+        "K": [
+          {
+            "N": "token pruning",
+            "V": 2
+          }
+        ]
+      },
+      "D01": {
+        "V": 17,
+        "VC": 119,
+        "P": "D",
+        "K": [
+          {
+            "N": "air",
+            "V": 2
+          },
+          {
+            "N": "fine-tuning dataset",
+            "V": 3
+          },
+          {
+            "N": "icl",
+            "V": 2
+          }
+        ]
+      },
+      "D02": {
+        "V": 32,
+        "VC": 156,
+        "P": "D",
+        "K": [
+          {
+            "N": "pera",
+            "V": 2
+          },
+          {
+            "N": "para",
+            "V": 23
+          },
+          {
+            "N": "tlora",
+            "V": 3
+          },
+          {
+            "N": "low-rank adaptation",
+            "V": 12
+          }
+        ]
+      },
+      "D03": {
+        "V": 127,
+        "VC": 812,
+        "P": "D",
+        "K": [
+          {
+            "N": "rlhf",
+            "V": 25
+          },
+          {
+            "N": "rms",
+            "V": 21
+          },
+          {
+            "N": "human preference",
+            "V": 24
+          },
+          {
+            "N": "human feedback",
+            "V": 19
+          },
+          {
+            "N": "ppo",
+            "V": 18
+          }
+        ]
+      },
+      "D04": {
+        "V": 47,
+        "VC": 283,
+        "P": "D",
+        "K": [
+          {
+            "N": "dpo",
+            "V": 14
+          },
+          {
+            "N": "rms",
+            "V": 11
+          },
+          {
+            "N": "human preference",
+            "V": 15
+          },
+          {
+            "N": "preference learning",
+            "V": 5
+          }
+        ]
+      },
+      "D05": {
+        "V": 256,
+        "VC": 1358,
+        "P": "D",
+        "K": [
+          {
+            "N": "ptq",
+            "V": 19
+          },
+          {
+            "N": "post-training quantization",
+            "V": 18
+          },
+          {
+            "N": "fp16",
+            "V": 12
+          },
+          {
+            "N": "qat",
+            "V": 5
+          }
+        ]
+      },
+      "D06": {
+        "V": 56,
+        "VC": 314,
+        "P": "D",
+        "K": []
+      },
+      "D07": {
+        "V": 38,
+        "VC": 218,
+        "P": "D",
+        "K": [
+          {
+            "N": "teacher",
+            "V": 21
+          },
+          {
+            "N": "teaching",
+            "V": 5
+          },
+          {
+            "N": "opd",
+            "V": 2
+          },
+          {
+            "N": "cot distillation",
+            "V": 2
+          },
+          {
+            "N": "the student",
+            "V": 10
+          },
+          {
+            "N": "interview",
+            "V": 3
+          }
+        ]
+      },
+      "D08": {
+        "V": 37,
+        "VC": 174,
+        "P": "D",
+        "K": [
+          {
+            "N": "system prompt",
+            "V": 2
+          },
+          {
+            "N": "apo",
+            "V": 2
+          },
+          {
+            "N": "prompt optimization",
+            "V": 9
+          }
+        ]
+      },
+      "D09": {
+        "V": 110,
+        "VC": 506,
+        "P": "D",
+        "K": [
+          {
+            "N": "icl",
+            "V": 13
+          },
+          {
+            "N": "air",
+            "V": 10
+          },
+          {
+            "N": "tpt",
+            "V": 2
+          }
+        ]
+      },
+      "D10": {
+        "V": 3,
+        "VC": 54,
+        "P": "D",
+        "K": [
+          {
+            "N": "merging",
+            "V": 2
+          },
+          {
+            "N": "model merging",
+            "V": 2
+          }
+        ]
+      },
+      "D11": {
+        "V": 124,
+        "VC": 486,
+        "P": "D",
+        "K": [
+          {
+            "N": "etr",
+            "V": 23
+          },
+          {
+            "N": "lrms",
+            "V": 8
+          }
+        ]
+      },
+      "D12": {
+        "V": 98,
+        "VC": 449,
+        "P": "D",
+        "K": [
+          {
+            "N": "retrieval quality",
+            "V": 12
+          },
+          {
+            "N": "relevant document",
+            "V": 5
+          },
+          {
+            "N": "chr",
+            "V": 2
+          },
+          {
+            "N": "rag system",
+            "V": 16
+          },
+          {
+            "N": "generative retrieval",
+            "V": 2
+          },
+          {
+            "N": "retrieval-augmented generation",
+            "V": 65
+          }
+        ]
+      },
+      "D13": {
+        "V": 142,
+        "VC": 766,
+        "P": "D",
+        "K": []
+      },
+      "D14": {
+        "V": 3,
+        "VC": 18,
+        "P": "D",
+        "K": [
+          {
+            "N": "region",
+            "V": 2
+          }
+        ]
+      },
+      "E01": {
+        "V": 137,
+        "VC": 660,
+        "P": "E",
+        "K": [
+          {
+            "N": "lrms",
+            "V": 10
+          },
+          {
+            "N": "pra",
+            "V": 11
+          },
+          {
+            "N": "general reasoning",
+            "V": 4
+          },
+          {
+            "N": "mathematic",
+            "V": 48
+          }
+        ]
+      },
+      "E02": {
+        "V": 16,
+        "VC": 77,
+        "P": "E",
+        "K": []
+      },
+      "E03": {
+        "V": 0,
+        "VC": 8,
+        "P": "E",
+        "K": []
+      },
+      "E04": {
+        "V": 1,
+        "VC": 4,
+        "P": "E",
+        "K": []
+      },
+      "E05": {
+        "V": 33,
+        "VC": 155,
+        "P": "E",
+        "K": [
+          {
+            "N": "retrieval quality",
+            "V": 5
+          },
+          {
+            "N": "era",
+            "V": 21
+          },
+          {
+            "N": "passage",
+            "V": 4
+          },
+          {
+            "N": "query reformulation",
+            "V": 2
+          }
+        ]
+      },
+      "E06": {
+        "V": 21,
+        "VC": 135,
+        "P": "E",
+        "K": [
+          {
+            "N": "anomaly",
+            "V": 19
+          },
+          {
+            "N": "conditional anomaly detection",
+            "V": 2
+          },
+          {
+            "N": "normality",
+            "V": 3
+          },
+          {
+            "N": "candi",
+            "V": 3
+          }
+        ]
+      },
+      "E07": {
+        "V": 17,
+        "VC": 153,
+        "P": "E",
+        "K": [
+          {
+            "N": "forecasting",
+            "V": 16
+          },
+          {
+            "N": "time series forecasting",
+            "V": 8
+          }
+        ]
+      },
+      "E08": {
+        "V": 14,
+        "VC": 93,
+        "P": "E",
+        "K": [
+          {
+            "N": "recommender system",
+            "V": 8
+          },
+          {
+            "N": "ars",
+            "V": 7
+          },
+          {
+            "N": "recommendation",
+            "V": 13
+          }
+        ]
+      },
+      "E09": {
+        "V": 36,
+        "VC": 157,
+        "P": "E",
+        "K": [
+          {
+            "N": "repository-level code generation",
+            "V": 2
+          },
+          {
+            "N": "a program",
+            "V": 5
+          },
+          {
+            "N": "execution feedback",
+            "V": 2
+          }
+        ]
+      },
+      "E10": {
+        "V": 26,
+        "VC": 125,
+        "P": "E",
+        "K": [
+          {
+            "N": "a planner",
+            "V": 3
+          },
+          {
+            "N": " decision",
+            "V": 11
+          }
+        ]
+      },
+      "E11": {
+        "V": 11,
+        "VC": 32,
+        "P": "E",
+        "K": [
+          {
+            "N": "mem",
+            "V": 3
+          },
+          {
+            "N": "evolve",
+            "V": 2
+          }
+        ]
+      },
+      "E12": {
+        "V": 122,
+        "VC": 530,
+        "P": "E",
+        "K": [
+          {
+            "N": "web agent",
+            "V": 5
+          },
+          {
+            "N": "ai agent",
+            "V": 22
+          },
+          {
+            "N": "openclaw",
+            "V": 9
+          },
+          {
+            "N": "harness engineering",
+            "V": 5
+          }
+        ]
+      },
+      "E13": {
+        "V": 17,
+        "VC": 86,
+        "P": "E",
+        "K": [
+          {
+            "N": "music",
+            "V": 2
+          }
+        ]
+      },
+      "E14": {
+        "V": 42,
+        "VC": 194,
+        "P": "E",
+        "K": [
+          {
+            "N": "english",
+            "V": 15
+          },
+          {
+            "N": "urdu",
+            "V": 2
+          },
+          {
+            "N": "machine translation",
+            "V": 8
+          },
+          {
+            "N": "french",
+            "V": 4
+          }
+        ]
+      },
+      "E15": {
+        "V": 52,
+        "VC": 252,
+        "P": "E",
+        "K": [
+          {
+            "N": "summary",
+            "V": 8
+          }
+        ]
+      },
+      "E16": {
+        "V": 133,
+        "VC": 689,
+        "P": "E",
+        "K": [
+          {
+            "N": "kbqa",
+            "V": 3
+          },
+          {
+            "N": "medical question",
+            "V": 5
+          },
+          {
+            "N": "kgqa",
+            "V": 6
+          },
+          {
+            "N": "an answer",
+            "V": 8
+          },
+          {
+            "N": "negation",
+            "V": 2
+          },
+          {
+            "N": "the slm",
+            "V": 2
+          }
+        ]
+      },
+      "E17": {
+        "V": 87,
+        "VC": 481,
+        "P": "E",
+        "K": [
+          {
+            "N": "dialogue",
+            "V": 40
+          },
+          {
+            "N": "memmachine",
+            "V": 2
+          },
+          {
+            "N": "discourse coherence",
+            "V": 2
+          },
+          {
+            "N": "conversation",
+            "V": 45
+          },
+          {
+            "N": "lightmem",
+            "V": 2
+          }
+        ]
+      },
+      "F01": {
+        "V": 49,
+        "VC": 280,
+        "P": "F",
+        "K": [
+          {
+            "N": "craft",
+            "V": 2
+          }
+        ]
+      },
+      "F02": {
+        "V": 81,
+        "VC": 440,
+        "P": "F",
+        "K": [
+          {
+            "N": "3d scene understanding",
+            "V": 4
+          },
+          {
+            "N": "modification text",
+            "V": 4
+          }
+        ]
+      },
+      "F03": {
+        "V": 63,
+        "VC": 357,
+        "P": "F",
+        "K": [
+          {
+            "N": "transcription",
+            "V": 6
+          },
+          {
+            "N": "lalm",
+            "V": 8
+          },
+          {
+            "N": "music",
+            "V": 16
+          },
+          {
+            "N": "audio",
+            "V": 47
+          },
+          {
+            "N": "speech",
+            "V": 39
+          },
+          {
+            "N": "large audio-language models",
+            "V": 7
+          },
+          {
+            "N": "asr",
+            "V": 12
+          },
+          {
+            "N": "5-omni",
+            "V": 2
+          }
+        ]
+      },
+      "F04": {
+        "V": 77,
+        "VC": 483,
+        "P": "F",
+        "K": [
+          {
+            "N": "umm",
+            "V": 8
+          },
+          {
+            "N": "audio",
+            "V": 13
+          },
+          {
+            "N": "lmm",
+            "V": 2
+          }
+        ]
+      },
+      "F05": {
+        "V": 99,
+        "VC": 590,
+        "P": "F",
+        "K": [
+          {
+            "N": "starvla",
+            "V": 2
+          },
+          {
+            "N": "robot",
+            "V": 70
+          },
+          {
+            "N": "bimanual manipulation",
+            "V": 4
+          },
+          {
+            "N": "robot learning",
+            "V": 6
+          },
+          {
+            "N": "world model",
+            "V": 11
+          },
+          {
+            "N": "robotwin",
+            "V": 5
+          }
+        ]
+      },
+      "F06": {
+        "V": 0,
+        "VC": 1,
+        "P": "F",
+        "K": []
+      },
+      "F07": {
+        "V": 3,
+        "VC": 14,
+        "P": "F",
+        "K": []
+      },
+      "F08": {
+        "V": 4,
+        "VC": 19,
+        "P": "F",
+        "K": [
+          {
+            "N": "patient",
+            "V": 3
+          }
+        ]
+      },
+      "F09": {
+        "V": 13,
+        "VC": 118,
+        "P": "F",
+        "K": []
+      },
+      "F10": {
+        "V": 23,
+        "VC": 83,
+        "P": "F",
+        "K": [
+          {
+            "N": "legal text",
+            "V": 9
+          },
+          {
+            "N": "the legal domain",
+            "V": 2
+          },
+          {
+            "N": "argument",
+            "V": 2
+          }
+        ]
+      },
+      "F11": {
+        "V": 12,
+        "VC": 62,
+        "P": "F",
+        "K": [
+          {
+            "N": "cpgrec",
+            "V": 2
+          },
+          {
+            "N": "game",
+            "V": 11
+          },
+          {
+            "N": "player",
+            "V": 7
+          }
+        ]
+      },
+      "F12": {
+        "V": 5,
+        "VC": 33,
+        "P": "F",
+        "K": [
+          {
+            "N": "vehicle",
+            "V": 3
+          },
+          {
+            "N": "autonomous driving",
+            "V": 2
+          },
+          {
+            "N": "their application",
+            "V": 2
+          }
+        ]
+      },
+      "F13": {
+        "V": 19,
+        "VC": 100,
+        "P": "F",
+        "K": [
+          {
+            "N": "random forest",
+            "V": 4
+          },
+          {
+            "N": "threat",
+            "V": 12
+          }
+        ]
+      },
+      "F14": {
+        "V": 86,
+        "VC": 557,
+        "P": "F",
+        "K": [
+          {
+            "N": "culturall",
+            "V": 5
+          },
+          {
+            "N": "fongbe",
+            "V": 2
+          },
+          {
+            "N": "english",
+            "V": 27
+          },
+          {
+            "N": "high-resource language",
+            "V": 8
+          },
+          {
+            "N": "low-resource language",
+            "V": 15
+          },
+          {
+            "N": "french",
+            "V": 5
+          },
+          {
+            "N": "multilingual",
+            "V": 39
+          },
+          {
+            "N": "german",
+            "V": 5
+          }
+        ]
+      },
+      "G01": {
+        "V": 28,
+        "VC": 138,
+        "P": "G",
+        "K": [
+          {
+            "N": "model response",
+            "V": 3
+          }
+        ]
+      },
+      "G02": {
+        "V": 4,
+        "VC": 24,
+        "P": "G",
+        "K": []
+      },
+      "G03": {
+        "V": 9,
+        "VC": 84,
+        "P": "G",
+        "K": [
+          {
+            "N": "the learner",
+            "V": 2
+          },
+          {
+            "N": "its own loss",
+            "V": 2
+          },
+          {
+            "N": "online learning problem",
+            "V": 2
+          },
+          {
+            "N": "solvable",
+            "V": 2
+          },
+          {
+            "N": "the feedback",
+            "V": 2
+          }
+        ]
+      },
+      "G04": {
+        "V": 28,
+        "VC": 173,
+        "P": "G",
+        "K": [
+          {
+            "N": "fig",
+            "V": 2
+          },
+          {
+            "N": "pretraining",
+            "V": 2
+          }
+        ]
+      },
+      "G05": {
+        "V": 31,
+        "VC": 184,
+        "P": "G",
+        "K": [
+          {
+            "N": "multi-objective optimization",
+            "V": 3
+          },
+          {
+            "N": "the objective space",
+            "V": 2
+          }
+        ]
+      },
+      "G06": {
+        "V": 53,
+        "VC": 350,
+        "P": "G",
+        "K": [
+          {
+            "N": "xai",
+            "V": 12
+          },
+          {
+            "N": "toe",
+            "V": 3
+          },
+          {
+            "N": "activation steering",
+            "V": 3
+          },
+          {
+            "N": "explainable artificial intelligence",
+            "V": 6
+          },
+          {
+            "N": "explainable ai",
+            "V": 7
+          },
+          {
+            "N": "explainability",
+            "V": 11
+          },
+          {
+            "N": "such explanation",
+            "V": 3
+          }
+        ]
+      },
+      "G07": {
+        "V": 8,
+        "VC": 88,
+        "P": "G",
+        "K": [
+          {
+            "N": "circuit",
+            "V": 2
+          },
+          {
+            "N": "the base model",
+            "V": 2
+          },
+          {
+            "N": "mechanistic interpretability",
+            "V": 2
+          }
+        ]
+      },
+      "G08": {
+        "V": 56,
+        "VC": 280,
+        "P": "G",
+        "K": [
+          {
+            "N": "neural representation",
+            "V": 2
+          },
+          {
+            "N": "ela",
+            "V": 16
+          },
+          {
+            "N": "umap",
+            "V": 3
+          },
+          {
+            "N": "pca",
+            "V": 4
+          }
+        ]
+      },
+      "G09": {
+        "V": 4,
+        "VC": 21,
+        "P": "G",
+        "K": [
+          {
+            "N": "candidate feature",
+            "V": 2
+          }
+        ]
+      },
+      "G10": {
+        "V": 130,
+        "VC": 703,
+        "P": "G",
+        "K": [
+          {
+            "N": "sif",
+            "V": 14
+          },
+          {
+            "N": "pretraining",
+            "V": 8
+          },
+          {
+            "N": "ros",
+            "V": 68
+          },
+          {
+            "N": "faster",
+            "V": 4
+          }
+        ]
+      },
+      "G11": {
+        "V": 9,
+        "VC": 28,
+        "P": "G",
+        "K": [
+          {
+            "N": "proxima",
+            "V": 2
+          }
+        ]
+      },
+      "G12": {
+        "V": 17,
+        "VC": 62,
+        "P": "G",
+        "K": [
+          {
+            "N": "emergent misalignment",
+            "V": 2
+          },
+          {
+            "N": "harmful behavior",
+            "V": 2
+          }
+        ]
+      },
+      "G13": {
+        "V": 3,
+        "VC": 21,
+        "P": "G",
+        "K": [
+          {
+            "N": "screening",
+            "V": 2
+          }
+        ]
+      },
+      "H01": {
+        "V": 38,
+        "VC": 181,
+        "P": "H",
+        "K": [
+          {
+            "N": "compiler",
+            "V": 7
+          },
+          {
+            "N": "gpu",
+            "V": 29
+          }
+        ]
+      },
+      "H02": {
+        "V": 225,
+        "VC": 1076,
+        "P": "H",
+        "K": [
+          {
+            "N": "speculative",
+            "V": 35
+          },
+          {
+            "N": "speculative decoding",
+            "V": 31
+          },
+          {
+            "N": "the draft model",
+            "V": 5
+          },
+          {
+            "N": "mars",
+            "V": 2
+          },
+          {
+            "N": "dllms",
+            "V": 8
+          },
+          {
+            "N": "smart",
+            "V": 5
+          }
+        ]
+      },
+      "H03": {
+        "V": 115,
+        "VC": 691,
+        "P": "H",
+        "K": [
+          {
+            "N": "turboquant",
+            "V": 2
+          },
+          {
+            "N": "compression",
+            "V": 53
+          },
+          {
+            "N": "mistral 7b",
+            "V": 2
+          },
+          {
+            "N": "quantization",
+            "V": 19
+          }
+        ]
+      },
+      "H04": {
+        "V": 3,
+        "VC": 16,
+        "P": "H",
+        "K": []
+      },
+      "H05": {
+        "V": 5,
+        "VC": 48,
+        "P": "H",
+        "K": [
+          {
+            "N": "device",
+            "V": 2
+          }
+        ]
+      },
+      "H06": {
+        "V": 3,
+        "VC": 34,
+        "P": "H",
+        "K": []
+      },
+      "H07": {
+        "V": 7,
+        "VC": 62,
+        "P": "H",
+        "K": []
+      },
+      "H08": {
+        "V": 13,
+        "VC": 84,
+        "P": "H",
+        "K": [
+          {
+            "N": "privacy preservation",
+            "V": 2
+          }
+        ]
+      },
+      "H09": {
+        "V": 1,
+        "VC": 13,
+        "P": "H",
+        "K": []
+      },
+      "H10": {
+        "V": 14,
+        "VC": 76,
+        "P": "H",
+        "K": [
+          {
+            "N": "forgery attack",
+            "V": 3
+          },
+          {
+            "N": "add",
+            "V": 7
+          },
+          {
+            "N": "watermarking",
+            "V": 11
+          },
+          {
+            "N": "aigc",
+            "V": 4
+          },
+          {
+            "N": "message",
+            "V": 4
+          }
+        ]
+      },
+      "H11": {
+        "V": 107,
+        "VC": 468,
+        "P": "H",
+        "K": [
+          {
+            "N": "npu",
+            "V": 8
+          }
+        ]
+      },
+      "I01": {
+        "V": 21,
+        "VC": 165,
+        "P": "I",
+        "K": [
+          {
+            "N": "an ai system",
+            "V": 5
+          },
+          {
+            "N": "that alignment",
+            "V": 2
+          }
+        ]
+      },
+      "I02": {
+        "V": 92,
+        "VC": 463,
+        "P": "I",
+        "K": [
+          {
+            "N": "adversarial training",
+            "V": 15
+          },
+          {
+            "N": "cat",
+            "V": 45
+          },
+          {
+            "N": "adversarial robustness",
+            "V": 16
+          },
+          {
+            "N": "adversarial attack",
+            "V": 18
+          },
+          {
+            "N": "adversarial perturbation",
+            "V": 11
+          },
+          {
+            "N": " asr",
+            "V": 7
+          },
+          {
+            "N": "attack success rate",
+            "V": 12
+          }
+        ]
+      },
+      "I03": {
+        "V": 65,
+        "VC": 448,
+        "P": "I",
+        "K": [
+          {
+            "N": "differential privacy",
+            "V": 28
+          },
+          {
+            "N": "sensitive information",
+            "V": 12
+          },
+          {
+            "N": "the ai model",
+            "V": 2
+          },
+          {
+            "N": "pii",
+            "V": 3
+          }
+        ]
+      },
+      "I04": {
+        "V": 26,
+        "VC": 160,
+        "P": "I",
+        "K": [
+          {
+            "N": "fairlogue",
+            "V": 2
+          },
+          {
+            "N": "fairness",
+            "V": 22
+          },
+          {
+            "N": "disparity",
+            "V": 2
+          },
+          {
+            "N": "algorithmic fairness",
+            "V": 3
+          },
+          {
+            "N": "automl",
+            "V": 2
+          },
+          {
+            "N": "gender",
+            "V": 6
+          },
+          {
+            "N": "sensitive attribute",
+            "V": 4
+          }
+        ]
+      },
+      "I05": {
+        "V": 35,
+        "VC": 156,
+        "P": "I",
+        "K": [
+          {
+            "N": "uncertainty quantification",
+            "V": 18
+          },
+          {
+            "N": "bas",
+            "V": 14
+          },
+          {
+            "N": "aleatoric uncertainty",
+            "V": 2
+          }
+        ]
+      },
+      "I06": {
+        "V": 16,
+        "VC": 119,
+        "P": "I",
+        "K": [
+          {
+            "N": "subset",
+            "V": 2
+          },
+          {
+            "N": "cap",
+            "V": 2
+          }
+        ]
+      },
+      "I07": {
+        "V": 101,
+        "VC": 453,
+        "P": "I",
+        "K": [
+          {
+            "N": "backdoor",
+            "V": 28
+          },
+          {
+            "N": "backdoor attack",
+            "V": 20
+          },
+          {
+            "N": "tre",
+            "V": 28
+          },
+          {
+            "N": "defense",
+            "V": 43
+          },
+          {
+            "N": "the attack success rate",
+            "V": 6
+          },
+          {
+            "N": "asr",
+            "V": 18
+          },
+          {
+            "N": "malicious instruction",
+            "V": 6
+          }
+        ]
+      },
+      "I08": {
+        "V": 2,
+        "VC": 38,
+        "P": "I",
+        "K": [
+          {
+            "N": "the environmental impact",
+            "V": 2
+          },
+          {
+            "N": "genai",
+            "V": 2
+          },
+          {
+            "N": "the carbon footprint",
+            "V": 2
+          },
+          {
+            "N": "transparency",
+            "V": 2
+          }
+        ]
+      },
+      "I09": {
+        "V": 75,
+        "VC": 465,
+        "P": "I",
+        "K": [
+          {
+            "N": "hci",
+            "V": 5
+          },
+          {
+            "N": "human-ai interaction",
+            "V": 10
+          },
+          {
+            "N": "people",
+            "V": 11
+          },
+          {
+            "N": "inquiry",
+            "V": 3
+          },
+          {
+            "N": "ai advice",
+            "V": 2
+          },
+          {
+            "N": "ai assistance",
+            "V": 3
+          }
+        ]
+      },
+      "I10": {
+        "V": 43,
+        "VC": 191,
+        "P": "I",
+        "K": [
+          {
+            "N": "governance",
+            "V": 33
+          },
+          {
+            "N": "regulator",
+            "V": 15
+          },
+          {
+            "N": "the governance",
+            "V": 6
+          },
+          {
+            "N": "accountability",
+            "V": 12
+          },
+          {
+            "N": "policymaker",
+            "V": 5
+          },
+          {
+            "N": "collective",
+            "V": 3
+          },
+          {
+            "N": "ai governance",
+            "V": 10
+          },
+          {
+            "N": "iso",
+            "V": 9
+          },
+          {
+            "N": "the eu ai act",
+            "V": 6
+          }
+        ]
+      },
+      "I11": {
+        "V": 8,
+        "VC": 28,
+        "P": "I",
+        "K": []
+      },
+      "I12": {
+        "V": 61,
+        "VC": 307,
+        "P": "I",
+        "K": [
+          {
+            "N": "pnd",
+            "V": 2
+          },
+          {
+            "N": "object hallucination",
+            "V": 7
+          },
+          {
+            "N": "pti",
+            "V": 25
+          },
+          {
+            "N": "lvlm",
+            "V": 12
+          },
+          {
+            "N": "ive",
+            "V": 54
+          },
+          {
+            "N": "causal hallucination",
+            "V": 2
+          }
+        ]
+      },
+      "I13": {
+        "V": 1,
+        "VC": 18,
+        "P": "I",
+        "K": []
+      }
+    },
+    "links": [
+      {
+        "S": "B05",
+        "T": "D05",
+        "C": 9,
+        "CC": 36
+      },
+      {
+        "S": "C02",
+        "T": "D05",
+        "C": 20,
+        "CC": 119
+      },
+      {
+        "S": "B05",
+        "T": "C02",
+        "C": 2,
+        "CC": 11
+      },
+      {
+        "S": "B07",
+        "T": "C02",
+        "C": 3,
+        "CC": 16
+      },
+      {
+        "S": "B07",
+        "T": "I06",
+        "C": 3,
+        "CC": 3
+      },
+      {
+        "S": "C02",
+        "T": "I06",
+        "C": 3,
+        "CC": 13
+      },
+      {
+        "S": "D11",
+        "T": "E09",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "H01",
+        "T": "H11",
+        "C": 16,
+        "CC": 63
+      },
+      {
+        "S": "D11",
+        "T": "E01",
+        "C": 43,
+        "CC": 163
+      },
+      {
+        "S": "D08",
+        "T": "D09",
+        "C": 20,
+        "CC": 112
+      },
+      {
+        "S": "C03",
+        "T": "D09",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "C01",
+        "T": "D09",
+        "C": 6,
+        "CC": 22
+      },
+      {
+        "S": "C03",
+        "T": "D08",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C01",
+        "T": "D08",
+        "C": 3,
+        "CC": 10
+      },
+      {
+        "S": "C01",
+        "T": "C03",
+        "C": 6,
+        "CC": 30
+      },
+      {
+        "S": "D11",
+        "T": "E10",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "E10",
+        "T": "G12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D11",
+        "T": "G12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D06",
+        "T": "I12",
+        "C": 2,
+        "CC": 9
+      },
+      {
+        "S": "B01",
+        "T": "D06",
+        "C": 7,
+        "CC": 60
+      },
+      {
+        "S": "B01",
+        "T": "I12",
+        "C": 3,
+        "CC": 17
+      },
+      {
+        "S": "D11",
+        "T": "I05",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A03",
+        "T": "D07",
+        "C": 1,
+        "CC": 14
+      },
+      {
+        "S": "A03",
+        "T": "A14",
+        "C": 8,
+        "CC": 34
+      },
+      {
+        "S": "A14",
+        "T": "D07",
+        "C": 8,
+        "CC": 39
+      },
+      {
+        "S": "A14",
+        "T": "G10",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "B15",
+        "T": "D11",
+        "C": 3,
+        "CC": 15
+      },
+      {
+        "S": "D05",
+        "T": "D13",
+        "C": 18,
+        "CC": 94
+      },
+      {
+        "S": "D13",
+        "T": "H02",
+        "C": 14,
+        "CC": 82
+      },
+      {
+        "S": "D09",
+        "T": "D13",
+        "C": 29,
+        "CC": 108
+      },
+      {
+        "S": "D05",
+        "T": "H02",
+        "C": 85,
+        "CC": 452
+      },
+      {
+        "S": "D05",
+        "T": "D09",
+        "C": 10,
+        "CC": 40
+      },
+      {
+        "S": "D09",
+        "T": "H02",
+        "C": 3,
+        "CC": 14
+      },
+      {
+        "S": "E17",
+        "T": "F03",
+        "C": 3,
+        "CC": 30
+      },
+      {
+        "S": "D04",
+        "T": "G04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D12",
+        "T": "E05",
+        "C": 20,
+        "CC": 81
+      },
+      {
+        "S": "D07",
+        "T": "D13",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "A14",
+        "T": "D13",
+        "C": 3,
+        "CC": 10
+      },
+      {
+        "S": "B01",
+        "T": "B02",
+        "C": 4,
+        "CC": 18
+      },
+      {
+        "S": "G10",
+        "T": "H07",
+        "C": 2,
+        "CC": 12
+      },
+      {
+        "S": "B11",
+        "T": "G10",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B05",
+        "T": "D02",
+        "C": 2,
+        "CC": 10
+      },
+      {
+        "S": "D06",
+        "T": "D13",
+        "C": 2,
+        "CC": 21
+      },
+      {
+        "S": "B03",
+        "T": "B16",
+        "C": 7,
+        "CC": 22
+      },
+      {
+        "S": "B16",
+        "T": "H11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B16",
+        "T": "H02",
+        "C": 6,
+        "CC": 9
+      },
+      {
+        "S": "B03",
+        "T": "H11",
+        "C": 4,
+        "CC": 14
+      },
+      {
+        "S": "B03",
+        "T": "H02",
+        "C": 8,
+        "CC": 26
+      },
+      {
+        "S": "H02",
+        "T": "H11",
+        "C": 69,
+        "CC": 285
+      },
+      {
+        "S": "D05",
+        "T": "H03",
+        "C": 61,
+        "CC": 382
+      },
+      {
+        "S": "H02",
+        "T": "H03",
+        "C": 36,
+        "CC": 179
+      },
+      {
+        "S": "C01",
+        "T": "H03",
+        "C": 1,
+        "CC": 22
+      },
+      {
+        "S": "F09",
+        "T": "G08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E14",
+        "T": "F14",
+        "C": 26,
+        "CC": 93
+      },
+      {
+        "S": "D12",
+        "T": "E16",
+        "C": 29,
+        "CC": 114
+      },
+      {
+        "S": "E13",
+        "T": "E16",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E16",
+        "T": "F04",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "D12",
+        "T": "E13",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "D12",
+        "T": "F04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E13",
+        "T": "F04",
+        "C": 12,
+        "CC": 59
+      },
+      {
+        "S": "I02",
+        "T": "I07",
+        "C": 14,
+        "CC": 77
+      },
+      {
+        "S": "A03",
+        "T": "D03",
+        "C": 67,
+        "CC": 433
+      },
+      {
+        "S": "D05",
+        "T": "E16",
+        "C": 6,
+        "CC": 13
+      },
+      {
+        "S": "D13",
+        "T": "E16",
+        "C": 20,
+        "CC": 87
+      },
+      {
+        "S": "E05",
+        "T": "G01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B06",
+        "T": "E02",
+        "C": 2,
+        "CC": 10
+      },
+      {
+        "S": "B06",
+        "T": "C01",
+        "C": 9,
+        "CC": 27
+      },
+      {
+        "S": "C01",
+        "T": "E02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D05",
+        "T": "D06",
+        "C": 16,
+        "CC": 104
+      },
+      {
+        "S": "D05",
+        "T": "I06",
+        "C": 3,
+        "CC": 13
+      },
+      {
+        "S": "A02",
+        "T": "D05",
+        "C": 4,
+        "CC": 19
+      },
+      {
+        "S": "A02",
+        "T": "I06",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "D06",
+        "T": "D09",
+        "C": 5,
+        "CC": 14
+      },
+      {
+        "S": "C10",
+        "T": "D06",
+        "C": 3,
+        "CC": 6
+      },
+      {
+        "S": "C10",
+        "T": "D09",
+        "C": 3,
+        "CC": 12
+      },
+      {
+        "S": "A03",
+        "T": "F05",
+        "C": 18,
+        "CC": 116
+      },
+      {
+        "S": "B02",
+        "T": "C02",
+        "C": 3,
+        "CC": 14
+      },
+      {
+        "S": "D13",
+        "T": "E17",
+        "C": 20,
+        "CC": 108
+      },
+      {
+        "S": "B01",
+        "T": "H02",
+        "C": 4,
+        "CC": 14
+      },
+      {
+        "S": "B01",
+        "T": "D05",
+        "C": 4,
+        "CC": 46
+      },
+      {
+        "S": "B01",
+        "T": "H03",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "A03",
+        "T": "A12",
+        "C": 33,
+        "CC": 191
+      },
+      {
+        "S": "A03",
+        "T": "A10",
+        "C": 8,
+        "CC": 33
+      },
+      {
+        "S": "A10",
+        "T": "A12",
+        "C": 6,
+        "CC": 18
+      },
+      {
+        "S": "A12",
+        "T": "A14",
+        "C": 9,
+        "CC": 17
+      },
+      {
+        "S": "A10",
+        "T": "A14",
+        "C": 3,
+        "CC": 17
+      },
+      {
+        "S": "B01",
+        "T": "D13",
+        "C": 5,
+        "CC": 36
+      },
+      {
+        "S": "E12",
+        "T": "F05",
+        "C": 12,
+        "CC": 75
+      },
+      {
+        "S": "A03",
+        "T": "E01",
+        "C": 5,
+        "CC": 41
+      },
+      {
+        "S": "H02",
+        "T": "H04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E17",
+        "T": "I05",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A14",
+        "T": "B15",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "A15",
+        "T": "B15",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "A14",
+        "T": "A15",
+        "C": 4,
+        "CC": 23
+      },
+      {
+        "S": "D11",
+        "T": "H02",
+        "C": 38,
+        "CC": 147
+      },
+      {
+        "S": "H02",
+        "T": "I12",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "D11",
+        "T": "I12",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "F05",
+        "T": "I09",
+        "C": 10,
+        "CC": 79
+      },
+      {
+        "S": "B09",
+        "T": "E08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B06",
+        "T": "C02",
+        "C": 15,
+        "CC": 87
+      },
+      {
+        "S": "C02",
+        "T": "H02",
+        "C": 4,
+        "CC": 27
+      },
+      {
+        "S": "C02",
+        "T": "G10",
+        "C": 6,
+        "CC": 57
+      },
+      {
+        "S": "B06",
+        "T": "H02",
+        "C": 4,
+        "CC": 34
+      },
+      {
+        "S": "B06",
+        "T": "G10",
+        "C": 2,
+        "CC": 19
+      },
+      {
+        "S": "G10",
+        "T": "H02",
+        "C": 9,
+        "CC": 43
+      },
+      {
+        "S": "A15",
+        "T": "B05",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "B03",
+        "T": "D05",
+        "C": 13,
+        "CC": 51
+      },
+      {
+        "S": "A10",
+        "T": "B03",
+        "C": 6,
+        "CC": 35
+      },
+      {
+        "S": "B03",
+        "T": "D09",
+        "C": 2,
+        "CC": 15
+      },
+      {
+        "S": "A10",
+        "T": "D05",
+        "C": 3,
+        "CC": 13
+      },
+      {
+        "S": "A10",
+        "T": "D09",
+        "C": 7,
+        "CC": 45
+      },
+      {
+        "S": "G08",
+        "T": "G10",
+        "C": 2,
+        "CC": 11
+      },
+      {
+        "S": "E10",
+        "T": "E12",
+        "C": 4,
+        "CC": 17
+      },
+      {
+        "S": "D05",
+        "T": "D11",
+        "C": 22,
+        "CC": 108
+      },
+      {
+        "S": "D05",
+        "T": "E01",
+        "C": 4,
+        "CC": 21
+      },
+      {
+        "S": "E09",
+        "T": "H08",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "D05",
+        "T": "H11",
+        "C": 42,
+        "CC": 171
+      },
+      {
+        "S": "D11",
+        "T": "H11",
+        "C": 7,
+        "CC": 26
+      },
+      {
+        "S": "E12",
+        "T": "I09",
+        "C": 23,
+        "CC": 109
+      },
+      {
+        "S": "E01",
+        "T": "E16",
+        "C": 19,
+        "CC": 81
+      },
+      {
+        "S": "D11",
+        "T": "E16",
+        "C": 15,
+        "CC": 41
+      },
+      {
+        "S": "D13",
+        "T": "E01",
+        "C": 5,
+        "CC": 18
+      },
+      {
+        "S": "D11",
+        "T": "D13",
+        "C": 9,
+        "CC": 27
+      },
+      {
+        "S": "A10",
+        "T": "D13",
+        "C": 4,
+        "CC": 16
+      },
+      {
+        "S": "C11",
+        "T": "H01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C11",
+        "T": "H11",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "E16",
+        "T": "F01",
+        "C": 21,
+        "CC": 121
+      },
+      {
+        "S": "F01",
+        "T": "F14",
+        "C": 8,
+        "CC": 48
+      },
+      {
+        "S": "E16",
+        "T": "F14",
+        "C": 12,
+        "CC": 55
+      },
+      {
+        "S": "C12",
+        "T": "D05",
+        "C": 2,
+        "CC": 15
+      },
+      {
+        "S": "D13",
+        "T": "H03",
+        "C": 10,
+        "CC": 58
+      },
+      {
+        "S": "E01",
+        "T": "G06",
+        "C": 5,
+        "CC": 35
+      },
+      {
+        "S": "A09",
+        "T": "D09",
+        "C": 3,
+        "CC": 6
+      },
+      {
+        "S": "A13",
+        "T": "D09",
+        "C": 7,
+        "CC": 36
+      },
+      {
+        "S": "A03",
+        "T": "D09",
+        "C": 10,
+        "CC": 46
+      },
+      {
+        "S": "A09",
+        "T": "A13",
+        "C": 3,
+        "CC": 17
+      },
+      {
+        "S": "A03",
+        "T": "A09",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "A03",
+        "T": "A13",
+        "C": 2,
+        "CC": 16
+      },
+      {
+        "S": "D05",
+        "T": "D08",
+        "C": 4,
+        "CC": 12
+      },
+      {
+        "S": "C12",
+        "T": "D08",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C12",
+        "T": "D09",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "E17",
+        "T": "H02",
+        "C": 4,
+        "CC": 8
+      },
+      {
+        "S": "E16",
+        "T": "E17",
+        "C": 12,
+        "CC": 60
+      },
+      {
+        "S": "E16",
+        "T": "H02",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "H03",
+        "T": "H11",
+        "C": 19,
+        "CC": 76
+      },
+      {
+        "S": "E02",
+        "T": "E13",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "D07",
+        "T": "F09",
+        "C": 5,
+        "CC": 45
+      },
+      {
+        "S": "A14",
+        "T": "F09",
+        "C": 2,
+        "CC": 10
+      },
+      {
+        "S": "D09",
+        "T": "I02",
+        "C": 2,
+        "CC": 9
+      },
+      {
+        "S": "D06",
+        "T": "H03",
+        "C": 12,
+        "CC": 67
+      },
+      {
+        "S": "C02",
+        "T": "H03",
+        "C": 8,
+        "CC": 71
+      },
+      {
+        "S": "C02",
+        "T": "D06",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "A03",
+        "T": "E17",
+        "C": 2,
+        "CC": 16
+      },
+      {
+        "S": "D05",
+        "T": "G10",
+        "C": 22,
+        "CC": 104
+      },
+      {
+        "S": "A02",
+        "T": "B06",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "D11",
+        "T": "D12",
+        "C": 20,
+        "CC": 50
+      },
+      {
+        "S": "B08",
+        "T": "C02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A15",
+        "T": "D05",
+        "C": 4,
+        "CC": 15
+      },
+      {
+        "S": "A10",
+        "T": "A15",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A15",
+        "T": "B03",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D03",
+        "T": "D04",
+        "C": 28,
+        "CC": 179
+      },
+      {
+        "S": "F02",
+        "T": "F04",
+        "C": 4,
+        "CC": 36
+      },
+      {
+        "S": "B02",
+        "T": "F02",
+        "C": 9,
+        "CC": 45
+      },
+      {
+        "S": "B02",
+        "T": "F04",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "A09",
+        "T": "A10",
+        "C": 9,
+        "CC": 38
+      },
+      {
+        "S": "D06",
+        "T": "G10",
+        "C": 2,
+        "CC": 11
+      },
+      {
+        "S": "B01",
+        "T": "G10",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D13",
+        "T": "G10",
+        "C": 10,
+        "CC": 32
+      },
+      {
+        "S": "D11",
+        "T": "G10",
+        "C": 10,
+        "CC": 31
+      },
+      {
+        "S": "E01",
+        "T": "G10",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "A15",
+        "T": "C06",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "D12",
+        "T": "E15",
+        "C": 8,
+        "CC": 50
+      },
+      {
+        "S": "D12",
+        "T": "F01",
+        "C": 14,
+        "CC": 59
+      },
+      {
+        "S": "E15",
+        "T": "E16",
+        "C": 10,
+        "CC": 67
+      },
+      {
+        "S": "E15",
+        "T": "F01",
+        "C": 4,
+        "CC": 53
+      },
+      {
+        "S": "B05",
+        "T": "D06",
+        "C": 3,
+        "CC": 15
+      },
+      {
+        "S": "B15",
+        "T": "E01",
+        "C": 10,
+        "CC": 53
+      },
+      {
+        "S": "B13",
+        "T": "G08",
+        "C": 9,
+        "CC": 49
+      },
+      {
+        "S": "G10",
+        "T": "H11",
+        "C": 4,
+        "CC": 31
+      },
+      {
+        "S": "G10",
+        "T": "H03",
+        "C": 7,
+        "CC": 39
+      },
+      {
+        "S": "A12",
+        "T": "D09",
+        "C": 4,
+        "CC": 16
+      },
+      {
+        "S": "A12",
+        "T": "D08",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "E17",
+        "T": "F05",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "B16",
+        "T": "H03",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "I01",
+        "T": "I09",
+        "C": 10,
+        "CC": 55
+      },
+      {
+        "S": "A12",
+        "T": "I09",
+        "C": 5,
+        "CC": 21
+      },
+      {
+        "S": "E12",
+        "T": "I01",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "A12",
+        "T": "E12",
+        "C": 8,
+        "CC": 32
+      },
+      {
+        "S": "A12",
+        "T": "I01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D07",
+        "T": "G08",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D07",
+        "T": "G10",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "B13",
+        "T": "D07",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B13",
+        "T": "G10",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "D07",
+        "T": "E01",
+        "C": 5,
+        "CC": 30
+      },
+      {
+        "S": "E01",
+        "T": "F09",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "B08",
+        "T": "I02",
+        "C": 7,
+        "CC": 50
+      },
+      {
+        "S": "B08",
+        "T": "I07",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C11",
+        "T": "H02",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "A03",
+        "T": "A11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "F05",
+        "T": "I07",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B08",
+        "T": "D07",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D11",
+        "T": "H03",
+        "C": 4,
+        "CC": 10
+      },
+      {
+        "S": "D06",
+        "T": "D11",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "D06",
+        "T": "H02",
+        "C": 1,
+        "CC": 23
+      },
+      {
+        "S": "B15",
+        "T": "F05",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "B06",
+        "T": "D09",
+        "C": 3,
+        "CC": 19
+      },
+      {
+        "S": "D12",
+        "T": "H02",
+        "C": 6,
+        "CC": 31
+      },
+      {
+        "S": "D05",
+        "T": "D12",
+        "C": 3,
+        "CC": 21
+      },
+      {
+        "S": "A15",
+        "T": "D02",
+        "C": 5,
+        "CC": 24
+      },
+      {
+        "S": "D02",
+        "T": "D05",
+        "C": 6,
+        "CC": 41
+      },
+      {
+        "S": "D02",
+        "T": "D09",
+        "C": 4,
+        "CC": 10
+      },
+      {
+        "S": "A15",
+        "T": "D09",
+        "C": 9,
+        "CC": 30
+      },
+      {
+        "S": "B02",
+        "T": "B06",
+        "C": 7,
+        "CC": 34
+      },
+      {
+        "S": "E08",
+        "T": "E17",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A12",
+        "T": "D03",
+        "C": 3,
+        "CC": 38
+      },
+      {
+        "S": "A12",
+        "T": "F05",
+        "C": 8,
+        "CC": 50
+      },
+      {
+        "S": "D03",
+        "T": "F05",
+        "C": 6,
+        "CC": 37
+      },
+      {
+        "S": "B03",
+        "T": "D13",
+        "C": 1,
+        "CC": 18
+      },
+      {
+        "S": "C05",
+        "T": "D05",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "C05",
+        "T": "I05",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D05",
+        "T": "I05",
+        "C": 4,
+        "CC": 23
+      },
+      {
+        "S": "B07",
+        "T": "H03",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "E05",
+        "T": "E15",
+        "C": 8,
+        "CC": 29
+      },
+      {
+        "S": "D11",
+        "T": "E05",
+        "C": 3,
+        "CC": 8
+      },
+      {
+        "S": "E05",
+        "T": "E16",
+        "C": 6,
+        "CC": 23
+      },
+      {
+        "S": "D07",
+        "T": "E15",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C01",
+        "T": "D06",
+        "C": 7,
+        "CC": 37
+      },
+      {
+        "S": "C01",
+        "T": "D05",
+        "C": 8,
+        "CC": 62
+      },
+      {
+        "S": "C01",
+        "T": "C10",
+        "C": 16,
+        "CC": 89
+      },
+      {
+        "S": "C10",
+        "T": "D05",
+        "C": 3,
+        "CC": 16
+      },
+      {
+        "S": "D02",
+        "T": "H11",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D02",
+        "T": "H02",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "E12",
+        "T": "H08",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "E12",
+        "T": "E17",
+        "C": 2,
+        "CC": 12
+      },
+      {
+        "S": "E17",
+        "T": "H08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A03",
+        "T": "I12",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "D12",
+        "T": "D13",
+        "C": 12,
+        "CC": 59
+      },
+      {
+        "S": "D13",
+        "T": "F01",
+        "C": 6,
+        "CC": 31
+      },
+      {
+        "S": "E17",
+        "T": "F09",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D09",
+        "T": "E17",
+        "C": 3,
+        "CC": 10
+      },
+      {
+        "S": "A14",
+        "T": "E17",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D09",
+        "T": "F09",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "A14",
+        "T": "D09",
+        "C": 5,
+        "CC": 20
+      },
+      {
+        "S": "D06",
+        "T": "F04",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "D12",
+        "T": "F14",
+        "C": 8,
+        "CC": 35
+      },
+      {
+        "S": "D07",
+        "T": "D11",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "B02",
+        "T": "B13",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "B02",
+        "T": "G08",
+        "C": 7,
+        "CC": 17
+      },
+      {
+        "S": "B13",
+        "T": "F02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F02",
+        "T": "G08",
+        "C": 4,
+        "CC": 13
+      },
+      {
+        "S": "F13",
+        "T": "I11",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "B05",
+        "T": "H02",
+        "C": 6,
+        "CC": 38
+      },
+      {
+        "S": "B05",
+        "T": "H11",
+        "C": 2,
+        "CC": 19
+      },
+      {
+        "S": "D03",
+        "T": "I02",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "A03",
+        "T": "G05",
+        "C": 3,
+        "CC": 32
+      },
+      {
+        "S": "A10",
+        "T": "G10",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "C03",
+        "T": "G10",
+        "C": 5,
+        "CC": 28
+      },
+      {
+        "S": "A10",
+        "T": "C03",
+        "C": 2,
+        "CC": 11
+      },
+      {
+        "S": "F03",
+        "T": "F04",
+        "C": 5,
+        "CC": 27
+      },
+      {
+        "S": "E13",
+        "T": "F03",
+        "C": 3,
+        "CC": 5
+      },
+      {
+        "S": "D13",
+        "T": "F14",
+        "C": 6,
+        "CC": 48
+      },
+      {
+        "S": "D09",
+        "T": "F14",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "D05",
+        "T": "H01",
+        "C": 2,
+        "CC": 9
+      },
+      {
+        "S": "H01",
+        "T": "H02",
+        "C": 10,
+        "CC": 37
+      },
+      {
+        "S": "C02",
+        "T": "C11",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "C11",
+        "T": "D05",
+        "C": 4,
+        "CC": 28
+      },
+      {
+        "S": "A03",
+        "T": "D04",
+        "C": 5,
+        "CC": 33
+      },
+      {
+        "S": "D13",
+        "T": "E05",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "D13",
+        "T": "E15",
+        "C": 14,
+        "CC": 53
+      },
+      {
+        "S": "E17",
+        "T": "G06",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "B09",
+        "T": "B16",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B03",
+        "T": "B09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C03",
+        "T": "D05",
+        "C": 6,
+        "CC": 35
+      },
+      {
+        "S": "B03",
+        "T": "C03",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "E11",
+        "T": "G12",
+        "C": 5,
+        "CC": 11
+      },
+      {
+        "S": "D04",
+        "T": "D12",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B06",
+        "T": "H03",
+        "C": 2,
+        "CC": 22
+      },
+      {
+        "S": "E14",
+        "T": "G01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F04",
+        "T": "G08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D08",
+        "T": "G05",
+        "C": 3,
+        "CC": 4
+      },
+      {
+        "S": "B01",
+        "T": "F04",
+        "C": 8,
+        "CC": 47
+      },
+      {
+        "S": "D01",
+        "T": "D02",
+        "C": 4,
+        "CC": 32
+      },
+      {
+        "S": "B05",
+        "T": "D10",
+        "C": 2,
+        "CC": 18
+      },
+      {
+        "S": "A03",
+        "T": "D13",
+        "C": 3,
+        "CC": 19
+      },
+      {
+        "S": "B11",
+        "T": "B12",
+        "C": 4,
+        "CC": 22
+      },
+      {
+        "S": "B06",
+        "T": "I12",
+        "C": 3,
+        "CC": 4
+      },
+      {
+        "S": "D01",
+        "T": "D09",
+        "C": 5,
+        "CC": 34
+      },
+      {
+        "S": "D01",
+        "T": "D13",
+        "C": 2,
+        "CC": 9
+      },
+      {
+        "S": "D12",
+        "T": "H11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E01",
+        "T": "G05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D11",
+        "T": "G05",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A09",
+        "T": "B03",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "A03",
+        "T": "B03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D03",
+        "T": "E17",
+        "C": 3,
+        "CC": 19
+      },
+      {
+        "S": "C01",
+        "T": "C02",
+        "C": 11,
+        "CC": 51
+      },
+      {
+        "S": "B06",
+        "T": "D06",
+        "C": 3,
+        "CC": 16
+      },
+      {
+        "S": "I07",
+        "T": "I11",
+        "C": 4,
+        "CC": 9
+      },
+      {
+        "S": "G01",
+        "T": "G10",
+        "C": 8,
+        "CC": 45
+      },
+      {
+        "S": "F14",
+        "T": "G01",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "F14",
+        "T": "G10",
+        "C": 3,
+        "CC": 10
+      },
+      {
+        "S": "B15",
+        "T": "E16",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "D12",
+        "T": "E01",
+        "C": 4,
+        "CC": 17
+      },
+      {
+        "S": "D06",
+        "T": "D10",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D03",
+        "T": "G06",
+        "C": 2,
+        "CC": 12
+      },
+      {
+        "S": "D04",
+        "T": "G06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D13",
+        "T": "F04",
+        "C": 4,
+        "CC": 10
+      },
+      {
+        "S": "B07",
+        "T": "D05",
+        "C": 4,
+        "CC": 24
+      },
+      {
+        "S": "B03",
+        "T": "B07",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "B03",
+        "T": "C02",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "C03",
+        "T": "D02",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A14",
+        "T": "D05",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "B15",
+        "T": "D05",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A10",
+        "T": "D08",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "A09",
+        "T": "D08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B01",
+        "T": "D09",
+        "C": 4,
+        "CC": 20
+      },
+      {
+        "S": "C10",
+        "T": "G10",
+        "C": 3,
+        "CC": 21
+      },
+      {
+        "S": "C10",
+        "T": "D13",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B07",
+        "T": "D04",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "B07",
+        "T": "D03",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A03",
+        "T": "E12",
+        "C": 11,
+        "CC": 49
+      },
+      {
+        "S": "A14",
+        "T": "E01",
+        "C": 1,
+        "CC": 9
+      },
+      {
+        "S": "D07",
+        "T": "E16",
+        "C": 2,
+        "CC": 16
+      },
+      {
+        "S": "A14",
+        "T": "E16",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "G04",
+        "T": "G10",
+        "C": 13,
+        "CC": 49
+      },
+      {
+        "S": "D13",
+        "T": "G04",
+        "C": 1,
+        "CC": 13
+      },
+      {
+        "S": "A13",
+        "T": "A15",
+        "C": 5,
+        "CC": 16
+      },
+      {
+        "S": "A12",
+        "T": "A13",
+        "C": 2,
+        "CC": 9
+      },
+      {
+        "S": "A12",
+        "T": "A15",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D07",
+        "T": "D12",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "E05",
+        "T": "F10",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "F01",
+        "T": "G11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D12",
+        "T": "G10",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C01",
+        "T": "C04",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "A12",
+        "T": "D07",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "G06",
+        "T": "I09",
+        "C": 8,
+        "CC": 27
+      },
+      {
+        "S": "B06",
+        "T": "C06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B02",
+        "T": "C06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B04",
+        "T": "D09",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B04",
+        "T": "D08",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B04",
+        "T": "C01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "F11",
+        "T": "G05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B12",
+        "T": "I02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B02",
+        "T": "C01",
+        "C": 10,
+        "CC": 44
+      },
+      {
+        "S": "B02",
+        "T": "D06",
+        "C": 2,
+        "CC": 16
+      },
+      {
+        "S": "A13",
+        "T": "C05",
+        "C": 3,
+        "CC": 5
+      },
+      {
+        "S": "A13",
+        "T": "C10",
+        "C": 3,
+        "CC": 4
+      },
+      {
+        "S": "C05",
+        "T": "C10",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "A12",
+        "T": "F09",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "A13",
+        "T": "F09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A10",
+        "T": "D12",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A10",
+        "T": "D11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "F14",
+        "T": "H07",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "G01",
+        "T": "G02",
+        "C": 3,
+        "CC": 8
+      },
+      {
+        "S": "G01",
+        "T": "G11",
+        "C": 3,
+        "CC": 12
+      },
+      {
+        "S": "G02",
+        "T": "G11",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "G10",
+        "T": "G11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E05",
+        "T": "F01",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "D03",
+        "T": "D09",
+        "C": 6,
+        "CC": 24
+      },
+      {
+        "S": "E16",
+        "T": "G10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E17",
+        "T": "G10",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D12",
+        "T": "F10",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "A13",
+        "T": "D02",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "B03",
+        "T": "B14",
+        "C": 4,
+        "CC": 12
+      },
+      {
+        "S": "B04",
+        "T": "E16",
+        "C": 3,
+        "CC": 14
+      },
+      {
+        "S": "D09",
+        "T": "G04",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "D09",
+        "T": "G10",
+        "C": 5,
+        "CC": 22
+      },
+      {
+        "S": "D08",
+        "T": "D13",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "C01",
+        "T": "G10",
+        "C": 7,
+        "CC": 38
+      },
+      {
+        "S": "E01",
+        "T": "E10",
+        "C": 3,
+        "CC": 6
+      },
+      {
+        "S": "E15",
+        "T": "E17",
+        "C": 8,
+        "CC": 25
+      },
+      {
+        "S": "A06",
+        "T": "I03",
+        "C": 2,
+        "CC": 17
+      },
+      {
+        "S": "C05",
+        "T": "G05",
+        "C": 4,
+        "CC": 16
+      },
+      {
+        "S": "B05",
+        "T": "G10",
+        "C": 2,
+        "CC": 19
+      },
+      {
+        "S": "C12",
+        "T": "F01",
+        "C": 6,
+        "CC": 12
+      },
+      {
+        "S": "D12",
+        "T": "I02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A12",
+        "T": "G12",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "G12",
+        "T": "I09",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "B14",
+        "T": "B15",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "B03",
+        "T": "B15",
+        "C": 5,
+        "CC": 8
+      },
+      {
+        "S": "B05",
+        "T": "B06",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "B05",
+        "T": "C01",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "D03",
+        "T": "D05",
+        "C": 1,
+        "CC": 17
+      },
+      {
+        "S": "E05",
+        "T": "G13",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D05",
+        "T": "I12",
+        "C": 1,
+        "CC": 14
+      },
+      {
+        "S": "C03",
+        "T": "C10",
+        "C": 5,
+        "CC": 22
+      },
+      {
+        "S": "D13",
+        "T": "F02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D05",
+        "T": "F04",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "D05",
+        "T": "F02",
+        "C": 2,
+        "CC": 10
+      },
+      {
+        "S": "A13",
+        "T": "G05",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "E01",
+        "T": "G01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A03",
+        "T": "B12",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D01",
+        "T": "F14",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A10",
+        "T": "A13",
+        "C": 4,
+        "CC": 45
+      },
+      {
+        "S": "A13",
+        "T": "D13",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A15",
+        "T": "I02",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "A15",
+        "T": "B08",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C05",
+        "T": "G01",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "E01",
+        "T": "G03",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "B04",
+        "T": "B05",
+        "C": 2,
+        "CC": 20
+      },
+      {
+        "S": "A03",
+        "T": "G10",
+        "C": 6,
+        "CC": 22
+      },
+      {
+        "S": "D09",
+        "T": "G05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B01",
+        "T": "B14",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D07",
+        "T": "F14",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E12",
+        "T": "I10",
+        "C": 4,
+        "CC": 20
+      },
+      {
+        "S": "A06",
+        "T": "H03",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D03",
+        "T": "I01",
+        "C": 6,
+        "CC": 71
+      },
+      {
+        "S": "D03",
+        "T": "I09",
+        "C": 4,
+        "CC": 36
+      },
+      {
+        "S": "C12",
+        "T": "E15",
+        "C": 4,
+        "CC": 11
+      },
+      {
+        "S": "E15",
+        "T": "H03",
+        "C": 3,
+        "CC": 11
+      },
+      {
+        "S": "C12",
+        "T": "H03",
+        "C": 4,
+        "CC": 24
+      },
+      {
+        "S": "E17",
+        "T": "I09",
+        "C": 2,
+        "CC": 35
+      },
+      {
+        "S": "I01",
+        "T": "I10",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "G06",
+        "T": "G07",
+        "C": 2,
+        "CC": 34
+      },
+      {
+        "S": "B06",
+        "T": "D05",
+        "C": 3,
+        "CC": 35
+      },
+      {
+        "S": "F05",
+        "T": "G06",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "E11",
+        "T": "E12",
+        "C": 3,
+        "CC": 6
+      },
+      {
+        "S": "A03",
+        "T": "B08",
+        "C": 2,
+        "CC": 15
+      },
+      {
+        "S": "C12",
+        "T": "F14",
+        "C": 3,
+        "CC": 16
+      },
+      {
+        "S": "E15",
+        "T": "F14",
+        "C": 2,
+        "CC": 20
+      },
+      {
+        "S": "A02",
+        "T": "D06",
+        "C": 4,
+        "CC": 24
+      },
+      {
+        "S": "D06",
+        "T": "I06",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "E16",
+        "T": "F10",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "C05",
+        "T": "I04",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "H02",
+        "T": "H05",
+        "C": 4,
+        "CC": 11
+      },
+      {
+        "S": "H05",
+        "T": "H11",
+        "C": 3,
+        "CC": 14
+      },
+      {
+        "S": "E17",
+        "T": "F01",
+        "C": 2,
+        "CC": 24
+      },
+      {
+        "S": "C12",
+        "T": "D13",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "D05",
+        "T": "F14",
+        "C": 5,
+        "CC": 34
+      },
+      {
+        "S": "F14",
+        "T": "H03",
+        "C": 2,
+        "CC": 23
+      },
+      {
+        "S": "B01",
+        "T": "F02",
+        "C": 3,
+        "CC": 21
+      },
+      {
+        "S": "G07",
+        "T": "H02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "G07",
+        "T": "H03",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D05",
+        "T": "G07",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E01",
+        "T": "H02",
+        "C": 4,
+        "CC": 20
+      },
+      {
+        "S": "E01",
+        "T": "H11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D08",
+        "T": "G06",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "F05",
+        "T": "I01",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "C12",
+        "T": "E16",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A13",
+        "T": "D01",
+        "C": 1,
+        "CC": 12
+      },
+      {
+        "S": "A14",
+        "T": "D01",
+        "C": 2,
+        "CC": 13
+      },
+      {
+        "S": "A13",
+        "T": "A14",
+        "C": 1,
+        "CC": 21
+      },
+      {
+        "S": "B12",
+        "T": "G10",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "C03",
+        "T": "H11",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A02",
+        "T": "G10",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "A02",
+        "T": "C02",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "A15",
+        "T": "H02",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "F14",
+        "T": "H02",
+        "C": 3,
+        "CC": 17
+      },
+      {
+        "S": "A15",
+        "T": "F14",
+        "C": 1,
+        "CC": 16
+      },
+      {
+        "S": "E17",
+        "T": "I01",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A10",
+        "T": "D07",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A09",
+        "T": "D07",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A09",
+        "T": "A14",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "C04",
+        "T": "H11",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "D02",
+        "T": "F14",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "E10",
+        "T": "G06",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "F03",
+        "T": "I12",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "G10",
+        "T": "I05",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "D09",
+        "T": "F01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A11",
+        "T": "A13",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "A11",
+        "T": "C10",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A11",
+        "T": "C01",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A13",
+        "T": "C01",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "A02",
+        "T": "G08",
+        "C": 2,
+        "CC": 10
+      },
+      {
+        "S": "A02",
+        "T": "B13",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C01",
+        "T": "C05",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "D02",
+        "T": "G10",
+        "C": 5,
+        "CC": 27
+      },
+      {
+        "S": "I05",
+        "T": "I06",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "E11",
+        "T": "G10",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "E11",
+        "T": "G04",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "B04",
+        "T": "G08",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "D13",
+        "T": "H11",
+        "C": 5,
+        "CC": 31
+      },
+      {
+        "S": "G07",
+        "T": "G10",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A03",
+        "T": "A07",
+        "C": 3,
+        "CC": 3
+      },
+      {
+        "S": "A07",
+        "T": "D09",
+        "C": 2,
+        "CC": 12
+      },
+      {
+        "S": "A07",
+        "T": "D03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B15",
+        "T": "D07",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B15",
+        "T": "F09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B07",
+        "T": "E06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C02",
+        "T": "E06",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "E06",
+        "T": "I06",
+        "C": 2,
+        "CC": 9
+      },
+      {
+        "S": "G01",
+        "T": "G04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D03",
+        "T": "E10",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A03",
+        "T": "E10",
+        "C": 5,
+        "CC": 35
+      },
+      {
+        "S": "B06",
+        "T": "H11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F02",
+        "T": "F12",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "I02",
+        "T": "I12",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A15",
+        "T": "G04",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "G04",
+        "T": "G05",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A15",
+        "T": "G10",
+        "C": 1,
+        "CC": 9
+      },
+      {
+        "S": "G05",
+        "T": "G10",
+        "C": 1,
+        "CC": 11
+      },
+      {
+        "S": "A15",
+        "T": "G05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A02",
+        "T": "G04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D06",
+        "T": "G04",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D03",
+        "T": "G10",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "D09",
+        "T": "H11",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "D05",
+        "T": "F03",
+        "C": 3,
+        "CC": 9
+      },
+      {
+        "S": "B03",
+        "T": "F03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E17",
+        "T": "H11",
+        "C": 3,
+        "CC": 8
+      },
+      {
+        "S": "E10",
+        "T": "F05",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "C03",
+        "T": "D06",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "C01",
+        "T": "H11",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "C10",
+        "T": "H11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A03",
+        "T": "I09",
+        "C": 1,
+        "CC": 13
+      },
+      {
+        "S": "E12",
+        "T": "G12",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "G06",
+        "T": "G12",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "E12",
+        "T": "G06",
+        "C": 2,
+        "CC": 14
+      },
+      {
+        "S": "C02",
+        "T": "G04",
+        "C": 3,
+        "CC": 18
+      },
+      {
+        "S": "C01",
+        "T": "G04",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "B04",
+        "T": "D11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B04",
+        "T": "E01",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "G10",
+        "T": "I02",
+        "C": 3,
+        "CC": 5
+      },
+      {
+        "S": "A04",
+        "T": "A08",
+        "C": 3,
+        "CC": 13
+      },
+      {
+        "S": "A04",
+        "T": "G06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A08",
+        "T": "G06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B09",
+        "T": "I04",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E09",
+        "T": "E12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A12",
+        "T": "D13",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "C12",
+        "T": "E14",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "C12",
+        "T": "D07",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D07",
+        "T": "E14",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "H01",
+        "T": "H06",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "D07",
+        "T": "I09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G02",
+        "T": "G10",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "E16",
+        "T": "I05",
+        "C": 1,
+        "CC": 9
+      },
+      {
+        "S": "D02",
+        "T": "E09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F03",
+        "T": "H03",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "C11",
+        "T": "D09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B09",
+        "T": "G01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D04",
+        "T": "E17",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A11",
+        "T": "D01",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A11",
+        "T": "A14",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "A11",
+        "T": "D09",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A14",
+        "T": "G04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A03",
+        "T": "G04",
+        "C": 3,
+        "CC": 10
+      },
+      {
+        "S": "D09",
+        "T": "H03",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "B05",
+        "T": "H03",
+        "C": 2,
+        "CC": 11
+      },
+      {
+        "S": "A13",
+        "T": "D12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "I02",
+        "T": "I05",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "F03",
+        "T": "H02",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "F13",
+        "T": "I07",
+        "C": 3,
+        "CC": 9
+      },
+      {
+        "S": "D11",
+        "T": "E02",
+        "C": 2,
+        "CC": 2
+      },
+      {
+        "S": "G01",
+        "T": "H11",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A14",
+        "T": "E14",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "C02",
+        "T": "C10",
+        "C": 3,
+        "CC": 19
+      },
+      {
+        "S": "A11",
+        "T": "B05",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "B03",
+        "T": "C01",
+        "C": 3,
+        "CC": 11
+      },
+      {
+        "S": "I06",
+        "T": "I07",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E06",
+        "T": "I07",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D08",
+        "T": "E01",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A10",
+        "T": "C10",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A10",
+        "T": "C01",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "B01",
+        "T": "B16",
+        "C": 2,
+        "CC": 16
+      },
+      {
+        "S": "B01",
+        "T": "B03",
+        "C": 4,
+        "CC": 33
+      },
+      {
+        "S": "H07",
+        "T": "H11",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "H04",
+        "T": "H07",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "H04",
+        "T": "H11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G10",
+        "T": "H04",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A03",
+        "T": "B06",
+        "C": 1,
+        "CC": 13
+      },
+      {
+        "S": "A03",
+        "T": "D05",
+        "C": 3,
+        "CC": 32
+      },
+      {
+        "S": "F04",
+        "T": "F14",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "B14",
+        "T": "D08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C12",
+        "T": "H02",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "B04",
+        "T": "B10",
+        "C": 2,
+        "CC": 17
+      },
+      {
+        "S": "C08",
+        "T": "G05",
+        "C": 2,
+        "CC": 12
+      },
+      {
+        "S": "E01",
+        "T": "F11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "F03",
+        "T": "G01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D08",
+        "T": "H11",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "D04",
+        "T": "I01",
+        "C": 2,
+        "CC": 18
+      },
+      {
+        "S": "D04",
+        "T": "I09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B08",
+        "T": "I09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B08",
+        "T": "E12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D09",
+        "T": "I06",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "C06",
+        "T": "G04",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "C06",
+        "T": "G10",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C06",
+        "T": "H09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G04",
+        "T": "H09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G10",
+        "T": "H09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A02",
+        "T": "H03",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "A02",
+        "T": "B03",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "B03",
+        "T": "H03",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "B01",
+        "T": "B04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B04",
+        "T": "D06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B04",
+        "T": "D05",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "E02",
+        "T": "E09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A04",
+        "T": "D01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A08",
+        "T": "D01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B05",
+        "T": "D01",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A04",
+        "T": "B05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A08",
+        "T": "B05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D01",
+        "T": "G10",
+        "C": 2,
+        "CC": 17
+      },
+      {
+        "S": "A03",
+        "T": "E16",
+        "C": 1,
+        "CC": 12
+      },
+      {
+        "S": "A02",
+        "T": "I03",
+        "C": 3,
+        "CC": 7
+      },
+      {
+        "S": "D09",
+        "T": "E14",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D12",
+        "T": "F02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A03",
+        "T": "B15",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "B15",
+        "T": "D03",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "C02",
+        "T": "G08",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "B13",
+        "T": "C02",
+        "C": 2,
+        "CC": 4
+      },
+      {
+        "S": "G05",
+        "T": "H08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D03",
+        "T": "G05",
+        "C": 1,
+        "CC": 9
+      },
+      {
+        "S": "A03",
+        "T": "H08",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D03",
+        "T": "H08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A10",
+        "T": "H11",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "G08",
+        "T": "H02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D05",
+        "T": "G08",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D09",
+        "T": "E16",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "I03",
+        "T": "I04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A02",
+        "T": "A13",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A13",
+        "T": "D05",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A13",
+        "T": "H03",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "G06",
+        "T": "H07",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B11",
+        "T": "B15",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "H03",
+        "T": "I02",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "H02",
+        "T": "I02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A03",
+        "T": "H03",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A12",
+        "T": "H03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G01",
+        "T": "I05",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A15",
+        "T": "D13",
+        "C": 3,
+        "CC": 9
+      },
+      {
+        "S": "D13",
+        "T": "I02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D09",
+        "T": "F05",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A07",
+        "T": "F05",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D05",
+        "T": "E02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E02",
+        "T": "H02",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A02",
+        "T": "C01",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "B03",
+        "T": "D06",
+        "C": 1,
+        "CC": 13
+      },
+      {
+        "S": "D10",
+        "T": "G10",
+        "C": 1,
+        "CC": 11
+      },
+      {
+        "S": "D10",
+        "T": "E11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D10",
+        "T": "G04",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "G06",
+        "T": "I01",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "A15",
+        "T": "D01",
+        "C": 1,
+        "CC": 15
+      },
+      {
+        "S": "B14",
+        "T": "D05",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D05",
+        "T": "E17",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E14",
+        "T": "E16",
+        "C": 3,
+        "CC": 12
+      },
+      {
+        "S": "B06",
+        "T": "D03",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "A15",
+        "T": "D08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C12",
+        "T": "H08",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D13",
+        "T": "G08",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D09",
+        "T": "G08",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "G01",
+        "T": "I04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "G10",
+        "T": "I04",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "C02",
+        "T": "C03",
+        "C": 4,
+        "CC": 24
+      },
+      {
+        "S": "F01",
+        "T": "G06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B02",
+        "T": "B05",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D03",
+        "T": "D08",
+        "C": 2,
+        "CC": 13
+      },
+      {
+        "S": "C03",
+        "T": "D01",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D08",
+        "T": "F05",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "A03",
+        "T": "D08",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "A02",
+        "T": "A05",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "E01",
+        "T": "I05",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "G06",
+        "T": "I05",
+        "C": 2,
+        "CC": 9
+      },
+      {
+        "S": "C06",
+        "T": "D09",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A13",
+        "T": "C06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D12",
+        "T": "E14",
+        "C": 2,
+        "CC": 5
+      },
+      {
+        "S": "B05",
+        "T": "F14",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "B07",
+        "T": "F02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B02",
+        "T": "B07",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "F10",
+        "T": "I10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E15",
+        "T": "G01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "F01",
+        "T": "G01",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C12",
+        "T": "G01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B01",
+        "T": "B06",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A03",
+        "T": "E14",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A03",
+        "T": "F14",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A15",
+        "T": "D12",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "C08",
+        "T": "G10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E14",
+        "T": "I01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F14",
+        "T": "I01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B01",
+        "T": "G08",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "C07",
+        "T": "C11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E16",
+        "T": "G06",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A03",
+        "T": "G03",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "G01",
+        "T": "H08",
+        "C": 2,
+        "CC": 7
+      },
+      {
+        "S": "F14",
+        "T": "H08",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "A05",
+        "T": "G08",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "B03",
+        "T": "B11",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D09",
+        "T": "D12",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "B04",
+        "T": "B11",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D04",
+        "T": "D08",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "F04",
+        "T": "I12",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "B07",
+        "T": "B13",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "A02",
+        "T": "A15",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "A02",
+        "T": "A14",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D13",
+        "T": "G12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E17",
+        "T": "G12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A14",
+        "T": "D12",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "I02",
+        "T": "I03",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D05",
+        "T": "G01",
+        "C": 2,
+        "CC": 8
+      },
+      {
+        "S": "G01",
+        "T": "I02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D05",
+        "T": "I02",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D05",
+        "T": "G03",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D06",
+        "T": "G03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "C01",
+        "T": "G03",
+        "C": 2,
+        "CC": 6
+      },
+      {
+        "S": "F14",
+        "T": "I05",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A05",
+        "T": "D12",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A05",
+        "T": "A14",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D04",
+        "T": "I04",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "C12",
+        "T": "D06",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D06",
+        "T": "E15",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D07",
+        "T": "G06",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "D07",
+        "T": "I02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D07",
+        "T": "D09",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "F09",
+        "T": "I02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A11",
+        "T": "G05",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C01",
+        "T": "D02",
+        "C": 2,
+        "CC": 12
+      },
+      {
+        "S": "B02",
+        "T": "G10",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "B02",
+        "T": "D02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A15",
+        "T": "C01",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "A03",
+        "T": "F11",
+        "C": 2,
+        "CC": 16
+      },
+      {
+        "S": "F05",
+        "T": "F11",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A12",
+        "T": "F11",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "F09",
+        "T": "G06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E16",
+        "T": "F03",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "G03",
+        "T": "G10",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "G03",
+        "T": "G04",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "B13",
+        "T": "I02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G11",
+        "T": "G13",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "B02",
+        "T": "B04",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "B01",
+        "T": "C01",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "D08",
+        "T": "I09",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "D08",
+        "T": "E12",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "H08",
+        "T": "I03",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "F13",
+        "T": "I02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "C01",
+        "T": "D03",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A03",
+        "T": "C01",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D12",
+        "T": "G11",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E05",
+        "T": "G11",
+        "C": 2,
+        "CC": 3
+      },
+      {
+        "S": "D08",
+        "T": "E16",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B16",
+        "T": "F02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B02",
+        "T": "B16",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B03",
+        "T": "D12",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "F02",
+        "T": "G01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F02",
+        "T": "G10",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E16",
+        "T": "F13",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A02",
+        "T": "F02",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E16",
+        "T": "G11",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "D07",
+        "T": "H03",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "A08",
+        "T": "C01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "A02",
+        "T": "A08",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "B16",
+        "T": "C12",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "B16",
+        "T": "E15",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E01",
+        "T": "F01",
+        "C": 1,
+        "CC": 10
+      },
+      {
+        "S": "B05",
+        "T": "I06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "G04",
+        "T": "I06",
+        "C": 1,
+        "CC": 6
+      },
+      {
+        "S": "D02",
+        "T": "H03",
+        "C": 1,
+        "CC": 8
+      },
+      {
+        "S": "C01",
+        "T": "G05",
+        "C": 1,
+        "CC": 18
+      },
+      {
+        "S": "D11",
+        "T": "E15",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "B06",
+        "T": "E07",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D05",
+        "T": "E15",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "D13",
+        "T": "G06",
+        "C": 1,
+        "CC": 9
+      },
+      {
+        "S": "B15",
+        "T": "D06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E17",
+        "T": "I02",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "E17",
+        "T": "I07",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "A14",
+        "T": "B05",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "D14",
+        "T": "E17",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D14",
+        "T": "E16",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "D14",
+        "T": "F14",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "E17",
+        "T": "F14",
+        "C": 1,
+        "CC": 9
+      },
+      {
+        "S": "B03",
+        "T": "B06",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "C04",
+        "T": "D06",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "F14",
+        "T": "H11",
+        "C": 1,
+        "CC": 3
+      },
+      {
+        "S": "E12",
+        "T": "F04",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "G08",
+        "T": "G09",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B15",
+        "T": "C01",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "B15",
+        "T": "C03",
+        "C": 1,
+        "CC": 1
+      },
+      {
+        "S": "D12",
+        "T": "I03",
+        "C": 1,
+        "CC": 4
+      },
+      {
+        "S": "D12",
+        "T": "H03",
+        "C": 1,
+        "CC": 5
+      },
+      {
+        "S": "C05",
+        "T": "G10",
+        "C": 1,
+        "CC": 21
+      },
+      {
+        "S": "B02",
+        "T": "I06",
+        "C": 1,
+        "CC": 7
+      },
+      {
+        "S": "G08",
+        "T": "I06",
+        "C": 1,
+        "CC": 2
+      },
+      {
+        "S": "B07",
+        "T": "G08",
+        "C": 1,
+        "CC": 6
+      }
+    ]
   }
 }
