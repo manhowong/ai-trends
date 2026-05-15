@@ -31,10 +31,10 @@ export function initHelp() {
     titleEl.textContent = title || 'Help';
     contentEl.innerHTML = html || '';
     topBtn.classList.remove('is-visible');
+    openModal('help');
     if (scrollToTop) {
       contentEl.scrollTop = 0;
     }
-    openModal('help');
   };
 
   const clearHighlights = () => {
