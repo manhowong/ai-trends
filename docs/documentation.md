@@ -1,9 +1,10 @@
 **Project Documentation**
 
 - [Project Overview](#project-overview)
-  - [Goal](#goal)
+- [Data Pipeline](#data-pipeline)
   - [Data Source](#data-source)
-  - [Update Frequency](#update-frequency)
+  - [Data Structure](#data-structure)
+  - [Automated Update](#automated-update)
 - [Classification](#classification)
   - [Stage 1: Embedding Similarity](#stage-1-embedding-similarity)
   - [Stage 2 (Planned): LLM Review for Ambiguous Cases](#stage-2-planned-llm-review-for-ambiguous-cases)
@@ -24,9 +25,16 @@
 
 # Project Overview
 
-## Goal
+Existing tools either operate at the paper level (Semantic Scholar, Connected Papers) or use unsupervised topic discovery (LDA, BERTopic) that produces *unlabelled, temporally unstable clusters* unsuitable for consistent trend tracking. 
 
-The project goal is to capture current trends in AI development from arXiv articles using cost-efficient and low-carbon methods.
+The goal of this project is to develop a taxonomy-driven semantic classification framework that enables consistent, long-term trend tracking across the arXiv corpus. To achieve this, the project adopts the following approaches:
+
+- **Semantic classification** over a stable, human-validated taxonomy: topics are consistently defined across time periods
+- **Graded topic assignment** rather than hard single-label classification, preserving the cross-disciplinary nature of modern research
+- **Trend signals based on topic share**, not raw volume: robust to the overall growth of the arXiv corpus
+- **Co-occurrence graph with normalized edge weights (DSC)**: reveals the relational structure of the field, not just a ranked list of topics
+
+# Data Pipeline
 
 ## Data Source
 
@@ -52,15 +60,82 @@ Articles are sourced from [arXiv.org](https://arxiv.org) via its public API. The
 
 While some niche categories cover domain-specific AI topics (e.g., in Physics or Quantitative Finance), relevant articles in those fields are usually cross-submitted to one of the main categories listed above. Cross-submissions are deduplicated by arXiv ID, so each article is counted only once. For more details, see the [arXiv Category Taxonomy](https://arxiv.org/category_taxonomy).
 
-## Update Frequency
+## Data Structure
 
-The dataset is planned to be updated automatically on the 1st of each month via GitHub Actions, covering all articles from the previous month. Note: Automatic updates are not currently active during this test phase.
+Articles are classified into **topics** based on their abstracts (see [Classification](#classification)), which are then clustered into **areas** (see [Taxonomy](#taxonomy)). The data pipeline outputs two JSON files: `metadata.json` and `timeseries.json`:
 
-> ### Current Limitations
+**metadata.json**
+
+```json
+{
+  "nodes": {
+    "A": { "N": "Learning Paradigms", "L": 1 },
+    "A01": { "N": "Supervised Learning", "L": 2, "P": "A" }
+  }
+}
+```
+
+**timeseries.json**
+
+```json
+{
+  "2026-01": {
+    "nodes_L1": {
+      "A": { "V": 100, "VC": 1000 }
+    },
+    "nodes_L2": {
+      "A01": { "V": 40, "VC": 400, "P": "A", "K": [{"N": "keyword1", "V": 10}] }
+    },
+    "links": [
+      { "S": "A", "T": "B", "C": 12, "CC": 120 },
+      { "S": "A01", "T": "A02", "C": 5, "CC": 50 }
+    ]
+  }
+}
+```
+
+**Raw Dataframe processed by the data pipeline**
+
+| arxiv_id | YYYY-MM | T1 | T1_cos_sim | T2 | T2_cos_sim | T3 | T3_cos_sim | TU | K | method |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 2401.00001 | 2026-01 | ["A07"] | [0.91] | ["D01", "B01"] | [0.83, 0.74] | ["F01"] | [0.71] | [] | ["few-shot"] | emb |
+| 2401.00002 | 2026-01 | ["D03", "D04"] | [0.72, 0.71] | [] | [] | [] | [] | ["Quantum ML"] | ["RLHF"] | llm |
+
+**Explanations**
+
+| Field | Full Name | Data Type | Description |
+|---|---|---|---|
+| arxiv_id | arXiv Identifier | string | Unique paper ID from arXiv |
+| YYYY-MM | Year-Month | string | Month the paper was published |
+| T1 | Primary Topic | list of strings (max 2) | Most relevant L2 node IDs |
+| T1_cos_sim | Primary Topic Score | list of floats (max 2) | Cosine similarity scores for T1 |
+| T2 | Secondary Topic | list of strings (max 3) | Second most relevant L2 node IDs |
+| T2_cos_sim | Secondary Topic Score | list of floats (max 3) | Cosine similarity scores for T2 |
+| T3 | Tertiary Topic | list of strings (max 3) | Third most relevant L2 node IDs |
+| T3_cos_sim | Tertiary Topic Score | list of floats (max 3) | Cosine similarity scores for T3 |
+| TU | Unclassified Topics | list of strings | Free-text topic suggestions outside the taxonomy |
+| K | Keywords | list of strings | Key terms or phrases extracted from the paper (0–10 items) |
+| method | Classification Method | string | Method used: "emb" for embedding, "llm" for LLM |
+| N | Name | string | Human-readable label of a node or keyword |
+| L | Level | integer | Hierarchy level: 1 = category, 2 = topic |
+| P | Parent | string | Parent node ID of an L2 node |
+| V | Volume | integer | Monthly paper mention count for a node |
+| VC | Cumulative Volume | integer | Running total of mentions across all months |
+| S | Source | string | Source node ID in a link |
+| T | Target | string | Target node ID in a link |
+| C | Co-mentions | integer | Number of co-mentions between two nodes in a given month |
+| CC | Cumulative Co-mentions | integer | Running total of co-mentions across all months |
+
+
+## Automated Update
+
+The dataset will be updated automatically on the first Sunday of each month via GitHub Actions, covering all articles from the previous month. **Note**: Automated updates are not currently active as I am working on the API request rate limit.
+
+> ### Current stage
 > 
 > **arXiv coverage only.** Conference papers, journal articles, and blog posts are not included. Because arXiv preprints skew towards certain subfields, node sizes may not reflect absolute research volume across the field as a whole. However, trend detection is based on relative shifts within each topic over time, so this bias is internally normalised. Preprints also have the advantage of faster publication cycles, making them more responsive to emerging trends than peer-reviewed venues.
 > 
-> **Only 2 months of preliminary data are currently available.** Historical data for the previous year is planned to be backfilled and will serve as the baseline for trend computation.
+> **Only preliminary data are currently available.** Historical data for the previous year is planned to be backfilled and will serve as the baseline for trend computation.
 
 # Classification
 
