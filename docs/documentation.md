@@ -3,8 +3,8 @@
 - [Project Overview](#project-overview)
 - [Data Pipeline](#data-pipeline)
   - [Data Source](#data-source)
-  - [Data Structure](#data-structure)
   - [Automated Update](#automated-update)
+  - [Data Structure](#data-structure)
 - [Classification](#classification)
   - [Stage 1: Embedding Similarity](#stage-1-embedding-similarity)
   - [Stage 2 (Planned): LLM Review for Ambiguous Cases](#stage-2-planned-llm-review-for-ambiguous-cases)
@@ -59,6 +59,16 @@ Articles are sourced from [arXiv.org](https://arxiv.org) via its public API. The
 | `q-bio.QM` | Quantitative Methods (Quantitative Biology) |
 
 While some niche categories cover domain-specific AI topics (e.g., in Physics or Quantitative Finance), relevant articles in those fields are usually cross-submitted to one of the main categories listed above. Cross-submissions are deduplicated by arXiv ID, so each article is counted only once. For more details, see the [arXiv Category Taxonomy](https://arxiv.org/category_taxonomy).
+
+> ### Current stage
+> 
+> **arXiv coverage only.** Conference papers, journal articles, and blog posts are not included. Because arXiv preprints skew towards certain subfields, node sizes may not reflect absolute research volume across the field as a whole. However, trend detection is based on relative shifts within each topic over time, so this bias is internally normalised. Preprints also have the advantage of faster publication cycles, making them more responsive to emerging trends than peer-reviewed venues.
+> 
+> **Only preliminary data are currently available.** Historical data for the previous year is planned to be backfilled and will serve as the baseline for trend computation.
+
+## Automated Update
+
+The dataset will be updated automatically on the first Sunday of each month via GitHub Actions, covering all articles from the previous month. **Note**: Automated updates are not currently active as I am working on the API request rate limit.
 
 ## Data Structure
 
@@ -125,17 +135,6 @@ Articles are classified into **topics** based on their abstracts (see [Classific
 | T | Target | string | Target node ID in a link |
 | C | Co-mentions | integer | Number of co-mentions between two nodes in a given month |
 | CC | Cumulative Co-mentions | integer | Running total of co-mentions across all months |
-
-
-## Automated Update
-
-The dataset will be updated automatically on the first Sunday of each month via GitHub Actions, covering all articles from the previous month. **Note**: Automated updates are not currently active as I am working on the API request rate limit.
-
-> ### Current stage
-> 
-> **arXiv coverage only.** Conference papers, journal articles, and blog posts are not included. Because arXiv preprints skew towards certain subfields, node sizes may not reflect absolute research volume across the field as a whole. However, trend detection is based on relative shifts within each topic over time, so this bias is internally normalised. Preprints also have the advantage of faster publication cycles, making them more responsive to emerging trends than peer-reviewed venues.
-> 
-> **Only preliminary data are currently available.** Historical data for the previous year is planned to be backfilled and will serve as the baseline for trend computation.
 
 # Classification
 
