@@ -1,180 +1,145 @@
-"""
-pipeline/keywords.py
+"""Per-topic TF-IDF keyword extraction."""
 
-Extract per-node keywords using TF-IDF.
-"""
-
-import json
-import polars as pl
-import yaml
-from sklearn.feature_extraction.text import TfidfVectorizer
-import numpy as np
-import spacy
 import subprocess
 import sys
 
-CONFIG_PATH   = "../config/settings.yml"
-METADATA_PATH = "../data/metadata.json"
-CLASSIFIED_DIR = "../data/checkpoints/classified"
-ARXIV_DIR = "../data/arxiv_data"
+import numpy as np
+import spacy
+from sklearn.feature_extraction.text import TfidfVectorizer
 
-def load_config():
-    with open(CONFIG_PATH) as f:
-        return yaml.safe_load(f)
 
-def load_l2_nodes():
-    with open(METADATA_PATH) as f:
-        metadata = json.load(f)
-    return {k for k, v in metadata["nodes"].items() if v["L"] == 2}
-
-def load_spacy_model(model_name):
+def load_spacy_model(model_name: str):
     try:
         nlp = spacy.load(model_name, disable=["ner"]) # disable "ner" to save time
     except OSError:
-        print(f"Downloading {model_name}...")
-        subprocess.run([sys.executable, "-m", "spacy", "download", model_name])
+        subprocess.run([sys.executable, "-m", "spacy", "download", model_name], check=True)
         nlp = spacy.load(model_name, disable=["ner"])
-    
     if "merge_noun_chunks" not in nlp.pipe_names:
         nlp.add_pipe("merge_noun_chunks") # This merge noun phrases
-    
-    nlp.max_length = 3000000 
+    nlp.max_length = 3_000_000
     return nlp
 
-def lemmatize_texts(texts, model_name):
-    # Process all topics in one batch using spaCy's pipe
-    # n_process=-1 uses all available CPU cores
-    # use nlp.pipe to handle large strings efficiently
 
+def lemmatize_texts(texts: list[str], model_name: str) -> list[str]:
     nlp = load_spacy_model(model_name)
-    processed_corpus = []
-    for doc in nlp.pipe(texts, batch_size=20, n_process=1):
-        
-        # Exclude unlikely words (words other than nouns, adj, proper nouns)
-        exclude_pos = ("VERB", "ADV", "PRON", "ADP", "CONJ", "DET", "PUNCT")
 
-        tokens = [
-            token.lemma_.lower().replace(" ", "_") # handle plurals and connect noun phrases           
-            for token in doc 
-            if token.pos_ not in exclude_pos
+    # Exclude unlikely words (words other than nouns, adj, proper nouns)
+    excluded_pos = {"VERB", "ADV", "PRON", "ADP", "CONJ", "DET", "PUNCT"}
+
+    return [
+        " ".join(
+            token.lemma_.lower().replace(" ", "_") # handle plurals and connect noun phrases
+            for token in doc
+            if token.pos_ not in excluded_pos 
             # and not token.is_stop    # Remove stop words
-            and len(token.text) > 1    # More than 1 character
-        ]
-        processed_corpus.append(" ".join(tokens))
-    return processed_corpus
-
-def get_top_k(all_terms, scores, k=20):
-    
-    # Sort by score descending
-    top_idx = scores.argsort()[::-1][:k]
-    non_zeros = scores[scores > 0]
-
-    # Return if all terms have zero scores
-    if len(non_zeros) == 0:
-        return []
-    
-    # Ignore terms with score below or above a range
-    score_low_bound = np.min(non_zeros) + 1 * np.std(non_zeros)
-    score_up_bound = 1
-
-    top_terms = []   
-    for i in top_idx:
-        term = all_terms[i]
-        
-        if (
-            scores[i] <= score_low_bound or 
-            scores[i] >= score_up_bound or 
-            any(term in existing for existing in top_terms) # Skip if the term is a sub-part of a phrase already in our list
-            ):                                              # e.g., if "deep learning" is in, skip "learning"
-            continue
-
-        top_terms.append(term)
-
-    return top_terms
+            and len(token.text) > 1 # More than 1 character
+        )
+        for doc in nlp.pipe(texts, batch_size=20, n_process=1)
+    ]
 
 
-def run(year: int, month: int):
-
-    config = load_config()
-    model_name = config["spacy"]["model"]
-    top_k = config["tfidf"]["top_k"]
-    max_features = config["tfidf"]["max_features"]
-    max_df = config["tfidf"]["max_df"]
-    min_df = config["tfidf"]["min_df"]
-    min_abs = config["Keyword_stat"]["min_abs"]
-
-    ym = f"{year}{month:02d}"
-
-    arxiv_data = pl.read_parquet(f"{ARXIV_DIR}/{ym}.parquet")
-    labeled_data = pl.read_parquet(f"{CLASSIFIED_DIR}/{ym}_classified.parquet")
-    labeled_data = labeled_data.join(arxiv_data.select(["arxiv_id", "abstract"]), 
-                                    on="arxiv_id", how="left")
-
-    # Group abstracts by node (only using papers on T1, since they contain 
-    # keywords most relevant to a node)
-    l2_nodes = load_l2_nodes()
-    abstracts_by_node = {node: [] for node in l2_nodes}
-    for row in labeled_data.iter_rows(named=True):
-        for node in row["T1"]:
-            if node in abstracts_by_node:
-                abstracts_by_node[node].append(row["abstract"])
-
-    # Nodes that have papers
-    active_nodes = [n for n, a in abstracts_by_node.items() if a]
-
-    # Pooled abstracts by node. Each node has a long string (a document for TFIDF)
-    pooled_abstracts = [" ".join(abstracts_by_node[n]) for n in active_nodes]
-
-    # Lemmatize tokens to get the final Corpus
-    corpus = lemmatize_texts(pooled_abstracts, model_name) # 1-2 min for 2K abstracts on CPU
-
-    # TFIDF vectorizer
-    # Note: 1 document = abstracts from 1 node 
+def compute_tfidf(corpus: list[str], max_features: int, max_df: float, min_df: int):
     vectorizer = TfidfVectorizer(
         sublinear_tf=True,
         max_features=max_features, # max number of unique terms
-        stop_words="english", 
-        token_pattern=r"(?=.*[a-zA-Z])[\w\-]{2,}", # at least 2 chars with 1 letter
+        stop_words="english",
+        token_pattern=r"(?=.*[a-zA-Z])[\w\-]{3,}", # at least 2 chars with 1 letter
         max_df=max_df, # Ignore terms that appear in more than max_df% of all topics 
-        min_df=min_df # Ignore terms that only appear in less than min_df topic(s)
+        min_df=min_df, # Ignore terms that only appear in less than min_df topics
     )
+    try:
+        matrix = vectorizer.fit_transform(corpus)
+        all_terms = vectorizer.get_feature_names_out()
+    except ValueError as error:
+        if "empty vocabulary" in str(error):
+            return None, None
+        raise
+    return matrix, all_terms
 
-    # Get TF-IDF scores and terms
-    tfidf_matrix = vectorizer.fit_transform(corpus)
-    all_terms = vectorizer.get_feature_names_out()
 
-    # Get top terms by scores
-    top_terms_by_node = {}
-    for i, node in enumerate(active_nodes):
-        scores = tfidf_matrix[i].toarray().flatten()
-        top_terms_by_node[node] = get_top_k(all_terms, scores, k=top_k)
+def get_top_k(all_terms: np.ndarray, scores: np.ndarray, k: int) -> list[str]:
+    nonzero_scores = scores[scores > 0]
+    if not len(nonzero_scores): # Return if all terms have zero scores
+        return []
+    
+    # Ignore terms with score below or above a range
+    lower_bound = np.min(nonzero_scores) + np.std(nonzero_scores)
+    upper_bound = 1
 
-    # Count top terms by node
-    top_term_stat = {}
-    for node, keywords in top_terms_by_node.items():
-        abstracts = abstracts_by_node[node]
+    top_terms = []
+    for index in scores.argsort()[::-1]: # Sort by score descending
+        term = all_terms[index]
+        if (
+            scores[index] <= lower_bound
+            or scores[index] >= upper_bound
+            or any(term in existing for existing in top_terms) # Skip if the term is a sub-part of a phrase already in our list
+        ):                                                     # e.g., if "deep learning" is in, skip "learning"
+            continue
+        top_terms.append(term)
+        if len(top_terms) == k:
+            break
+    return top_terms
+
+
+def get_keyword_dict(
+    tfidf_matrix,
+    all_terms: np.ndarray,
+    active_nodes: list[str],
+    abstracts_by_node: dict[str, list[str]],
+    top_k: int,
+    min_abs: int,
+) -> dict:
+    keyword_dict = {}
+    for index, node in enumerate(active_nodes):
+        scores = tfidf_matrix[index].toarray().ravel()
+        keywords = get_top_k(all_terms, scores, top_k)
         counts = []
         for kw in keywords:
-            kw_plain = kw.replace("_", " ")
-            v = sum(1 for abstract in abstracts if kw_plain.lower() in abstract.lower())
-            if v > min_abs: # Only include terms that appear in > min_abs abstract(s)
-                counts.append({"N": kw_plain, "V": v})
-        top_term_stat[node] = counts
-
-    return top_term_stat
-
-if __name__ == "__main__":
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument("year", type=int)
-    parser.add_argument("month", type=int)
-    args = parser.parse_args()
-    run(args.year, args.month)
+            kw_plain = kw.replace("_", " ").lower()
+            mentions = sum(kw_plain in abstract.lower() for abstract in abstracts_by_node[node])
+            if mentions > min_abs:
+                counts.append({"N": kw_plain, "V": mentions})
+        keyword_dict[node] = counts
+    return keyword_dict
 
 
+def extract_keywords(labeled_data, node_ids: list[str], config: dict) -> dict:
 
+    # Group abstracts by node
+    # each node's keywords are extracted from only the T1 abtracts assigned to that node 
+    abstracts_by_node = {node: [] for node in node_ids}
+    for nodes, abstract in zip(labeled_data["T1"], labeled_data["abstract"]):
+        for node in nodes:
+            abstracts_by_node[node].append(abstract)
 
+    # Nodes that have papers
+    active_nodes = [node for node, abstracts in abstracts_by_node.items() if abstracts]
+    if not active_nodes:
+        return {}
 
+    # Create a corpus for computing TFIDF (1-2 min for 2K abstracts on CPU)
+    # 1. Pool abstracts by L2 node. Each node becomes a document in the corpus (a long string).
+    # 2. Lemmatize the tokens to get the final corpus.
+    pooled_abstracts = [" ".join(abstracts_by_node[node]) for node in active_nodes]
+    corpus = lemmatize_texts(pooled_abstracts, config["spacy"]["model"])
 
+    # Compute TFIDF matrix
+    tfidf_config = config["tfidf"]
+    tfidf_matrix, all_terms = compute_tfidf(
+        corpus,
+        tfidf_config["max_features"],
+        tfidf_config["max_df"],
+        tfidf_config["min_df"],
+    )
+    if tfidf_matrix is None:
+        return {}
 
-
+    # keyword metions per node
+    return get_keyword_dict(
+        tfidf_matrix,
+        all_terms,
+        active_nodes,
+        abstracts_by_node,
+        tfidf_config["top_k"],
+        config["Keyword_stat"]["min_abs"],
+    )
