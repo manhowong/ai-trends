@@ -10,9 +10,9 @@ flowchart TD
     B --> C@{ shape: doc, label: "Monthly paper parquet" }
     C --> D[Create or reuse embeddings]
     A --> D
-    D --> E[Similarity classification]
+    D --> E[Classification \nby graded relevance]
     E --> F@{ shape: doc, label: "Classified / ambiguous parquet" }
-    F --> G[TF-IDF keyword extraction]
+    F --> G[Keyword extraction \nby TF-IDF]
     G --> H[Volume and link statistics]
     I@{ shape: doc, label: "timeseries.json" } --> H
     H --> J@{ shape: doc, label: "Updated timeseries.json" }

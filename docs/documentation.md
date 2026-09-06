@@ -2,6 +2,7 @@
 
 - [Project Overview](#project-overview)
 - [Data Pipeline](#data-pipeline)
+  - [Overview](#overview)
   - [Data Source](#data-source)
   - [Automated Update](#automated-update)
   - [Data Structure](#data-structure)
@@ -35,6 +36,29 @@ The goal of this project is to develop a taxonomy-driven semantic classification
 - **Co-occurrence graph with normalized edge weights (DSC)**: reveals the relational structure of the field, not just a ranked list of topics
 
 # Data Pipeline
+
+## Overview
+
+The following diagram shows the overall flow of the pipeline. For detailed usage, see [Pipeline Readme](https://github.com/manhowong/ai-trends/blob/main/pipeline/README.md) in the project's repository.
+
+```mermaid
+flowchart TD
+    A@{ shape: doc, label: "settings.yml + metadata.json" } --> B[Fetch arXiv papers]
+    B --> C@{ shape: doc, label: "Monthly paper parquet" }
+    C --> D[Create or reuse embeddings]
+    A --> D
+    D --> E[Classification \nby graded relevance]
+    E --> F@{ shape: doc, label: "Classified / ambiguous parquet" }
+    F --> G[Keyword extraction \nby TF-IDF]
+    G --> H[Volume and link statistics]
+    I@{ shape: doc, label: "timeseries.json" } --> H
+    H --> J@{ shape: doc, label: "Updated timeseries.json" }
+
+    %% Custom Yellow Style for File Blocks
+    classDef fileStyle fill:#fff2cc,stroke:#d6b656,stroke-width:2px;
+    class A,C,F,I,J fileStyle;
+
+```
 
 ## Data Source
 
