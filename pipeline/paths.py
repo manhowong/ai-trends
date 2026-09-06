@@ -11,6 +11,7 @@ class PipelinePaths:
     metadata: Path
     timeseries: Path
     arxiv_dir: Path
+    arxiv_checkpoint_dir: Path
     embeddings_dir: Path
     classified_dir: Path
 
@@ -24,10 +25,17 @@ class PipelinePaths:
             metadata=data_dir / "metadata.json",
             timeseries=data_dir / "timeseries.json",
             arxiv_dir=data_dir / "arxiv_data",
+            arxiv_checkpoint_dir = data_dir /  "checkpoints" / "arxiv",
             embeddings_dir=data_dir / "checkpoints" / "embeddings",
             classified_dir=data_dir / "checkpoints" / "classified",
         )
 
     def ensure_output_dirs(self) -> None:
-        for directory in (self.arxiv_dir, self.embeddings_dir, self.classified_dir):
+        directories = (
+            self.arxiv_dir,
+            self.arxiv_checkpoint_dir,
+            self.embeddings_dir,
+            self.classified_dir,
+        )
+        for directory in directories:
             directory.mkdir(parents=True, exist_ok=True)

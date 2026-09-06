@@ -56,6 +56,7 @@ For `--year 2026 --month 8`, outputs are written to:
 | Path | Contents |
 | --- | --- |
 | `data/arxiv_data/202608.parquet` | Retrieved paper metadata and abstracts. |
+| `data/checkpoints/arxiv/202608/slice_XX.json` | Cached Arxiv data for retries. |
 | `data/checkpoints/embeddings/nodes.npy` | Cached taxonomy-node embeddings. |
 | `data/checkpoints/embeddings/202608_abstracts.npy` | Cached abstract embeddings. |
 | `data/checkpoints/classified/202608_classified.parquet` | Papers receiving one or more T1 labels. |

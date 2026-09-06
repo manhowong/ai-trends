@@ -50,31 +50,37 @@ def run_pipeline(year: int, month: int, config_path: Path | None = None) -> None
     l2_node_ids = list(l2_nodes)
     node_texts = [f"Query: {node['N']}: {node['D']}" for node in l2_nodes.values()]
 
-    print(f"1/6 Fetching papers for {year}-{month:02d}")
-    # This calls the live arXiv API and overwrites data/arxiv_data/{ym}.parquet.
-    paper_path = fetch_month(year, month, categories, paths.arxiv_dir)
-    # Load fetched data
+    print(f"\n-----\nSTEP 1/6 Fetching papers for {year}-{month:02d}\n-----\n")
+    try: 
+        # Calls live arXiv API, uses checkpoints, and outputs data/arxiv_data/{ym}.parquet       
+        paper_path = fetch_month(year, month, categories, paths.arxiv_dir, paths.arxiv_checkpoint_dir)
+    except RuntimeError as error:
+        print(f"\n[ERROR] Step 1/6 failed during arXiv fetch: \n{error}\n")
+        print("[INFO] Checkpoints were preserved. Re-run the pipeline to resume from the failed slice.")
+        sys.exit(1)
+
+    # Load fetched data (only if fetch succeeded)
     arxiv_data = pl.read_parquet(paper_path)
 
-    print("2/6 Loading embedding model")
+    print("\n-----\nSTEP 2/6 Loading embedding model\n-----\n")
     model = load_model(embedding_model, embedding_device)
 
-    print("3/6 Loading or gnerating embeddings")
+    print("\n-----\nSTEP 3/6 Loading or gnerating embeddings\n-----\n")
     node_embeddings = load_or_create(paths.embeddings_dir / "nodes.npy", model, node_texts, batch_size)
     abstract_embeddings = load_or_create(paths.embeddings_dir / f"{ym}_abstracts.npy", model, arxiv_data["abstract"].to_list(), batch_size)
 
-    print("4/6 Classifying papers")
+    print("\n-----\nSTEP 4/6 Classifying papers\n-----\n")
     classified, ambiguous = classify(arxiv_data, cosine_similarity(abstract_embeddings, node_embeddings), l2_node_ids, confidence_threshold, t1_gap, top_n_candidates)
     classified_path = paths.classified_dir / f"{ym}_classified.parquet"
     pl.DataFrame(classified).write_parquet(classified_path)
     pl.DataFrame(ambiguous).write_parquet(paths.classified_dir / f"{ym}_ambiguous.parquet")
     print(f"Classified: {len(classified)} | Ambiguous: {len(ambiguous)}")
 
-    print("5/6 Extracting keywords")
+    print("\n-----\nSTEP 5/6 Extracting keywords\n-----\n")
     labeled_data = pl.read_parquet(classified_path).join(arxiv_data.select(["arxiv_id", "abstract"]), on="arxiv_id", how="left")
     keywords = extract_keywords(labeled_data, l2_node_ids, config)
 
-    print("6/6 Updating timeseries.json")
+    print("\n-----\nSTEP 6/6 Updating timeseries.json\n-----\n")
     timeseries = update_timeseries(year, month, load_timeseries(paths.timeseries), labeled_data, keywords, l1_nodes, l2_nodes)
     write_timeseries(paths.timeseries, timeseries)
     print(f"Completed {year}-{month:02d}")
